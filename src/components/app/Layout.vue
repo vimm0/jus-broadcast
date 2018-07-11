@@ -1,13 +1,7 @@
 <template>
   <div>
    <div class="navigation">
-      <template v-if="getRoute !== 'Home'">
-        <wxc-icon class="nav-weex-icon" name="back" @wxcIconClicked="backIconClicked" style={color:red,fontSize:60px}></wxc-icon>
-      </template>
-      <template v-if="getRoute">
-        <p class=" nav-route-name">{{ getRoute }}</p>             
-      </template>
-      <p class="nav-home-icon" @click="userIconClicked"><i class="fas fa-user"></i></p>
+       <mini-bar @rightButtonClicked="rightButtonClicked" :title="getRoute"></mini-bar>
    </div>
     <wxc-popup width="500"
                pos="left"
@@ -24,26 +18,26 @@
                             :has-arrow="true"
                             @wxcCellClicked="watchListCellClicked"
                             :has-top-border="false">
-                  </wxc-cell>               
-                  <wxc-cell title="CARD"
-                            :has-arrow="true"
-                            @wxcCellClicked="cardCellClicked"
-                            :has-top-border="true">
                   </wxc-cell>
-                  <wxc-cell title="SUBSCRIPITION"
-                            :has-arrow="true"
-                            @wxcCellClicked="subscriptionCellClicked"
-                            :has-top-border="true">
-                  </wxc-cell>
-                  <wxc-cell title="INVOICE"
-                            :has-arrow="true"
-                            @wxcCellClicked="invoiceCellClicked"
-                            :has-top-border="true">
-                  </wxc-cell>
-                  <wxc-cell title="SIGN OUT"
-                            @wxcCellClicked="signOutCellClicked"
-                            :has-top-border="true">
-                  </wxc-cell>
+                  <!--<wxc-cell title="CARD"-->
+                            <!--:has-arrow="true"-->
+                            <!--@wxcCellClicked="cardCellClicked"-->
+                            <!--:has-top-border="true">-->
+                  <!--</wxc-cell>-->
+                  <!--<wxc-cell title="SUBSCRIPITION"-->
+                            <!--:has-arrow="true"-->
+                            <!--@wxcCellClicked="subscriptionCellClicked"-->
+                            <!--:has-top-border="true">-->
+                  <!--</wxc-cell>-->
+                  <!--<wxc-cell title="INVOICE"-->
+                            <!--:has-arrow="true"-->
+                            <!--@wxcCellClicked="invoiceCellClicked"-->
+                            <!--:has-top-border="true">-->
+                  <!--</wxc-cell>-->
+                  <!--<wxc-cell title="SIGN OUT"-->
+                            <!--@wxcCellClicked="signOutCellClicked"-->
+                            <!--:has-top-border="true">-->
+                  <!--</wxc-cell>-->
               </div>
   </div>
     </wxc-popup>
@@ -52,9 +46,9 @@
 
 <script>
 import { WxcButton, WxcPopup, WxcIcon, WxcCell } from "weex-ui";
-
+import MiniBar from '@/components/UIComponent/MiniBar.vue'
 module.exports = {
-  components: { WxcButton, WxcPopup, WxcIcon, WxcCell },
+  components: { WxcButton, WxcPopup, WxcIcon, WxcCell, MiniBar },
   data: () => ({
     isShow: false,
     view: ""
@@ -66,11 +60,15 @@ module.exports = {
   },
   methods: {
     backIconClicked() {
-      this.$router.push({ path: "/" });
+
+//      this.$router.push({ path: "/" });
     },
-    userIconClicked() {
-      this.isShow = true;
-    },
+//    userIconClicked() {
+//      this.isShow = true;
+//    },
+      rightButtonClicked() {
+        this.isShow = true;
+      },
     overlayClicked() {
       this.isShow = false;
     },
