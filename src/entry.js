@@ -4,16 +4,16 @@
 const router = require('./router');
 const App = require('@/App.vue');
 // const store = require('./store');
-import fontawesome from '@fortawesome/fontawesome'
-import {
-  faUser
-} from '@fortawesome/fontawesome-free-solid'
+// import fontawesome from '@fortawesome/fontawesome'
+// import {
+//   faUser
+// } from '@fortawesome/fontawesome-free-solid'
 // import Vuex from 'vuex'
 // import axios from 'axios'
 // import VueJWT from 'vuejs-jwt'
 // Vue.use(Vuex)
 // Vue.use(VueJWT)
-
+//
 // const store = new Vuex.Store({
 //   state: {
 //     'blocking': false,
@@ -355,11 +355,11 @@ import {
 //   // strict: process.env.NODE_ENV !== 'production'
 //
 // })
-
+//
 // export default store
 
 
 /* eslint-disable no-new */
-new Vue(Vue.util.extend({el: '#root', router }, App));
+new Vue(Vue.util.extend({el: '#root', router}, App));
 router.push('/');
 
