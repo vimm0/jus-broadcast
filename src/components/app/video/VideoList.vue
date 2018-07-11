@@ -6,26 +6,28 @@
             <!--<template slot="results" slot-scope="res">-->
             <!--<cell v-for="video in videoObjects" :key="video.id">-->
             <cell class="column" v-for="obj in videoObjects" :key="obj.slug" v-if="obj.is_completed">
-                <template v-if="obj.is_local">
-                    <router-link :to="{ name: 'Local Video Detail', params: { slugId: obj.slug } }">
-                        <image :src="obj.pic" class="video-image"/>
-                        <div class="meta">
-                            <text class="text">{{obj.name}}</text>
-                            <text class="text">{{obj.created}}</text>
-                        </div>
-                    </router-link>
-                </template>
-                <template v-else>
-                    <router-link :to="{ name: 'External Video Detail', params: { slugId: obj.slug } }">
-                        <!--<image style="width:500px;height:500px"-->
-                        <!--src="https://vuejs.org/images/logo.png"></image>-->
-                        <image :src="obj.pic" class="video-image"></image>
-                        <div class="meta">
-                            <text class="text">{{obj.name}}</text>
-                            <text class="text">{{obj.created}}</text>
-                        </div>
-                    </router-link>
-                </template>
+                <!--<template v-if="obj.is_local">-->
+                <div class="text-cell" @click="routeTo(obj.slug)">
+                    <!--<external @click="routeTo(obj.slug)">-->
+                    <image :src="obj.pic" class="video-image"/>
+                    <div class="meta">
+                        <text class="text">{{obj.name}}</text>
+                        <text class="text">{{obj.created}}</text>
+                    </div>
+                </div>
+                <!--</external>-->
+                <!--</template>-->
+                <!--<template v-else>-->
+                <!--<router-link :to="{ name: 'External Video Detail', params: { slugId: obj.slug } }">-->
+                <!--&lt;!&ndash;<image style="width:500px;height:500px"&ndash;&gt;-->
+                <!--&lt;!&ndash;src="https://vuejs.org/images/logo.png"></image>&ndash;&gt;-->
+                <!--<image :src="obj.pic" class="video-image"></image>-->
+                <!--<div class="meta">-->
+                <!--<text class="text">{{obj.name}}</text>-->
+                <!--<text class="text">{{obj.created}}</text>-->
+                <!--</div>-->
+                <!--</router-link>-->
+                <!--</template>-->
             </cell>
             <!--</cell>-->
             <!--</template>-->
@@ -36,6 +38,8 @@
 
 <script>
     import Helper from '../../../mixins/Helper'
+//    import External from './detail/ExternalVideoDetail'
+//    import router from '../../../router'
 
     var stream = weex.requireModule('stream')
     export default {
@@ -44,6 +48,9 @@
                 videoObjects: ''
             }
         },
+        components: {
+//            External
+        },
         methods: {
             getVideos(url, callback) {
                 return stream.fetch({
@@ -51,6 +58,14 @@
                     type: 'json',
                     url: 'http://52.202.70.246/v1/' + url
                 }, callback)
+            },
+            routeTo(slug) {
+//                if (obj.is_local){
+//                    this.$router.push({ name: 'Local Video Detail', params: { slugId: obj.slug } })
+//                } else {
+                console.log('clicked me')
+                this.$router.push({name: 'External Video Detail', params: {slugId: slug}})
+//                }
             }
         },
         mixins: [Helper],

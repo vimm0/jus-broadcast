@@ -2,7 +2,7 @@
 import Router from 'vue-router'
 import Home from '@/views/Home'
 import VideoList from '@/components/app/video/VideoList.vue'
-// import ExternalVideoDetail from '@/components/app/video/detail/ExternalVideoDetail.vue'
+import ExternalVideoDetail from '@/components/app/video/detail/ExternalVideoDetail.vue'
 // import LocalVideoDetail from '@/components/app/video/detail/LocalVideoDetail.vue'
 import WatchList from '@/components/app/video/feature/WatchList.vue'
 // import SignUp from '@/components/app/user/SignUp.vue'
@@ -16,7 +16,7 @@ import Profile from '@/components/app/user/Profile.vue'
 Vue.use(Router)
 
 module.exports = new Router({
-    // modes: history,
+    // mode: 'abstract',
     routes: [
         {
             path: '/',
@@ -38,11 +38,11 @@ module.exports = new Router({
         //     name: 'VideoList',
         //     component: VideoList
         // },
-        // {
-        //     path: ':slugId',
-        //     name: 'External Video Detail',
-        //     component: ExternalVideoDetail
-        // },
+        {
+            path: ':slugId',
+            name: 'External Video Detail',
+            component: ExternalVideoDetail
+        },
         // {
         //     path: ':slugId',
         //     name: 'Local Video Detail',

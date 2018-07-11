@@ -117,6 +117,7 @@
         methods: {
             leftButtonClicked() {
                 console.log('Do nothing for now')
+                this.$router.back()
 //                    Navigator.pop({}, e => {
 //                    });
 //                }

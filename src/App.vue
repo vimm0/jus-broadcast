@@ -1,10 +1,13 @@
 <template>
-    <div class="wrapper">
-        <!--<header>-->
-            <!--<layout></layout>-->
-        <!--</header>-->
-        <router-view/>
+    <!--<div class="wrapper">-->
+    <!--<header>-->
+    <!--<layout></layout>-->
+    <!--</header>-->
+    <!--<router-view/>-->
+    <div @androidback="back">
+        <router-view style="flex:1"></router-view>
     </div>
+    <!--</div>-->
 </template>
 
 <script>
@@ -34,6 +37,11 @@
             global.axios = axios;
             global.Vue = Vue;
         },
+        methods: {
+            back: function () {
+                this.$router.back()
+            }
+        }
     }
 </script>
 

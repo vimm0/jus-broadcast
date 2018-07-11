@@ -1,19 +1,25 @@
 <template>
     <div class="home">
-        <!--<list></list>-->
-        <p>Hello from home</p>
+        <header>
+            <layout></layout>
+        </header>
+        <scroller>
+            <video-list></video-list>
+        </scroller>
+        <!--<p>Hello from home</p>-->
         <!--<template v-if="checkUserLogin()">-->
-            <!--<router-view></router-view>-->
+        <!--<list></list>-->
+        <!--<router-view></router-view>-->
         <!--</template>-->
         <!--<template v-else>-->
-            <!--<sign-in></sign-in>-->
+        <!--<sign-in></sign-in>-->
         <!--</template>-->
     </div>
 </template>
 
 <script>
-    //    import Layout from "../components/app/Layout.vue"
-    import List from '../components/app/video/VideoList'
+    import Layout from "../components/app/Layout.vue"
+    import List from '../components/app/video/VideoList.vue'
     import SignUp from '../components/app/user/SignUp'
     import SignIn from '../components/app/user/SignIn'
     import Slider from '../components/UIComponent/Slider'
@@ -23,8 +29,8 @@
     export default {
         name: 'home',
         components: {
-//            'layout': Layout,
-            'list': List,
+            'layout': Layout,
+            'video-list': List,
             'sign-up': SignUp,
             'slider': Slider,
             'sign-in': SignIn,
