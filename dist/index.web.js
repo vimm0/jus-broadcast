@@ -9798,7 +9798,7 @@ var Component = __webpack_require__(0)(
   /* script */
   __webpack_require__(102),
   /* template */
-  __webpack_require__(106),
+  __webpack_require__(107),
   /* styles */
   injectStyle,
   /* scopeId */
@@ -9913,10 +9913,10 @@ exports.default = {
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-/* WEBPACK VAR INJECTION */(function(global) {
+
 
 Object.defineProperty(exports, "__esModule", {
-  value: true
+    value: true
 });
 
 var _slicedToArray = function () { function sliceIterator(arr, i) { var _arr = []; var _n = true; var _d = false; var _e = undefined; try { for (var _i = arr[Symbol.iterator](), _s; !(_n = (_s = _i.next()).done); _n = true) { _arr.push(_s.value); if (i && _arr.length === i) break; } } catch (err) { _d = true; _e = err; } finally { try { if (!_n && _i["return"]) _i["return"](); } finally { if (_d) throw _e; } } return _arr; } return function (arr, i) { if (Array.isArray(arr)) { return arr; } else if (Symbol.iterator in Object(arr)) { return sliceIterator(arr, i); } else { throw new TypeError("Invalid attempt to destructure non-iterable instance"); } }; }();
@@ -9948,8 +9948,9 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 _weexVueRender2.default.init(_vue2.default);
 /* weex initialized here, please do not move this line */
 var router = __webpack_require__(46);
-var App = __webpack_require__(126);
+var App = __webpack_require__(127);
 // const store = require('./store');
+
 // import fontawesome from '@fortawesome/fontawesome'
 // import {
 //   faUser
@@ -9957,422 +9958,95 @@ var App = __webpack_require__(126);
 
 _vue2.default.use(_vuex2.default);
 _vue2.default.use(_vuejsJwt2.default);
+var storage = _weexVueRender2.default.requireModule('storage');
 
 var store = new _vuex2.default.Store({
-  state: {
-    'blocking': false,
-    'loading': false,
-    'signUpStatus': JSON.parse(localStorage.getItem('signUpStatus')),
-    'tabStatus': 0,
-    'isComponentModalActive': false,
-    'modalGreet': '',
-    'user': JSON.parse(localStorage.getItem('user')),
-    'userInfo': JSON.parse(localStorage.getItem('userInfo')),
-    'subscription': JSON.parse(localStorage.getItem('subscription')),
-    'subscriptionLog': JSON.parse(localStorage.getItem('subscriptionLog')),
-    'invoice': JSON.parse(localStorage.getItem('invoice')),
-    'invoiceLog': JSON.parse(localStorage.getItem('invoiceLog')),
-    'card': JSON.parse(localStorage.getItem('card')),
-    'plan': JSON.parse(localStorage.getItem('plan')),
-    'rememberMe': false
-  },
-  mutations: {
-    loading: function loading(state, bool) {
-      state.loading = bool;
+    state: {
+        count: 0,
+        user: storage.getItem('user', function (e) {
+            console.log(e);
+        }),
+        userInfo: storage.getItem('userInfo', function (e) {
+            console.log(e);
+        })
     },
-    blocking: function blocking(state, bool) {
-      state.blocking = bool;
-    },
-    create_collection: function create_collection(state, collectionName) {
-      if (!state[collectionName]) {
-        _vue2.default.set(state, collectionName, []);
-      }
-    },
-    update_collection: function update_collection(state, payload) {
-      var collectionName = payload[0];
-      var data = payload[1];
-      _vue2.default.set(state, collectionName, data);
-    },
-    update_collection_item: function update_collection_item(state, payload) {
-      var collection = state[payload[0]];
-      var data = payload[1];
-      if (collection && data.id) {
-        var results = collection.results;
+    mutations: {
+        increment: function increment(state) {
+            state.count++;
+        },
+        update_object: function update_object(state, _ref) {
+            var _ref2 = _slicedToArray(_ref, 2),
+                objectName = _ref2[0],
+                data = _ref2[1];
 
-        var index = results.findIndex(function (x) {
-          return x.id === data.id;
-        });
-        results[index] = data;
-      }
+            _vue2.default.set(state, objectName, data);
+        },
+        logout: function logout(state) {
+            state.user = null;
+            // delete axios.defaults.headers.common['Authorization']
+        }
     },
-    remove_collection_item: function remove_collection_item(state, payload) {
-      var collection = state[payload[0]];
-      if (collection.results === 'undefined') {
-        collection.results.splice(payload[1], 1);
-      } else {
-        collection.results.splice(payload[1], 1);
-      }
-      _vue2.default.set(state, payload[0], collection);
-    },
-    create_option_collection: function create_option_collection(state, collectionName) {
-      if (!state[collectionName]) {
-        _vue2.default.set(state.options_collection, collectionName, []);
-      }
-    },
-    update_option_collection: function update_option_collection(state, payload) {
-      var collectionName = payload[0];
-      var data = payload[1];
-      _vue2.default.set(state.options_collection, collectionName, data);
-    },
-    add_option_collection: function add_option_collection(state, payload) {
-      var collectionName = payload[0];
-      var data = payload[1];
-      state.options_collection[collectionName].push(data);
-    },
-    clear_user: function clear_user(state) {
-      state.user = null;
-    },
-    notify: function notify(state, obj) {
-      state.notifications.push(obj);
-    },
-    deactivate_notification: function deactivate_notification(state, index) {
-      state.notifications[index - 1].active = false;
-    },
-    update_object: function update_object(state, _ref) {
-      var _ref2 = _slicedToArray(_ref, 2),
-          objectName = _ref2[0],
-          data = _ref2[1];
+    actions: {
+        login: function login(_ref3, payload) {
+            // let userData = global.Vue.$jwt.decode(payload.userData.token)
+            // commit('update_object', ['userInfo', userData])
+            // commit('update_object', ['user', payload['userData']])
+            // storage.setItem('userInfo', event => {
+            //     store.state.user = JSON.stringify(userData)
+            //     console.log(JSON.stringify(userData))
+            // })
+            // storage.setItem('user', event => {
+            //     store.state.user = payload['userData']
+            //     console.log(payload['userData'])
+            // })
+            // axios.defaults.headers.common['Authorization'] = `JWT ${state.user.token}`
 
-      _vue2.default.set(state, objectName, data);
-    },
-    updateUser: function updateUser(state, _ref3) {
-      var _ref4 = _slicedToArray(_ref3, 2),
-          objectName = _ref4[0],
-          data = _ref4[1];
+            var commit = _ref3.commit,
+                state = _ref3.state,
+                getters = _ref3.getters;
+        },
+        logout: function logout(_ref4) {
+            var commit = _ref4.commit;
 
-      _vue2.default.set(state, objectName, data);
+            // delete axios.defaults.headers.common['Authorization']
+            storage.removeItem('user', function (e) {
+                console.log(e);
+            });
+            // commit('logout')
+            // router.go()
+            router.push('/');
+        }
     },
-    getSubscription: function getSubscription(state, _ref5) {
-      var _ref6 = _slicedToArray(_ref5, 2),
-          objectName = _ref6[0],
-          data = _ref6[1];
-
-      _vue2.default.set(state, objectName, data);
+    getters: {
+        token: function token(state) {
+            if (state.user) {
+                return state.user.token;
+            } else {
+                return null;
+            }
+        },
+        user: function user(state) {
+            if (state.user) {
+                return state.user.user;
+            } else {
+                return null;
+            }
+        },
+        userInfo: function userInfo(state) {
+            if (state.user) {
+                return state.user.userInfo;
+            } else {
+                return null;
+            }
+        }
     },
-    getSubscriptionLog: function getSubscriptionLog(state, _ref7) {
-      var _ref8 = _slicedToArray(_ref7, 2),
-          objectName = _ref8[0],
-          data = _ref8[1];
-
-      _vue2.default.set(state, objectName, data);
-    },
-    getPlan: function getPlan(state, _ref9) {
-      var _ref10 = _slicedToArray(_ref9, 2),
-          objectName = _ref10[0],
-          data = _ref10[1];
-
-      _vue2.default.set(state, objectName, data);
-    },
-    getCard: function getCard(state, _ref11) {
-      var _ref12 = _slicedToArray(_ref11, 2),
-          objectName = _ref12[0],
-          data = _ref12[1];
-
-      _vue2.default.set(state, objectName, data);
-    },
-    getInvoice: function getInvoice(state, _ref13) {
-      var _ref14 = _slicedToArray(_ref13, 2),
-          objectName = _ref14[0],
-          data = _ref14[1];
-
-      _vue2.default.set(state, objectName, data);
-    },
-    getInvoiceLog: function getInvoiceLog(state, _ref15) {
-      var _ref16 = _slicedToArray(_ref15, 2),
-          objectName = _ref16[0],
-          data = _ref16[1];
-
-      _vue2.default.set(state, objectName, data);
-    },
-    logout: function logout(state) {
-      state.user = null;
-      delete _axios2.default.defaults.headers.common['Authorization'];
-    },
-    getSignUpStatus: function getSignUpStatus(state, _ref17) {
-      var _ref18 = _slicedToArray(_ref17, 2),
-          objectName = _ref18[0],
-          data = _ref18[1];
-
-      _vue2.default.set(state, objectName, data);
-    },
-    openModal: function openModal(state) {
-      state.isComponentModalActive = !state.isComponentModalActive;
-    },
-    greetInModal: function greetInModal(state, _ref19) {
-      var _ref20 = _slicedToArray(_ref19, 2),
-          objectName = _ref20[0],
-          data = _ref20[1];
-
-      _vue2.default.set(state, objectName, data);
-    }
-  },
-  actions: {
-    login: function login(_ref21, payload) {
-      var commit = _ref21.commit,
-          state = _ref21.state,
-          getters = _ref21.getters;
-
-      console.log(payload.userData.token);
-      var userData = global.Vue.$jwt.decode(payload.userData.token);
-      console.log(userData);
-      commit('update_object', ['userInfo', userData]);
-      commit('update_object', ['user', payload['userData']]);
-      localStorage.setItem('userInfo', JSON.stringify(userData));
-      localStorage.setItem('user', JSON.stringify(payload['userData']));
-      _axios2.default.defaults.headers.common['Authorization'] = 'JWT ' + state.user.token;
-      store.dispatch('getPlan');
-      store.dispatch('getCard');
-      store.dispatch('getSubscription');
-      store.dispatch('getInvoice');
-      store.dispatch('getSubscriptionLog');
-      store.dispatch('getInvoiceLog');
-      setTimeout(function (getUserTimeOut) {
-        console.log('refresh api from storejs');
-        global.axios.post('jwt/refresh/', { 'token': state.user.token }).then(function (_ref22) {
-          var data = _ref22.data;
-
-          // console.log(data)
-          store.dispatch('login', {
-            userData: data
-          });
-        });
-      }, store.getters.refreshBefore * 1000); // python provide time in seconds and jscript aspect time in milliseconds
-    },
-    getSubscription: function getSubscription(_ref23) {
-      var commit = _ref23.commit;
-
-      global.axios.get('subscription/').then(function (_ref24) {
-        var data = _ref24.data;
-
-        commit('getSubscription', ['subscription', data]);
-        localStorage.setItem('subscription', JSON.stringify(data));
-      });
-    },
-    getInvoice: function getInvoice(_ref25) {
-      var commit = _ref25.commit;
-
-      global.axios.get('invoice/').then(function (_ref26) {
-        var data = _ref26.data;
-
-        commit('getInvoice', ['invoice', data]);
-        localStorage.setItem('invoice', JSON.stringify(data));
-      });
-    },
-    getSubscriptionLog: function getSubscriptionLog(_ref27) {
-      var commit = _ref27.commit;
-
-      global.axios.get('subscription-log').then(function (_ref28) {
-        var data = _ref28.data;
-
-        commit('getSubscriptionLog', ['subscription', data]);
-        localStorage.setItem('subscriptionLog', JSON.stringify(data));
-      });
-    },
-    getInvoiceLog: function getInvoiceLog(_ref29) {
-      var commit = _ref29.commit;
-
-      global.axios.get('invoice-log/').then(function (_ref30) {
-        var data = _ref30.data;
-
-        commit('getInvoiceLog', ['subscription', data]);
-        localStorage.setItem('invoiceLog', JSON.stringify(data));
-      });
-    },
-    getCard: function getCard(_ref31) {
-      var commit = _ref31.commit;
-
-      global.axios.get('card/').then(function (_ref32) {
-        var data = _ref32.data;
-
-        commit('getCard', ['card', data]);
-        localStorage.setItem('card', JSON.stringify(data));
-        // console.log(data)
-      });
-    },
-    getPlan: function getPlan(_ref33) {
-      var commit = _ref33.commit;
-
-      global.axios.get('plan/').then(function (_ref34) {
-        var data = _ref34.data;
-
-        commit('getPlan', ['plan', data]);
-        localStorage.setItem('plan', JSON.stringify(data));
-        // console.log(data)
-      });
-      global.axios.get('customer/').then(function (_ref35) {
-        var data = _ref35.data;
-
-        console.log(data);
-      });
-    },
-    getSignUpStatus: function getSignUpStatus(_ref36, payload) {
-      var commit = _ref36.commit;
-
-      commit('getSignUpStatus', ['signUpStatus', payload]);
-      commit('getSignUpStatus', ['tabStatus', payload[1]]);
-      localStorage.setItem('tabStatus', JSON.stringify(payload[1]));
-    },
-    openModal: function openModal(_ref37, payload) {
-      var commit = _ref37.commit;
-
-      commit('openModal');
-      // console.log('trigger')
-      console.log(payload);
-      commit('greetInModal', ['modalGreet', payload]);
-      localStorage.setItem('modalGreet', JSON.stringify(payload));
-    },
-    logout: function logout(_ref38) {
-      var commit = _ref38.commit;
-
-      localStorage.removeItem('user');
-      localStorage.removeItem('userInfo');
-      localStorage.removeItem('modalGreet');
-      localStorage.removeItem('invoice');
-      localStorage.removeItem('credentials');
-      localStorage.removeItem('plan');
-      localStorage.removeItem('card');
-      localStorage.removeItem('subscription');
-      localStorage.removeItem('tabStatus');
-      localStorage.removeItem('subscriptionLog');
-      localStorage.removeItem('invoiceLog');
-      delete _axios2.default.defaults.headers.common['Authorization'];
-      commit('logout');
-      router.go();
-      router.push('/');
-    },
-    updateUser: function updateUser(_ref39) {
-      var commit = _ref39.commit;
-
-      commit('up');
-    }
-  },
-  getters: {
-    token: function token(state) {
-      if (state.user) {
-        return state.user.token;
-      } else {
-        return null;
-      }
-    },
-    user: function user(state) {
-      if (state.user) {
-        return state.user.user;
-      } else {
-        return null;
-      }
-    },
-    userInfo: function userInfo(state) {
-      if (state.user) {
-        return state.user.userInfo;
-      } else {
-        return null;
-      }
-    },
-    exp: function exp(state) {
-      if (state.user) {
-        return state.user.exp;
-      } else {
-        return null;
-      }
-    },
-    refreshBefore: function refreshBefore(state) {
-      if (state.user) {
-        return state.user.refresh_before;
-      } else {
-        return null;
-      }
-    },
-    refreshUntil: function refreshUntil(state) {
-      if (state.user) {
-        return state.user.refresh_until;
-      } else {
-        return null;
-      }
-    },
-    getSubscription: function getSubscription(state) {
-      if (state.subscription) {
-        return state.subscription;
-      } else {
-        return null;
-      }
-    },
-    getSubscriptionLog: function getSubscriptionLog(state) {
-      if (state.subscriptionLog) {
-        return state.subscriptionLog;
-      } else {
-        return null;
-      }
-    },
-    getInvoice: function getInvoice(state) {
-      if (state.user) {
-        return state.invoice;
-      } else {
-        return null;
-      }
-    },
-    getInvoiceLog: function getInvoiceLog(state) {
-      if (state.user) {
-        return state.invoiceLog;
-      } else {
-        return null;
-      }
-    },
-    getPlan: function getPlan(state) {
-      if (state.user) {
-        return state.plan;
-      } else {
-        return null;
-      }
-    },
-    getCard: function getCard(state) {
-      if (state.user) {
-        return state.card;
-      } else {
-        return null;
-      }
-    },
-
-    userSignUpStatus: function userSignUpStatus(state) {
-      return state.signUpStatus;
-    },
-    tabStatus: function tabStatus(state) {
-      return state.tabStatus;
-    },
-    loading: function loading(state) {
-      return state.loading;
-    },
-    modalStatus: function modalStatus(state) {
-      return state.isComponentModalActive;
-    },
-    getRememberMeStatus: function getRememberMeStatus(state) {
-      return state.rememberMe;
-    },
-    modalGreet: function modalGreet(state) {
-      return state.modalGreet;
-    }
-  },
-  strict: false
-  // strict: process.env.NODE_ENV !== 'production'
-
+    strict: false
 });
-
 exports.default = store;
-
 /* eslint-disable no-new */
 
-new _vue2.default(_vue2.default.util.extend({ el: '#root', router: router, store: store }, App));
+new _vue2.default(_vue2.default.util.extend({ el: '#root', store: store, router: router }, App));
 router.push('/');
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(4)))
 
 /***/ }),
 /* 24 */
@@ -23037,15 +22711,15 @@ var _VideoList = __webpack_require__(19);
 
 var _VideoList2 = _interopRequireDefault(_VideoList);
 
-var _ExternalVideoDetail = __webpack_require__(108);
+var _ExternalVideoDetail = __webpack_require__(109);
 
 var _ExternalVideoDetail2 = _interopRequireDefault(_ExternalVideoDetail);
 
-var _WatchList = __webpack_require__(113);
+var _WatchList = __webpack_require__(114);
 
 var _WatchList2 = _interopRequireDefault(_WatchList);
 
-var _SignUp = __webpack_require__(118);
+var _SignUp = __webpack_require__(119);
 
 var _SignUp2 = _interopRequireDefault(_SignUp);
 
@@ -23053,7 +22727,7 @@ var _SignIn = __webpack_require__(21);
 
 var _SignIn2 = _interopRequireDefault(_SignIn);
 
-var _Profile = __webpack_require__(123);
+var _Profile = __webpack_require__(124);
 
 var _Profile2 = _interopRequireDefault(_Profile);
 
@@ -25771,7 +25445,7 @@ var Component = __webpack_require__(0)(
   /* script */
   __webpack_require__(52),
   /* template */
-  __webpack_require__(107),
+  __webpack_require__(108),
   /* styles */
   injectStyle,
   /* scopeId */
@@ -25837,7 +25511,7 @@ exports = module.exports = __webpack_require__(1)(false);
 
 
 // module
-exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", ""]);
+exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", ""]);
 
 // exports
 
@@ -25924,14 +25598,13 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 //
 //
 //
-//
-//
-//
-//
-//
 
 exports.default = {
     name: 'home',
+    data: function data() {
+        return {};
+    },
+
     components: {
         'layout': _Layout2.default,
         'video-list': _VideoList2.default,
@@ -28952,6 +28625,15 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
     on: {
       "wxcCellClicked": _vm.watchListCellClicked
     }
+  }), _vm._v(" "), _c('wxc-cell', {
+    attrs: {
+      "title": "SIGN OUT",
+      "has-top-border": true,
+      "data-evt-wxcCellClicked": ""
+    },
+    on: {
+      "wxcCellClicked": _vm.signOutCellClicked
+    }
   })], 1)])])], 1)
 },staticRenderFns: []}
 module.exports.render._withStripped = true
@@ -29196,7 +28878,7 @@ exports = module.exports = __webpack_require__(1)(false);
 
 
 // module
-exports.push([module.i, "\n.weex-input {\n  border: solid 1px black;\n  margin: 0.61rem;\n  height: 1rem;\n}\ninput::-webkit-input-placeholder {\n  padding-left: 0.5rem;\n}\ninput::-ms-input-placeholder {\n  padding-left: 0.5rem;\n}\ninput:-ms-input-placeholder {\n  padding-left: 0.5rem;\n}\ninput::placeholder {\n  padding-left: 0.5rem;\n}\np.button {\n  /* text-align:center; */\n  background-color: dimgrey;\n  margin: 0.61rem;\n  text-align: center;\n}\n.login-message {\n  text-align: center;\n}\n", ""]);
+exports.push([module.i, "\n.weex-input {\n    border: solid 1px black;\n    margin: 0.61rem;\n    height: 1rem;\n}\ninput::-webkit-input-placeholder {\n    padding-left: 0.5rem;\n}\ninput::-ms-input-placeholder {\n    padding-left: 0.5rem;\n}\ninput:-ms-input-placeholder {\n    padding-left: 0.5rem;\n}\ninput::placeholder {\n    padding-left: 0.5rem;\n}\np.button {\n    /* text-align:center; */\n    background-color: dimgrey;\n    margin: 0.61rem;\n    text-align: center;\n}\n.login-message {\n    text-align: center;\n}\n", ""]);
 
 // exports
 
@@ -29209,7 +28891,7 @@ exports.push([module.i, "\n.weex-input {\n  border: solid 1px black;\n  margin: 
 
 
 Object.defineProperty(exports, "__esModule", {
-  value: true
+    value: true
 });
 
 var _wxcButton = __webpack_require__(6);
@@ -29222,66 +28904,139 @@ var _Form2 = _interopRequireDefault(_Form);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
+var stream = weex.requireModule('stream');
+var config = __webpack_require__(106);
+
+var modal = weex.requireModule('modal');
+
 exports.default = {
-  name: "Signin",
-  data: function data() {
-    return { username: "" };
-  },
+    name: "Signin",
+    data: function data() {
+        return { username: "", results: "" };
+    },
 
-  components: { WxcButton: _wxcButton2.default },
+    components: { WxcButton: _wxcButton2.default },
 
-  mixins: [_Form2.default],
-  endpoint: "jwt/create/",
-  methods: {
-    wxcButtonClicked: function wxcButtonClicked(e) {
-      console.log(e);
+    mixins: [_Form2.default],
+    endpoint: "jwt/create/",
+    methods: {
+        wxcButtonClicked: function wxcButtonClicked(e) {
+            console.log(e);
+            modal.toast({
+                message: e
+            });
+        },
+        axiosTest: function axiosTest() {
+            console.log(this);
+            var self = this;
+            modal.toast({
+                message: 'videos: comming'
+            });
+            stream.fetch({
+                method: 'POST',
+                url: 'http://52.202.70.246/v1/jwt/create/',
+                type: 'json',
+                body: config.toParams({
+                    email: 'admin@admin.com',
+                    password: 'admin'
+                }),
+                headers: { 'Content-Type': 'application/x-www-form-urlencoded' }
+            }, function (ret) {
+                if (!ret.ok) {
+                    console.log("request failed");
+                    modal.toast({
+                        message: ret
+                    });
+                } else {
+                    console.log(ret.data.user.full_name);
+                    console.log(ret.data);
+                    self.results = ret.data;
+                    modal.toast({
+                        message: 'username: ' + ret.data.user.full_name
+                    });
+                }
+            }, function (response) {
+                console.log(response);
+            });
+            console.log(this.$data.results);
+            this.$store.dispatch("login", {
+                userData: this.results
+            });
+            this.$router.push({ name: "Home" });
+        },
+
+
+        //            signUpFirst(e) {
+        //                this.$router.push({name: "Sign Up"});
+        //            },
+        //            onreturn() {
+        //                console.log(this.$refs);
+        //                const elem = this.$refs.signin
+        //                elem.click()
+        //                // TODO: Take to list page on return signin
+        //                // console.log(elem.click)
+        //                modal.toast({
+        //                    message: 'sign in callback'
+        //                })
+        //
+        //            },
+        //            signIn() {
+        //                console.log('signed in')
+        //            },
+        successCallback: function successCallback(data) {
+            //                modal.toast({
+            //                    message: 'sign in callback'
+            //                })
+            //                console.log(store);
+            //
+            //                this.$store.dispatch("login", {
+            //                    userData: ret.data
+            //                });
+            //                modal.toast({
+            //                    message: 'user: ' + data
+            //                })
+            //                this.$router.push({name: "Home"});
+            ////                this.test = data
+            //                modal.toast({
+            //                    message: 'user: ' + data
+            //                })
+        }
     },
-    signUpFirst: function signUpFirst(e) {
-      this.$router.push({ name: "Sign Up" });
-    },
-    onreturn: function onreturn() {
-      console.log(this.$refs);
-      var elem = this.$refs.signin;
-      elem.click();
-      // TODO: Take to list page on return signin
-      // console.log(elem.click)
-    },
-    signIn: function signIn() {
-      console.log('signed in');
-    },
-    successCallback: function successCallback(data) {
-      console.log("sign in callback");
-      console.log(data);
-      this.$store.dispatch("login", {
-        userData: data
-      });
-      this.$router.push({ name: "Home" });
+    mounted: function mounted() {
+        this.$refs.email.focus();
     }
-  },
-  mounted: function mounted() {
-    this.$refs.email.focus();
-  }
-}; //
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
+};
 
 /***/ }),
 /* 103 */
@@ -29331,7 +29086,7 @@ module.exports = Component.exports
 /* WEBPACK VAR INJECTION */(function(global) {
 
 Object.defineProperty(exports, "__esModule", {
-  value: true
+    value: true
 });
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
@@ -29376,180 +29131,186 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 //
 //
 //
+//
+//
+//
+//
 
 var Errors = function () {
-  function Errors() {
-    _classCallCheck(this, Errors);
+    function Errors() {
+        _classCallCheck(this, Errors);
 
-    this.errors = {};
-  }
-
-  _createClass(Errors, [{
-    key: 'has',
-    value: function has(field) {
-      return this.errors.hasOwnProperty(field);
+        this.errors = {};
     }
-  }, {
-    key: 'any',
-    value: function any() {
-      return Object.keys(this.errors).length > 0;
-    }
-  }, {
-    key: 'get',
-    value: function get(field) {
-      if (this.errors[field]) {
-        return this.errors[field][0];
-      }
-    }
-  }, {
-    key: 'nestedGet',
-    value: function nestedGet() {
-      var value = null;
 
-      for (var _len = arguments.length, args = Array(_len), _key = 0; _key < _len; _key++) {
-        args[_key] = arguments[_key];
-      }
-
-      for (var arg in args) {
-        //        console.log(args[arg])
-        if (this.errors[args[arg]]) {
-          value = this.errors[args[arg]];
+    _createClass(Errors, [{
+        key: 'has',
+        value: function has(field) {
+            return this.errors.hasOwnProperty(field);
         }
-      }
-      return value;
-    }
-  }, {
-    key: 'record',
-    value: function record(errors) {
-      this.errors = errors;
-    }
-  }, {
-    key: 'clear',
-    value: function clear() {
-      var event = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : null;
-
-      if (event) {
-        var field = event.target.name;
-        if (event.target.getAttribute('row') === 'true' && this.errors.hasOwnProperty('rows')) {
-          global.Vue.delete(this.errors, 'rows');
-          return;
+    }, {
+        key: 'any',
+        value: function any() {
+            return Object.keys(this.errors).length > 0;
         }
-        if (field) {
-          global.Vue.delete(this.errors, field);
-          return;
+    }, {
+        key: 'get',
+        value: function get(field) {
+            if (this.errors[field]) {
+                return this.errors[field][0];
+            }
         }
-      }
-      this.errors = {};
-    }
-  }]);
+    }, {
+        key: 'nestedGet',
+        value: function nestedGet() {
+            var value = null;
 
-  return Errors;
+            for (var _len = arguments.length, args = Array(_len), _key = 0; _key < _len; _key++) {
+                args[_key] = arguments[_key];
+            }
+
+            for (var arg in args) {
+                //        console.log(args[arg])
+                if (this.errors[args[arg]]) {
+                    value = this.errors[args[arg]];
+                }
+            }
+            return value;
+        }
+    }, {
+        key: 'record',
+        value: function record(errors) {
+            this.errors = errors;
+        }
+    }, {
+        key: 'clear',
+        value: function clear() {
+            var event = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : null;
+
+            if (event) {
+                var field = event.target.name;
+                if (event.target.getAttribute('row') === 'true' && this.errors.hasOwnProperty('rows')) {
+                    global.Vue.delete(this.errors, 'rows');
+                    return;
+                }
+                if (field) {
+                    global.Vue.delete(this.errors, field);
+                    return;
+                }
+            }
+            this.errors = {};
+        }
+    }]);
+
+    return Errors;
 }();
 
 exports.default = {
-  props: ['fields', 'action', 'submitAsModal', 'defaultFieldsValues', 'successUrl', 'formStyle', 'cardStyle', 'enableResetFormOnSuccess'],
-  data: function data() {
-    var dct = {};
-    dct.original_fields = Object.assign({}, this.fields);
-    dct.field_names = [];
-    for (var field in this.data) {
-      dct.field_names.push(field);
-    }
-    dct.errors = new Errors();
-    return dct;
-  },
+    props: ['fields', 'action', 'submitAsModal', 'defaultFieldsValues', 'successUrl', 'formStyle', 'cardStyle', 'enableResetFormOnSuccess'],
+    //        props: {
+    //            fields: {
+    //                type: String,
+    //                default: 'yellow'
+    //            }
+    //        },
+    //        props: ['fields'],
+    data: function data() {
+        var dct = {};
+        dct.original_fields = Object.assign({}, this.fields);
+        dct.field_names = [];
+        for (var field in this.data) {
+            dct.field_names.push(field);
+        }
+        dct.errors = new Errors();
+        return dct;
+    },
 
-  //    created(){
-  //      debugger
-  //    },
-  methods: {
-    reset: function reset() {
-      this.errors.clear();
-    },
-    getFieldsData: function getFieldsData() {
-      var payload = this.fields;
-      if (this.defaultFieldsValues !== 'undefined') {
-        payload = Object.assign({}, payload, this.defaultFieldsValues);
-      }
-
-      return payload;
-    },
-    save: function save(url) {
-      var verb = void 0;
-      if (this.fields.id || this.formInstanceId) {
-        verb = 'put';
-      } else {
-        verb = 'post';
-      }
-      this.submit(verb, url).then(function (data) {
-        console.log(data);
-        //   let tab = 1
-        //   this.$store.dispatch('getSignUpStatus', [data, tab])
-        // })
-        // .catch((error) => {
-        //   this.$store.dispatch('getSignUpStatus', [error, tab])
-      });
-    },
-    post: function post(url) {
-      return this.submit('post', url);
-    },
-    put: function put(url) {
-      return this.submit('put', url);
-    },
-    patch: function patch(url) {
-      return this.submit('patch', url);
-    },
-    remove: function remove(url) {
-      return this.submit('delete', url);
-    },
-    resetForm: function resetForm() {
-      Object.assign(this.fields, this.original_fields);
-    },
-    submit: function submit(requestType, url) {
-      var _this = this;
-
-      return new Promise(function (resolve, reject) {
-        global.axios[requestType](url, _this.getFieldsData()).then(function (_ref) {
-          var data = _ref.data;
-
-          _this.onSuccess(data);
-          // console.log(this.submitAsModal)
-          if (_this.submitAsModal) {
-            _this.$emit('saveAsModal', data); // catch by Modal.vue, to update selectize options
-          } else {
-            if (_this.successUrl) {
-              _this.$emit('success', data, _this.successUrl);
-            } else {
-              _this.$emit('success', data);
+    //    created(){
+    //      debugger
+    //    },
+    methods: {
+        reset: function reset() {
+            this.errors.clear();
+        },
+        getFieldsData: function getFieldsData() {
+            var payload = this.fields;
+            if (this.defaultFieldsValues !== 'undefined') {
+                payload = Object.assign({}, payload, this.defaultFieldsValues);
             }
-          }
-          if (_this.enableResetFormOnSuccess) {
-            _this.resetForm();
-          }
-          resolve(data);
-        }).catch(function (error) {
-          // console.log(error.response.data)
-          _this.onFail(error.response.data);
-          _this.$parent.$emit('failure', error.response.data);
-          reject(error.response.data);
-        });
-      });
-    },
-    onSuccess: function onSuccess(data) {
-      this.reset();
-    },
-    onFail: function onFail(errors) {
-      var _this2 = this;
 
-      if (errors.hasOwnProperty('error')) {
-        this.$error(errors.error[0]);
-        setTimeout(function () {
-          global.Vue.delete(_this2.errors.errors, 'error');
-        }, 1000);
-      }
-      this.errors.record(errors);
+            return payload;
+        },
+        save: function save(url) {
+            var verb = void 0;
+            if (this.fields.id || this.formInstanceId) {
+                verb = 'put';
+            } else {
+                verb = 'post';
+            }
+            this.submit(verb, url).then(function (data) {
+                console.log(data);
+            });
+        },
+        post: function post(url) {
+            return this.submit('post', url);
+        },
+        put: function put(url) {
+            return this.submit('put', url);
+        },
+        patch: function patch(url) {
+            return this.submit('patch', url);
+        },
+        remove: function remove(url) {
+            return this.submit('delete', url);
+        },
+        resetForm: function resetForm() {
+            Object.assign(this.fields, this.original_fields);
+        },
+        submit: function submit(requestType, url) {
+            var _this = this;
+
+            return new Promise(function (resolve, reject) {
+                global.axios[requestType](url, _this.getFieldsData()).then(function (_ref) {
+                    var data = _ref.data;
+
+                    _this.onSuccess(data);
+                    // console.log(this.submitAsModal)
+                    if (_this.submitAsModal) {
+                        _this.$emit('saveAsModal', data); // catch by Modal.vue, to update selectize options
+                    } else {
+                        if (_this.successUrl) {
+                            _this.$emit('success', data, _this.successUrl);
+                        } else {
+                            _this.$emit('success', data);
+                        }
+                    }
+                    if (_this.enableResetFormOnSuccess) {
+                        _this.resetForm();
+                    }
+                    resolve(data);
+                }).catch(function (error) {
+                    // console.log(error.response.data)
+                    _this.onFail(error.response.data);
+                    _this.$parent.$emit('failure', error.response.data);
+                    reject(error.response.data);
+                });
+            });
+        },
+        onSuccess: function onSuccess(data) {
+            this.reset();
+        },
+        onFail: function onFail(errors) {
+            var _this2 = this;
+
+            if (errors.hasOwnProperty('error')) {
+                this.$error(errors.error[0]);
+                setTimeout(function () {
+                    global.Vue.delete(_this2.errors.errors, 'error');
+                }, 1000);
+            }
+            this.errors.record(errors);
+        }
     }
-  }
 };
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(4)))
 
@@ -29598,9 +29359,12 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
     }
   }, [_vm._t("form-fields", null, {
     errors: _vm.errors
-  }), _vm._v(" "), _vm._t("submit", [_vm._t("extra_actions", null, {})], {
-    remove: _vm.remove
-  })], 2)])], 2)])])
+  })], 2)]), _vm._v(" "), _c('p', {
+    staticClass: " weex-el weex-text",
+    attrs: {
+      "weex-type": "text"
+    }
+  }, [_vm._v(_vm._s(_vm.fields))])], 2)])])
 },staticRenderFns: []}
 module.exports.render._withStripped = true
 if (false) {
@@ -29612,6 +29376,29 @@ if (false) {
 
 /***/ }),
 /* 106 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+    value: true
+});
+exports.toParams = toParams;
+function toParams(obj) {
+
+    var param = "";
+    for (var name in obj) {
+        if (typeof obj[name] != 'function') {
+            param += "&" + name + "=" + encodeURI(obj[name]);
+        }
+    }
+    console.log(param.substring(1));
+    return param.substring(1);
+}
+
+/***/ }),
+/* 107 */
 /***/ (function(module, exports, __webpack_require__) {
 
 module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
@@ -29642,6 +29429,7 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
           ref: "email",
           staticClass: "input",
           attrs: {
+            "slot": "fields",
             "type": "email",
             "placeholder": "Email"
           },
@@ -29653,7 +29441,8 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
               if ($event.target.composing) { return; }
               _vm.$set(_vm.fields, "email", $event.target.value)
             }
-          }
+          },
+          slot: "fields"
         }), _vm._v(" "), _c('input', {
           directives: [{
             name: "model",
@@ -29683,17 +29472,7 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
               return _vm.onreturn($event)
             }
           }
-        }), _vm._v(" "), _c('div', {
-          staticClass: "form-button has-text-centered weex-ct weex-div",
-          attrs: {
-            "slot": "submit control",
-            "weex-type": "div"
-          },
-          slot: "submit control"
-        }, [_c('button', {
-          ref: "signin",
-          attrs: {}
-        }, [_vm._v("Sign In")])]), _vm._v(" "), _c('p', {
+        }), _vm._v(" "), _c('p', {
           staticClass: " weex-el weex-text",
           attrs: {
             "weex-type": "text",
@@ -29703,22 +29482,18 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
             "click": _vm.$stopOuterA,
             "weex$tap": function($event) {
               $event.stopPropagation();
-              return _vm.signUpFirst($event)
+              return _vm.axiosTest($event)
             }
           }
-        }, [_vm._v("Sign Up first")]), _vm._v(" "), _c('router-link', {
-          attrs: {
-            "to": "/signup"
-          }
-        }, [_c('p', {
-          staticClass: " weex-el weex-text",
-          attrs: {
-            "weex-type": "text"
-          }
-        }, [_vm._v("Sign Up first")])])]
+        }, [_vm._v("axiosTest")])]
       }
     }])
-  })], 1)
+  }), _vm._v(" "), _c('p', {
+    staticClass: " weex-el weex-text",
+    attrs: {
+      "weex-type": "text"
+    }
+  }, [_vm._v("sign in form")])], 1)
 },staticRenderFns: []}
 module.exports.render._withStripped = true
 if (false) {
@@ -29729,7 +29504,7 @@ if (false) {
 }
 
 /***/ }),
-/* 107 */
+/* 108 */
 /***/ (function(module, exports, __webpack_require__) {
 
 module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
@@ -29738,7 +29513,12 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
     attrs: {
       "weex-type": "div"
     }
-  }, [_c('header', [_c('layout')], 1), _vm._v(" "), _c('scroller', [_c('video-list')], 1)], 1)
+  }, [(_vm.checkUserLogin()) ? [_c('header', [_c('layout')], 1), _vm._v(" "), _c('scroller')] : [_c('p', {
+    staticClass: " weex-el weex-text",
+    attrs: {
+      "weex-type": "text"
+    }
+  }, [_vm._v("UnAuthenticated")]), _vm._v(" "), _c('sign-in')]], 2)
 },staticRenderFns: []}
 module.exports.render._withStripped = true
 if (false) {
@@ -29749,19 +29529,19 @@ if (false) {
 }
 
 /***/ }),
-/* 108 */
+/* 109 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var disposed = false
 function injectStyle (ssrContext) {
   if (disposed) return
-  __webpack_require__(109)
+  __webpack_require__(110)
 }
 var Component = __webpack_require__(0)(
   /* script */
-  __webpack_require__(111),
-  /* template */
   __webpack_require__(112),
+  /* template */
+  __webpack_require__(113),
   /* styles */
   injectStyle,
   /* scopeId */
@@ -29793,13 +29573,13 @@ module.exports = Component.exports
 
 
 /***/ }),
-/* 109 */
+/* 110 */
 /***/ (function(module, exports, __webpack_require__) {
 
 // style-loader: Adds some css to the DOM by adding a <style> tag
 
 // load the styles
-var content = __webpack_require__(110);
+var content = __webpack_require__(111);
 if(typeof content === 'string') content = [[module.i, content, '']];
 if(content.locals) module.exports = content.locals;
 // add the styles to the DOM
@@ -29819,7 +29599,7 @@ if(false) {
 }
 
 /***/ }),
-/* 110 */
+/* 111 */
 /***/ (function(module, exports, __webpack_require__) {
 
 exports = module.exports = __webpack_require__(1)(false);
@@ -29833,7 +29613,7 @@ exports.push([module.i, "\ndiv.video-meta {\n    margin: 1rem auto auto 0.5rem;\
 
 
 /***/ }),
-/* 111 */
+/* 112 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -29931,7 +29711,7 @@ exports.default = {
 };
 
 /***/ }),
-/* 112 */
+/* 113 */
 /***/ (function(module, exports, __webpack_require__) {
 
 module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
@@ -30015,19 +29795,19 @@ if (false) {
 }
 
 /***/ }),
-/* 113 */
+/* 114 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var disposed = false
 function injectStyle (ssrContext) {
   if (disposed) return
-  __webpack_require__(114)
+  __webpack_require__(115)
 }
 var Component = __webpack_require__(0)(
   /* script */
-  __webpack_require__(116),
-  /* template */
   __webpack_require__(117),
+  /* template */
+  __webpack_require__(118),
   /* styles */
   injectStyle,
   /* scopeId */
@@ -30059,13 +29839,13 @@ module.exports = Component.exports
 
 
 /***/ }),
-/* 114 */
+/* 115 */
 /***/ (function(module, exports, __webpack_require__) {
 
 // style-loader: Adds some css to the DOM by adding a <style> tag
 
 // load the styles
-var content = __webpack_require__(115);
+var content = __webpack_require__(116);
 if(typeof content === 'string') content = [[module.i, content, '']];
 if(content.locals) module.exports = content.locals;
 // add the styles to the DOM
@@ -30085,7 +29865,7 @@ if(false) {
 }
 
 /***/ }),
-/* 115 */
+/* 116 */
 /***/ (function(module, exports, __webpack_require__) {
 
 exports = module.exports = __webpack_require__(1)(false);
@@ -30099,7 +29879,7 @@ exports.push([module.i, "\n.svg-inline--fa.fa-w-12 {\n  width: 1.25em;\n  height
 
 
 /***/ }),
-/* 116 */
+/* 117 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -30134,7 +29914,7 @@ exports.default = {
 //
 
 /***/ }),
-/* 117 */
+/* 118 */
 /***/ (function(module, exports, __webpack_require__) {
 
 module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
@@ -30181,19 +29961,19 @@ if (false) {
 }
 
 /***/ }),
-/* 118 */
+/* 119 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var disposed = false
 function injectStyle (ssrContext) {
   if (disposed) return
-  __webpack_require__(119)
+  __webpack_require__(120)
 }
 var Component = __webpack_require__(0)(
   /* script */
-  __webpack_require__(121),
-  /* template */
   __webpack_require__(122),
+  /* template */
+  __webpack_require__(123),
   /* styles */
   injectStyle,
   /* scopeId */
@@ -30225,13 +30005,13 @@ module.exports = Component.exports
 
 
 /***/ }),
-/* 119 */
+/* 120 */
 /***/ (function(module, exports, __webpack_require__) {
 
 // style-loader: Adds some css to the DOM by adding a <style> tag
 
 // load the styles
-var content = __webpack_require__(120);
+var content = __webpack_require__(121);
 if(typeof content === 'string') content = [[module.i, content, '']];
 if(content.locals) module.exports = content.locals;
 // add the styles to the DOM
@@ -30251,7 +30031,7 @@ if(false) {
 }
 
 /***/ }),
-/* 120 */
+/* 121 */
 /***/ (function(module, exports, __webpack_require__) {
 
 exports = module.exports = __webpack_require__(1)(false);
@@ -30265,7 +30045,7 @@ exports.push([module.i, "\n.weex-input {\n  border: solid 1px black;\n  margin: 
 
 
 /***/ }),
-/* 121 */
+/* 122 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -30351,7 +30131,7 @@ exports.default = {
 };
 
 /***/ }),
-/* 122 */
+/* 123 */
 /***/ (function(module, exports, __webpack_require__) {
 
 module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
@@ -30458,15 +30238,15 @@ if (false) {
 }
 
 /***/ }),
-/* 123 */
+/* 124 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var disposed = false
 var Component = __webpack_require__(0)(
   /* script */
-  __webpack_require__(124),
-  /* template */
   __webpack_require__(125),
+  /* template */
+  __webpack_require__(126),
   /* styles */
   null,
   /* scopeId */
@@ -30498,7 +30278,7 @@ module.exports = Component.exports
 
 
 /***/ }),
-/* 124 */
+/* 125 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -30543,7 +30323,7 @@ exports.default = {
 //
 
 /***/ }),
-/* 125 */
+/* 126 */
 /***/ (function(module, exports, __webpack_require__) {
 
 module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
@@ -30601,19 +30381,19 @@ if (false) {
 }
 
 /***/ }),
-/* 126 */
+/* 127 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var disposed = false
 function injectStyle (ssrContext) {
   if (disposed) return
-  __webpack_require__(127)
+  __webpack_require__(128)
 }
 var Component = __webpack_require__(0)(
   /* script */
-  __webpack_require__(129),
-  /* template */
   __webpack_require__(130),
+  /* template */
+  __webpack_require__(131),
   /* styles */
   injectStyle,
   /* scopeId */
@@ -30645,13 +30425,13 @@ module.exports = Component.exports
 
 
 /***/ }),
-/* 127 */
+/* 128 */
 /***/ (function(module, exports, __webpack_require__) {
 
 // style-loader: Adds some css to the DOM by adding a <style> tag
 
 // load the styles
-var content = __webpack_require__(128);
+var content = __webpack_require__(129);
 if(typeof content === 'string') content = [[module.i, content, '']];
 if(content.locals) module.exports = content.locals;
 // add the styles to the DOM
@@ -30671,7 +30451,7 @@ if(false) {
 }
 
 /***/ }),
-/* 128 */
+/* 129 */
 /***/ (function(module, exports, __webpack_require__) {
 
 exports = module.exports = __webpack_require__(1)(false);
@@ -30685,7 +30465,7 @@ exports.push([module.i, "\n.wrapper[data-v-4a1f5036] {\n    justify-content: cen
 
 
 /***/ }),
-/* 129 */
+/* 130 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -30727,7 +30507,7 @@ exports.default = {
     created: function created() {
         _axios2.default.defaults.xsrfHeaderName = "X-CSRFTOKEN";
         _axios2.default.defaults.xsrfCookieName = "csrftoken";
-        _axios2.default.defaults.baseURL = 'http://52.202.70.246/v1/';
+        _axios2.default.defaults.baseURL = 'http://localhost:8000/v1/';
         global.axios = _axios2.default;
         global.Vue = _vue2.default;
     },
@@ -30756,7 +30536,7 @@ exports.default = {
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(4)))
 
 /***/ }),
-/* 130 */
+/* 131 */
 /***/ (function(module, exports, __webpack_require__) {
 
 module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;

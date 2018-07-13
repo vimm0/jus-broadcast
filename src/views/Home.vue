@@ -1,36 +1,34 @@
 <template>
     <div class="home">
-        <header>
+        <template v-if="checkUserLogin()">
+            <header>
                 <layout></layout>
             </header>
             <scroller>
-                <video-list></video-list>
-            </scroller>
-        <!--<template v-if="checkUserLogin()">-->
-            <!--<header>-->
-                <!--<layout></layout>-->
-            <!--</header>-->
-            <!--<scroller>-->
                 <!--<video-list></video-list>-->
-            <!--</scroller>-->
-        <!--</template>-->
-        <!--<template v-else>-->
-            <!--<sign-in></sign-in>-->
-        <!--</template>-->
+            </scroller>
+        </template>
+        <template v-else>
+            <p>UnAuthenticated</p>
+            <sign-in></sign-in>
+        </template>
     </div>
 </template>
 
 <script>
     import Layout from "../components/app/Layout.vue"
     import List from '../components/app/video/VideoList.vue'
-//    import SignUp from '../components/app/user/SignUp'
+    //    import SignUp from '../components/app/user/SignUp'
     import SignIn from '../components/app/user/SignIn'
-//    import Slider from '../components/UIComponent/Slider'
+    //    import Slider from '../components/UIComponent/Slider'
     import Helper from '../mixins/Helper'
-//    import WatchList from '@/components/app/video/feature/WatchList'
+    //    import WatchList from '@/components/app/video/feature/WatchList'
 
     export default {
         name: 'home',
+        data() {
+            return {}
+        },
         components: {
             'layout': Layout,
             'video-list': List,

@@ -33,7 +33,7 @@
         created() {
             axios.defaults.xsrfHeaderName = "X-CSRFTOKEN";
             axios.defaults.xsrfCookieName = "csrftoken";
-            axios.defaults.baseURL = 'http://52.202.70.246/v1/'
+            axios.defaults.baseURL = 'http://localhost:8000/v1/'
             global.axios = axios;
             global.Vue = Vue;
         },

@@ -34,10 +34,10 @@
                             <!--@wxcCellClicked="invoiceCellClicked"-->
                             <!--:has-top-border="true">-->
                   <!--</wxc-cell>-->
-                  <!--<wxc-cell title="SIGN OUT"-->
-                            <!--@wxcCellClicked="signOutCellClicked"-->
-                            <!--:has-top-border="true">-->
-                  <!--</wxc-cell>-->
+                  <wxc-cell title="SIGN OUT"
+                            @wxcCellClicked="signOutCellClicked"
+                            :has-top-border="true">
+                  </wxc-cell>
               </div>
   </div>
     </wxc-popup>
