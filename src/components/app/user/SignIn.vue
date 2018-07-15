@@ -10,13 +10,13 @@
                 <input type="password" placeholder="Password" class="input" v-model="fields.password"
                        return-key-type="done" @return="onreturn"/>
                 <!--<div class="form-button has-text-centered" slot="submit control">-->
-                    <!--<button ref='signin' @click="wxcButtonClicked">Sign In</button>-->
-                    <!--&lt;!&ndash;<wxc-button :text="text"&ndash;&gt;-->
-                    <!--&lt;!&ndash;:type="type"&ndash;&gt;-->
-                    <!--&lt;!&ndash;:disabled="disabled"&ndash;&gt;-->
-                    <!--&lt;!&ndash;:btn-style="btnStyle"&ndash;&gt;-->
-                    <!--&lt;!&ndash;:text-style="textStyle"&ndash;&gt;-->
-                    <!--&lt;!&ndash;@wxcButtonClicked="wxcButtonClicked"></wxc-button>&ndash;&gt;-->
+                <!--<button ref='signin' @click="wxcButtonClicked">Sign In</button>-->
+                <!--&lt;!&ndash;<wxc-button :text="text"&ndash;&gt;-->
+                <!--&lt;!&ndash;:type="type"&ndash;&gt;-->
+                <!--&lt;!&ndash;:disabled="disabled"&ndash;&gt;-->
+                <!--&lt;!&ndash;:btn-style="btnStyle"&ndash;&gt;-->
+                <!--&lt;!&ndash;:text-style="textStyle"&ndash;&gt;-->
+                <!--&lt;!&ndash;@wxcButtonClicked="wxcButtonClicked"></wxc-button>&ndash;&gt;-->
                 <!--</div>-->
                 <text @click="axiosTest">axiosTest</text>
                 <!--<text>{{ results }}</text>-->
@@ -24,18 +24,18 @@
             </template>
         </vue-form>
         <p>sign in form</p>
-
+        <text class="text">{{results}}</text>
     </div>
 </template>
 
 <script>
-    var stream = weex.requireModule('stream')
-    var config = require('./config.js')
+    var stream = weex.requireModule("stream");
+    var config = require("./config.js");
 
     import Form from "../../../mixins/Form.js";
     import {WxcButton} from "weex-ui";
 
-    const modal = weex.requireModule('modal')
+    const modal = weex.requireModule("modal");
 
     export default {
         name: "Signin",
@@ -43,7 +43,6 @@
             return {username: "", results: ""};
         },
         components: {WxcButton},
-
         mixins: [Form],
         endpoint: "jwt/create/",
         methods: {
@@ -51,45 +50,45 @@
                 console.log(e);
                 modal.toast({
                     message: e
-                })
+                });
             },
             axiosTest() {
-                console.log(this)
-                var self = this;
+                let self = this;
                 modal.toast({
-                    message: 'videos: comming'
-                })
-                stream.fetch({
-                    method: 'POST',
-                    url: 'http://52.202.70.246/v1/jwt/create/',
-                    type: 'json',
-                    body: config.toParams({
-                        email: 'admin@admin.com',
-                        password: 'admin'
-                    }),
-                    headers: {'Content-Type': 'application/x-www-form-urlencoded'},
-                }, function (ret) {
-                    if (!ret.ok) {
-                        console.log("request failed")
-                        modal.toast({
-                            message: ret
-                        })
-                    } else {
-                        console.log(ret.data.user.full_name)
-                        console.log(ret.data)
-                        self.results = ret.data
-                        modal.toast({
-                            message: 'username: ' + ret.data.user.full_name
-                        })
+                    message: "videos: comming"
+                });
+                stream.fetch(
+                    {
+                        method: "POST",
+                        url: "http://52.202.70.246/v1/jwt/create/",
+                        type: "json",
+                        body: config.toParams({
+                            email: "admin@admin.com",
+                            password: "admin"
+                        }),
+                        headers: {"Content-Type": "application/x-www-form-urlencoded"}
+                    },
+                    function (ret) {
+                        if (!ret.ok) {
+                            console.log("request failed");
+                            modal.toast({
+                                message: ret
+                            });
+                        } else {
+                            self.results = ret.data;
+                            modal.toast({
+                                message: "username: " + ret.data.user.full_name
+                            });
+                        }
+                    },
+                    function (response) {
+                        console.log("response", response);
                     }
-                }, function (response) {
-                    console.log(response)
-                });
-                console.log(this.$data.results)
-                this.$store.dispatch("login", {
-                    userData: this.results
-                });
-                this.$router.push({name: "Home"});
+                )
+                // this.$store.dispatch("login", {
+                //     userData: this.results
+                // })
+                // this.$router.push({name: "Home"})
             },
 
             //            signUpFirst(e) {
@@ -110,29 +109,46 @@
             //                console.log('signed in')
             //            },
             successCallback(data) {
-//                modal.toast({
-//                    message: 'sign in callback'
-//                })
-//                console.log(store);
-//
-//                this.$store.dispatch("login", {
-//                    userData: ret.data
-//                });
-//                modal.toast({
-//                    message: 'user: ' + data
-//                })
-//                this.$router.push({name: "Home"});
-////                this.test = data
-//                modal.toast({
-//                    message: 'user: ' + data
-//                })
+                //                modal.toast({
+                //                    message: 'sign in callback'
+                //                })
+                //                console.log(store);
+                //
+                //                this.$store.dispatch("login", {
+                //                    userData: ret.data
+                //                });
+                //                modal.toast({
+                //                    message: 'user: ' + data
+                //                })
+                //                this.$router.push({name: "Home"});
+                ////                this.test = data
+                //                modal.toast({
+                //                    message: 'user: ' + data
+                //                })
             }
         },
         mounted() {
             this.$refs.email.focus();
+            // if (this.results) {
+
+            // }
+        },
+        updated() {
+            if (this.results) {
+                this.$store.dispatch("login", {
+                    userData: this.results
+                });
+            }
+            console.log(this.results);
+        },
+        ready() {
+            this.results = 'ready'
         }
-    }
-    ;
+        // destroyed() {
+
+        //     this.$router.push('/');
+        // }
+    };
 </script>
 <style>
     .weex-input {

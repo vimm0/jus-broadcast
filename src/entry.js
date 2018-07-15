@@ -13,50 +13,62 @@ const App = require('@/App.vue');
 import Vuex from 'vuex'
 import axios from 'axios'
 import VueJWT from 'vuejs-jwt'
+// import alias from 'weex-component-alias'
 
+// Vue.use(alias)
+// if (WXEnvironment.platform !== 'Web') {
 Vue.use(Vuex)
+// }
 Vue.use(VueJWT)
 const storage = weex.requireModule('storage')
+const stream = weex.requireModule('stream')
 
 const store = new Vuex.Store({
     state: {
-        count: 0,
-        user: storage.getItem('user',function ( e ) {console.log(e)}),
-        userInfo: storage.getItem('userInfo',function ( e ) {console.log(e)})
+        user: null,
+        userInfo: null
     },
     mutations: {
-        increment(state) {
-            state.count++
-        },
         update_object(state, [objectName, data]) {
             Vue.set(state, objectName, data)
         },
         logout(state) {
-            // state.user = null
+            state.user = null
             // delete axios.defaults.headers.common['Authorization']
         },
     },
     actions: {
         login({commit, state, getters}, payload) {
-            // let userData = global.Vue.$jwt.decode(payload.userData.token)
-            // commit('update_object', ['userInfo', userData])
-            // commit('update_object', ['user', payload['userData']])
-            // storage.setItem('userInfo', event => {
-            //     store.state.user = JSON.stringify(userData)
-            //     console.log(JSON.stringify(userData))
-            // })
-            // storage.setItem('user', event => {
-            //     store.state.user = payload['userData']
-            //     console.log(payload['userData'])
-            // })
+            let userData = global.Vue.$jwt.decode(payload.userData.token)
+            commit('update_object', ['userInfo', userData])
+            commit('update_object', ['user', payload['userData']])
+            storage.setItem('userInfo', JSON.stringify(userData))
+            storage.setItem('user', JSON.stringify(payload['userData']))
+            // console.log(storage.getItem('user', event => {
+            //     console.log('get value:', event.data)
+            // }))
             // axios.defaults.headers.common['Authorization'] = `JWT ${state.user.token}`
         },
         logout({commit}) {
             // delete axios.defaults.headers.common['Authorization']
-            storage.removeItem('user', function ( e ) {console.log(e)})
-            // commit('logout')
+            storage.removeItem('user', function (e) {
+                console.log(e)
+            })
+            commit('logout')
             router.go()
             router.push('/')
+        },
+        getAll() {
+            storage.getAllKeys(event => {
+                // modal.toast({message: event.result})
+                console.log(event)
+                if (event.result === 'success') {
+                    console.log(event.result)
+                    // modal.toast({
+                    //     message: 'props: ' + event.data.join(', ')
+                    // })
+                }
+            })
         }
     },
     getters: {
@@ -86,6 +98,6 @@ const store = new Vuex.Store({
 })
 export default store
 /* eslint-disable no-new */
-new Vue(Vue.util.extend({el: '#root', store, router}, App));
+new Vue(Vue.util.extend({el: '#root', router, store}, App));
 router.push('/');
 

@@ -1,12 +1,20 @@
 <template>
     <div class="external-video-detail">
-        <!--<text class="text">flaskdj</text>-->
+        <text class="text">{{videoId}}</text>
         <div class="external-video-detail__video-container">
-            <video class="video" :src="videoId" autoplay controls
-                   @start="onstart" @pause="onpause" @finish="onfinish" @fail="onfail"></video>
-            <text class="info">state: {{state}}</text>
+            <!--<object data="http://iamawesome.com" type="text/html" width="200" height="200">-->
+            <!--<a href="http://iamawesome.com">access the page directly</a>-->
+            <!--</object>-->
+            <!--<video class="video" :src="videoId" autoplay controls-->
+            <!--@start="onstart" @pause="onpause" @finish="onfinish" @fail="onfail"></video>-->
+            <!--<text class="info">state: {{state}}</text>-->
             <!--<iframe :src="['http://www.youtube.com/embed/' + videoId]" frameborder="0" allowfullscreen-->
-            <!--v-if="obj.is_completed"></iframe>-->
+            <!--v-if="obj.is_completed" width="100%" height="100%"></iframe>-->
+            <!--<video class="video" onpause="onpause" onstart="onstart" onfinish="onfinish" onfail="onfail"-->
+            <!--src="http://cloud.video.taobao.com/play/u/522794875/p/2/e/6/t/1/d/ld/fv/2/23335165.mp4"-->
+            <!--auto-play="false"http://192.168.0.125:8081/dist/index.js?_wx_tpl=http://192.168.0.125:8081/dist/index.js play-status="{{playStatus}}">-->
+            <!--</video>-->
+
         </div>
         <div class="content video-meta">
             <p class="title">{{ obj.name }}</p>
@@ -23,13 +31,16 @@
                 <!--</a>-->
             </p>
         </div>
+        <!--<web src="https://vuejs.org"></web>-->
+        <!--<i-frame :videoId="videoId" :obj="obj"></i-frame>-->
     </div>
 </template>
 
 <script>
 
     import Helper from '../../../../mixins/Helper.js'
-    //
+    import IFrame from './iframe'
+
     var stream = weex.requireModule('stream')
 
     export default {
@@ -45,6 +56,9 @@
             }
         },
         mixins: [Helper],
+        components: {
+            'i-frame': IFrame
+        },
         created() {
             if (this.$route.params.slugId) {
                 this.getVideo('external/video/' + this.$route.params.slugId, res => {
@@ -60,7 +74,10 @@
                 return stream.fetch({
                     method: 'GET',
                     type: 'json',
-                    url: 'http://52.202.70.246/v1/' + url
+                    url: 'http://52.202.70.246/v1/' + url,
+                    // headers: {
+                    //     'Authorization': `JWT ${self.$store.getters.token}`
+                    // }
                 }, callback)
             },
             onstart(event) {

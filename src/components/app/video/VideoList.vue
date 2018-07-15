@@ -1,7 +1,16 @@
 <template>
     <div class="wrapper">
         <list>
-            <!--<text class="title">{{ videoObjects.name }}</text>-->
+            <refresh class="refresh" @refresh="onrefresh" :display="refreshing ? 'show' : 'hide'">
+                <text class="indicator">Refreshing ...</text>
+                <!--<loading-indicator></loading-indicator>-->
+                <!--TODO: later for loading  -->
+                <loading class="loading" :display="loadinging ? 'show' : 'hide'">
+                    <text class="indicator">Loading ...</text>
+                </loading>
+            </refresh>                <!--<text class="title">{{ videoObjects.name }}</text>-->
+            <!--<loading-indicator style="width:60;height:60"></loading-indicator>-->
+
             <!--<video-list :endPoint="this.$options.endpoint">-->
             <!--<template slot="results" slot-scope="res">-->
             <!--<cell v-for="video in videoObjects" :key="video.id">-->
@@ -32,20 +41,25 @@
             <!--</cell>-->
             <!--</template>-->
             <!--</video-list>-->
+            <!--</refresh>-->
         </list>
     </div>
 </template>
 
 <script>
     import Helper from '../../../mixins/Helper'
-//    import External from './detail/ExternalVideoDetail'
-//    import router from '../../../router'
+    //    import External from './detail/ExternalVideoDetail'
+    //    import router from '../../../router'
+    const modal = weex.requireModule('modal')
 
     var stream = weex.requireModule('stream')
     export default {
         data() {
             return {
-                videoObjects: ''
+                videoObjects: '',
+                refreshing: false,
+                showLoading: 'hide',
+                loadinging: false
             }
         },
         components: {
@@ -53,12 +67,49 @@
         },
         methods: {
             getVideos(url, callback) {
+                var self = this;
                 return stream.fetch({
                     method: 'GET',
                     type: 'json',
-                    url: 'http://52.202.70.246/v1/' + url
+                    url: 'http://52.202.70.246/v1/' + url,
+                    // headers: {
+                        // if (self.$store.getters.token) {
+                        // 'Authorization': `JWT ${self.$store.getters.token}`
+                        // }
+                    // }
                 }, callback)
             },
+            onrefresh(event) {
+                console.log('is refreshing')
+                this.loadinging = true
+
+                this.showLoading = 'show'
+                this.refreshing = true
+                console.log(this.showLoading)
+                if (this.refreshing === true) {
+                    this.getVideos('video/?page_size=0', res => {
+                        this.videoObjects = res.ok ? res.data : '(network error)'
+                    })
+                    this.refreshing = false
+                    this.showLoading = 'hide'
+                    console.log(this.showLoading)
+                }
+                setTimeout(() => {
+                    this.loadinging = false
+                }, 2000)
+
+            },
+//            onloading(event) {
+//                modal.toast({message: 'loading', duration: 1})
+//                this.showLoading = 'show'
+//                setTimeout(() => {
+//                    const length = this.lists.length
+//                    this.getVideos('video/?page_size=0', res => {
+//                        this.videoObjects = res.ok ? res.data : '(network error)'
+//                    })
+//                    this.showLoading = 'hide'
+//                }, 1500)
+//            },
             routeTo(slug) {
 //                if (obj.is_local){
 //                    this.$router.push({ name: 'Local Video Detail', params: { slugId: obj.slug } })
@@ -67,9 +118,13 @@
                 this.$router.push({name: 'External Video Detail', params: {slugId: slug}})
 //                }
             }
-        },
+        }
+        ,
         mixins: [Helper],
         created() {
+            if (this.refreshing === true) {
+                this.refreshing = false
+            }
             this.getVideos('video/?page_size=0', res => {
                 this.videoObjects = res.ok ? res.data : '(network error)'
             })
@@ -128,4 +183,31 @@
     .text {
         font-size: 30px;
     }
+
+    /*REFRESH*/
+    .indicator {
+        color: #888888;
+        font-size: 42px;
+        text-align: center;
+    }
+
+    .panel {
+        width: 600px;
+        height: 250px;
+        margin-left: 75px;
+        margin-top: 35px;
+        margin-bottom: 35px;
+        flex-direction: column;
+        justify-content: center;
+        border-width: 2px;
+        border-style: solid;
+        border-color: #DDDDDD;
+        background-color: #F5F5F5;
+    }
+
+    /*.text {*/
+    /*font-size: 50px;*/
+    /*text-align: center;*/
+    /*color: #41B883;*/
+    /*}*/
 </style>

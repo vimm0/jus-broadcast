@@ -19,10 +19,11 @@ export default {
   methods: {
     checkUserLogin() {
       if (this.$store.state.user !== null) {
-        // console.log('Authorized')
+        console.log(this.$store.state.user)
+        console.log('Authorized')
         return true
       } else {
-        // console.log('Un-Authorized')
+        console.log('Un-Authorized')
         return false
       }
     },
