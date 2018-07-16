@@ -1,21 +1,8 @@
 <template>
-    <div class="external-video-detail">
+    <div class="wrapper">
         <text class="text">{{videoId}}</text>
-        <div class="external-video-detail__video-container">
-            <!--<object data="http://iamawesome.com" type="text/html" width="200" height="200">-->
-            <!--<a href="http://iamawesome.com">access the page directly</a>-->
-            <!--</object>-->
-            <!--<video class="video" :src="videoId" autoplay controls-->
-            <!--@start="onstart" @pause="onpause" @finish="onfinish" @fail="onfail"></video>-->
-            <!--<text class="info">state: {{state}}</text>-->
-            <!--<iframe :src="['http://www.youtube.com/embed/' + videoId]" frameborder="0" allowfullscreen-->
-            <!--v-if="obj.is_completed" width="100%" height="100%"></iframe>-->
-            <!--<video class="video" onpause="onpause" onstart="onstart" onfinish="onfinish" onfail="onfail"-->
-            <!--src="http://cloud.video.taobao.com/play/u/522794875/p/2/e/6/t/1/d/ld/fv/2/23335165.mp4"-->
-            <!--auto-play="false"http://192.168.0.125:8081/dist/index.js?_wx_tpl=http://192.168.0.125:8081/dist/index.js play-status="{{playStatus}}">-->
-            <!--</video>-->
-
-        </div>
+        <!--https://blog.csdn.net/u013836363/article/details/55210452-->
+        <web ref="webview" :src="videoId" class="wrapper-webview"></web>
         <div class="content video-meta">
             <p class="title">{{ obj.name }}</p>
             <p class="p__release-date">
@@ -31,17 +18,13 @@
                 <!--</a>-->
             </p>
         </div>
-        <!--<web src="https://vuejs.org"></web>-->
-        <!--<i-frame :videoId="videoId" :obj="obj"></i-frame>-->
     </div>
 </template>
-
 <script>
 
+    const webview = weex.requireModule('webview')
+    const stream = weex.requireModule('stream')
     import Helper from '../../../../mixins/Helper.js'
-    import IFrame from './iframe'
-
-    var stream = weex.requireModule('stream')
 
     export default {
         name: 'ExternalVideoDetail',
@@ -51,14 +34,10 @@
                 showMore: false,
                 moreOrLess: '',
                 videoId: '',
-                state: '----',
-                src: 'http://flv2.bn.netease.com/videolib3/1611/01/XGqSL5981/SD/XGqSL5981-mobile.mp4'
+//                url: 'https://www.youtube.com/embed/YqeW9_5kURI'
             }
         },
         mixins: [Helper],
-        components: {
-            'i-frame': IFrame
-        },
         created() {
             if (this.$route.params.slugId) {
                 this.getVideo('external/video/' + this.$route.params.slugId, res => {
@@ -80,100 +59,21 @@
                     // }
                 }, callback)
             },
-            onstart(event) {
-                this.state = 'onstart'
-            },
-            onpause(event) {
-                this.state = 'onpause'
-            },
-            onfinish(event) {
-                this.state = 'onfinish'
-            },
-            onfail(event) {
-                this.state = 'onfinish'
-            }
-
         }
     }
 </script>
-<style>
-    div.video-meta {
-        margin: 1rem auto auto 0.5rem;
+<style scoped>
+    .wrapper {
+        width: auto;
+        height: auto;
+        background: #EBEBEB;
+        color: #4d4d4d;
     }
 
-    p.p__release-date {
-        color: #999;
-    }
-
-    p.title {
-        font-size: 0.4rem;
-    }
-
-    p.p__views {
-        font-size: 0.3rem;
-    }
-
-    p.p__description {
-        overflow: hidden;
-        white-space: pre-wrap;
-        font-size: .2rem !important;
-        /* margin-left: -1rem; */
-    }
-
-    /*Youtube-iframe responsive container*/
-    .external-video-detail__video-container {
-        position: relative;
-        padding-bottom: 56.25%;
-        padding-top: 30px;
-        height: 0;
-        overflow: hidden;
-    }
-
-    .external-video-detail__video-container iframe,
-    .external-video-detail__video-container object,
-    .external-video-detail__video-container embed {
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-    }
-
-    .video {
-        width: 630px;
-        height: 350px;
-        margin-top: 60px;
-        margin-left: 60px;
-    }
-
-    .info {
-        margin-top: 40px;
-        font-size: 40px;
-        text-align: center;
+    .wrapper-webview {
+        /*width: 1500vw;*/
+        height: 500vh;
+        transform-origin: 0 0;
+        transform: scale(1);
     }
 </style>
-
-<!--<script>-->
-<!--export default {-->
-<!--data() {-->
-<!--return {-->
-<!--state: '&#45;&#45;&#45;&#45;',-->
-<!--src: 'http://flv2.bn.netease.com/videolib3/1611/01/XGqSL5981/SD/XGqSL5981-mobile.mp4'-->
-<!--}-->
-<!--},-->
-<!--methods: {-->
-<!--onstart(event) {-->
-<!--this.state = 'onstart'-->
-<!--},-->
-<!--onpause(event) {-->
-<!--this.state = 'onpause'-->
-<!--},-->
-<!--onfinish(event) {-->
-<!--this.state = 'onfinish'-->
-<!--},-->
-<!--onfail(event) {-->
-<!--this.state = 'onfinish'-->
-<!--}-->
-<!--}-->
-<!--}-->
-<!--</script>-->

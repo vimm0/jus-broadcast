@@ -5,9 +5,9 @@
                 <text class="indicator">Refreshing ...</text>
                 <!--<loading-indicator></loading-indicator>-->
                 <!--TODO: later for loading  -->
-                <loading class="loading" :display="loadinging ? 'show' : 'hide'">
-                    <text class="indicator">Loading ...</text>
-                </loading>
+                <!--<loading class="loading" :display="loadinging ? 'show' : 'hide'">-->
+                    <!--<text class="indicator">Loading ...</text>-->
+                <!--</loading>-->
             </refresh>                <!--<text class="title">{{ videoObjects.name }}</text>-->
             <!--<loading-indicator style="width:60;height:60"></loading-indicator>-->
 
@@ -16,7 +16,7 @@
             <!--<cell v-for="video in videoObjects" :key="video.id">-->
             <cell class="column" v-for="obj in videoObjects" :key="obj.slug" v-if="obj.is_completed">
                 <!--<template v-if="obj.is_local">-->
-                <div class="text-cell" @click="routeTo(obj.slug)">
+                <div class="text-cell" @click="routeTo(obj)">
                     <!--<external @click="routeTo(obj.slug)">-->
                     <image :src="obj.pic" class="video-image"/>
                     <div class="meta">
@@ -73,9 +73,9 @@
                     type: 'json',
                     url: 'http://52.202.70.246/v1/' + url,
                     // headers: {
-                        // if (self.$store.getters.token) {
-                        // 'Authorization': `JWT ${self.$store.getters.token}`
-                        // }
+                    // if (self.$store.getters.token) {
+                    // 'Authorization': `JWT ${self.$store.getters.token}`
+                    // }
                     // }
                 }, callback)
             },
@@ -110,16 +110,16 @@
 //                    this.showLoading = 'hide'
 //                }, 1500)
 //            },
-            routeTo(slug) {
-//                if (obj.is_local){
-//                    this.$router.push({ name: 'Local Video Detail', params: { slugId: obj.slug } })
-//                } else {
-                console.log('clicked me')
-                this.$router.push({name: 'External Video Detail', params: {slugId: slug}})
-//                }
+            routeTo(obj) {
+                console.log(obj)
+                if (obj.is_local) {
+                    this.$router.push({name: 'Local Video Detail', params: {slugId: obj.slug}})
+                } else {
+                    console.log('clicked me')
+                    this.$router.push({name: 'External Video Detail', params: {slugId: obj.slug}})
+                }
             }
-        }
-        ,
+        },
         mixins: [Helper],
         created() {
             if (this.refreshing === true) {

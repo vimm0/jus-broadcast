@@ -1,11 +1,11 @@
 <template>
     <div class="local-video-detail">
-        <d-player ref="player" :options="playerOptions" :key="obj.id" @play="play"></d-player>
+        <video class="video" :src="src" autoplay controls></video>
         <div class="content video-meta">
             <p class="title">{{ obj.name }}</p>
             <p class="p__release-date" v-if="obj.release_date">
-                Published
-                On: {{ obj.release_date }}</p>
+            Published
+            On: {{ obj.release_date }}</p>
             <p class="p__views">9,000,000 views</p>
             <!--<p class="p__description is-size-7-touch is-size-7-mobile" v-if="obj.description">{{-->
             <!--getDescription(obj.description) }}-->
@@ -20,7 +20,8 @@
 
 <script>
     import Helper from '../../../../mixins/Helper.js'
-    import VueDPlayer from 'vue-dplayer'
+    //    import VueDPlayer from 'vue-dplayer'
+    const stream = weex.requireModule('stream')
 
     export default {
         name: 'LocalVideoDetail',
@@ -32,51 +33,58 @@
                 moreOrLess: '',
                 playerOptions: {
                     video: {}
-                }
+                },
+                state: '----',
+                src: ''
             }
         },
         mixins: [Helper],
         components: {
-            'd-player': VueDPlayer,
+//            'd-player': VueDPlayer,
         },
         computed: {
             player() {
-                return this.$refs.player.dp
+//                return this.$refs.player.dp
             }
         },
-        mounted() {
+        created() {
+            if (this.$route.params.slugId) {
+                this.getVideo('local/video/' + this.$route.params.slugId, res => {
+                    console.log(res.data)
+                    this.src = res.ok ? res.data.quality[0].url : '(network error)'
+                    console.log(res)
+                })
+            }
             this.getVideo()
         },
         methods: {
-            getVideo() {
-                if (this.$route.params.slugId) {
-                    global.axios.get('local/video/' + this.$route.params.slugId).then(({data}) => {
-                        // console.log(data)
-                        global.Vue.set(this.$data, 'obj', data)
-                        // console.log(this.obj)
-                        let videoObj = Object.assign({
-                                pic: JSON.parse(JSON.stringify(data.pic)),
-                                defaultQuality: JSON.parse(JSON.stringify(0))
-                            }, Object.assign({
-                                quality: data.quality
-                            })
-                        )
-                        let logo = Object.assign(JSON.parse(JSON.stringify(data.pic)))
-                        global.Vue.set(this.playerOptions, 'video', videoObj)
-//                        global.Vue.set(this.playerOptions, 'logo', logo)
-                    }).catch((error) => {
-                        // Error
-                        console.log(error.response)
-                        console.log('Error', error.message)
-
-                        return error
-                    })
-                }
+            getVideo(url, callback) {
+                return stream.fetch({
+                    method: 'GET',
+                    type: 'json',
+                    url: 'http://52.202.70.246/v1/' + url,
+                    // headers: {
+                    //     'Authorization': `JWT ${self.$store.getters.token}`
+                    // }
+                }, callback)
             }
         }
     }
 </script>
 <style>
+    .video {
+        width: 630px;
+        height: 350px;
+        margin-top: 60px;
+        margin-left: 60px;
+    }
+
+    .info {
+        margin-top: 40px;
+        font-size: 40px;
+        text-align: center;
+    }
+
     div.video-meta {
         margin: 1rem auto auto 0.5rem;
     }

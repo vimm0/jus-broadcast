@@ -5,10 +5,10 @@ const router = require('./router');
 const App = require('@/App.vue');
 // const store = require('./store');
 
-// import fontawesome from '@fortawesome/fontawesome'
-// import {
-//   faUser
-// } from '@fortawesome/fontawesome-free-solid'
+import fontawesome from '@fortawesome/fontawesome'
+import {
+  faUser
+} from '@fortawesome/fontawesome-free-solid'
 
 import Vuex from 'vuex'
 import axios from 'axios'
@@ -92,7 +92,7 @@ const store = new Vuex.Store({
             } else {
                 return null
             }
-        },
+        }
     },
     strict: false
 })

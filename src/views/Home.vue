@@ -7,7 +7,7 @@
         <!--<text class="text">{{ $store.state.user }}</text>-->
         <!--<text class="text" @click="$store.dispatch('getAll')">Get All</text>-->
         <!--<text class="text" @click="$store.getters.token">log token</text>-->
-        <scroller>
+        <!--<scroller>-->
             <!--<video class="video" -->
             <!--src="http://g.tbcdn.cn/ali-wireless-h5/res/0.0.6/toy.mp4"-->
             <!--auto-play="true"></video>-->
@@ -20,7 +20,7 @@
             <!--height="400px"></web>-->
 
             <!--<iframe class="video_iframe" data-vidtype="2" style=" z-index:1; " height="375" width="500" frameborder="0" src="https://v.qq. Com/iframe/preview.html?vid=l1311xh9q2w&width=500&height=375&auto=0" allowfullscreen=""></iframe>-->
-        </scroller>
+        <!--</scroller>-->
         <!--</template>-->
         <!--<template v-else>-->
         <!--<p>UnAuthenticated</p>-->
