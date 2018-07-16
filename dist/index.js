@@ -72,7 +72,7 @@
 "use strict";
 
 
-var bind = __webpack_require__(6);
+var bind = __webpack_require__(7);
 var isBuffer = __webpack_require__(19);
 
 /*global toString:true*/
@@ -385,6 +385,8 @@ module.exports = {
 Object.defineProperty(exports, "__esModule", {
     value: true
 });
+var modal = weex.requireModule("modal");
+
 exports.default = {
     name: "Helper",
     data: function data() {
@@ -408,12 +410,18 @@ exports.default = {
     },
     methods: {
         checkUserLogin: function checkUserLogin() {
-            // console.log('check user login')
             console.log(this.$store.state);
             if (this.$store.state.user !== null) {
+                console.log(this.$store.state.user);
+                modal.toast({
+                    message: 'Authorized'
+                });
                 console.log('Authorized');
                 return true;
             } else {
+                modal.toast({
+                    message: 'Un-Authorized'
+                });
                 console.log('Un-Authorized');
                 return false;
             }
@@ -437,12 +445,12 @@ exports.default = {
         //   this.isComponentModalActive = !this.isComponentModalActive
         // },
         chunkedVideo: function chunkedVideo(val) {
-            var chunk = __webpack_require__(13);
+            var chunk = __webpack_require__(14);
             return chunk(val, 4);
         },
         chunkedHomeVideo: function chunkedHomeVideo(videos) {
             var counter = [];
-            var chunk = __webpack_require__(13);
+            var chunk = __webpack_require__(14);
             videos.forEach(function (element) {
                 if (element.is_completed === true) {
                     counter.unshift(element);
@@ -521,10 +529,10 @@ function getDefaultAdapter() {
   var adapter;
   if (typeof XMLHttpRequest !== 'undefined') {
     // For browsers use XHR adapter
-    adapter = __webpack_require__(7);
+    adapter = __webpack_require__(8);
   } else if (typeof process !== 'undefined') {
     // For node use HTTP adapter
-    adapter = __webpack_require__(7);
+    adapter = __webpack_require__(8);
   }
   return adapter;
 }
@@ -624,6 +632,50 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 
 /***/ }),
 /* 4 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var __vue_exports__, __vue_options__
+var __vue_styles__ = []
+
+/* styles */
+__vue_styles__.push(__webpack_require__(82)
+)
+
+/* script */
+__vue_exports__ = __webpack_require__(83)
+
+/* template */
+var __vue_template__ = __webpack_require__(89)
+__vue_options__ = __vue_exports__ = __vue_exports__ || {}
+if (
+  typeof __vue_exports__.default === "object" ||
+  typeof __vue_exports__.default === "function"
+) {
+if (Object.keys(__vue_exports__).some(function (key) { return key !== "default" && key !== "__esModule" })) {console.error("named exports are not supported in *.vue files.")}
+__vue_options__ = __vue_exports__ = __vue_exports__.default
+}
+if (typeof __vue_options__ === "function") {
+  __vue_options__ = __vue_options__.options
+}
+__vue_options__.__file = "/home/awecode/test/jus-broadcast/src/components/app/user/SignIn.vue"
+__vue_options__.render = __vue_template__.render
+__vue_options__.staticRenderFns = __vue_template__.staticRenderFns
+__vue_options__._scopeId = "data-v-8135d450"
+__vue_options__.style = __vue_options__.style || {}
+__vue_styles__.forEach(function (module) {
+  for (var name in module) {
+    __vue_options__.style[name] = module[name]
+  }
+})
+if (typeof __register_static_styles__ === "function") {
+  __register_static_styles__(__vue_options__._scopeId, __vue_styles__)
+}
+
+module.exports = __vue_exports__
+
+
+/***/ }),
+/* 5 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -1569,13 +1621,13 @@ var index_esm = {
 
 
 /***/ }),
-/* 5 */
+/* 6 */
 /***/ (function(module, exports, __webpack_require__) {
 
 module.exports = __webpack_require__(18);
 
 /***/ }),
-/* 6 */
+/* 7 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -1593,7 +1645,7 @@ module.exports = function bind(fn, thisArg) {
 
 
 /***/ }),
-/* 7 */
+/* 8 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -1604,7 +1656,7 @@ var settle = __webpack_require__(22);
 var buildURL = __webpack_require__(24);
 var parseHeaders = __webpack_require__(25);
 var isURLSameOrigin = __webpack_require__(26);
-var createError = __webpack_require__(8);
+var createError = __webpack_require__(9);
 var btoa = (typeof window !== 'undefined' && window.btoa && window.btoa.bind(window)) || __webpack_require__(27);
 
 module.exports = function xhrAdapter(config) {
@@ -1780,7 +1832,7 @@ module.exports = function xhrAdapter(config) {
 
 
 /***/ }),
-/* 8 */
+/* 9 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -1805,7 +1857,7 @@ module.exports = function createError(message, config, code, request, response) 
 
 
 /***/ }),
-/* 9 */
+/* 10 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -1817,7 +1869,7 @@ module.exports = function isCancel(value) {
 
 
 /***/ }),
-/* 10 */
+/* 11 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -1843,7 +1895,7 @@ module.exports = Cancel;
 
 
 /***/ }),
-/* 11 */
+/* 12 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var __vue_exports__, __vue_options__
@@ -1887,7 +1939,7 @@ module.exports = __vue_exports__
 
 
 /***/ }),
-/* 12 */
+/* 13 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -1909,7 +1961,7 @@ Object.defineProperty(exports, 'default', {
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 /***/ }),
-/* 13 */
+/* 14 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -1952,50 +2004,6 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 
 
 /***/ }),
-/* 14 */
-/***/ (function(module, exports, __webpack_require__) {
-
-var __vue_exports__, __vue_options__
-var __vue_styles__ = []
-
-/* styles */
-__vue_styles__.push(__webpack_require__(82)
-)
-
-/* script */
-__vue_exports__ = __webpack_require__(83)
-
-/* template */
-var __vue_template__ = __webpack_require__(89)
-__vue_options__ = __vue_exports__ = __vue_exports__ || {}
-if (
-  typeof __vue_exports__.default === "object" ||
-  typeof __vue_exports__.default === "function"
-) {
-if (Object.keys(__vue_exports__).some(function (key) { return key !== "default" && key !== "__esModule" })) {console.error("named exports are not supported in *.vue files.")}
-__vue_options__ = __vue_exports__ = __vue_exports__.default
-}
-if (typeof __vue_options__ === "function") {
-  __vue_options__ = __vue_options__.options
-}
-__vue_options__.__file = "/home/awecode/test/jus-broadcast/src/components/app/user/SignIn.vue"
-__vue_options__.render = __vue_template__.render
-__vue_options__.staticRenderFns = __vue_template__.staticRenderFns
-__vue_options__._scopeId = "data-v-8135d450"
-__vue_options__.style = __vue_options__.style || {}
-__vue_styles__.forEach(function (module) {
-  for (var name in module) {
-    __vue_options__.style[name] = module[name]
-  }
-})
-if (typeof __register_static_styles__ === "function") {
-  __register_static_styles__(__vue_options__._scopeId, __vue_styles__)
-}
-
-module.exports = __vue_exports__
-
-
-/***/ }),
 /* 15 */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -2014,11 +2022,11 @@ var _fontawesome2 = _interopRequireDefault(_fontawesome);
 
 var _fontawesomeFreeSolid = __webpack_require__(17);
 
-var _vuex = __webpack_require__(4);
+var _vuex = __webpack_require__(5);
 
 var _vuex2 = _interopRequireDefault(_vuex);
 
-var _axios = __webpack_require__(5);
+var _axios = __webpack_require__(6);
 
 var _axios2 = _interopRequireDefault(_axios);
 
@@ -2032,7 +2040,7 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 
 /* weex initialized here, please do not move this line */
 var router = __webpack_require__(37);
-var App = __webpack_require__(106);
+var App = __webpack_require__(109);
 // const store = require('./store');
 
 // import alias from 'weex-component-alias'
@@ -2072,8 +2080,18 @@ var store = new _vuex2.default.Store({
             var userData = global.Vue.$jwt.decode(payload.userData.token);
             commit('update_object', ['userInfo', userData]);
             commit('update_object', ['user', payload['userData']]);
-            storage.setItem('userInfo', JSON.stringify(userData));
-            storage.setItem('user', JSON.stringify(payload['userData']));
+            // storage.setItem('userInfo', userData)
+            storage.setItem('userInfo', JSON.stringify(userData), function (event) {
+                // this.state = 'set success'
+                console.log('set success');
+            });
+            storage.setItem('user', JSON.stringify(payload['userData']), function (event) {
+                // this.state = 'set success'
+                console.log('set success');
+            });
+            // storage.setItem('user', payload['userData'])
+            // router.go()
+            // router.push('/')
             // axios.defaults.headers.common['Authorization'] = `JWT ${state.user.token}`
         },
         logout: function logout(_ref4) {
@@ -2103,7 +2121,6 @@ var store = new _vuex2.default.Store({
     getters: {
         token: function token(state) {
             if (state.user) {
-                console.log(state.user.token);
                 return state.user.token;
             } else {
                 return null;
@@ -2133,15 +2150,25 @@ console.log(store.state.userInfo);
 if (store.state.user === null && store.state.userInfo === null) {
     storage.getItem('user', function (event) {
         if (event.result === "success" && event.data) {
+            // store.state.user = JSON.parse(event.data);
             store.state.user = event.data;
         }
     });
     storage.getItem('userInfo', function (event) {
         if (event.result === "success" && event.data) {
-            store.state.userInfo = event.data;
+            // store.state.userInfo = JSON.parse(event.data);
+            // store.state.userInfo = event.data
         }
     });
 }
+// router.beforeEach((to, from, next) => {
+//     // let token = this.$store.getters.token
+//     // console.log(token)
+//     // console.log(this)
+//     console.log(to)
+//     console.log(from)
+//     console.log(next)
+// })
 /* eslint-disable no-new */
 new Vue(Vue.util.extend({ el: '#root', router: router, store: store }, App));
 router.push('/');
@@ -5988,7 +6015,7 @@ bunker(function () {
 
 
 var utils = __webpack_require__(0);
-var bind = __webpack_require__(6);
+var bind = __webpack_require__(7);
 var Axios = __webpack_require__(20);
 var defaults = __webpack_require__(2);
 
@@ -6023,9 +6050,9 @@ axios.create = function create(instanceConfig) {
 };
 
 // Expose Cancel & CancelToken
-axios.Cancel = __webpack_require__(10);
+axios.Cancel = __webpack_require__(11);
 axios.CancelToken = __webpack_require__(34);
-axios.isCancel = __webpack_require__(9);
+axios.isCancel = __webpack_require__(10);
 
 // Expose all/spread
 axios.all = function all(promises) {
@@ -6178,7 +6205,7 @@ module.exports = function normalizeHeaderName(headers, normalizedName) {
 "use strict";
 
 
-var createError = __webpack_require__(8);
+var createError = __webpack_require__(9);
 
 /**
  * Resolve or reject a Promise based on response status.
@@ -6611,7 +6638,7 @@ module.exports = InterceptorManager;
 
 var utils = __webpack_require__(0);
 var transformData = __webpack_require__(31);
-var isCancel = __webpack_require__(9);
+var isCancel = __webpack_require__(10);
 var defaults = __webpack_require__(2);
 var isAbsoluteURL = __webpack_require__(32);
 var combineURLs = __webpack_require__(33);
@@ -6771,7 +6798,7 @@ module.exports = function combineURLs(baseURL, relativeURL) {
 "use strict";
 
 
-var Cancel = __webpack_require__(10);
+var Cancel = __webpack_require__(11);
 
 /**
  * A `CancelToken` is an object that can be used to request cancellation of an operation.
@@ -6901,26 +6928,42 @@ var _WatchList = __webpack_require__(99);
 
 var _WatchList2 = _interopRequireDefault(_WatchList);
 
+var _SignIn = __webpack_require__(4);
+
+var _SignIn2 = _interopRequireDefault(_SignIn);
+
 var _Profile = __webpack_require__(103);
 
 var _Profile2 = _interopRequireDefault(_Profile);
 
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+var _Error = __webpack_require__(106);
 
-// import Card from '@/components/app/payment/Card.vue'
-// import Invoice from '@/components/app/payment/Invoice.vue'
-// import Subscription from '@/components/app/payment/Subscription.vue'
-// import Error from '@/components/UIComponent/Error.vue'
+var _Error2 = _interopRequireDefault(_Error);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 // import VideoList from '@/components/app/video/VideoList.vue'
 /*global Vue*/
 Vue.use(_vueRouter2.default);
+
+// function checkAuth() {
+// if (this.$store.getters.token) {
+//     console.log('authenticated from route')
+//     return true
+// }
+// }
+
+// import Card from '@/components/app/payment/Card.vue'
+// import Invoice from '@/components/app/payment/Invoice.vue'
+// import Subscription from '@/components/app/payment/Subscription.vue'
+
 // import SignUp from '@/components/app/user/SignUp.vue'
-// import SignIn from '@/components/app/user/SignIn.vue'
-
-
 module.exports = new _vueRouter2.default({
     // mode: 'abstract',
+    // beforeRouteUpdate(to, from, next) {
+    //     console.log(to)
+    //     console.log(from)
+    // },
     routes: [{
         path: '/',
         name: 'Home',
@@ -6931,11 +6974,12 @@ module.exports = new _vueRouter2.default({
     //     name: 'Sign Up',
     //     component: SignUp
     // },
-    // {
-    //     path: '/signin',
-    //     name: 'Sign In',
-    //     component: SignIn
-    // },
+    {
+        path: '/signin',
+        name: 'Sign In',
+        component: _SignIn2.default
+
+    },
     // {
     //     path: '/video',
     //     name: 'VideoList',
@@ -6973,6 +7017,10 @@ module.exports = new _vueRouter2.default({
         path: '/profile',
         name: 'Profile',
         component: _Profile2.default
+    }, {
+        path: '/error',
+        name: 'Error',
+        component: _Error2.default
     }]
 });
 
@@ -9668,7 +9716,7 @@ Object.defineProperty(exports, "__esModule", {
     value: true
 });
 
-var _Layout = __webpack_require__(11);
+var _Layout = __webpack_require__(12);
 
 var _Layout2 = _interopRequireDefault(_Layout);
 
@@ -9676,7 +9724,7 @@ var _VideoList = __webpack_require__(78);
 
 var _VideoList2 = _interopRequireDefault(_VideoList);
 
-var _SignIn = __webpack_require__(14);
+var _SignIn = __webpack_require__(4);
 
 var _SignIn2 = _interopRequireDefault(_SignIn);
 
@@ -9708,8 +9756,6 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 //
 //
 //
-//
-//
 
 exports.default = {
     name: "home",
@@ -9719,11 +9765,6 @@ exports.default = {
         };
     },
 
-    computed: {
-        token: function token() {
-            return this.$store.getters.token;
-        }
-    },
     components: {
         layout: _Layout2.default,
         "video-list": _VideoList2.default,
@@ -9768,7 +9809,7 @@ module.exports = {
 "use strict";
 
 
-var _wxcCell = __webpack_require__(12);
+var _wxcCell = __webpack_require__(13);
 
 var _wxcCell2 = _interopRequireDefault(_wxcCell);
 
@@ -12887,6 +12928,9 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 //
 //
 //
+//
+//
+//
 
 var stream = weex.requireModule("stream");
 var config = __webpack_require__(88);
@@ -12900,6 +12944,11 @@ exports.default = {
     },
 
     components: { WxcButton: _wxcButton2.default },
+    computed: {
+        //            token() {
+        //                return this.$store.getters.token
+        //            }
+    },
     mixins: [_Form2.default],
     endpoint: "jwt/create/",
     methods: {
@@ -12908,6 +12957,17 @@ exports.default = {
             modal.toast({
                 message: e
             });
+        },
+        clearCache: function clearCache() {
+            this.$router.go();
+            //                storage.getAllKeys(event => {
+            //                    // modal.toast({ message: event.result })
+            //                    if (event.result === 'success') {
+            //                        modal.toast({
+            //                            message: 'props: ' + event.data.join(', ')
+            //                        })
+            //                    }
+            //                })
         },
         axiosTest: function axiosTest() {
             var self = this;
@@ -12941,44 +13001,7 @@ exports.default = {
             // this.$store.dispatch("login", {
             //     userData: this.results
             // })
-            // this.$router.push({name: "Home"})
-        },
-
-
-        //            signUpFirst(e) {
-        //                this.$router.push({name: "Sign Up"});
-        //            },
-        //            onreturn() {
-        //                console.log(this.$refs);
-        //                const elem = this.$refs.signin
-        //                elem.click()
-        //                // TODO: Take to list page on return signin
-        //                // console.log(elem.click)
-        //                modal.toast({
-        //                    message: 'sign in callback'
-        //                })
-        //
-        //            },
-        //            signIn() {
-        //                console.log('signed in')
-        //            },
-        successCallback: function successCallback(data) {
-            //                modal.toast({
-            //                    message: 'sign in callback'
-            //                })
-            //                console.log(store);
-            //
-            //                this.$store.dispatch("login", {
-            //                    userData: ret.data
-            //                });
-            //                modal.toast({
-            //                    message: 'user: ' + data
-            //                })
-            //                this.$router.push({name: "Home"});
-            ////                this.test = data
-            //                modal.toast({
-            //                    message: 'user: ' + data
-            //                })
+            //                this.$router.push({name: "Home"})
         }
     },
     mounted: function mounted() {
@@ -12993,16 +13016,20 @@ exports.default = {
                 userData: this.results
             });
         }
-        console.log(this.results);
+        //            console.log(this.results);
     },
     ready: function ready() {
-        this.results = 'ready';
+        //            this.results = 'ready'
+        if (this.results) {
+            this.$store.dispatch("login", {
+                userData: this.results
+            });
+        }
+        //            this.$router.push({name: "Home"})
+    },
+    destroyed: function destroyed() {
+        this.$router.push('/');
     }
-    // destroyed() {
-
-    //     this.$router.push('/');
-    // }
-
 };
 
 /***/ }),
@@ -13465,10 +13492,14 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
           on: {
             "click": _vm.axiosTest
           }
-        }, [_vm._v("axiosTest")])]
+        }, [_vm._v("axiosTest")]), _c('text', {
+          on: {
+            "click": _vm.clearCache
+          }
+        }, [_vm._v("clear cache")])]
       }
     }])
-  }), _c('p', [_vm._v("sign in form")]), _c('text', {
+  }), _c('p', [_vm._v("sign in form")]), _c('text', [_vm._v("state: " + _vm._s(_vm.$store.state))]), _c('text', {
     staticClass: ["text"]
   }, [_vm._v(_vm._s(_vm.results))])], 1)
 },staticRenderFns: []}
@@ -13481,7 +13512,7 @@ module.exports.render._withStripped = true
 module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
   return _c('div', {
     staticClass: ["home"]
-  }, [_c('video-list')], 1)
+  }, [(_vm.checkUserLogin()) ? [_c('text', [_vm._v("video view")])] : [_c('text', [_vm._v("UnAuthenticated")]), _c('sign-in')]], 2)
 },staticRenderFns: []}
 module.exports.render._withStripped = true
 
@@ -13560,7 +13591,7 @@ var _Helper = __webpack_require__(1);
 
 var _Helper2 = _interopRequireDefault(_Helper);
 
-var _vuex = __webpack_require__(4);
+var _vuex = __webpack_require__(5);
 
 var _vuex2 = _interopRequireDefault(_vuex);
 
@@ -13600,24 +13631,16 @@ exports.default = {
             showMore: false,
             moreOrLess: '',
             videoId: ''
-            //                url: 'https://www.youtube.com/embed/YqeW9_5kURI'
         };
     },
 
-    computed: {
-        //            ...mapGetters(["token"])
-        //            token() {
-        //            ret
-        //            }
-    },
+    computed: {},
     mixins: [_Helper2.default],
     created: function created() {
         var _this = this;
 
-        var user = JSON.parse(this.$store.state.user);
-        console.log(user.token);
         if (this.$route.params.slugId) {
-            this.getVideo('external/video/' + this.$route.params.slugId, user.token, function (res) {
+            this.getVideo('external/video/' + this.$route.params.slugId, this.$store.getters.token, function (res) {
                 console.log(res.data);
                 _this.obj = res.ok ? res.data : '(network error)';
                 _this.videoId = res.ok ? 'http://www.youtube.com/embed/' + res.data.video_id : '(network error)';
@@ -14029,7 +14052,7 @@ Object.defineProperty(exports, "__esModule", {
   value: true
 });
 
-var _wxcCell = __webpack_require__(12);
+var _wxcCell = __webpack_require__(13);
 
 var _wxcCell2 = _interopRequireDefault(_wxcCell);
 
@@ -14114,15 +14137,94 @@ module.exports.render._withStripped = true
 var __vue_exports__, __vue_options__
 var __vue_styles__ = []
 
+/* script */
+__vue_exports__ = __webpack_require__(107)
+
+/* template */
+var __vue_template__ = __webpack_require__(108)
+__vue_options__ = __vue_exports__ = __vue_exports__ || {}
+if (
+  typeof __vue_exports__.default === "object" ||
+  typeof __vue_exports__.default === "function"
+) {
+if (Object.keys(__vue_exports__).some(function (key) { return key !== "default" && key !== "__esModule" })) {console.error("named exports are not supported in *.vue files.")}
+__vue_options__ = __vue_exports__ = __vue_exports__.default
+}
+if (typeof __vue_options__ === "function") {
+  __vue_options__ = __vue_options__.options
+}
+__vue_options__.__file = "/home/awecode/test/jus-broadcast/src/components/UIComponent/Error.vue"
+__vue_options__.render = __vue_template__.render
+__vue_options__.staticRenderFns = __vue_template__.staticRenderFns
+__vue_options__.style = __vue_options__.style || {}
+__vue_styles__.forEach(function (module) {
+  for (var name in module) {
+    __vue_options__.style[name] = module[name]
+  }
+})
+if (typeof __register_static_styles__ === "function") {
+  __register_static_styles__(__vue_options__._scopeId, __vue_styles__)
+}
+
+module.exports = __vue_exports__
+
+
+/***/ }),
+/* 107 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+    value: true
+});
+//
+//
+//
+
+//    import {WxcResult} from 'weex-ui';
+
+exports.default = {
+    //        components: {WxcResult},
+    //        data: () => ({
+    //            show: true
+    //        }),
+    //        methods: {
+    //            wxcResultButtonClicked(e) {
+    //                modal.toast({
+    //                    'message': e.type,
+    //                    'duration': 1,
+    //                })
+    //            }
+    //        }
+};
+
+/***/ }),
+/* 108 */
+/***/ (function(module, exports) {
+
+module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
+  return _c('text', [_vm._v("Error in page render")])
+},staticRenderFns: []}
+module.exports.render._withStripped = true
+
+/***/ }),
+/* 109 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var __vue_exports__, __vue_options__
+var __vue_styles__ = []
+
 /* styles */
-__vue_styles__.push(__webpack_require__(107)
+__vue_styles__.push(__webpack_require__(110)
 )
 
 /* script */
-__vue_exports__ = __webpack_require__(108)
+__vue_exports__ = __webpack_require__(111)
 
 /* template */
-var __vue_template__ = __webpack_require__(110)
+var __vue_template__ = __webpack_require__(113)
 __vue_options__ = __vue_exports__ = __vue_exports__ || {}
 if (
   typeof __vue_exports__.default === "object" ||
@@ -14152,7 +14254,7 @@ module.exports = __vue_exports__
 
 
 /***/ }),
-/* 107 */
+/* 110 */
 /***/ (function(module, exports) {
 
 module.exports = {
@@ -14196,7 +14298,7 @@ module.exports = {
 }
 
 /***/ }),
-/* 108 */
+/* 111 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -14206,11 +14308,11 @@ Object.defineProperty(exports, "__esModule", {
     value: true
 });
 
-var _Layout = __webpack_require__(11);
+var _Layout = __webpack_require__(12);
 
 var _Layout2 = _interopRequireDefault(_Layout);
 
-var _axios = __webpack_require__(5);
+var _axios = __webpack_require__(6);
 
 var _axios2 = _interopRequireDefault(_axios);
 
@@ -14218,28 +14320,16 @@ var _Helper = __webpack_require__(1);
 
 var _Helper2 = _interopRequireDefault(_Helper);
 
-var _SignIn = __webpack_require__(14);
+var _SignIn = __webpack_require__(4);
 
 var _SignIn2 = _interopRequireDefault(_SignIn);
 
-var _vue = __webpack_require__(109);
+var _vue = __webpack_require__(112);
 
 var _vue2 = _interopRequireDefault(_vue);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
 //
 //
 //
@@ -14256,6 +14346,7 @@ var globalEvent = weex.requireModule('globalEvent');
 globalEvent.addEventListener('androidback', function (e) {
     // that.$router.go(-1)
     // weex.requireModule('close').closeApp()
+    console.log('android back button');
 });
 
 //    import config from "../configs/config";
@@ -14269,8 +14360,7 @@ exports.default = {
     name: "App",
     data: function data() {
         return {
-            view: "",
-            Item: ""
+            view: ""
         };
     },
 
@@ -14334,7 +14424,7 @@ exports.default = {
 };
 
 /***/ }),
-/* 109 */
+/* 112 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -22374,26 +22464,17 @@ if (inBrowser) {
 
 
 /***/ }),
-/* 110 */
+/* 113 */
 /***/ (function(module, exports) {
 
 module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
   return _c('div', {
     staticClass: ["landing"]
-  }, [(_vm.checkUserLogin()) ? [_c('header', {
-    appendAsTree: true,
-    attrs: {
-      "append": "tree"
-    }
-  }, [_c('layout')], 1), _c('div', {
+  }, [_c('div', {
     on: {
       "androidback": _vm.back
     }
-  }, [_c('router-view', {
-    staticStyle: {
-      flex: "1"
-    }
-  })], 1)] : [_c('p', [_vm._v("UnAuthenticated")]), _c('sign-in')]], 2)
+  }, [_c('router-view')], 1)])
 },staticRenderFns: []}
 module.exports.render._withStripped = true
 

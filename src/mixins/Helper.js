@@ -1,3 +1,5 @@
+const modal = weex.requireModule("modal");
+
 export default {
     name: "Helper",
     data() {
@@ -18,12 +20,18 @@ export default {
     },
     methods: {
         checkUserLogin() {
-            // console.log('check user login')
             console.log(this.$store.state)
             if (this.$store.state.user !== null) {
+                console.log(this.$store.state.user)
+                modal.toast({
+                    message: 'Authorized'
+                });
                 console.log('Authorized')
                 return true
             } else {
+                modal.toast({
+                    message: 'Un-Authorized'
+                })
                 console.log('Un-Authorized')
                 return false
             }

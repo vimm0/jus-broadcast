@@ -42,8 +42,18 @@ const store = new Vuex.Store({
             let userData = global.Vue.$jwt.decode(payload.userData.token)
             commit('update_object', ['userInfo', userData])
             commit('update_object', ['user', payload['userData']])
-            storage.setItem('userInfo', JSON.stringify(userData))
-            storage.setItem('user', JSON.stringify(payload['userData']))
+            // storage.setItem('userInfo', userData)
+            storage.setItem('userInfo', JSON.stringify(userData), event => {
+                // this.state = 'set success'
+                console.log('set success')
+            })
+            storage.setItem('user', JSON.stringify(payload['userData']), event => {
+                // this.state = 'set success'
+                console.log('set success')
+            })
+            // storage.setItem('user', payload['userData'])
+            // router.go()
+            // router.push('/')
             // axios.defaults.headers.common['Authorization'] = `JWT ${state.user.token}`
         },
         logout({commit}) {
@@ -71,7 +81,6 @@ const store = new Vuex.Store({
     getters: {
         token: state => {
             if (state.user) {
-                console.log(state.user.token)
                 return state.user.token
             } else {
                 return null
@@ -100,15 +109,25 @@ console.log(store.state.userInfo)
 if (store.state.user === null && store.state.userInfo === null) {
     storage.getItem('user', event => {
         if (event.result === "success" && event.data) {
-            store.state.user = event.data;
+            // store.state.user = JSON.parse(event.data);
+            store.state.user = event.data
         }
     })
     storage.getItem('userInfo', event => {
         if (event.result === "success" && event.data) {
-            store.state.userInfo = event.data;
+            // store.state.userInfo = JSON.parse(event.data);
+            // store.state.userInfo = event.data
         }
     })
 }
+// router.beforeEach((to, from, next) => {
+//     // let token = this.$store.getters.token
+//     // console.log(token)
+//     // console.log(this)
+//     console.log(to)
+//     console.log(from)
+//     console.log(next)
+// })
 /* eslint-disable no-new */
 new Vue(Vue.util.extend({el: '#root', router, store}, App));
 router.push('/');

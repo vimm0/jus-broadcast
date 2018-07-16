@@ -1,21 +1,19 @@
 <template>
     <div class="home">
-        <!--<template v-if="checkUserLogin()">-->
-        <!--<header>-->
-        <!--<layout></layout>-->
-        <!--</header>-->
-        <!--<text class="text">{{ $store.state.user }}</text>-->
-        <!--<text class="text" @click="$store.dispatch('getAll')">Get All</text>-->
-        <!--<text class="text" @click="$store.getters.token">log token</text>-->
-        <!--<scroller>-->
-            <video-list></video-list>
-
-        <!--</scroller>-->
-        <!--</template>-->
-        <!--<template v-else>-->
-        <!--<p>UnAuthenticated</p>-->
-        <!--<sign-in></sign-in>-->
-        <!--</template>-->
+        <template v-if="checkUserLogin()">
+            <!--<header>-->
+                <!--<layout></layout>-->
+            <!--</header>-->
+            <text>video view</text>
+            <!--<scroller>-->
+                <!--<video-list></video-list>-->
+            <!--</scroller>-->
+        </template>
+        <template v-else>
+          <text>UnAuthenticated</text>
+            <sign-in></sign-in>
+            <!--<text></text>-->
+        </template>
     </div>
 </template>
 
@@ -34,11 +32,6 @@
             return {
                 refreshing: false
             };
-        },
-        computed: {
-            token() {
-                return this.$store.getters.token;
-            }
         },
         components: {
             layout: Layout,

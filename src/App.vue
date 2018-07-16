@@ -1,20 +1,8 @@
 <template>
     <div class="landing">
-        <template v-if="checkUserLogin()">
-            <header>
-                <layout></layout>
-            </header>
-            <div @androidback="back">
-                <!--<text>{{ Item }}</text>-->
-                <!--<text @click="getItem">Get</text>-->
-                <!--<text class="button" @click="getRoute">Tap me</text>-->
-                <router-view style="flex:1"></router-view>
-            </div>
-        </template>
-        <template v-else>
-            <p>UnAuthenticated</p>
-            <sign-in></sign-in>
-        </template>
+        <div @androidback="back">
+            <router-view></router-view>
+        </div>
     </div>
 </template>
 
@@ -31,6 +19,7 @@
     globalEvent.addEventListener('androidback', function (e) {
         // that.$router.go(-1)
         // weex.requireModule('close').closeApp()
+        console.log('android back button')
     })
 
     //    import config from "../configs/config";
@@ -44,8 +33,7 @@
         name: "App",
         data() {
             return {
-                view: "",
-                Item: ""
+                view: ""
             };
         },
         components: {
@@ -61,18 +49,18 @@
             // axios.defaults.xsrfCookieName = "csrftoken";
             // axios.defaults.baseURL = "http://localhost:8000/v1/";
             // console.log(this)
-             if (this.$store.state.user) {
+            if (this.$store.state.user) {
 //                 headers
-            // //   console.log(this.$store.getters.token);
-            // //    global.axios.post'jwt/refresh/', {'token': this.$store.getters.token}).then(
-            // //         ({data}) => {
-            // //           console.log(data)
-            // //           this.$store.dispatch('login', {
-            // //             userData: data
-            // //           })
-            // //         }
-            // //       )
-             }
+                // //   console.log(this.$store.getters.token);
+                // //    global.axios.post'jwt/refresh/', {'token': this.$store.getters.token}).then(
+                // //         ({data}) => {
+                // //           console.log(data)
+                // //           this.$store.dispatch('login', {
+                // //             userData: data
+                // //           })
+                // //         }
+                // //       )
+            }
             console.log('app created hook')
             global.axios = axios;
             global.Vue = Vue;
@@ -85,7 +73,7 @@
             getItem() {
                 console.log(this.$store.state.user)
                 storage.getItem('user', event => {
-                    this.Item =  event.data
+                    this.Item = event.data
                 })
 //                this.Item = this.$store.state.user
             },

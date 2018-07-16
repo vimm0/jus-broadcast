@@ -19,11 +19,14 @@
                 <!--&lt;!&ndash;@wxcButtonClicked="wxcButtonClicked"></wxc-button>&ndash;&gt;-->
                 <!--</div>-->
                 <text @click="axiosTest">axiosTest</text>
+                <text @click="clearCache">clear cache</text>
                 <!--<text>{{ results }}</text>-->
                 <!--&lt;!&ndash;<router-link to="/signup"><text>Sign Up first</text></router-link>&ndash;&gt;-->
             </template>
         </vue-form>
         <p>sign in form</p>
+        <text>state: {{ $store.state }}</text>
+        <!--<text>token: {{ token }}</text>-->
         <text class="text">{{results}}</text>
     </div>
 </template>
@@ -43,6 +46,11 @@
             return {username: "", results: ""};
         },
         components: {WxcButton},
+        computed: {
+//            token() {
+//                return this.$store.getters.token
+//            }
+        },
         mixins: [Form],
         endpoint: "jwt/create/",
         methods: {
@@ -51,6 +59,17 @@
                 modal.toast({
                     message: e
                 });
+            },
+            clearCache() {
+                this.$router.go()
+//                storage.getAllKeys(event => {
+//                    // modal.toast({ message: event.result })
+//                    if (event.result === 'success') {
+//                        modal.toast({
+//                            message: 'props: ' + event.data.join(', ')
+//                        })
+//                    }
+//                })
             },
             axiosTest() {
                 let self = this;
@@ -88,7 +107,7 @@
                 // this.$store.dispatch("login", {
                 //     userData: this.results
                 // })
-                // this.$router.push({name: "Home"})
+//                this.$router.push({name: "Home"})
             },
 
             //            signUpFirst(e) {
@@ -108,24 +127,6 @@
             //            signIn() {
             //                console.log('signed in')
             //            },
-            successCallback(data) {
-                //                modal.toast({
-                //                    message: 'sign in callback'
-                //                })
-                //                console.log(store);
-                //
-                //                this.$store.dispatch("login", {
-                //                    userData: ret.data
-                //                });
-                //                modal.toast({
-                //                    message: 'user: ' + data
-                //                })
-                //                this.$router.push({name: "Home"});
-                ////                this.test = data
-                //                modal.toast({
-                //                    message: 'user: ' + data
-                //                })
-            }
         },
         mounted() {
             this.$refs.email.focus();
@@ -139,15 +140,20 @@
                     userData: this.results
                 });
             }
-            console.log(this.results);
+//            console.log(this.results);
         },
         ready() {
-            this.results = 'ready'
+//            this.results = 'ready'
+            if (this.results) {
+                this.$store.dispatch("login", {
+                    userData: this.results
+                });
+            }
+//            this.$router.push({name: "Home"})
+        },
+        destroyed() {
+            this.$router.push('/');
         }
-        // destroyed() {
-
-        //     this.$router.push('/');
-        // }
     };
 </script>
 <style>

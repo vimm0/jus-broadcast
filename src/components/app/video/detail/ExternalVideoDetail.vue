@@ -40,10 +40,8 @@
         computed: {},
         mixins: [Helper],
         created() {
-            let user = JSON.parse(this.$store.state.user)
-            console.log(user.token)
             if (this.$route.params.slugId) {
-                this.getVideo('external/video/' + this.$route.params.slugId, user.token, res => {
+                this.getVideo('external/video/' + this.$route.params.slugId, this.$store.getters.token, res => {
                     console.log(res.data)
                     this.obj = res.ok ? res.data : '(network error)'
                     this.videoId = res.ok ? 'http://www.youtube.com/embed/' + res.data.video_id : '(network error)'
