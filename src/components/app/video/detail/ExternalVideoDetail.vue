@@ -25,6 +25,7 @@
     const webview = weex.requireModule('webview')
     const stream = weex.requireModule('stream')
     import Helper from '../../../../mixins/Helper.js'
+    import mapGetters from "vuex";
 
     export default {
         name: 'ExternalVideoDetail',
@@ -33,14 +34,16 @@
                 obj: '',
                 showMore: false,
                 moreOrLess: '',
-                videoId: '',
-//                url: 'https://www.youtube.com/embed/YqeW9_5kURI'
+                videoId: ''
             }
         },
+        computed: {},
         mixins: [Helper],
         created() {
+            let user = JSON.parse(this.$store.state.user)
+            console.log(user.token)
             if (this.$route.params.slugId) {
-                this.getVideo('external/video/' + this.$route.params.slugId, res => {
+                this.getVideo('external/video/' + this.$route.params.slugId, user.token, res => {
                     console.log(res.data)
                     this.obj = res.ok ? res.data : '(network error)'
                     this.videoId = res.ok ? 'http://www.youtube.com/embed/' + res.data.video_id : '(network error)'
@@ -49,14 +52,15 @@
             }
         },
         methods: {
-            getVideo(url, callback) {
+            getVideo(url, token, callback) {
+                console.log(token)
                 return stream.fetch({
                     method: 'GET',
                     type: 'json',
                     url: 'http://52.202.70.246/v1/' + url,
-                    // headers: {
-                    //     'Authorization': `JWT ${self.$store.getters.token}`
-                    // }
+                    headers: {
+                        'Authorization': `JWT ${token}`
+                    }
                 }, callback)
             },
         }

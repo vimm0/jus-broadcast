@@ -8,18 +8,8 @@
         <!--<text class="text" @click="$store.dispatch('getAll')">Get All</text>-->
         <!--<text class="text" @click="$store.getters.token">log token</text>-->
         <!--<scroller>-->
-            <!--<video class="video" -->
-            <!--src="http://g.tbcdn.cn/ali-wireless-h5/res/0.0.6/toy.mp4"-->
-            <!--auto-play="true"></video>-->
-            <!--<iframe src="//www.youtube.com/embed/YqeW9_5kURI" frameborder="0" allowfullscreen></iframe>-->
-            <!--<iframe width="420" height="345" src="https://www.youtube.com/embed/tgbNymZ7vqY">-->
-            <!--</iframe>-->
             <video-list></video-list>
-            <!--<iframe class="video_iframe" data-vidtype="2" style=" z-index:1; " height="375" width="500" frameborder="0" src="https://v.qq.com/iframe/preview.html?vid=i1311rc2w48&width=500&height=375&auto=0" allowfullscreen=""></iframe>-->
-            <!--<web src="http://www.youtube.com/embed/YqeW9_5kURI" frameborder="0" allowfullscreen width="100%"-->
-            <!--height="400px"></web>-->
 
-            <!--<iframe class="video_iframe" data-vidtype="2" style=" z-index:1; " height="375" width="500" frameborder="0" src="https://v.qq. Com/iframe/preview.html?vid=l1311xh9q2w&width=500&height=375&auto=0" allowfullscreen=""></iframe>-->
         <!--</scroller>-->
         <!--</template>-->
         <!--<template v-else>-->

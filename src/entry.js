@@ -7,7 +7,7 @@ const App = require('@/App.vue');
 
 import fontawesome from '@fortawesome/fontawesome'
 import {
-  faUser
+    faUser
 } from '@fortawesome/fontawesome-free-solid'
 
 import Vuex from 'vuex'
@@ -22,7 +22,7 @@ Vue.use(Vuex)
 Vue.use(VueJWT)
 const storage = weex.requireModule('storage')
 const stream = weex.requireModule('stream')
-
+console.log('run entry')
 const store = new Vuex.Store({
     state: {
         user: null,
@@ -44,9 +44,6 @@ const store = new Vuex.Store({
             commit('update_object', ['user', payload['userData']])
             storage.setItem('userInfo', JSON.stringify(userData))
             storage.setItem('user', JSON.stringify(payload['userData']))
-            // console.log(storage.getItem('user', event => {
-            //     console.log('get value:', event.data)
-            // }))
             // axios.defaults.headers.common['Authorization'] = `JWT ${state.user.token}`
         },
         logout({commit}) {
@@ -74,6 +71,7 @@ const store = new Vuex.Store({
     getters: {
         token: state => {
             if (state.user) {
+                console.log(state.user.token)
                 return state.user.token
             } else {
                 return null
@@ -97,6 +95,20 @@ const store = new Vuex.Store({
     strict: false
 })
 export default store
+console.log('set state')
+console.log(store.state.userInfo)
+if (store.state.user === null && store.state.userInfo === null) {
+    storage.getItem('user', event => {
+        if (event.result === "success" && event.data) {
+            store.state.user = event.data;
+        }
+    })
+    storage.getItem('userInfo', event => {
+        if (event.result === "success" && event.data) {
+            store.state.userInfo = event.data;
+        }
+    })
+}
 /* eslint-disable no-new */
 new Vue(Vue.util.extend({el: '#root', router, store}, App));
 router.push('/');
