@@ -1,6 +1,6 @@
 <template>
     <div class="wxc-minibar" :style="{ backgroundColor: backgroundColor }" v-if="show">
-        <div class="left" @click="leftButtonClicked" aria-label="返回" :accessible="true">
+        <div class="left" @click="leftButtonClicked" aria-label="weex-ui-minibar" :accessible="true">
             <slot name="left">
                 <image :src="leftButton"
                        v-if="leftButton && !leftText"
@@ -79,7 +79,7 @@
         props: {
             backgroundColor: {
                 type: String,
-                default: '#FFC900'
+                default: '#4cc2e5'
             },
             leftButton: {
                 type: String,
@@ -95,7 +95,7 @@
             },
             title: {
                 type: String,
-                default: '标题'
+                default: 'title'
             },
             leftText: {
                 type: String,

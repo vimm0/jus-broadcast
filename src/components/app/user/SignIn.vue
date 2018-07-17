@@ -112,10 +112,6 @@
                         console.log("response", response);
                     }
                 )
-                // this.$store.dispatch("login", {
-                //     userData: this.results
-                // })
-//                this.$router.push({name: "Home"})
             },
 
             //            signUpFirst(e) {
@@ -138,30 +134,7 @@
         },
         mounted() {
             this.$refs.email.focus();
-            // if (this.results) {
-
-            // }
         },
-        updated() {
-//            if (this.results) {
-//                this.$store.dispatch("login", {
-//                    userData: this.results
-//                });
-//            }
-//            console.log(this.results);
-        },
-        ready() {
-//            this.results = 'ready'
-//            if (this.results) {
-//                this.$store.dispatch("login", {
-//                    userData: this.results
-//                });
-//            }
-//            this.$router.push({name: "Home"})
-        },
-//        destroyed() {
-//            this.$router.push('/');
-//        }
     };
 </script>
 <style>

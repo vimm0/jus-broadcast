@@ -1,28 +1,25 @@
 <template>
     <div class="local-video-detail">
+        <!--consider vue-dplayer, builtin video player have low functionalities-->
         <video class="video" :src="src" autoplay controls></video>
         <div class="content video-meta">
-            <p class="title">{{ obj.name }}</p>
-            <p class="p__release-date" v-if="obj.release_date">
-            Published
-            On: {{ obj.release_date }}</p>
-            <p class="p__views">9,000,000 views</p>
-            <!--<p class="p__description is-size-7-touch is-size-7-mobile" v-if="obj.description">{{-->
-            <!--getDescription(obj.description) }}-->
+            <text class="text-title">{{ obj.name }}</text>
+            <text class="text-view">9,000,000 views</text>
+            <text class="text-published-on">Published On: {{ obj.release_date }}</text>
+            <!--<text class="text-description" v-if="obj.description" style="white-space: pre-line;">-->
+            <!--{{obj.description}}-->
             <!--<a class=""-->
             <!--v-if="obj.description.length > 20"-->
             <!--@click="showMore = !showMore">Show {{ moreOrLess }}-->
             <!--</a>-->
-            <!--</p>-->
         </div>
     </div>
 </template>
 
 <script>
     import Helper from '../../../../mixins/Helper.js'
-    //    import VueDPlayer from 'vue-dplayer'
-    const stream = weex.requireModule('stream')
 
+    const stream = weex.requireModule('stream')
     export default {
         name: 'LocalVideoDetail',
         data() {
@@ -51,7 +48,7 @@
             if (this.$route.params.slugId) {
                 this.getVideo('local/video/' + this.$route.params.slugId, res => {
                     console.log(res.data)
-                    this.src = res.ok ? res.data.quality[0].url : '(network error)'
+                    this.src = res.ok ? res.data.quality[0].url : this.$router.push('/error')
                     console.log(res)
                 })
             }
@@ -73,38 +70,35 @@
 </script>
 <style>
     .video {
-        width: 630px;
-        height: 350px;
-        margin-top: 60px;
-        margin-left: 60px;
+        width: auto;
+        height: 500vh;
+        /*margin-top: 60px;*/
+        /*margin-left: 60px;*/
     }
 
-    .info {
-        margin-top: 40px;
-        font-size: 40px;
-        text-align: center;
+    .video-meta {
+        padding-left: 10px;
     }
 
-    div.video-meta {
-        margin: 1rem auto auto 0.5rem;
+    .text-title {
+        font-size: 23px;
+        padding: 5px 0 5px 0;
     }
 
-    p.p__release-date {
-        color: #999;
+    .text-view {
+        font-size: 15px;
+        padding: 5px 0 5px 0;
+        color: #848484;
     }
 
-    p.title {
-        font-size: 0.4rem;
+    .text-published-on {
+        font-size: 15px;
+        padding: 2px 2px 2px 2px;
+        color: #848484;
     }
 
-    p.p__views {
-        font-size: 0.3rem;
+    .text-description {
+        font-size: 15px;
+        color: #848484;
     }
-
-    p.p__description {
-        overflow: hidden;
-        white-space: pre-wrap;
-        font-size: .2rem !important;
-    }
-
 </style>
