@@ -22,6 +22,7 @@ Vue.use(Vuex)
 Vue.use(VueJWT)
 const storage = weex.requireModule('storage')
 const stream = weex.requireModule('stream')
+const modal = weex.requireModule('modal')
 console.log('run entry')
 const store = new Vuex.Store({
     state: {
@@ -34,24 +35,28 @@ const store = new Vuex.Store({
         },
         logout(state) {
             state.user = null
+            state.userInfo = null
             // delete axios.defaults.headers.common['Authorization']
         },
     },
     actions: {
         login({commit, state, getters}, payload) {
-            let userData = global.Vue.$jwt.decode(payload.userData.token)
+            let userData = Vue.$jwt.decode(payload.userData.token)
             commit('update_object', ['userInfo', userData])
             commit('update_object', ['user', payload['userData']])
-            // storage.setItem('userInfo', userData)
-            storage.setItem('userInfo', JSON.stringify(userData), event => {
-                // this.state = 'set success'
-                console.log('set success')
+            storage.setItem('userInfo', userData)
+            modal.toast({
+                message: 'entry.js --> login'
             })
-            storage.setItem('user', JSON.stringify(payload['userData']), event => {
+            // storage.setItem('userInfo', userData, event => {
                 // this.state = 'set success'
-                console.log('set success')
-            })
-            // storage.setItem('user', payload['userData'])
+                // console.log('set success')
+            // })
+            // storage.setItem('user', payload['userData'], event => {
+                // this.state = 'set success'
+                // console.log('set success')
+            // })
+            storage.setItem('user', payload['userData'])
             // router.go()
             // router.push('/')
             // axios.defaults.headers.common['Authorization'] = `JWT ${state.user.token}`
@@ -62,7 +67,7 @@ const store = new Vuex.Store({
                 console.log(e)
             })
             commit('logout')
-            router.go()
+            // router.go()
             router.push('/')
         },
         getAll() {

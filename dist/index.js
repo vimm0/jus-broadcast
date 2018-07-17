@@ -2052,6 +2052,7 @@ Vue.use(_vuex2.default);
 Vue.use(_vuejsJwt2.default);
 var storage = weex.requireModule('storage');
 var stream = weex.requireModule('stream');
+var modal = weex.requireModule('modal');
 console.log('run entry');
 var store = new _vuex2.default.Store({
     state: {
@@ -2068,6 +2069,7 @@ var store = new _vuex2.default.Store({
         },
         logout: function logout(state) {
             state.user = null;
+            state.userInfo = null;
             // delete axios.defaults.headers.common['Authorization']
         }
     },
@@ -2077,19 +2079,22 @@ var store = new _vuex2.default.Store({
                 state = _ref3.state,
                 getters = _ref3.getters;
 
-            var userData = global.Vue.$jwt.decode(payload.userData.token);
+            var userData = Vue.$jwt.decode(payload.userData.token);
             commit('update_object', ['userInfo', userData]);
             commit('update_object', ['user', payload['userData']]);
-            // storage.setItem('userInfo', userData)
-            storage.setItem('userInfo', JSON.stringify(userData), function (event) {
-                // this.state = 'set success'
-                console.log('set success');
+            storage.setItem('userInfo', userData);
+            modal.toast({
+                message: 'entry.js --> login'
             });
-            storage.setItem('user', JSON.stringify(payload['userData']), function (event) {
-                // this.state = 'set success'
-                console.log('set success');
-            });
-            // storage.setItem('user', payload['userData'])
+            // storage.setItem('userInfo', userData, event => {
+            // this.state = 'set success'
+            // console.log('set success')
+            // })
+            // storage.setItem('user', payload['userData'], event => {
+            // this.state = 'set success'
+            // console.log('set success')
+            // })
+            storage.setItem('user', payload['userData']);
             // router.go()
             // router.push('/')
             // axios.defaults.headers.common['Authorization'] = `JWT ${state.user.token}`
@@ -2102,7 +2107,7 @@ var store = new _vuex2.default.Store({
                 console.log(e);
             });
             commit('logout');
-            router.go();
+            // router.go()
             router.push('/');
         },
         getAll: function getAll() {
@@ -12931,11 +12936,20 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
 
 var stream = weex.requireModule("stream");
 var config = __webpack_require__(88);
 
 var modal = weex.requireModule("modal");
+var storage = weex.requireModule("storage");
 
 exports.default = {
     name: "Signin",
@@ -12945,9 +12959,9 @@ exports.default = {
 
     components: { WxcButton: _wxcButton2.default },
     computed: {
-        //            token() {
-        //                return this.$store.getters.token
-        //            }
+        state: function state() {
+            return this.$store.state;
+        }
     },
     mixins: [_Form2.default],
     endpoint: "jwt/create/",
@@ -12958,16 +12972,12 @@ exports.default = {
                 message: e
             });
         },
-        clearCache: function clearCache() {
-            this.$router.go();
-            //                storage.getAllKeys(event => {
-            //                    // modal.toast({ message: event.result })
-            //                    if (event.result === 'success') {
-            //                        modal.toast({
-            //                            message: 'props: ' + event.data.join(', ')
-            //                        })
-            //                    }
-            //                })
+        getAll: function getAll() {
+            storage.getItem('user', function (event) {
+                modal.toast({
+                    message: event.data
+                });
+            });
         },
         axiosTest: function axiosTest() {
             var self = this;
@@ -12994,6 +13004,9 @@ exports.default = {
                     modal.toast({
                         message: "username: " + ret.data.user.full_name
                     });
+                    self.$store.dispatch("login", {
+                        userData: self.results
+                    });
                 }
             }, function (response) {
                 console.log("response", response);
@@ -13011,24 +13024,21 @@ exports.default = {
         // }
     },
     updated: function updated() {
-        if (this.results) {
-            this.$store.dispatch("login", {
-                userData: this.results
-            });
-        }
+        //            if (this.results) {
+        //                this.$store.dispatch("login", {
+        //                    userData: this.results
+        //                });
+        //            }
         //            console.log(this.results);
     },
     ready: function ready() {
         //            this.results = 'ready'
-        if (this.results) {
-            this.$store.dispatch("login", {
-                userData: this.results
-            });
-        }
+        //            if (this.results) {
+        //                this.$store.dispatch("login", {
+        //                    userData: this.results
+        //                });
+        //            }
         //            this.$router.push({name: "Home"})
-    },
-    destroyed: function destroyed() {
-        this.$router.push('/');
     }
 };
 
@@ -13448,7 +13458,7 @@ function toParams(obj) {
 module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
   return _c('div', {
     staticClass: ["signin"]
-  }, [_c('vue-form', {
+  }, [_c('scroller', [_c('vue-form', {
     attrs: {
       "fields": _vm.fields,
       "action": _vm.endpoint()
@@ -13493,15 +13503,16 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
             "click": _vm.axiosTest
           }
         }, [_vm._v("axiosTest")]), _c('text', {
+          staticClass: ["text"],
           on: {
-            "click": _vm.clearCache
+            "click": _vm.getAll
           }
-        }, [_vm._v("clear cache")])]
+        }, [_vm._v("Get all")])]
       }
     }])
-  }), _c('p', [_vm._v("sign in form")]), _c('text', [_vm._v("state: " + _vm._s(_vm.$store.state))]), _c('text', {
+  }), _c('p', [_vm._v("sign in form")]), _c('text', {
     staticClass: ["text"]
-  }, [_vm._v(_vm._s(_vm.results))])], 1)
+  }, [_vm._v("state: " + _vm._s(_vm.state))])], 1)])
 },staticRenderFns: []}
 module.exports.render._withStripped = true
 
@@ -13512,7 +13523,12 @@ module.exports.render._withStripped = true
 module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
   return _c('div', {
     staticClass: ["home"]
-  }, [(_vm.checkUserLogin()) ? [_c('text', [_vm._v("video view")])] : [_c('text', [_vm._v("UnAuthenticated")]), _c('sign-in')]], 2)
+  }, [(_vm.checkUserLogin()) ? [_c('header', {
+    appendAsTree: true,
+    attrs: {
+      "append": "tree"
+    }
+  }, [_c('layout')], 1), _c('video-list')] : [_c('text', [_vm._v("UnAuthenticated")]), _c('sign-in')]], 2)
 },staticRenderFns: []}
 module.exports.render._withStripped = true
 

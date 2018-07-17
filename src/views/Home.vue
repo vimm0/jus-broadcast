@@ -1,12 +1,12 @@
 <template>
     <div class="home">
         <template v-if="checkUserLogin()">
-            <!--<header>-->
-                <!--<layout></layout>-->
-            <!--</header>-->
-            <text>video view</text>
+            <header>
+                <layout></layout>
+            </header>
+            <!--<text>video view</text>-->
             <!--<scroller>-->
-                <!--<video-list></video-list>-->
+                <video-list></video-list>
             <!--</scroller>-->
         </template>
         <template v-else>

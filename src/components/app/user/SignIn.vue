@@ -1,33 +1,41 @@
 <template>
     <div class="signin">
-        <vue-form :fields="fields" :action="endpoint()" @success="successCallback">
-            <template slot="form-fields" slot-scope="form">
-                <!--&lt;!&ndash; <text :type="form.errors.get('email') ? 'is-danger': null"-->
-                <!--:message="form.errors.get('email')"></text> &ndash;&gt;-->
-                <input type="email" placeholder="Email" ref='email' slot="fields" v-model="fields.email" class="input"/>
-                <!--&lt;!&ndash; <text :type="form.errors.get('password') ? 'is-danger': null"-->
-                <!--:message="form.errors.get('password')"></text> &ndash;&gt;-->
-                <input type="password" placeholder="Password" class="input" v-model="fields.password"
-                       return-key-type="done" @return="onreturn"/>
-                <!--<div class="form-button has-text-centered" slot="submit control">-->
-                <!--<button ref='signin' @click="wxcButtonClicked">Sign In</button>-->
-                <!--&lt;!&ndash;<wxc-button :text="text"&ndash;&gt;-->
-                <!--&lt;!&ndash;:type="type"&ndash;&gt;-->
-                <!--&lt;!&ndash;:disabled="disabled"&ndash;&gt;-->
-                <!--&lt;!&ndash;:btn-style="btnStyle"&ndash;&gt;-->
-                <!--&lt;!&ndash;:text-style="textStyle"&ndash;&gt;-->
-                <!--&lt;!&ndash;@wxcButtonClicked="wxcButtonClicked"></wxc-button>&ndash;&gt;-->
-                <!--</div>-->
-                <text @click="axiosTest">axiosTest</text>
-                <text @click="clearCache">clear cache</text>
-                <!--<text>{{ results }}</text>-->
-                <!--&lt;!&ndash;<router-link to="/signup"><text>Sign Up first</text></router-link>&ndash;&gt;-->
-            </template>
-        </vue-form>
-        <p>sign in form</p>
-        <text>state: {{ $store.state }}</text>
-        <!--<text>token: {{ token }}</text>-->
-        <text class="text">{{results}}</text>
+        <scroller>
+            <vue-form :fields="fields" :action="endpoint()" @success="successCallback">
+                <template slot="form-fields" slot-scope="form">
+                    <!--&lt;!&ndash; <text :type="form.errors.get('email') ? 'is-danger': null"-->
+                    <!--:message="form.errors.get('email')"></text> &ndash;&gt;-->
+                    <input type="email" placeholder="Email" ref='email' slot="fields" v-model="fields.email"
+                           class="input"/>
+                    <!--&lt;!&ndash; <text :type="form.errors.get('password') ? 'is-danger': null"-->
+                    <!--:message="form.errors.get('password')"></text> &ndash;&gt;-->
+                    <input type="password" placeholder="Password" class="input" v-model="fields.password"
+                           return-key-type="done" @return="onreturn"/>
+                    <!--<div class="form-button has-text-centered" slot="submit control">-->
+                    <!--<button ref='signin' @click="wxcButtonClicked">Sign In</button>-->
+                    <!--&lt;!&ndash;<wxc-button :text="text"&ndash;&gt;-->
+                    <!--&lt;!&ndash;:type="type"&ndash;&gt;-->
+                    <!--&lt;!&ndash;:disabled="disabled"&ndash;&gt;-->
+                    <!--&lt;!&ndash;:btn-style="btnStyle"&ndash;&gt;-->
+                    <!--&lt;!&ndash;:text-style="textStyle"&ndash;&gt;-->
+                    <!--&lt;!&ndash;@wxcButtonClicked="wxcButtonClicked"></wxc-button>&ndash;&gt;-->
+                    <!--</div>-->
+                    <text @click="axiosTest">axiosTest</text>
+                    <!--<div class="panel">-->
+                    <!--<text class="text" @click="setItem">set Item</text>-->
+                    <!--<text class="text" @click="getAll">Get all</text>-->
+                    <!--</div>-->
+
+                    <!--<text>{{ results }}</text>-->
+                    <!--&lt;!&ndash;<router-link to="/signup"><text>Sign Up first</text></router-link>&ndash;&gt;-->
+                </template>
+            </vue-form>
+            <p>sign in form</p>
+            <!--<text>state: {{ state }}</text>-->
+            <!--<text>token: {{ token }}</text>-->
+            <!--<text class="text">{{results}}</text>-->
+            <!--<text class="text">state: {{state}}</text>-->
+        </scroller>
     </div>
 </template>
 
@@ -39,6 +47,7 @@
     import {WxcButton} from "weex-ui";
 
     const modal = weex.requireModule("modal");
+    const storage = weex.requireModule("storage");
 
     export default {
         name: "Signin",
@@ -47,9 +56,9 @@
         },
         components: {WxcButton},
         computed: {
-//            token() {
-//                return this.$store.getters.token
-//            }
+            state() {
+                return this.$store.state
+            }
         },
         mixins: [Form],
         endpoint: "jwt/create/",
@@ -60,16 +69,12 @@
                     message: e
                 });
             },
-            clearCache() {
-                this.$router.go()
-//                storage.getAllKeys(event => {
-//                    // modal.toast({ message: event.result })
-//                    if (event.result === 'success') {
-//                        modal.toast({
-//                            message: 'props: ' + event.data.join(', ')
-//                        })
-//                    }
-//                })
+            getAll() {
+                storage.getItem('user', event => {
+                    modal.toast({
+                        message: event.data
+                    })
+                })
             },
             axiosTest() {
                 let self = this;
@@ -97,6 +102,9 @@
                             self.results = ret.data;
                             modal.toast({
                                 message: "username: " + ret.data.user.full_name
+                            });
+                            self.$store.dispatch("login", {
+                                userData: self.results
                             });
                         }
                     },
@@ -135,25 +143,25 @@
             // }
         },
         updated() {
-            if (this.results) {
-                this.$store.dispatch("login", {
-                    userData: this.results
-                });
-            }
+//            if (this.results) {
+//                this.$store.dispatch("login", {
+//                    userData: this.results
+//                });
+//            }
 //            console.log(this.results);
         },
         ready() {
 //            this.results = 'ready'
-            if (this.results) {
-                this.$store.dispatch("login", {
-                    userData: this.results
-                });
-            }
+//            if (this.results) {
+//                this.$store.dispatch("login", {
+//                    userData: this.results
+//                });
+//            }
 //            this.$router.push({name: "Home"})
         },
-        destroyed() {
-            this.$router.push('/');
-        }
+//        destroyed() {
+//            this.$router.push('/');
+//        }
     };
 </script>
 <style>
