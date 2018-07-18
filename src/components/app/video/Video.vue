@@ -31,11 +31,6 @@
         align-items: center;
     }
 
-    .refresh-arrow {
-        font-size: 30px;
-        color: #45b5f0;
-    }
-
     .loading-view {
         height: 80px;
         width: 750px;
