@@ -76,7 +76,7 @@ const store = new Vuex.Store({
     strict: false
 })
 export default store
-console.log('set state')
+
 console.log(store.state.userInfo)
 if (store.state.user === null && store.state.userInfo === null) {
     storage.getItem('user', event => {

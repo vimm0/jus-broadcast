@@ -1,28 +1,26 @@
 <template>
     <div class="wrapper" style="overflow: visible;">
         <scroller class="scroller">
-            <!--https://blog.csdn.net/u013836363/article/details/55210452-->
             <web ref="webview" :src="videoId" class="wrapper-webview"></web>
+            <text @click="fullScreen">Fullscreen</text>
             <div class="content video-meta">
                 <text class="text-title">{{ obj.name }}</text>
                 <text class="text-view">9,000,000 views</text>
                 <text class="text-published-on">Published On: {{ obj.release_date }}</text>
-                <!--<text class="text-description" v-if="obj.description" style="white-space: pre-line;">-->
-                <!--{{obj.description}}-->
-                <!--<a class=""-->
-                <!--v-if="obj.description.length > 20"-->
-                <!--@click="showMore = !showMore">Show {{ moreOrLess }}-->
-                <!--</a>-->
             </div>
         </scroller>
     </div>
 </template>
 <script>
+
     import Helper from '../../../../mixins/Helper.js'
     import mapGetters from "vuex";
 
     const webview = weex.requireModule('webview')
     const stream = weex.requireModule('stream')
+    const modal = weex.requireModule('modal')
+
+
     export default {
         name: 'ExternalVideoDetail',
         data() {
@@ -30,20 +28,25 @@
                 obj: '',
                 showMore: false,
                 moreOrLess: '',
+                fullscreen: false,
                 videoId: ''
             }
         },
         computed: {},
         mixins: [Helper],
         created() {
+
             if (this.$route.params.slugId) {
                 this.getVideo('external/video/' + this.$route.params.slugId, res => {
                     console.log(res.data)
                     this.obj = res.ok ? res.data : this.$router.push('/error')
-                    this.videoId = res.ok ? 'http://www.youtube.com/embed/' + res.data.video_id : this.$router.push('/error')
+                    this.videoId = res.ok ? 'http://www.youtube.com/embed/' + res.data.video_id + '?autoplay=1&controls=1&fs=1&loop=1&rel=0&showinfo=0&disablekb=1' : this.$router.push('/error')
                     console.log(this.videoId)
                 })
             }
+        },
+        mounted() {
+            console.log(this.$store)
         },
         methods: {
             getVideo(url, callback) {
@@ -57,6 +60,11 @@
                     }
                 }, callback)
             },
+            fullScreen(argument) {
+                console.log(this)
+//                this.$refs.webview.$el.allowFullscreen = true
+//                this.$refs.webview.$el.onwebkitfullscreenchange = true
+            }
         }
     }
 </script>

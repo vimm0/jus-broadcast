@@ -10470,8 +10470,13 @@ var router = __webpack_require__(22);
 var App = __webpack_require__(119);
 // const store = require('./store');
 
+// import fullscreen from 'vue-fullscreen'
+
+// import {sync} from 'vuex-router-sync'
+
 _vue2.default.use(_vuex2.default);
 _vue2.default.use(_vuejsJwt2.default);
+// Vue.use(fullscreen)
 var storage = _weexVueRender2.default.requireModule('storage');
 var stream = _weexVueRender2.default.requireModule('stream');
 var modal = _weexVueRender2.default.requireModule('modal');
@@ -10545,7 +10550,7 @@ var store = new _vuex2.default.Store({
 });
 exports.default = store;
 
-console.log('set state');
+
 console.log(store.state.userInfo);
 if (store.state.user === null && store.state.userInfo === null) {
     storage.getItem('user', function (event) {
@@ -10559,6 +10564,7 @@ if (store.state.user === null && store.state.userInfo === null) {
         }
     });
 }
+// sync(store, router)
 
 /* eslint-disable no-new */
 new _vue2.default(_vue2.default.util.extend({ el: '#root', router: router, store: store }, App));
@@ -28026,7 +28032,7 @@ exports = module.exports = __webpack_require__(1)(false);
 
 
 // module
-exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", ""]);
+exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", ""]);
 
 // exports
 
@@ -28072,7 +28078,7 @@ module.exports = function listToStyles (parentId, list) {
 
 
 Object.defineProperty(exports, "__esModule", {
-  value: true
+    value: true
 });
 
 var _Layout = __webpack_require__(11);
@@ -28093,9 +28099,7 @@ var _Helper2 = _interopRequireDefault(_Helper);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-// import WxcLoading from "weex-ui";
-// import { WxcLoading, WxcPartLoading } from "weex-ui";
-
+//
 //
 //
 //
@@ -28118,56 +28122,23 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 //
 
 exports.default = {
-  name: "home",
-  data: function data() {
-    return {
-      refreshing: false
-      //   isShow: false,
-      //   refresh_display: "hide",
-      //   loading_display: "hide"
-    };
-  },
+    name: "home",
+    data: function data() {
+        return {
+            refreshing: false
+        };
+    },
 
-  components: {
-    layout: _Layout2.default,
-    "video-list": _VideoList2.default,
-    "sign-in": _SignIn2.default
-    // WxcLoading,
-    // WxcPartLoading
-    // WatchList
-  },
-  methods: {
-    // onrefresh: function(e) {
-    //   var self = this;
-    //   self.refresh_display = "show";
-    //   self.isShow = true;
-    //   setTimeout(function() {
-    //     self.isShow = false;
-    //     self.refresh_display = "hide";
-    //   }, 3000);
-    // },
-    // onloading: function(e) {
-    //   var self = this;
-    //   self.loading_display = "show";
-    //   setTimeout(function() {
-    //     self.loading_display = "hide";
-    //   }, 3000);
-    // },
-    // pullingdown: function(e) {
-    //   var dy = e.dy;
-    //   var pullingDistance = e.pullingDistance;
-    //   var viewHeight = e.viewHeight;
-    // }
-  },
-  //   mounted() {
-  //     const result = dom.getComponentRect(this.$refs.scroller, option => {
-  //       console.log("getComponentRect:", option);
-  //     });
-  //   },
-  mixins: [_Helper2.default],
-  mounted: function mounted() {
-    console.log(this.$route.name);
-  }
+    components: {
+        layout: _Layout2.default,
+        "video-list": _VideoList2.default,
+        "sign-in": _SignIn2.default
+    },
+    methods: {},
+    mixins: [_Helper2.default],
+    mounted: function mounted() {
+        console.log(this.$route.name);
+    }
 };
 
 /***/ }),
@@ -32394,7 +32365,29 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
     attrs: {
       "weex-type": "div"
     }
-  }, [(_vm.checkUserLogin()) ? [_c('scroller', [_c('video-list')], 1)] : [_c('p', {
+  }, [(_vm.checkUserLogin()) ? [_c('header', [_c('layout')], 1), _vm._v(" "), _c('scroller', [_c('refresh', {
+    staticClass: "refresh-view",
+    attrs: {
+      "display": _vm.refresh_display,
+      "data-evt-refresh": "",
+      "data-evt-pullingdown": ""
+    },
+    nativeOn: {
+      "refresh": function($event) {
+        $event.stopPropagation();
+        return _vm.onrefresh($event)
+      },
+      "pullingdown": function($event) {
+        $event.stopPropagation();
+        return _vm.pullingdown($event)
+      }
+    }
+  }, [_c('wxc-loading', {
+    attrs: {
+      "show": _vm.isShow,
+      "type": "trip"
+    }
+  })], 1), _vm._v(" "), _c('video-list')], 1)] : [_c('p', {
     staticClass: " weex-el weex-text",
     attrs: {
       "weex-type": "text"
@@ -32530,12 +32523,12 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 //
 //
 //
-//
-//
-//
+
 
 var webview = weex.requireModule('webview');
 var stream = weex.requireModule('stream');
+var modal = weex.requireModule('modal');
+
 exports.default = {
     name: 'ExternalVideoDetail',
     data: function data() {
@@ -32543,6 +32536,7 @@ exports.default = {
             obj: '',
             showMore: false,
             moreOrLess: '',
+            fullscreen: false,
             videoId: ''
         };
     },
@@ -32556,10 +32550,13 @@ exports.default = {
             this.getVideo('external/video/' + this.$route.params.slugId, function (res) {
                 console.log(res.data);
                 _this.obj = res.ok ? res.data : _this.$router.push('/error');
-                _this.videoId = res.ok ? 'http://www.youtube.com/embed/' + res.data.video_id : _this.$router.push('/error');
+                _this.videoId = res.ok ? 'http://www.youtube.com/embed/' + res.data.video_id + '?autoplay=1&controls=1&fs=1&loop=1&rel=0&showinfo=0&disablekb=1' : _this.$router.push('/error');
                 console.log(_this.videoId);
             });
         }
+    },
+    mounted: function mounted() {
+        console.log(this.$store);
     },
 
     methods: {
@@ -32573,6 +32570,11 @@ exports.default = {
                     'Authorization': 'JWT ' + self.$store.getters.token
                 }
             }, callback);
+        },
+        fullScreen: function fullScreen(argument) {
+            console.log(this);
+            //                this.$refs.webview.$el.allowFullscreen = true
+            //                this.$refs.webview.$el.onwebkitfullscreenchange = true
         }
     }
 };
@@ -32599,7 +32601,20 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
     attrs: {
       "src": _vm.videoId
     }
-  }), _vm._v(" "), _c('div', {
+  }), _vm._v(" "), _c('p', {
+    staticClass: " weex-el weex-text",
+    attrs: {
+      "weex-type": "text",
+      "data-evt-click": ""
+    },
+    on: {
+      "click": _vm.$stopOuterA,
+      "weex$tap": function($event) {
+        $event.stopPropagation();
+        return _vm.fullScreen($event)
+      }
+    }
+  }, [_vm._v("Fullscreen")]), _vm._v(" "), _c('div', {
     staticClass: "content video-meta weex-ct weex-div",
     attrs: {
       "weex-type": "div"
@@ -33357,18 +33372,9 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 //
 //
 //
-//
-//
-//
 
-var native = weex.requireModule('event');
-
-var storage = weex.requireModule("storage");
 var modal = weex.requireModule("modal");
-var dom = weex.requireModule("dom");
 var globalEvent = weex.requireModule("globalEvent");
-// console.log(globalEvent.addEventListener("androidback"))
-
 
 exports.default = {
     name: "App",
@@ -33384,30 +33390,23 @@ exports.default = {
     },
     created: function created() {
         if (this.$store.state.user) {}
-        //            global.axios = axios;
         global.Vue = _vue2.default;
         globalEvent.addEventListener('androidback', function (e) {
-            //                modal.toast({
-            //                    message: "Android back button"
-            //                })
-            // 这里就可以做返回事件操作了，如返回上一页或退出应用
-            this.$router.go(-1);
-            // weex.requireModule('close').closeApp()
+            modal.toast({
+                message: "Android back button"
+            });
         });
     },
 
     mixins: [_Helper2.default],
     methods: {
         back: function back() {
-            this.$router.go(-1);
-            //                console.log('Android button pressed successful')
-            // modal.toast({
-            //     message: "Android back button"
-            // })
-        },
-        goBack: function goBack() {
-            native.backToMain();
+            this.$router.push('/');
+            // exit from app
         }
+    },
+    mounted: function mounted() {
+        console.log(this.$router.history.stack);
     }
 };
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(3)))
@@ -33426,20 +33425,7 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
     on: {
       "androidback": _vm.back
     }
-  }, [_c('p', {
-    staticClass: " weex-el weex-text",
-    attrs: {
-      "weex-type": "text",
-      "data-evt-click": ""
-    },
-    on: {
-      "click": _vm.$stopOuterA,
-      "weex$tap": function($event) {
-        $event.stopPropagation();
-        return _vm.back($event)
-      }
-    }
-  }, [_vm._v("Hello")]), _vm._v(" "), _c('router-view')], 1)
+  }, [_c('router-view')], 1)
 },staticRenderFns: []}
 module.exports.render._withStripped = true
 if (false) {
