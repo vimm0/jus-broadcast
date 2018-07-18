@@ -1,7 +1,7 @@
 <template>
-    <div class="local-video-detail">
+    <div class="local-video-detail wrapper">
         <!--consider vue-dplayer, builtin video player have low functionalities-->
-        <video class="video" :src="src" autoplay controls></video>
+        <web ref="webview" class="wrapper-webview" :src="src" allowfullscreen='true'></web>
         <div class="content video-meta">
             <text class="text-title">{{ obj.name }}</text>
             <text class="text-view">9,000,000 views</text>
@@ -74,6 +74,20 @@
         height: 500vh;
         /*margin-top: 60px;*/
         /*margin-left: 60px;*/
+    }
+
+    .wrapper {
+        width: auto;
+        height: auto;
+        background: #EBEBEB;
+        color: #4d4d4d;
+    }
+
+    .wrapper-webview {
+        /*width: 1500vw;*/
+        height: 500vh;
+        transform-origin: 0 0;
+        transform: scale(1);
     }
 
     .video-meta {

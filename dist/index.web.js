@@ -10470,13 +10470,8 @@ var router = __webpack_require__(22);
 var App = __webpack_require__(119);
 // const store = require('./store');
 
-// import fullscreen from 'vue-fullscreen'
-
-// import {sync} from 'vuex-router-sync'
-
 _vue2.default.use(_vuex2.default);
 _vue2.default.use(_vuejsJwt2.default);
-// Vue.use(fullscreen)
 var storage = _weexVueRender2.default.requireModule('storage');
 var stream = _weexVueRender2.default.requireModule('stream');
 var modal = _weexVueRender2.default.requireModule('modal');
@@ -10564,7 +10559,6 @@ if (store.state.user === null && store.state.userInfo === null) {
         }
     });
 }
-// sync(store, router)
 
 /* eslint-disable no-new */
 new _vue2.default(_vue2.default.util.extend({ el: '#root', router: router, store: store }, App));
@@ -28032,7 +28026,7 @@ exports = module.exports = __webpack_require__(1)(false);
 
 
 // module
-exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", ""]);
+exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", ""]);
 
 // exports
 
@@ -28099,10 +28093,6 @@ var _Helper2 = _interopRequireDefault(_Helper);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-//
-//
-//
-//
 //
 //
 //
@@ -32365,29 +32355,7 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
     attrs: {
       "weex-type": "div"
     }
-  }, [(_vm.checkUserLogin()) ? [_c('header', [_c('layout')], 1), _vm._v(" "), _c('scroller', [_c('refresh', {
-    staticClass: "refresh-view",
-    attrs: {
-      "display": _vm.refresh_display,
-      "data-evt-refresh": "",
-      "data-evt-pullingdown": ""
-    },
-    nativeOn: {
-      "refresh": function($event) {
-        $event.stopPropagation();
-        return _vm.onrefresh($event)
-      },
-      "pullingdown": function($event) {
-        $event.stopPropagation();
-        return _vm.pullingdown($event)
-      }
-    }
-  }, [_c('wxc-loading', {
-    attrs: {
-      "show": _vm.isShow,
-      "type": "trip"
-    }
-  })], 1), _vm._v(" "), _c('video-list')], 1)] : [_c('p', {
+  }, [(_vm.checkUserLogin()) ? [_c('header', [_c('layout')], 1), _vm._v(" "), _c('scroller', [_c('video-list')], 1)] : [_c('p', {
     staticClass: " weex-el weex-text",
     attrs: {
       "weex-type": "text"
@@ -32523,11 +32491,13 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 //
 //
 //
+//
 
 
 var webview = weex.requireModule('webview');
 var stream = weex.requireModule('stream');
 var modal = weex.requireModule('modal');
+var dom = weex.requireModule('dom');
 
 exports.default = {
     name: 'ExternalVideoDetail',
@@ -32536,7 +32506,7 @@ exports.default = {
             obj: '',
             showMore: false,
             moreOrLess: '',
-            fullscreen: false,
+            //                fullscreen: false,
             videoId: ''
         };
     },
@@ -32556,7 +32526,14 @@ exports.default = {
         }
     },
     mounted: function mounted() {
-        console.log(this.$store);
+        var webview = this.$refs['webview'].$el;
+        //            var screen = dom.onwebkitfullscreenchange = true
+        //            console.log(screen)
+        //            console.log(this.$refs['webview'])
+        //            webview.allowFullscreen = true
+        //            console.log(this.$store)
+        //            this.$refs[webview][0].$el.allowFullscreen = true
+        //            this.$refs.webview.$el.fullscreenEnabled = true
     },
 
     methods: {
@@ -32573,8 +32550,7 @@ exports.default = {
         },
         fullScreen: function fullScreen(argument) {
             console.log(this);
-            //                this.$refs.webview.$el.allowFullscreen = true
-            //                this.$refs.webview.$el.onwebkitfullscreenchange = true
+            //                this.$el.requestFullscreen()
         }
     }
 };
@@ -32723,7 +32699,7 @@ exports = module.exports = __webpack_require__(1)(false);
 
 
 // module
-exports.push([module.i, "\n.video {\n    width: auto;\n    height: 500vh;\n    /*margin-top: 60px;*/\n    /*margin-left: 60px;*/\n}\n.video-meta {\n    padding-left: 0.13333rem;\n}\n.text-title {\n    font-size: 0.30667rem;\n    padding: 0.06667rem 0 0.06667rem 0;\n}\n.text-view {\n    font-size: 0.2rem;\n    padding: 0.06667rem 0 0.06667rem 0;\n    color: #848484;\n}\n.text-published-on {\n    font-size: 0.2rem;\n    padding: 0.02667rem 0.02667rem 0.02667rem 0.02667rem;\n    color: #848484;\n}\n.text-description {\n    font-size: 0.2rem;\n    color: #848484;\n}\n", ""]);
+exports.push([module.i, "\n.video {\n    width: auto;\n    height: 500vh;\n    /*margin-top: 60px;*/\n    /*margin-left: 60px;*/\n}\n.wrapper {\n    width: auto;\n    height: auto;\n    background: #EBEBEB;\n    color: #4d4d4d;\n}\n.wrapper-webview {\n    /*width: 1500vw;*/\n    height: 500vh;\n    -webkit-transform-origin: 0 0;\n            transform-origin: 0 0;\n    -webkit-transform: scale(1);\n            transform: scale(1);\n}\n.video-meta {\n    padding-left: 0.13333rem;\n}\n.text-title {\n    font-size: 0.30667rem;\n    padding: 0.06667rem 0 0.06667rem 0;\n}\n.text-view {\n    font-size: 0.2rem;\n    padding: 0.06667rem 0 0.06667rem 0;\n    color: #848484;\n}\n.text-published-on {\n    font-size: 0.2rem;\n    padding: 0.02667rem 0.02667rem 0.02667rem 0.02667rem;\n    color: #848484;\n}\n.text-description {\n    font-size: 0.2rem;\n    color: #848484;\n}\n", ""]);
 
 // exports
 
@@ -32822,16 +32798,16 @@ exports.default = {
 
 module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
   return _c('div', {
-    staticClass: "local-video-detail weex-ct weex-div",
+    staticClass: "local-video-detail wrapper weex-ct weex-div",
     attrs: {
       "weex-type": "div"
     }
-  }, [_c('video', {
-    staticClass: "video",
+  }, [_c('web', {
+    ref: "webview",
+    staticClass: "wrapper-webview",
     attrs: {
       "src": _vm.src,
-      "autoplay": "",
-      "controls": ""
+      "allowfullscreen": "true"
     }
   }), _vm._v(" "), _c('div', {
     staticClass: "content video-meta weex-ct weex-div",
@@ -32853,7 +32829,7 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
     attrs: {
       "weex-type": "text"
     }
-  }, [_vm._v("Published On: " + _vm._s(_vm.obj.release_date))])])])
+  }, [_vm._v("Published On: " + _vm._s(_vm.obj.release_date))])])], 1)
 },staticRenderFns: []}
 module.exports.render._withStripped = true
 if (false) {
@@ -33366,6 +33342,9 @@ var _SignIn2 = _interopRequireDefault(_SignIn);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
+//    import router from "@router"
+
+//
 //
 //
 //
@@ -33388,7 +33367,7 @@ exports.default = {
         Layout: _Layout2.default,
         SignIn: _SignIn2.default
     },
-    created: function created() {
+    mounted: function mounted() {
         if (this.$store.state.user) {}
         global.Vue = _vue2.default;
         globalEvent.addEventListener('androidback', function (e) {
@@ -33401,12 +33380,13 @@ exports.default = {
     mixins: [_Helper2.default],
     methods: {
         back: function back() {
-            this.$router.push('/');
+            modal.toast({
+                message: "okay lets do this"
+            });
+            //                console.log(this)
+            //                router.push('Home')
             // exit from app
         }
-    },
-    mounted: function mounted() {
-        console.log(this.$router.history.stack);
     }
 };
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(3)))
@@ -33423,7 +33403,11 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
       "data-evt-androidback": ""
     },
     on: {
-      "androidback": _vm.back
+      "androidback": function($event) {
+        _vm.$router.push({
+          name: 'WatchList'
+        })
+      }
     }
   }, [_c('router-view')], 1)
 },staticRenderFns: []}

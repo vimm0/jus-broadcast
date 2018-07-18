@@ -1724,13 +1724,8 @@ var router = __webpack_require__(13);
 var App = __webpack_require__(94);
 // const store = require('./store');
 
-// import fullscreen from 'vue-fullscreen'
-
-// import {sync} from 'vuex-router-sync'
-
 Vue.use(_vuex2.default);
 Vue.use(_vuejsJwt2.default);
-// Vue.use(fullscreen)
 var storage = weex.requireModule('storage');
 var stream = weex.requireModule('stream');
 var modal = weex.requireModule('modal');
@@ -1818,7 +1813,6 @@ if (store.state.user === null && store.state.userInfo === null) {
         }
     });
 }
-// sync(store, router)
 
 /* eslint-disable no-new */
 new Vue(Vue.util.extend({ el: '#root', router: router, store: store }, App));
@@ -8496,9 +8490,6 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 //
 //
 //
-//
-//
-//
 
 exports.default = {
     name: "home",
@@ -12440,11 +12431,13 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 //
 //
 //
+//
 
 
 var webview = weex.requireModule('webview');
 var stream = weex.requireModule('stream');
 var modal = weex.requireModule('modal');
+var dom = weex.requireModule('dom');
 
 exports.default = {
     name: 'ExternalVideoDetail',
@@ -12453,7 +12446,7 @@ exports.default = {
             obj: '',
             showMore: false,
             moreOrLess: '',
-            fullscreen: false,
+            //                fullscreen: false,
             videoId: ''
         };
     },
@@ -12473,7 +12466,14 @@ exports.default = {
         }
     },
     mounted: function mounted() {
-        console.log(this.$store);
+        var webview = this.$refs['webview'].$el;
+        //            var screen = dom.onwebkitfullscreenchange = true
+        //            console.log(screen)
+        //            console.log(this.$refs['webview'])
+        //            webview.allowFullscreen = true
+        //            console.log(this.$store)
+        //            this.$refs[webview][0].$el.allowFullscreen = true
+        //            this.$refs.webview.$el.fullscreenEnabled = true
     },
 
     methods: {
@@ -12490,8 +12490,7 @@ exports.default = {
         },
         fullScreen: function fullScreen(argument) {
             console.log(this);
-            //                this.$refs.webview.$el.allowFullscreen = true
-            //                this.$refs.webview.$el.onwebkitfullscreenchange = true
+            //                this.$el.requestFullscreen()
         }
     }
 };
@@ -12581,6 +12580,15 @@ module.exports = __vue_exports__
 module.exports = {
   "video": {
     "height": 500
+  },
+  "wrapper": {
+    "background": "#EBEBEB",
+    "color": "#4d4d4d"
+  },
+  "wrapper-webview": {
+    "height": 500,
+    "transformOrigin": "0 0",
+    "transform": "scale(1)"
   },
   "video-meta": {
     "paddingLeft": "10"
@@ -12708,13 +12716,13 @@ exports.default = {
 
 module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
   return _c('div', {
-    staticClass: ["local-video-detail"]
-  }, [_c('video', {
-    staticClass: ["video"],
+    staticClass: ["local-video-detail", "wrapper"]
+  }, [_c('web', {
+    ref: "webview",
+    staticClass: ["wrapper-webview"],
     attrs: {
       "src": _vm.src,
-      "autoplay": "",
-      "controls": ""
+      "allowfullscreen": "true"
     }
   }), _c('div', {
     staticClass: ["content", "video-meta"]
@@ -13131,6 +13139,9 @@ var _SignIn2 = _interopRequireDefault(_SignIn);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
+//    import router from "@router"
+
+//
 //
 //
 //
@@ -13153,7 +13164,7 @@ exports.default = {
         Layout: _Layout2.default,
         SignIn: _SignIn2.default
     },
-    created: function created() {
+    mounted: function mounted() {
         if (this.$store.state.user) {}
         global.Vue = _vue2.default;
         globalEvent.addEventListener('androidback', function (e) {
@@ -13166,12 +13177,13 @@ exports.default = {
     mixins: [_Helper2.default],
     methods: {
         back: function back() {
-            this.$router.push('/');
+            modal.toast({
+                message: "okay lets do this"
+            });
+            //                console.log(this)
+            //                router.push('Home')
             // exit from app
         }
-    },
-    mounted: function mounted() {
-        console.log(this.$router.history.stack);
     }
 };
 
@@ -21222,7 +21234,11 @@ if (inBrowser) {
 module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
   return _c('div', {
     on: {
-      "androidback": _vm.back
+      "androidback": function($event) {
+        _vm.$router.push({
+          name: 'WatchList'
+        })
+      }
     }
   }, [_c('router-view')], 1)
 },staticRenderFns: []}

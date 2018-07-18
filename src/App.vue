@@ -1,5 +1,6 @@
 <template>
-    <div @androidback="back">
+    <div @androidback="$router.push({name:'WatchList'})">
+        <!--<text @click="back">back</text>-->
         <router-view></router-view>
     </div>
 </template>
@@ -9,6 +10,7 @@
     import Layout from "@/components/app/Layout.vue";
     import Helper from "@/mixins/Helper";
     import SignIn from "@/components/app/user/SignIn";
+//    import router from "@router"
 
     const modal = weex.requireModule("modal");
     const globalEvent = weex.requireModule("globalEvent");
@@ -25,7 +27,7 @@
             Layout,
             SignIn
         },
-        created() {
+        mounted() {
             if (this.$store.state.user) {
             }
             global.Vue = Vue;
@@ -39,13 +41,13 @@
         mixins: [Helper],
         methods: {
             back() {
-                this.$router.push('/');
+                modal.toast({
+                    message: "okay lets do this"
+                })
+//                console.log(this)
+//                router.push('Home')
                 // exit from app
             }
-        },
-        mounted() {
-            console.log(this.$router.history.stack)
         }
-    }
-    ;
+    };
 </script>

@@ -2,6 +2,10 @@
     <div class="wrapper" style="overflow: visible;">
         <scroller class="scroller">
             <web ref="webview" :src="videoId" class="wrapper-webview"></web>
+
+            <!--<iframe src="[https://www.youtube.com/embed/Cjo9iq8k-bc](https://www.youtube.com/embed/Cjo9iq8k-bc)"-->
+                    <!--width="600" height="480" frameborder="0" webkitallowfullscreen="" mozallowfullscreen=""-->
+                    <!--allowfullscreen=""></iframe>-->
             <text @click="fullScreen">Fullscreen</text>
             <div class="content video-meta">
                 <text class="text-title">{{ obj.name }}</text>
@@ -19,6 +23,7 @@
     const webview = weex.requireModule('webview')
     const stream = weex.requireModule('stream')
     const modal = weex.requireModule('modal')
+    var dom = weex.requireModule('dom')
 
 
     export default {
@@ -28,7 +33,7 @@
                 obj: '',
                 showMore: false,
                 moreOrLess: '',
-                fullscreen: false,
+//                fullscreen: false,
                 videoId: ''
             }
         },
@@ -46,7 +51,14 @@
             }
         },
         mounted() {
-            console.log(this.$store)
+            var webview = this.$refs['webview'].$el
+//            var screen = dom.onwebkitfullscreenchange = true
+//            console.log(screen)
+//            console.log(this.$refs['webview'])
+//            webview.allowFullscreen = true
+//            console.log(this.$store)
+//            this.$refs[webview][0].$el.allowFullscreen = true
+//            this.$refs.webview.$el.fullscreenEnabled = true
         },
         methods: {
             getVideo(url, callback) {
@@ -62,8 +74,7 @@
             },
             fullScreen(argument) {
                 console.log(this)
-//                this.$refs.webview.$el.allowFullscreen = true
-//                this.$refs.webview.$el.onwebkitfullscreenchange = true
+//                this.$el.requestFullscreen()
             }
         }
     }

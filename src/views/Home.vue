@@ -5,10 +5,7 @@
                 <layout></layout>
             </header>
             <scroller>
-                  <!-- <refresh class="refresh-view" :display="refresh_display" @refresh="onrefresh" @pullingdown="pullingdown"> -->
-                            <!-- <wxc-loading :show="isShow" type="trip"></wxc-loading> -->
-            <!-- </refresh> -->
-            <video-list></video-list>
+                <video-list></video-list>
             </scroller>
         </template>
         <template v-else>
@@ -36,9 +33,7 @@
             "video-list": List,
             "sign-in": SignIn
         },
-        methods: {
-
-        },
+        methods: {},
         mixins: [Helper],
         mounted() {
             console.log(this.$route.name);
