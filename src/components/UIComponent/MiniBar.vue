@@ -79,7 +79,7 @@
         props: {
             backgroundColor: {
                 type: String,
-                default: '#4cc2e5'
+                default: 'rgba(33, 136, 251, 0.76);'
             },
             leftButton: {
                 type: String,

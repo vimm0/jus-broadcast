@@ -1,5 +1,5 @@
 <template>
-    <div @androidback="$router.push({name:'WatchList'})">
+    <div @androidback="$router.push({name:'Home'})">
         <!--<text @click="back">back</text>-->
         <router-view></router-view>
     </div>
@@ -10,7 +10,6 @@
     import Layout from "@/components/app/Layout.vue";
     import Helper from "@/mixins/Helper";
     import SignIn from "@/components/app/user/SignIn";
-//    import router from "@router"
 
     const modal = weex.requireModule("modal");
     const globalEvent = weex.requireModule("globalEvent");
@@ -44,9 +43,7 @@
                 modal.toast({
                     message: "okay lets do this"
                 })
-//                console.log(this)
-//                router.push('Home')
-                // exit from app
+                // exit from app on double back press
             }
         }
     };

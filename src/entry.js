@@ -7,16 +7,19 @@ const App = require('@/App.vue');
 
 import fontawesome from '@fortawesome/fontawesome'
 import {
-    faUser
+    faUser,
+    faBookmark
 } from '@fortawesome/fontawesome-free-solid'
 
 import Vuex from 'vuex'
 import VueJWT from 'vuejs-jwt'
+
 Vue.use(Vuex)
 Vue.use(VueJWT)
 const storage = weex.requireModule('storage')
 const stream = weex.requireModule('stream')
 const modal = weex.requireModule('modal')
+
 const store = new Vuex.Store({
     state: {
         user: null,
@@ -91,7 +94,8 @@ if (store.state.user === null && store.state.userInfo === null) {
     })
 }
 
+
 /* eslint-disable no-new */
 new Vue(Vue.util.extend({el: '#root', router, store}, App));
-router.push('/');
+router.push('/watchlist');
 

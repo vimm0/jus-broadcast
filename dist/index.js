@@ -1729,6 +1729,7 @@ Vue.use(_vuejsJwt2.default);
 var storage = weex.requireModule('storage');
 var stream = weex.requireModule('stream');
 var modal = weex.requireModule('modal');
+
 var store = new _vuex2.default.Store({
     state: {
         user: null,
@@ -1816,7 +1817,7 @@ if (store.state.user === null && store.state.userInfo === null) {
 
 /* eslint-disable no-new */
 new Vue(Vue.util.extend({ el: '#root', router: router, store: store }, App));
-router.push('/');
+router.push('/watchlist');
 
 /***/ }),
 /* 10 */
@@ -10762,7 +10763,7 @@ exports.default = {
     props: {
         backgroundColor: {
             type: String,
-            default: '#4cc2e5'
+            default: 'rgba(33, 136, 251, 0.76);'
         },
         leftButton: {
             type: String,
@@ -12446,7 +12447,6 @@ exports.default = {
             obj: '',
             showMore: false,
             moreOrLess: '',
-            //                fullscreen: false,
             videoId: ''
         };
     },
@@ -12482,7 +12482,7 @@ exports.default = {
             return stream.fetch({
                 method: 'GET',
                 type: 'json',
-                url: 'http://52.202.70.246/v1/' + url,
+                url: 'http://52.202.70.246/v1/' + url || ' ',
                 headers: {
                     'Authorization': 'JWT ' + self.$store.getters.token
                 }
@@ -12578,47 +12578,9 @@ module.exports = __vue_exports__
 /***/ (function(module, exports) {
 
 module.exports = {
-  "video": {
-    "height": 500
-  },
   "wrapper": {
-    "background": "#EBEBEB",
-    "color": "#4d4d4d"
-  },
-  "wrapper-webview": {
-    "height": 500,
-    "transformOrigin": "0 0",
-    "transform": "scale(1)"
-  },
-  "video-meta": {
-    "paddingLeft": "10"
-  },
-  "text-title": {
-    "fontSize": "23",
-    "paddingTop": "5",
-    "paddingRight": 0,
-    "paddingBottom": "5",
-    "paddingLeft": 0
-  },
-  "text-view": {
-    "fontSize": "15",
-    "paddingTop": "5",
-    "paddingRight": 0,
-    "paddingBottom": "5",
-    "paddingLeft": 0,
-    "color": "#848484"
-  },
-  "text-published-on": {
-    "fontSize": "15",
-    "paddingTop": "2",
-    "paddingRight": "2",
-    "paddingBottom": "2",
-    "paddingLeft": "2",
-    "color": "#848484"
-  },
-  "text-description": {
-    "fontSize": "15",
-    "color": "#848484"
+    "color": "#4d4d4d",
+    "background": "#EBEBEB"
   }
 }
 
@@ -12657,7 +12619,14 @@ var stream = weex.requireModule('stream'); //
 //
 //
 //
+//
+//
+//
+//
+//
+//
 
+var web = weex.requireModule('webview');
 exports.default = {
     name: 'LocalVideoDetail',
     data: function data() {
@@ -12670,7 +12639,8 @@ exports.default = {
                 video: {}
             },
             state: '----',
-            src: ''
+            src: '',
+            variable: ''
         };
     },
 
@@ -12678,6 +12648,7 @@ exports.default = {
     components: {
         //            'd-player': VueDPlayer,
     },
+
     computed: {
         player: function player() {
             //                return this.$refs.player.dp
@@ -12686,6 +12657,7 @@ exports.default = {
     created: function created() {
         var _this = this;
 
+        // this.variable = weex
         if (this.$route.params.slugId) {
             this.getVideo('local/video/' + this.$route.params.slugId, function (res) {
                 console.log(res.data);
@@ -12693,19 +12665,111 @@ exports.default = {
                 console.log(res);
             });
         }
-        this.getVideo();
     },
 
     methods: {
+        callJava: function callJava() {
+            var event = weex.requireModule('event');
+            console.log(event);
+            event.openURL("http://www.github.com", function (resp) {
+                console.log(resp.result);
+            });
+        },
+
+        click: function click() {
+            weex.requireModule('MyModule').printLog("I am a weex Module!");
+        },
         getVideo: function getVideo(url, callback) {
             return stream.fetch({
                 method: 'GET',
                 type: 'json',
-                url: 'http://52.202.70.246/v1/' + url
+                url: 'http://52.202.70.246/v1/' + url || ' '
                 // headers: {
                 //     'Authorization': `JWT ${self.$store.getters.token}`
                 // }
             }, callback);
+        },
+        requestFullscreen: function requestFullscreen() {
+            console.log(this);
+            // var element = this.$el[0];
+            // var method = this.requestFullscreen;
+
+            // if (this.requestFullscreen) {
+            //     this.requestFullscreen();
+            // } else if (this.mozRequestFullScreen) {
+            //     this.mozRequestFullScreen();
+            // } else if (this.webkitRequestFullscreen) {
+            //     this.webkitRequestFullscreen();
+            // } else if (this.msRequestFullscreen) {
+            //     this.msRequestFullscreen();
+            // }
+
+            // if (method) {
+            //     element[method]();
+            // }
+            if (this.webkitEnterFullscreen) {
+                this.webkitEnterFullscreen && this.webkitEnterFullscreen();
+                // element.enterFullScreen && element.enterFullScreen();
+            }
+            // else {
+            //     // Simulate full screen  enterFullWindow();     } }
+            //
+
+            // // Simulate full-screen js core code
+            // _mockFullscreen()
+            // {
+            //     if (curEl.hasClass('normal')) {
+            //         this.fullscreen = false;
+            //
+            //
+            //         playerEl.css({
+            //             width: this.originWidth,
+            //             height: this.originHeight,
+            //             left: 0
+            //         }).removeClass('fullscreen');
+            //
+            //         wrapperEl.css({
+            //             width: this.wrapperOriginWidth,
+            //             height: this.wrapperOriginHeight
+            //         });
+            //
+            //         videoEl.css('height', '100%');
+            //
+            //         curEl.removeClass('normal');
+            //         contentEl.removeClass('fullscreen');
+            //     } else {
+            //         this.fullscreen = true;
+            //
+            //
+            //         This.originWidth = playerEl.width();
+            //         this.originHeight = playerEl.height();
+            //
+            //
+            //         This.wrapperOriginWidth = wrapperEl.width();
+            //         this.wrapperOriginHeight = wrapperEl.height();
+            //
+            //
+            //         playerEl.css({
+            //             width: $(window).height(),
+            //             height: $(window).width(),
+            //             left: $(window).width()
+            //         }).addClass('fullscreen');
+            //
+            //         wrapperEl.css({
+            //             width: $(window).height(),
+            //             height: $(window).width()
+            //         });
+            //
+            //         videoEl.css('height', videoEl.height() - controlsHeight);
+            //
+            //         curEl.addClass('normal');
+            //         contentEl.addClass('fullscreen');
+            //     }
+            // }
+            // pagestart() {
+            //     console.log(this)
+            // }
+            // }
         }
     }
 };
@@ -12715,24 +12779,15 @@ exports.default = {
 /***/ (function(module, exports) {
 
 module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
-  return _c('div', {
-    staticClass: ["local-video-detail", "wrapper"]
-  }, [_c('web', {
-    ref: "webview",
-    staticClass: ["wrapper-webview"],
+  return _c('richText', {
+    staticStyle: {
+      width: "200",
+      height: "100"
+    },
     attrs: {
-      "src": _vm.src,
-      "allowfullscreen": "true"
+      "tel": "12305"
     }
-  }), _c('div', {
-    staticClass: ["content", "video-meta"]
-  }, [_c('text', {
-    staticClass: ["text-title"]
-  }, [_vm._v(_vm._s(_vm.obj.name))]), _c('text', {
-    staticClass: ["text-view"]
-  }, [_vm._v("9,000,000 views")]), _c('text', {
-    staticClass: ["text-published-on"]
-  }, [_vm._v("Published On: " + _vm._s(_vm.obj.release_date))])])])
+  }, [_vm._v("12305")])
 },staticRenderFns: []}
 module.exports.render._withStripped = true
 
@@ -12785,19 +12840,8 @@ module.exports = __vue_exports__
 /***/ (function(module, exports) {
 
 module.exports = {
-  "bookmark": {
-    "verticalAlign": "middle",
-    "textAlign": "center",
-    "left": 40,
-    "position": "relative",
-    "display": "table-cell",
-    "borderRadius": 2,
-    "border": "solid 1px",
-    "width": 2,
-    "height": 2
-  },
   "start-browsing": {
-    "left": 7
+    "left": "50"
   }
 }
 
@@ -12809,7 +12853,7 @@ module.exports = {
 
 
 Object.defineProperty(exports, "__esModule", {
-  value: true
+    value: true
 });
 
 var _wxcButton = __webpack_require__(1);
@@ -12819,11 +12863,12 @@ var _wxcButton2 = _interopRequireDefault(_wxcButton);
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 exports.default = {
-  name: "WatchList",
-  components: {
-    WxcButton: _wxcButton2.default
-  }
+    name: "WatchList",
+    components: {
+        WxcButton: _wxcButton2.default
+    }
 }; //
+//
 //
 //
 //
@@ -12841,17 +12886,19 @@ exports.default = {
 /***/ (function(module, exports) {
 
 module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
-  return _c('div', [_c('p', {
-    staticClass: ["bookmark"],
-    attrs: {
-      "align": "right"
-    }
-  }, [_c('i', {
-    staticClass: ["fas", "fa-bookmark"]
-  })], 1), _c('p', {
+  return _c('div', [_c('image', {
     staticStyle: {
-      fontSize: "0.71rem",
-      textAlign: "center"
+      height: "445px"
+    },
+    attrs: {
+      "src": "http://www.endlessicons.com/wp-content/uploads/2014/03/bookmark-icon-3-614x460.png"
+    }
+  }), _c('p', {
+    staticStyle: {
+      fontSize: "25px",
+      textAlign: "center",
+      alignItems: "center",
+      justifyContent: "center"
     }
   }, [_vm._v("\n        Nothing on your watchlist\n    ")]), _c('wxc-button', {
     staticClass: ["start-browsing"],
@@ -13139,8 +13186,6 @@ var _SignIn2 = _interopRequireDefault(_SignIn);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-//    import router from "@router"
-
 //
 //
 //
@@ -13180,9 +13225,7 @@ exports.default = {
             modal.toast({
                 message: "okay lets do this"
             });
-            //                console.log(this)
-            //                router.push('Home')
-            // exit from app
+            // exit from app on double back press
         }
     }
 };
@@ -21236,7 +21279,7 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
     on: {
       "androidback": function($event) {
         _vm.$router.push({
-          name: 'WatchList'
+          name: 'Home'
         })
       }
     }

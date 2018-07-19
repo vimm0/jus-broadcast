@@ -10475,6 +10475,7 @@ _vue2.default.use(_vuejsJwt2.default);
 var storage = _weexVueRender2.default.requireModule('storage');
 var stream = _weexVueRender2.default.requireModule('stream');
 var modal = _weexVueRender2.default.requireModule('modal');
+
 var store = new _vuex2.default.Store({
     state: {
         user: null,
@@ -10562,7 +10563,7 @@ if (store.state.user === null && store.state.userInfo === null) {
 
 /* eslint-disable no-new */
 new _vue2.default(_vue2.default.util.extend({ el: '#root', router: router, store: store }, App));
-router.push('/');
+router.push('/watchlist');
 
 /***/ }),
 /* 17 */
@@ -30570,7 +30571,7 @@ exports.default = {
     props: {
         backgroundColor: {
             type: String,
-            default: '#4cc2e5'
+            default: 'rgba(33, 136, 251, 0.76);'
         },
         leftButton: {
             type: String,
@@ -32506,7 +32507,6 @@ exports.default = {
             obj: '',
             showMore: false,
             moreOrLess: '',
-            //                fullscreen: false,
             videoId: ''
         };
     },
@@ -32542,7 +32542,7 @@ exports.default = {
             return stream.fetch({
                 method: 'GET',
                 type: 'json',
-                url: 'http://52.202.70.246/v1/' + url,
+                url: 'http://52.202.70.246/v1/' + url || ' ',
                 headers: {
                     'Authorization': 'JWT ' + self.$store.getters.token
                 }
@@ -32699,7 +32699,7 @@ exports = module.exports = __webpack_require__(1)(false);
 
 
 // module
-exports.push([module.i, "\n.video {\n    width: auto;\n    height: 500vh;\n    /*margin-top: 60px;*/\n    /*margin-left: 60px;*/\n}\n.wrapper {\n    width: auto;\n    height: auto;\n    background: #EBEBEB;\n    color: #4d4d4d;\n}\n.wrapper-webview {\n    /*width: 1500vw;*/\n    height: 500vh;\n    -webkit-transform-origin: 0 0;\n            transform-origin: 0 0;\n    -webkit-transform: scale(1);\n            transform: scale(1);\n}\n.video-meta {\n    padding-left: 0.13333rem;\n}\n.text-title {\n    font-size: 0.30667rem;\n    padding: 0.06667rem 0 0.06667rem 0;\n}\n.text-view {\n    font-size: 0.2rem;\n    padding: 0.06667rem 0 0.06667rem 0;\n    color: #848484;\n}\n.text-published-on {\n    font-size: 0.2rem;\n    padding: 0.02667rem 0.02667rem 0.02667rem 0.02667rem;\n    color: #848484;\n}\n.text-description {\n    font-size: 0.2rem;\n    color: #848484;\n}\n", ""]);
+exports.push([module.i, "\n.wrapper {\n    width: auto;\n    height: auto;\n    color: #4d4d4d;\n    background: #EBEBEB;\n    /*transform: rotate(90deg);*/\n}\n.wrapper-webview {\n    /*width: 1500vw;*/\n    height: auto;\n    /*transform-origin: 0 0;*/\n    /*transform: scale(1);*/\n    /*-ms-transform: rotate(90deg); !* IE 9 *!*/\n    /*-ms-transform-origin: 50% 50%; !* IE 9 *!*/\n    /*-webkit-transform: rotate(90deg); !* Safari 3-8 *!*/\n    /*-webkit-transform-origin: 0% 0%; !* Safari 3-8 *!*/\n    /*transform: rotate(90deg);*/\n    /*transform-origin: 50% 50%*/\n}\n/*.video-meta {*/\n/*padding-left: 10px;*/\n/*}*/\n/*.text-title {*/\n/*font-size: 23px;*/\n/*padding: 5px 0 5px 0;*/\n/*}*/\n/*.text-view {*/\n/*font-size: 15px;*/\n/*padding: 5px 0 5px 0;*/\n/*color: #848484;*/\n/*}*/\n/*.text-published-on {*/\n/*font-size: 15px;*/\n/*padding: 2px 2px 2px 2px;*/\n/*color: #848484;*/\n/*}*/\n/*.text-description {*/\n/*font-size: 15px;*/\n/*color: #848484;*/\n/*}*/\nVideo ::-webkit-media-controls-start-playback-button {\n    display: none;\n}\n\n", ""]);
 
 // exports
 
@@ -32739,7 +32739,14 @@ var stream = weex.requireModule('stream'); //
 //
 //
 //
+//
+//
+//
+//
+//
+//
 
+var web = weex.requireModule('webview');
 exports.default = {
     name: 'LocalVideoDetail',
     data: function data() {
@@ -32752,7 +32759,8 @@ exports.default = {
                 video: {}
             },
             state: '----',
-            src: ''
+            src: '',
+            variable: ''
         };
     },
 
@@ -32760,6 +32768,7 @@ exports.default = {
     components: {
         //            'd-player': VueDPlayer,
     },
+
     computed: {
         player: function player() {
             //                return this.$refs.player.dp
@@ -32768,6 +32777,7 @@ exports.default = {
     created: function created() {
         var _this = this;
 
+        // this.variable = weex
         if (this.$route.params.slugId) {
             this.getVideo('local/video/' + this.$route.params.slugId, function (res) {
                 console.log(res.data);
@@ -32775,19 +32785,111 @@ exports.default = {
                 console.log(res);
             });
         }
-        this.getVideo();
     },
 
     methods: {
+        callJava: function callJava() {
+            var event = weex.requireModule('event');
+            console.log(event);
+            event.openURL("http://www.github.com", function (resp) {
+                console.log(resp.result);
+            });
+        },
+
+        click: function click() {
+            weex.requireModule('MyModule').printLog("I am a weex Module!");
+        },
         getVideo: function getVideo(url, callback) {
             return stream.fetch({
                 method: 'GET',
                 type: 'json',
-                url: 'http://52.202.70.246/v1/' + url
+                url: 'http://52.202.70.246/v1/' + url || ' '
                 // headers: {
                 //     'Authorization': `JWT ${self.$store.getters.token}`
                 // }
             }, callback);
+        },
+        requestFullscreen: function requestFullscreen() {
+            console.log(this);
+            // var element = this.$el[0];
+            // var method = this.requestFullscreen;
+
+            // if (this.requestFullscreen) {
+            //     this.requestFullscreen();
+            // } else if (this.mozRequestFullScreen) {
+            //     this.mozRequestFullScreen();
+            // } else if (this.webkitRequestFullscreen) {
+            //     this.webkitRequestFullscreen();
+            // } else if (this.msRequestFullscreen) {
+            //     this.msRequestFullscreen();
+            // }
+
+            // if (method) {
+            //     element[method]();
+            // }
+            if (this.webkitEnterFullscreen) {
+                this.webkitEnterFullscreen && this.webkitEnterFullscreen();
+                // element.enterFullScreen && element.enterFullScreen();
+            }
+            // else {
+            //     // Simulate full screen  enterFullWindow();     } }
+            //
+
+            // // Simulate full-screen js core code
+            // _mockFullscreen()
+            // {
+            //     if (curEl.hasClass('normal')) {
+            //         this.fullscreen = false;
+            //
+            //
+            //         playerEl.css({
+            //             width: this.originWidth,
+            //             height: this.originHeight,
+            //             left: 0
+            //         }).removeClass('fullscreen');
+            //
+            //         wrapperEl.css({
+            //             width: this.wrapperOriginWidth,
+            //             height: this.wrapperOriginHeight
+            //         });
+            //
+            //         videoEl.css('height', '100%');
+            //
+            //         curEl.removeClass('normal');
+            //         contentEl.removeClass('fullscreen');
+            //     } else {
+            //         this.fullscreen = true;
+            //
+            //
+            //         This.originWidth = playerEl.width();
+            //         this.originHeight = playerEl.height();
+            //
+            //
+            //         This.wrapperOriginWidth = wrapperEl.width();
+            //         this.wrapperOriginHeight = wrapperEl.height();
+            //
+            //
+            //         playerEl.css({
+            //             width: $(window).height(),
+            //             height: $(window).width(),
+            //             left: $(window).width()
+            //         }).addClass('fullscreen');
+            //
+            //         wrapperEl.css({
+            //             width: $(window).height(),
+            //             height: $(window).width()
+            //         });
+            //
+            //         videoEl.css('height', videoEl.height() - controlsHeight);
+            //
+            //         curEl.addClass('normal');
+            //         contentEl.addClass('fullscreen');
+            //     }
+            // }
+            // pagestart() {
+            //     console.log(this)
+            // }
+            // }
         }
     }
 };
@@ -32797,39 +32899,15 @@ exports.default = {
 /***/ (function(module, exports, __webpack_require__) {
 
 module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
-  return _c('div', {
-    staticClass: "local-video-detail wrapper weex-ct weex-div",
+  return _c('richText', {
+    staticStyle: {
+      "width": "200",
+      "height": "100"
+    },
     attrs: {
-      "weex-type": "div"
+      "tel": "12305"
     }
-  }, [_c('web', {
-    ref: "webview",
-    staticClass: "wrapper-webview",
-    attrs: {
-      "src": _vm.src,
-      "allowfullscreen": "true"
-    }
-  }), _vm._v(" "), _c('div', {
-    staticClass: "content video-meta weex-ct weex-div",
-    attrs: {
-      "weex-type": "div"
-    }
-  }, [_c('p', {
-    staticClass: "text-title weex-el weex-text",
-    attrs: {
-      "weex-type": "text"
-    }
-  }, [_vm._v(_vm._s(_vm.obj.name))]), _vm._v(" "), _c('p', {
-    staticClass: "text-view weex-el weex-text",
-    attrs: {
-      "weex-type": "text"
-    }
-  }, [_vm._v("9,000,000 views")]), _vm._v(" "), _c('p', {
-    staticClass: "text-published-on weex-el weex-text",
-    attrs: {
-      "weex-type": "text"
-    }
-  }, [_vm._v("Published On: " + _vm._s(_vm.obj.release_date))])])], 1)
+  }, [_vm._v("12305")])
 },staticRenderFns: []}
 module.exports.render._withStripped = true
 if (false) {
@@ -32918,7 +32996,7 @@ exports = module.exports = __webpack_require__(1)(false);
 
 
 // module
-exports.push([module.i, "\n.svg-inline--fa.fa-w-12 {\n  width: 1.25em;\n  height: 1.2rem;\n  font-size: 0.64rem;\n}\n.bookmark {\n  vertical-align: middle;\n  text-align: center;\n  left: 40%;\n  position: relative; /*makes left effective*/\n  display: table-cell;\n  margin: auto;\n  padding: auto;\n  border-radius: 2rem;\n  border: solid 1px;\n  width: 2rem;\n  height: 2rem;\n}\n.start-browsing {\n  left: 7%;\n}\n", ""]);
+exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n/*.svg-inline--fa.fa-w-12 {*/\n    /*width: 50px;*/\n    /*height: 140px;*/\n    /*font-size: 48px;*/\n    /*}*/\n    /*.bookmark {*/\n    /*vertical-align: middle;*/\n    /*text-align: center;*/\n    /*left: 289px;*/\n    /*position: relative; !*makes left effective*!*/\n    /*display: table-cell;*/\n    /*margin: auto;*/\n    /*padding: auto;*/\n    /*border-radius: 75px;*/\n    /*!*border-radius: 2rem;*!*/\n    /*border: solid 1px;*/\n    /*width: 155px;*/\n    /*height: 155px;*/\n    /*}*/\n    .start-browsing {\n    left: 0.66667rem;\n}\n", ""]);
 
 // exports
 
@@ -32931,7 +33009,7 @@ exports.push([module.i, "\n.svg-inline--fa.fa-w-12 {\n  width: 1.25em;\n  height
 
 
 Object.defineProperty(exports, "__esModule", {
-  value: true
+    value: true
 });
 
 var _wxcButton = __webpack_require__(8);
@@ -32941,11 +33019,12 @@ var _wxcButton2 = _interopRequireDefault(_wxcButton);
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 exports.default = {
-  name: "WatchList",
-  components: {
-    WxcButton: _wxcButton2.default
-  }
+    name: "WatchList",
+    components: {
+        WxcButton: _wxcButton2.default
+    }
 }; //
+//
 //
 //
 //
@@ -32968,20 +33047,27 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
     attrs: {
       "weex-type": "div"
     }
-  }, [_c('p', {
-    staticClass: "bookmark weex-el weex-text",
+  }, [_c('figure', {
+    staticClass: " weex-el weex-image",
+    staticStyle: {
+      "height": "5.93333rem"
+    },
     attrs: {
-      "align": "right",
-      "weex-type": "text"
+      "src": "http://www.endlessicons.com/wp-content/uploads/2014/03/bookmark-icon-3-614x460.png",
+      "data-img-src": "http://www.endlessicons.com/wp-content/uploads/2014/03/bookmark-icon-3-614x460.png",
+      "weex-type": "image"
     }
-  }, [_c('i', {
-    staticClass: "fas fa-bookmark",
-    attrs: {}
-  })]), _vm._v(" "), _c('p', {
+  }), _vm._v(" "), _c('p', {
     staticClass: " weex-el weex-text",
     staticStyle: {
-      "font-size": "0.71rem",
-      "text-align": "center"
+      "font-size": "0.33333rem",
+      "text-align": "center",
+      "-webkit-box-align": "center",
+      "-webkit-align-items": "center",
+      "align-items": "center",
+      "-webkit-box-pack": "center",
+      "-webkit-justify-content": "center",
+      "justify-content": "center"
     },
     attrs: {
       "weex-type": "text"
@@ -33342,8 +33428,6 @@ var _SignIn2 = _interopRequireDefault(_SignIn);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-//    import router from "@router"
-
 //
 //
 //
@@ -33383,9 +33467,7 @@ exports.default = {
             modal.toast({
                 message: "okay lets do this"
             });
-            //                console.log(this)
-            //                router.push('Home')
-            // exit from app
+            // exit from app on double back press
         }
     }
 };
@@ -33405,7 +33487,7 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
     on: {
       "androidback": function($event) {
         _vm.$router.push({
-          name: 'WatchList'
+          name: 'Home'
         })
       }
     }

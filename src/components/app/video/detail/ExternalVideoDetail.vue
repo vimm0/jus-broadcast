@@ -33,7 +33,6 @@
                 obj: '',
                 showMore: false,
                 moreOrLess: '',
-//                fullscreen: false,
                 videoId: ''
             }
         },
@@ -66,7 +65,7 @@
                 return stream.fetch({
                     method: 'GET',
                     type: 'json',
-                    url: 'http://52.202.70.246/v1/' + url,
+                    url: 'http://52.202.70.246/v1/' + url || ' ',
                     headers: {
                         'Authorization': `JWT ${self.$store.getters.token}`
                     }
