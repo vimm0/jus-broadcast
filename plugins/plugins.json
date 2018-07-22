@@ -1,5 +1,13 @@
 {
   "ios": [],
   "web": [],
-  "android": []
+  "android": [
+    {
+      "type": "maven",
+      "groupId": "com.instapp.nat",
+      "name": "weex-plugin-media-video",
+      "version": "1.0.0-alpha",
+      "dependency": "com.instapp.nat:weex-plugin-media-video:1.0.0-alpha"
+    }
+  ]
 }

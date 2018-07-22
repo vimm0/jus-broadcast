@@ -10563,7 +10563,7 @@ if (store.state.user === null && store.state.userInfo === null) {
 
 /* eslint-disable no-new */
 new _vue2.default(_vue2.default.util.extend({ el: '#root', router: router, store: store }, App));
-router.push('/watchlist');
+router.push('/');
 
 /***/ }),
 /* 17 */
@@ -30874,7 +30874,7 @@ exports = module.exports = __webpack_require__(1)(false);
 
 
 // module
-exports.push([module.i, "\n.video-image[data-v-72ad52ea] {\n  width: auto;\n  height: 6rem;\n  margin-top: 0.06667rem;\n  margin-bottom: 0.46667rem;\n  flex-direction: column;\n  justify-content: center;\n}\n.meta[data-v-72ad52ea] {\n  margin-bottom: 0.2rem;\n  margin-left: 0.13333rem;\n}\n.text-title[data-v-72ad52ea] {\n  font-size: 0.33333rem;\n  padding: 0;\n}\n.text-created[data-v-72ad52ea] {\n  font-size: 0.26667rem;\n  color: #848484;\n  padding-top: 0;\n}\n/*!*REFRESH*!*/\n/*.indicator {*/\n/*color: #888888;*/\n/*font-size: 42px;*/\n/*text-align: center;*/\n/*}*/\n/*.panel {*/\n/*width: 600px;*/\n/*height: 250px;*/\n/*margin-left: 75px;*/\n/*margin-top: 35px;*/\n/*margin-bottom: 35px;*/\n/*flex-direction: column;*/\n/*justify-content: center;*/\n/*border-width: 2px;*/\n/*border-style: solid;*/\n/*border-color: #DDDDDD;*/\n/*background-color: #F5F5F5;*/\n/*}*/\n", ""]);
+exports.push([module.i, "\n.video-image[data-v-72ad52ea] {\n    width: auto;\n    height: 6rem;\n    margin-top: 0.06667rem;\n    margin-bottom: 0.46667rem;\n    flex-direction: column;\n    justify-content: center;\n}\n.meta[data-v-72ad52ea] {\n    margin-bottom: 0.2rem;\n    margin-left: 0.13333rem;\n}\n.text-title[data-v-72ad52ea] {\n    font-size: 0.33333rem;\n    padding: 0;\n}\n.text-created[data-v-72ad52ea] {\n    font-size: 0.26667rem;\n    color: #848484;\n    padding-top: 0;\n}\n/*!*REFRESH*!*/\n/*.indicator {*/\n/*color: #888888;*/\n/*font-size: 42px;*/\n/*text-align: center;*/\n/*}*/\n/*.panel {*/\n/*width: 600px;*/\n/*height: 250px;*/\n/*margin-left: 75px;*/\n/*margin-top: 35px;*/\n/*margin-bottom: 35px;*/\n/*flex-direction: column;*/\n/*justify-content: center;*/\n/*border-width: 2px;*/\n/*border-style: solid;*/\n/*border-color: #DDDDDD;*/\n/*background-color: #F5F5F5;*/\n/*}*/\n", ""]);
 
 // exports
 
@@ -30887,7 +30887,7 @@ exports.push([module.i, "\n.video-image[data-v-72ad52ea] {\n  width: auto;\n  he
 
 
 Object.defineProperty(exports, "__esModule", {
-  value: true
+    value: true
 });
 
 var _wxcPartLoading = __webpack_require__(75);
@@ -30930,100 +30930,100 @@ var dom = weex.requireModule("dom"); //
 var modal = weex.requireModule("modal");
 var stream = weex.requireModule("stream");
 exports.default = {
-  data: function data() {
-    return {
-      videoObjects: "",
-      refreshing: false,
-      showLoading: "hide",
-      loadinging: false,
-      refresh_display: "hide",
-      loading_display: "hide",
-      isShow: false
-    };
-  },
+    data: function data() {
+        return {
+            videoObjects: "",
+            refreshing: false,
+            showLoading: "hide",
+            loadinging: false,
+            refresh_display: "hide",
+            loading_display: "hide",
+            isShow: false
+        };
+    },
 
-  components: {
-    WxcLoading: _wxcLoading2.default,
-    WxcPartLoading: _wxcPartLoading2.default
-  },
-  methods: {
-    getVideos: function getVideos(url, callback) {
-      var self = this;
-      return stream.fetch({
-        method: "GET",
-        type: "json",
-        url: "http://52.202.70.246/v1/" + url,
-        headers: {
-          Authorization: "JWT " + self.$store.getters.token
+    components: {
+        WxcLoading: _wxcLoading2.default,
+        WxcPartLoading: _wxcPartLoading2.default
+    },
+    methods: {
+        getVideos: function getVideos(url, callback) {
+            var self = this;
+            return stream.fetch({
+                method: "GET",
+                type: "json",
+                url: "http://52.202.70.246/v1/" + url
+                //          headers: {
+                //            Authorization: `JWT ${self.$store.getters.token}`
+                //          }
+            }, callback);
+        },
+        onrefresh: function onrefresh(event) {
+            var _this = this;
+
+            console.log("videolist refresh");
+            this.loadinging = true;
+
+            this.showLoading = "show";
+            this.refresh_display = "show";
+            this.isShow = true;
+
+            console.log(this.showLoading);
+            if (this.isShow === true) {
+                this.getVideos("video/?page_size=0", function (res) {
+                    _this.videoObjects = res.ok ? res.data : _this.$router.push("/error");
+                    _this.isShow = false;
+                    _this.refresh_display = "hide";
+                });
+            }
+            this.refreshing = false;
+            this.showLoading = "hide";
+        },
+
+        // onloading: function(e) {
+        //   var self = this;
+        //   self.loading_display = "show";
+        //   setTimeout(function() {
+        //     self.loading_display = "hide";
+        //   }, 3000);
+        // },
+        pullingdown: function pullingdown(e) {
+            var dy = e.dy;
+            var pullingDistance = e.pullingDistance;
+            var viewHeight = e.viewHeight;
+        },
+        routeTo: function routeTo(obj) {
+            console.log(obj);
+            if (obj.is_local) {
+                this.$router.push({
+                    name: "Local Video Detail",
+                    params: { slugId: obj.slug }
+                });
+            } else {
+                console.log("clicked me");
+                this.$router.push({
+                    name: "External Video Detail",
+                    params: { slugId: obj.slug }
+                });
+            }
         }
-      }, callback);
     },
-    onrefresh: function onrefresh(event) {
-      var _this = this;
+    mixins: [_Helper2.default],
+    created: function created() {
+        var _this2 = this;
 
-      console.log("videolist refresh");
-      this.loadinging = true;
-
-      this.showLoading = "show";
-      this.refresh_display = "show";
-      this.isShow = true;
-
-      console.log(this.showLoading);
-      if (this.isShow === true) {
+        if (this.refreshing === true) {
+            this.refreshing = false;
+        }
         this.getVideos("video/?page_size=0", function (res) {
-          _this.videoObjects = res.ok ? res.data : _this.$router.push("/error");
-          _this.isShow = false;
-          _this.refresh_display = "hide";
+            _this2.videoObjects = res.ok ? res.data : _this2.$router.push("/error");
         });
-      }
-      this.refreshing = false;
-      this.showLoading = "hide";
     },
-
-    // onloading: function(e) {
-    //   var self = this;
-    //   self.loading_display = "show";
-    //   setTimeout(function() {
-    //     self.loading_display = "hide";
-    //   }, 3000);
-    // },
-    pullingdown: function pullingdown(e) {
-      var dy = e.dy;
-      var pullingDistance = e.pullingDistance;
-      var viewHeight = e.viewHeight;
-    },
-    routeTo: function routeTo(obj) {
-      console.log(obj);
-      if (obj.is_local) {
-        this.$router.push({
-          name: "Local Video Detail",
-          params: { slugId: obj.slug }
+    mounted: function mounted() {
+        var result = dom.getComponentRect(this.$refs.scroller, function (option) {
+            console.log("getComponentRect:", option);
         });
-      } else {
-        console.log("clicked me");
-        this.$router.push({
-          name: "External Video Detail",
-          params: { slugId: obj.slug }
-        });
-      }
     }
-  },
-  mixins: [_Helper2.default],
-  created: function created() {
-    var _this2 = this;
-
-    if (this.refreshing === true) {
-      this.refreshing = false;
-    }
-    this.getVideos("video/?page_size=0", function (res) {
-      _this2.videoObjects = res.ok ? res.data : _this2.$router.push("/error");
-    });
-  },
-  mounted: function mounted() {
-    var result = dom.getComponentRect(this.$refs.scroller, function (option) {
-      console.log("getComponentRect:", option);
-    });
-  }
 };
 
 /***/ }),
@@ -32450,7 +32450,7 @@ exports = module.exports = __webpack_require__(1)(false);
 
 
 // module
-exports.push([module.i, "\n.wrapper[data-v-5a9efbfc] {\n    width: auto;\n    height: auto;\n    background: #EBEBEB;\n    color: #4d4d4d;\n}\n.wrapper-webview[data-v-5a9efbfc] {\n    /*width: 1500vw;*/\n    height: 500vh;\n    -webkit-transform-origin: 0 0;\n            transform-origin: 0 0;\n    -webkit-transform: scale(1);\n            transform: scale(1);\n}\n.scroller[data-v-5a9efbfc] {\n    width: auto;\n    height: auto;\n}\n.video-meta[data-v-5a9efbfc] {\n    padding-left: 0.13333rem;\n}\n.text-title[data-v-5a9efbfc] {\n    font-size: 0.30667rem;\n    padding: 0.06667rem 0 0.06667rem 0;\n}\n.text-view[data-v-5a9efbfc] {\n    font-size: 0.2rem;\n    padding: 0.06667rem 0 0.06667rem 0;\n    color: #848484;\n}\n.text-published-on[data-v-5a9efbfc] {\n    font-size: 0.2rem;\n    padding: 0.02667rem 0.02667rem 0.02667rem 0.02667rem;\n    color: #848484;\n}\n.text-description[data-v-5a9efbfc] {\n    font-size: 0.2rem;\n    color: #848484;\n}\n", ""]);
+exports.push([module.i, "\n.video[data-v-5a9efbfc] {\n    width: 10rem;\n    height: 6.13333rem;\n    margin-bottom: 1.06667rem;\n}\n", ""]);
 
 // exports
 
@@ -32476,6 +32476,23 @@ var _vuex2 = _interopRequireDefault(_vuex);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 //
 //
 //
@@ -32526,7 +32543,7 @@ exports.default = {
         }
     },
     mounted: function mounted() {
-        var webview = this.$refs['webview'].$el;
+        //            var webview = this.$refs['webview'].$el
         //            var screen = dom.onwebkitfullscreenchange = true
         //            console.log(screen)
         //            console.log(this.$refs['webview'])
@@ -32542,15 +32559,40 @@ exports.default = {
             return stream.fetch({
                 method: 'GET',
                 type: 'json',
-                url: 'http://52.202.70.246/v1/' + url || ' ',
-                headers: {
-                    'Authorization': 'JWT ' + self.$store.getters.token
-                }
+                url: 'http://52.202.70.246/v1/' + url || ' '
+                //                    headers: {
+                //                        'Authorization': `JWT ${self.$store.getters.token}`
+                //                    }
             }, callback);
         },
         fullScreen: function fullScreen(argument) {
             console.log(this);
             //                this.$el.requestFullscreen()
+        },
+
+        pause: function pause() {
+            this.playStatus = 'pause';
+            modal.toast({ 'message': 'click pause' });
+        },
+        play: function play() {
+            this.playStatus = 'play';
+            modal.toast({ 'message': 'click play' });
+        },
+        onpause: function onpause(e) {
+            this.playStatus = e.playStatus;
+            modal.toast({ 'message': 'video pause' });
+        },
+        onstart: function onstart(e) {
+            this.playStatus = e.playStatus;
+            modal.toast({ 'message': 'video start' });
+        },
+        onfinish: function onfinish(e) {
+            this.playStatus = e.playStatus;
+            modal.toast({ 'message': 'video finish' });
+        },
+        onfail: function onfail(e) {
+            this.playStatus = e.playStatus;
+            modal.toast({ 'message': 'video fail' });
         }
     }
 };
@@ -32571,13 +32613,15 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
   }, [_c('scroller', {
     staticClass: "scroller",
     attrs: {}
-  }, [_c('web', {
-    ref: "webview",
-    staticClass: "wrapper-webview",
+  }, [_c('giraffeplayer', {
+    staticStyle: {
+      "height": "555",
+      "width": "555"
+    },
     attrs: {
-      "src": _vm.videoId
+      "src": "https://www.youtube.com/embed/ysrFrinoyCA"
     }
-  }), _vm._v(" "), _c('p', {
+  }, [_vm._v("Player")]), _vm._v(" "), _c('p', {
     staticClass: " weex-el weex-text",
     attrs: {
       "weex-type": "text",
@@ -32722,6 +32766,7 @@ var _Helper2 = _interopRequireDefault(_Helper);
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 var stream = weex.requireModule('stream'); //
+//
 //
 //
 //
@@ -32899,15 +32944,15 @@ exports.default = {
 /***/ (function(module, exports, __webpack_require__) {
 
 module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
-  return _c('richText', {
+  return _c('giraffeplayer', {
     staticStyle: {
-      "width": "200",
-      "height": "100"
+      "height": "555",
+      "width": "555"
     },
     attrs: {
-      "tel": "12305"
+      "src": _vm.videoId
     }
-  }, [_vm._v("12305")])
+  }, [_vm._v("Player")])
 },staticRenderFns: []}
 module.exports.render._withStripped = true
 if (false) {

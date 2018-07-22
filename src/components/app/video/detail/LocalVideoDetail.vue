@@ -1,6 +1,6 @@
 <template>
     <!--<text @click="callJava">testMyModule</text>-->
-    <richText tel="12305" style="width:200;height:100">12305</richText>
+    <!--<richText tel="12305" style="width:200;height:100">12305</richText>-->
     <!--<text @click="click">click me</text>-->
     <!--<video-web-view></video-web-view>-->
     <!--<div class="local-video-detail wrapper">-->
@@ -20,6 +20,7 @@
     <!--<text>{{ variable }}</text>-->
     <!--<text @click="requestFullscreen">clickme</text>-->
     <!--</div>-->
+    <giraffeplayer style="height:555;width:555;" :src="videoId">Player</giraffeplayer>
 </template>
 
 <script>

@@ -1817,7 +1817,7 @@ if (store.state.user === null && store.state.userInfo === null) {
 
 /* eslint-disable no-new */
 new Vue(Vue.util.extend({ el: '#root', router: router, store: store }, App));
-router.push('/watchlist');
+router.push('/');
 
 /***/ }),
 /* 10 */
@@ -11008,7 +11008,7 @@ module.exports = {
 
 
 Object.defineProperty(exports, "__esModule", {
-  value: true
+    value: true
 });
 
 var _wxcPartLoading = __webpack_require__(56);
@@ -11051,100 +11051,100 @@ var dom = weex.requireModule("dom"); //
 var modal = weex.requireModule("modal");
 var stream = weex.requireModule("stream");
 exports.default = {
-  data: function data() {
-    return {
-      videoObjects: "",
-      refreshing: false,
-      showLoading: "hide",
-      loadinging: false,
-      refresh_display: "hide",
-      loading_display: "hide",
-      isShow: false
-    };
-  },
+    data: function data() {
+        return {
+            videoObjects: "",
+            refreshing: false,
+            showLoading: "hide",
+            loadinging: false,
+            refresh_display: "hide",
+            loading_display: "hide",
+            isShow: false
+        };
+    },
 
-  components: {
-    WxcLoading: _wxcLoading2.default,
-    WxcPartLoading: _wxcPartLoading2.default
-  },
-  methods: {
-    getVideos: function getVideos(url, callback) {
-      var self = this;
-      return stream.fetch({
-        method: "GET",
-        type: "json",
-        url: "http://52.202.70.246/v1/" + url,
-        headers: {
-          Authorization: "JWT " + self.$store.getters.token
+    components: {
+        WxcLoading: _wxcLoading2.default,
+        WxcPartLoading: _wxcPartLoading2.default
+    },
+    methods: {
+        getVideos: function getVideos(url, callback) {
+            var self = this;
+            return stream.fetch({
+                method: "GET",
+                type: "json",
+                url: "http://52.202.70.246/v1/" + url
+                //          headers: {
+                //            Authorization: `JWT ${self.$store.getters.token}`
+                //          }
+            }, callback);
+        },
+        onrefresh: function onrefresh(event) {
+            var _this = this;
+
+            console.log("videolist refresh");
+            this.loadinging = true;
+
+            this.showLoading = "show";
+            this.refresh_display = "show";
+            this.isShow = true;
+
+            console.log(this.showLoading);
+            if (this.isShow === true) {
+                this.getVideos("video/?page_size=0", function (res) {
+                    _this.videoObjects = res.ok ? res.data : _this.$router.push("/error");
+                    _this.isShow = false;
+                    _this.refresh_display = "hide";
+                });
+            }
+            this.refreshing = false;
+            this.showLoading = "hide";
+        },
+
+        // onloading: function(e) {
+        //   var self = this;
+        //   self.loading_display = "show";
+        //   setTimeout(function() {
+        //     self.loading_display = "hide";
+        //   }, 3000);
+        // },
+        pullingdown: function pullingdown(e) {
+            var dy = e.dy;
+            var pullingDistance = e.pullingDistance;
+            var viewHeight = e.viewHeight;
+        },
+        routeTo: function routeTo(obj) {
+            console.log(obj);
+            if (obj.is_local) {
+                this.$router.push({
+                    name: "Local Video Detail",
+                    params: { slugId: obj.slug }
+                });
+            } else {
+                console.log("clicked me");
+                this.$router.push({
+                    name: "External Video Detail",
+                    params: { slugId: obj.slug }
+                });
+            }
         }
-      }, callback);
     },
-    onrefresh: function onrefresh(event) {
-      var _this = this;
+    mixins: [_Helper2.default],
+    created: function created() {
+        var _this2 = this;
 
-      console.log("videolist refresh");
-      this.loadinging = true;
-
-      this.showLoading = "show";
-      this.refresh_display = "show";
-      this.isShow = true;
-
-      console.log(this.showLoading);
-      if (this.isShow === true) {
+        if (this.refreshing === true) {
+            this.refreshing = false;
+        }
         this.getVideos("video/?page_size=0", function (res) {
-          _this.videoObjects = res.ok ? res.data : _this.$router.push("/error");
-          _this.isShow = false;
-          _this.refresh_display = "hide";
+            _this2.videoObjects = res.ok ? res.data : _this2.$router.push("/error");
         });
-      }
-      this.refreshing = false;
-      this.showLoading = "hide";
     },
-
-    // onloading: function(e) {
-    //   var self = this;
-    //   self.loading_display = "show";
-    //   setTimeout(function() {
-    //     self.loading_display = "hide";
-    //   }, 3000);
-    // },
-    pullingdown: function pullingdown(e) {
-      var dy = e.dy;
-      var pullingDistance = e.pullingDistance;
-      var viewHeight = e.viewHeight;
-    },
-    routeTo: function routeTo(obj) {
-      console.log(obj);
-      if (obj.is_local) {
-        this.$router.push({
-          name: "Local Video Detail",
-          params: { slugId: obj.slug }
+    mounted: function mounted() {
+        var result = dom.getComponentRect(this.$refs.scroller, function (option) {
+            console.log("getComponentRect:", option);
         });
-      } else {
-        console.log("clicked me");
-        this.$router.push({
-          name: "External Video Detail",
-          params: { slugId: obj.slug }
-        });
-      }
     }
-  },
-  mixins: [_Helper2.default],
-  created: function created() {
-    var _this2 = this;
-
-    if (this.refreshing === true) {
-      this.refreshing = false;
-    }
-    this.getVideos("video/?page_size=0", function (res) {
-      _this2.videoObjects = res.ok ? res.data : _this2.$router.push("/error");
-    });
-  },
-  mounted: function mounted() {
-    var result = dom.getComponentRect(this.$refs.scroller, function (option) {
-      console.log("getComponentRect:", option);
-    });
-  }
 };
 
 /***/ }),
@@ -12354,44 +12354,10 @@ module.exports = __vue_exports__
 /***/ (function(module, exports) {
 
 module.exports = {
-  "wrapper": {
-    "background": "#EBEBEB",
-    "color": "#4d4d4d"
-  },
-  "wrapper-webview": {
-    "height": 500,
-    "transformOrigin": "0 0",
-    "transform": "scale(1)"
-  },
-  "video-meta": {
-    "paddingLeft": "10"
-  },
-  "text-title": {
-    "fontSize": "23",
-    "paddingTop": "5",
-    "paddingRight": 0,
-    "paddingBottom": "5",
-    "paddingLeft": 0
-  },
-  "text-view": {
-    "fontSize": "15",
-    "paddingTop": "5",
-    "paddingRight": 0,
-    "paddingBottom": "5",
-    "paddingLeft": 0,
-    "color": "#848484"
-  },
-  "text-published-on": {
-    "fontSize": "15",
-    "paddingTop": "2",
-    "paddingRight": "2",
-    "paddingBottom": "2",
-    "paddingLeft": "2",
-    "color": "#848484"
-  },
-  "text-description": {
-    "fontSize": "15",
-    "color": "#848484"
+  "video": {
+    "width": "750",
+    "height": "460",
+    "marginBottom": "80"
   }
 }
 
@@ -12416,6 +12382,23 @@ var _vuex2 = _interopRequireDefault(_vuex);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 //
 //
 //
@@ -12466,7 +12449,7 @@ exports.default = {
         }
     },
     mounted: function mounted() {
-        var webview = this.$refs['webview'].$el;
+        //            var webview = this.$refs['webview'].$el
         //            var screen = dom.onwebkitfullscreenchange = true
         //            console.log(screen)
         //            console.log(this.$refs['webview'])
@@ -12482,15 +12465,40 @@ exports.default = {
             return stream.fetch({
                 method: 'GET',
                 type: 'json',
-                url: 'http://52.202.70.246/v1/' + url || ' ',
-                headers: {
-                    'Authorization': 'JWT ' + self.$store.getters.token
-                }
+                url: 'http://52.202.70.246/v1/' + url || ' '
+                //                    headers: {
+                //                        'Authorization': `JWT ${self.$store.getters.token}`
+                //                    }
             }, callback);
         },
         fullScreen: function fullScreen(argument) {
             console.log(this);
             //                this.$el.requestFullscreen()
+        },
+
+        pause: function pause() {
+            this.playStatus = 'pause';
+            modal.toast({ 'message': 'click pause' });
+        },
+        play: function play() {
+            this.playStatus = 'play';
+            modal.toast({ 'message': 'click play' });
+        },
+        onpause: function onpause(e) {
+            this.playStatus = e.playStatus;
+            modal.toast({ 'message': 'video pause' });
+        },
+        onstart: function onstart(e) {
+            this.playStatus = e.playStatus;
+            modal.toast({ 'message': 'video start' });
+        },
+        onfinish: function onfinish(e) {
+            this.playStatus = e.playStatus;
+            modal.toast({ 'message': 'video finish' });
+        },
+        onfail: function onfail(e) {
+            this.playStatus = e.playStatus;
+            modal.toast({ 'message': 'video fail' });
         }
     }
 };
@@ -12507,13 +12515,15 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
     }
   }, [_c('scroller', {
     staticClass: ["scroller"]
-  }, [_c('web', {
-    ref: "webview",
-    staticClass: ["wrapper-webview"],
+  }, [_c('giraffeplayer', {
+    staticStyle: {
+      height: "555",
+      width: "555"
+    },
     attrs: {
-      "src": _vm.videoId
+      "src": "https://www.youtube.com/embed/ysrFrinoyCA"
     }
-  }), _c('text', {
+  }, [_vm._v("Player")]), _c('text', {
     on: {
       "click": _vm.fullScreen
     }
@@ -12525,7 +12535,7 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
     staticClass: ["text-view"]
   }, [_vm._v("9,000,000 views")]), _c('text', {
     staticClass: ["text-published-on"]
-  }, [_vm._v("Published On: " + _vm._s(_vm.obj.release_date))])])])])
+  }, [_vm._v("Published On: " + _vm._s(_vm.obj.release_date))])])], 1)])
 },staticRenderFns: []}
 module.exports.render._withStripped = true
 
@@ -12602,6 +12612,7 @@ var _Helper2 = _interopRequireDefault(_Helper);
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 var stream = weex.requireModule('stream'); //
+//
 //
 //
 //
@@ -12779,15 +12790,15 @@ exports.default = {
 /***/ (function(module, exports) {
 
 module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
-  return _c('richText', {
+  return _c('giraffeplayer', {
     staticStyle: {
-      width: "200",
-      height: "100"
+      height: "555",
+      width: "555"
     },
     attrs: {
-      "tel": "12305"
+      "src": _vm.videoId
     }
-  }, [_vm._v("12305")])
+  }, [_vm._v("Player")])
 },staticRenderFns: []}
 module.exports.render._withStripped = true
 

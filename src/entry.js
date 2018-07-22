@@ -97,5 +97,5 @@ if (store.state.user === null && store.state.userInfo === null) {
 
 /* eslint-disable no-new */
 new Vue(Vue.util.extend({el: '#root', router, store}, App));
-router.push('/watchlist');
+router.push('/');
 
