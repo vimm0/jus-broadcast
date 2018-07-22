@@ -1,0 +1,320 @@
+<?xml version="1.0" encoding="utf-8"?>
+<items version="2" >
+
+    <item
+        is-multidex="false"
+        jar="/home/awecode/.gradle/caches/modules-2/files-2.1/com.alibaba/fastjson/1.1.46.android/108717c93f7aec31fb86db57cb4ad1e26034c638/fastjson-1.1.46.android.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="26.0.0"
+        sha1="108717c93f7aec31fb86db57cb4ad1e26034c638">
+        <dex dex="/home/awecode/test/jus-broadcast/platforms/android/app/build/intermediates/pre-dexed/debug/fastjson-1.1.46.android_64633aca0092540ad85471be82ed5a00cd8bab2b.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/home/awecode/test/jus-broadcast/platforms/android/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/26.1.0/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="26.0.0"
+        sha1="f428e2fbc9ed0b297e3a3f420e51e6982f66822d">
+        <dex dex="/home/awecode/test/jus-broadcast/platforms/android/app/build/intermediates/pre-dexed/debug/com.android.support-appcompat-v7-26.1.0_170982599cef5f1e5628f8a857faf28fbf64ac23.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/home/awecode/.gradle/caches/modules-2/files-2.1/com.taobao.android/weexplugin-processor/1.3/90f4c5cdb14a255dd3cc341b563271494e8cd941/weexplugin-processor-1.3.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="26.0.0"
+        sha1="90f4c5cdb14a255dd3cc341b563271494e8cd941">
+        <dex dex="/home/awecode/test/jus-broadcast/platforms/android/app/build/intermediates/pre-dexed/debug/weexplugin-processor-1.3_839153657db9265a4e411ccd1c0472c8ce71d314.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/home/awecode/.gradle/caches/modules-2/files-2.1/com.android.support/support-annotations/26.1.0/814258103cf26a15fcc26ecce35f5b7d24b73f8/support-annotations-26.1.0.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="26.0.0"
+        sha1="0814258103cf26a15fcc26ecce35f5b7d24b73f8">
+        <dex dex="/home/awecode/test/jus-broadcast/platforms/android/app/build/intermediates/pre-dexed/debug/support-annotations-26.1.0_b120825e731c17109c77eb5fc2f1ebd32c597ae6.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/home/awecode/test/jus-broadcast/platforms/android/app/build/intermediates/exploded-aar/com.android.support/design/26.1.0/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="26.0.0"
+        sha1="a37fc31c5ceeaa4532a37358add1b189d8db4af1">
+        <dex dex="/home/awecode/test/jus-broadcast/platforms/android/app/build/intermediates/pre-dexed/debug/com.android.support-design-26.1.0_199a7f551283aea883c9900d633001a8e5e9bacc.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/home/awecode/test/jus-broadcast/platforms/android/app/build/intermediates/exploded-aar/com.android.support/support-vector-drawable/26.1.0/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="26.0.0"
+        sha1="6f4138a4e065826cb044d49faea4cfd7191773d1">
+        <dex dex="/home/awecode/test/jus-broadcast/platforms/android/app/build/intermediates/pre-dexed/debug/com.android.support-support-vector-drawable-26.1.0_c55d2d8e123c5368b48ce4a3beef8bc49a18dd04.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/home/awecode/.gradle/caches/modules-2/files-2.1/com.squareup.okio/okio/1.3.0/1b355f73402020c5a0dcca58affc3ec3dfeabac1/okio-1.3.0.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="26.0.0"
+        sha1="1b355f73402020c5a0dcca58affc3ec3dfeabac1">
+        <dex dex="/home/awecode/test/jus-broadcast/platforms/android/app/build/intermediates/pre-dexed/debug/okio-1.3.0_8100c5ae8ac2f6f533b4803d8dedf4a5aa999772.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/home/awecode/test/jus-broadcast/platforms/android/app/build/intermediates/exploded-aar/com.android.support/recyclerview-v7/26.1.0/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="26.0.0"
+        sha1="b12cd9c87c3dfb012a911b6e38d2444ed0a65e1f">
+        <dex dex="/home/awecode/test/jus-broadcast/platforms/android/app/build/intermediates/pre-dexed/debug/com.android.support-recyclerview-v7-26.1.0_f6b05714dc46f9db158d2a79116d31379b07df47.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/home/awecode/.gradle/caches/modules-2/files-2.1/com.taobao.android/weexplugin-annotation/1.3/f9c594cafe95ab01986863300b2f2993b5777b42/weexplugin-annotation-1.3.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="26.0.0"
+        sha1="f9c594cafe95ab01986863300b2f2993b5777b42">
+        <dex dex="/home/awecode/test/jus-broadcast/platforms/android/app/build/intermediates/pre-dexed/debug/weexplugin-annotation-1.3_0077c04019e0687e02aeda9a680562ca74b0087b.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/home/awecode/test/jus-broadcast/platforms/android/app/build/intermediates/exploded-aar/com.instapp.nat/media-video/2.0.0/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="26.0.0"
+        sha1="dac2bb0eeb3f42097609fb7385c33650dc96b0e6">
+        <dex dex="/home/awecode/test/jus-broadcast/platforms/android/app/build/intermediates/pre-dexed/debug/com.instapp.nat-media-video-2.0.0_8d9aff6dbbf0bedc02214244e6e52c16cf162de3.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/home/awecode/.gradle/caches/modules-2/files-2.1/com.google.zxing/core/3.2.1/2287494d4f5f9f3a9a2bb6980e3f32053721b315/core-3.2.1.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="26.0.0"
+        sha1="2287494d4f5f9f3a9a2bb6980e3f32053721b315">
+        <dex dex="/home/awecode/test/jus-broadcast/platforms/android/app/build/intermediates/pre-dexed/debug/core-3.2.1_90b9efdc23e8ff2e8c5f0e3ce462fc76def07f3e.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/home/awecode/test/jus-broadcast/platforms/android/app/build/intermediates/exploded-aar/com.android.support/support-core-utils/26.1.0/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="26.0.0"
+        sha1="233f60a165ae622c8b36731502ebbda0f65e1930">
+        <dex dex="/home/awecode/test/jus-broadcast/platforms/android/app/build/intermediates/pre-dexed/debug/com.android.support-support-core-utils-26.1.0_3f936d06610e143f9961feacdeafa9d6e1388644.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/home/awecode/.gradle/caches/modules-2/files-2.1/android.arch.core/common/1.0.0/a2d487452376193fc8c103dd2b9bd5f2b1b44563/common-1.0.0.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="26.0.0"
+        sha1="a2d487452376193fc8c103dd2b9bd5f2b1b44563">
+        <dex dex="/home/awecode/test/jus-broadcast/platforms/android/app/build/intermediates/pre-dexed/debug/common-1.0.0_7bce2553aaa93b6a519e366cf2c72d6c13dbaa44.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/home/awecode/test/jus-broadcast/platforms/android/app/build/intermediates/exploded-aar/com.android.support/support-compat/26.1.0/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="26.0.0"
+        sha1="2442771a5590dd4eb4bce00c2e9dca9e22e4c963">
+        <dex dex="/home/awecode/test/jus-broadcast/platforms/android/app/build/intermediates/pre-dexed/debug/com.android.support-support-compat-26.1.0_fe12c1e942afa6470f8b3faec29704ccd5666567.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/home/awecode/test/jus-broadcast/platforms/android/app/build/intermediates/exploded-aar/com.android.support/support-core-ui/26.1.0/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="26.0.0"
+        sha1="508f50705b4fde51a16259f29c854201a3044516">
+        <dex dex="/home/awecode/test/jus-broadcast/platforms/android/app/build/intermediates/pre-dexed/debug/com.android.support-support-core-ui-26.1.0_bdb60ef0a54bcf259f178a5a3af03b3b369e9474.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/home/awecode/test/jus-broadcast/platforms/android/app/build/intermediates/exploded-aar/com.android.support/support-media-compat/26.1.0/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="26.0.0"
+        sha1="f97cf85b0fe70d37a705111dafa6b1b418ea1650">
+        <dex dex="/home/awecode/test/jus-broadcast/platforms/android/app/build/intermediates/pre-dexed/debug/com.android.support-support-media-compat-26.1.0_31a6e1401b19f51f19ce91fed9c159f0a643a053.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/home/awecode/.gradle/caches/modules-2/files-2.1/com.squareup.picasso/picasso/2.5.2/7446d06ec8d4f7ffcc53f1da37c95f200dcb9387/picasso-2.5.2.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="26.0.0"
+        sha1="7446d06ec8d4f7ffcc53f1da37c95f200dcb9387">
+        <dex dex="/home/awecode/test/jus-broadcast/platforms/android/app/build/intermediates/pre-dexed/debug/picasso-2.5.2_1ad65acf984a78cd44e7934c3d8118c68789b533.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/home/awecode/test/jus-broadcast/platforms/android/app/build/intermediates/exploded-aar/com.github.tcking/giraffeplayer2/0.1.19-lazyLoad/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="26.0.0"
+        sha1="a13c18348c2a7eae0ae63527a9388124073758f4">
+        <dex dex="/home/awecode/test/jus-broadcast/platforms/android/app/build/intermediates/pre-dexed/debug/com.github.tcking-giraffeplayer2-0.1.19-lazyLoad_e112eb441fe65412269cacb1b2fd33ac9b59c656.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/home/awecode/test/jus-broadcast/platforms/android/app/build/intermediates/exploded-aar/com.android.support/animated-vector-drawable/26.1.0/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="26.0.0"
+        sha1="40392f30a601db5675cdf18192aab013d6fee6ec">
+        <dex dex="/home/awecode/test/jus-broadcast/platforms/android/app/build/intermediates/pre-dexed/debug/com.android.support-animated-vector-drawable-26.1.0_64bb6489051313610bf6671df1781d82a3e4c3f4.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/home/awecode/test/jus-broadcast/platforms/android/app/build/intermediates/exploded-aar/com.instapp.nat/weex-plugin-media-video/1.0.0-alpha/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="26.0.0"
+        sha1="2c70e04379f396291ddf5e03ead2ac0a058419f8">
+        <dex dex="/home/awecode/test/jus-broadcast/platforms/android/app/build/intermediates/pre-dexed/debug/com.instapp.nat-weex-plugin-media-video-1.0.0-alpha_45b67dcde807ed2815d25282a56d20dada99cbe9.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/home/awecode/test/jus-broadcast/platforms/android/app/build/intermediates/exploded-aar/com.github.tcking/viewquery/1.6/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="26.0.0"
+        sha1="987296da6ed804da0844c60833d8c32f852ba9e2">
+        <dex dex="/home/awecode/test/jus-broadcast/platforms/android/app/build/intermediates/pre-dexed/debug/com.github.tcking-viewquery-1.6_b36d4c9df3c89cdba700b3c69b968163001ef699.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/home/awecode/.gradle/caches/modules-2/files-2.1/com.squareup.okhttp/okhttp-ws/2.3.0/7896d229b6aa7884552ab9c23de54c7eb0de8203/okhttp-ws-2.3.0.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="26.0.0"
+        sha1="7896d229b6aa7884552ab9c23de54c7eb0de8203">
+        <dex dex="/home/awecode/test/jus-broadcast/platforms/android/app/build/intermediates/pre-dexed/debug/okhttp-ws-2.3.0_0b062def1391f2ef0bf907fdf027d48e90f4d310.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/home/awecode/test/jus-broadcast/platforms/android/app/build/intermediates/exploded-aar/com.taobao.android/weexplugin-loader/1.3/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="26.0.0"
+        sha1="c85f46e9eed1cccfd0bf5df199dd53a66de98651">
+        <dex dex="/home/awecode/test/jus-broadcast/platforms/android/app/build/intermediates/pre-dexed/debug/com.taobao.android-weexplugin-loader-1.3_909c099c04edfc783a525e26224ad73367d7329c.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/home/awecode/test/jus-broadcast/platforms/android/app/build/intermediates/exploded-aar/com.taobao.android/weex_sdk/0.16.0/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="26.0.0"
+        sha1="9cfcc5fc657d64c980b45db00cd75695d1ce2256">
+        <dex dex="/home/awecode/test/jus-broadcast/platforms/android/app/build/intermediates/pre-dexed/debug/com.taobao.android-weex_sdk-0.16.0_f7fe56c9427a09d538c116e456f9be6ec49df70d.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/home/awecode/.gradle/caches/modules-2/files-2.1/android.arch.lifecycle/common/1.0.0/e414a4cb28434e25c4f6aa71426eb20cf4874ae9/common-1.0.0.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="26.0.0"
+        sha1="e414a4cb28434e25c4f6aa71426eb20cf4874ae9">
+        <dex dex="/home/awecode/test/jus-broadcast/platforms/android/app/build/intermediates/pre-dexed/debug/common-1.0.0_8ede0ca2755e714e94fb14600832878f183ae1c9.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/home/awecode/test/jus-broadcast/platforms/android/app/build/intermediates/exploded-aar/com.android.support/transition/26.1.0/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="26.0.0"
+        sha1="58b12bdb21a84f22e0dc3b047aeceb0a546b1b44">
+        <dex dex="/home/awecode/test/jus-broadcast/platforms/android/app/build/intermediates/pre-dexed/debug/com.android.support-transition-26.1.0_973d412c52b8a8f54b4234758db3c52ad6fcd8b7.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/home/awecode/.gradle/caches/modules-2/files-2.1/com.google.code.findbugs/jsr305/2.0.1/516c03b21d50a644d538de0f0369c620989cd8f0/jsr305-2.0.1.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="26.0.0"
+        sha1="516c03b21d50a644d538de0f0369c620989cd8f0">
+        <dex dex="/home/awecode/test/jus-broadcast/platforms/android/app/build/intermediates/pre-dexed/debug/jsr305-2.0.1_5d481d5ec23de20bf52444489f500797b43e1e10.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/home/awecode/.gradle/caches/modules-2/files-2.1/com.squareup.okhttp/okhttp/2.3.0/2e7bc7033dc2c8423e661224171b3133fb155b28/okhttp-2.3.0.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="26.0.0"
+        sha1="2e7bc7033dc2c8423e661224171b3133fb155b28">
+        <dex dex="/home/awecode/test/jus-broadcast/platforms/android/app/build/intermediates/pre-dexed/debug/okhttp-2.3.0_4ca0a7f7a21e06c9f980406a13b32c4c306f77bd.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/home/awecode/test/jus-broadcast/platforms/android/app/build/intermediates/exploded-aar/com.taobao.android/weex_inspector/0.10.0.5/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="26.0.0"
+        sha1="575d72d4a489260763ca62b2b54450fdec3bebd1">
+        <dex dex="/home/awecode/test/jus-broadcast/platforms/android/app/build/intermediates/pre-dexed/debug/com.taobao.android-weex_inspector-0.10.0.5_b049344cb220c8d4e610fa2bfd7f14d54ababe44.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/home/awecode/test/jus-broadcast/platforms/android/app/build/intermediates/exploded-aar/com.journeyapps/zxing-android-embedded/3.4.0/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="26.0.0"
+        sha1="0e1f104cf60bfe34147ef670229f2635789c79a4">
+        <dex dex="/home/awecode/test/jus-broadcast/platforms/android/app/build/intermediates/pre-dexed/debug/com.journeyapps-zxing-android-embedded-3.4.0_a924ebe8a05a51d8a8d541072f818a174894de95.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/home/awecode/test/jus-broadcast/platforms/android/app/build/intermediates/exploded-aar/com.github.tcking/ijkplayer-java/0.8.8/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="26.0.0"
+        sha1="be4b04eb563f8a5741928ea45c8c5608b0c3437e">
+        <dex dex="/home/awecode/test/jus-broadcast/platforms/android/app/build/intermediates/pre-dexed/debug/com.github.tcking-ijkplayer-java-0.8.8_47e37170c12182cf81b50f52dbf068f4265538fe.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/home/awecode/test/jus-broadcast/platforms/android/app/build/intermediates/exploded-aar/com.android.support/support-fragment/26.1.0/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="26.0.0"
+        sha1="7efef32744ca4a436492d5cf28c08698cc2af256">
+        <dex dex="/home/awecode/test/jus-broadcast/platforms/android/app/build/intermediates/pre-dexed/debug/com.android.support-support-fragment-26.1.0_bf00778bf86299e4c3eb911307dff133dfe72255.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/home/awecode/test/jus-broadcast/platforms/android/app/build/intermediates/exploded-aar/android.arch.lifecycle/runtime/1.0.0/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="26.0.0"
+        sha1="b62fdc4cfef174c1e456014195c83fa7de7dc041">
+        <dex dex="/home/awecode/test/jus-broadcast/platforms/android/app/build/intermediates/pre-dexed/debug/android.arch.lifecycle-runtime-1.0.0_c168ad61885a58e85daa5a90dc6db35a1fb4757c.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/home/awecode/test/jus-broadcast/platforms/android/app/build/intermediates/exploded-aar/com.android.support/support-v4/26.1.0/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="26.0.0"
+        sha1="d7c42c80f6509b9ea4db28ca7859ffae08ec5741">
+        <dex dex="/home/awecode/test/jus-broadcast/platforms/android/app/build/intermediates/pre-dexed/debug/com.android.support-support-v4-26.1.0_0aa6c70dc0f55af59f3689387c91b5728b89dbff.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/home/awecode/.gradle/caches/modules-2/files-2.1/org.greenrobot/eventbus/3.0.0/ddd99896e9569eaababbe81b35d80e1b91c4ad85/eventbus-3.0.0.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="26.0.0"
+        sha1="ddd99896e9569eaababbe81b35d80e1b91c4ad85">
+        <dex dex="/home/awecode/test/jus-broadcast/platforms/android/app/build/intermediates/pre-dexed/debug/eventbus-3.0.0_095703944ed5e5b2e5b594c004d01afed4fb594b.jar" />
+    </item>
+
+</items>

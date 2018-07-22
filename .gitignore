@@ -1,7 +1,8 @@
-android/
-platforms
+#android/
+#platforms
 node_modules/
 .idea/
 .temp/
 package-lock.json
 #dist
+/android/

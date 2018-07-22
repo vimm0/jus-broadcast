@@ -1,0 +1,10 @@
+[
+    {
+        "merged": "/home/awecode/test/jus-broadcast/platforms/android/app/build/intermediates/res/merged/debug/menu/main_scan.xml",
+        "source": "/home/awecode/test/jus-broadcast/platforms/android/app/src/main/res/menu/main_scan.xml"
+    },
+    {
+        "merged": "/home/awecode/test/jus-broadcast/platforms/android/app/build/intermediates/res/merged/debug/menu/main.xml",
+        "source": "/home/awecode/test/jus-broadcast/platforms/android/app/src/main/res/menu/main.xml"
+    }
+]

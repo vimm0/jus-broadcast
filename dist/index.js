@@ -12507,37 +12507,7 @@ exports.default = {
 /* 78 */
 /***/ (function(module, exports) {
 
-module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
-  return _c('div', {
-    staticClass: ["wrapper"],
-    staticStyle: {
-      overflow: "visible"
-    }
-  }, [_c('scroller', {
-    staticClass: ["scroller"]
-  }, [_c('giraffeplayer', {
-    staticStyle: {
-      height: "555",
-      width: "555"
-    },
-    attrs: {
-      "src": "https://www.youtube.com/embed/ysrFrinoyCA"
-    }
-  }, [_vm._v("Player")]), _c('text', {
-    on: {
-      "click": _vm.fullScreen
-    }
-  }, [_vm._v("Fullscreen")]), _c('div', {
-    staticClass: ["content", "video-meta"]
-  }, [_c('text', {
-    staticClass: ["text-title"]
-  }, [_vm._v(_vm._s(_vm.obj.name))]), _c('text', {
-    staticClass: ["text-view"]
-  }, [_vm._v("9,000,000 views")]), _c('text', {
-    staticClass: ["text-published-on"]
-  }, [_vm._v("Published On: " + _vm._s(_vm.obj.release_date))])])], 1)])
-},staticRenderFns: []}
-module.exports.render._withStripped = true
+module.exports={render:function(){},staticRenderFns:[]}
 
 /***/ }),
 /* 79 */
