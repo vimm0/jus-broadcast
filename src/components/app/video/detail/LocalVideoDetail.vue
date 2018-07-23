@@ -20,7 +20,9 @@
     <!--<text>{{ variable }}</text>-->
     <!--<text @click="requestFullscreen">clickme</text>-->
     <!--</div>-->
-    <giraffeplayer style="height:555;width:555;" :src="videoId">Player</giraffeplayer>
+    <giraffeplayer style="height:555;width:555;"
+                   src="http://flv2.bn.netease.com/videolib3/1611/01/XGqSL5981/SD/XGqSL5981-mobile.mp4">Player
+    </giraffeplayer>
 </template>
 
 <script>
@@ -61,7 +63,7 @@
             if (this.$route.params.slugId) {
                 this.getVideo('local/video/' + this.$route.params.slugId, res => {
                     console.log(res.data)
-                    this.src = res.ok ? res.data.quality[0].url : this.$router.push('/error')
+                    this.src = res.ok ? res.data.quality[0].url : this.$router.push({name: "/error", params: {res}});
                     console.log(res)
                 })
             }

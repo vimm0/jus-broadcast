@@ -1,17 +1,14 @@
 <template>
     <div class="home">
-        <template v-if="checkUserLogin()">
-            <header>
-                <layout></layout>
-            </header>
-            <scroller>
+         <!--<template v-if="checkUserLogin()">-->
+             <scroller>
                 <video-list></video-list>
-            </scroller>
-        </template>
-        <template v-else>
-            <text>UnAuthenticated</text>
-            <sign-in></sign-in>
-        </template>
+             </scroller>
+         <!--</template>-->
+         <!--<template v-else>-->
+             <!--<text>UnAuthenticated</text>-->
+             <!--<sign-in></sign-in>-->
+         <!--</template>-->
     </div>
 </template>
 

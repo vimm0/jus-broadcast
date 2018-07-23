@@ -17,8 +17,8 @@
 <template>
     <div class="wrapper" style="overflow: visible;">
         <scroller class="scroller">
-            <web ref="webview" :src="videoId" class="wrapper-webview"></web>
-            <giraffeplayer style="height:555;width:555;" :src="https://www.youtube.com/embed/ysrFrinoyCA">Player</giraffeplayer>
+            <!--<web ref="webview" :src="videoId" class="wrapper-webview"></web>-->
+            <giraffeplayer style="height:555;width:555;" src="http://flv2.bn.netease.com/videolib3/1611/01/XGqSL5981/SD/XGqSL5981-mobile.mp4">Player</giraffeplayer>
 
             <!--<iframe src="[https://www.youtube.com/embed/Cjo9iq8k-bc](https://www.youtube.com/embed/Cjo9iq8k-bc)"-->
                     <!--width="600" height="480" frameborder="0" webkitallowfullscreen="" mozallowfullscreen=""-->
@@ -61,7 +61,7 @@
                 this.getVideo('external/video/' + this.$route.params.slugId, res => {
                     console.log(res.data)
                     this.obj = res.ok ? res.data : this.$router.push('/error')
-                    this.videoId = res.ok ? 'http://www.youtube.com/embed/' + res.data.video_id + '?autoplay=1&controls=1&fs=1&loop=1&rel=0&showinfo=0&disablekb=1' : this.$router.push('/error')
+                    this.videoId = res.ok ? 'http://www.youtube.com/embed/' + res.data.video_id + '?autoplay=1&controls=1&fs=1&loop=1&rel=0&showinfo=0&disablekb=1' : this.$router.push({name: "/error", params: {res}});
                     console.log(this.videoId)
                 })
             }

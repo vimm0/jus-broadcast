@@ -62,20 +62,20 @@
 /******/ 	__webpack_require__.p = "";
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 122);
+/******/ 	return __webpack_require__(__webpack_require__.s = 131);
 /******/ })
 /************************************************************************/
 /******/ ({
 
-/***/ 122:
+/***/ 131:
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(123);
+module.exports = __webpack_require__(132);
 
 
 /***/ }),
 
-/***/ 123:
+/***/ 132:
 /***/ (function(module, exports, __webpack_require__) {
 
 var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_RESULT__;var is_touch_device = function () {

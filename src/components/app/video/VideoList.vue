@@ -27,6 +27,8 @@
     const dom = weex.requireModule("dom");
     const modal = weex.requireModule("modal");
     const stream = weex.requireModule("stream");
+    const animation = weex.requireModule("animation");
+
     export default {
         data() {
             return {
@@ -51,9 +53,9 @@
                         method: "GET",
                         type: "json",
                         url: "http://52.202.70.246/v1/" + url
-//          headers: {
-//            Authorization: `JWT ${self.$store.getters.token}`
-//          }
+                        //          headers: {
+                        //            Authorization: `JWT ${self.$store.getters.token}`
+                        //          }
                     },
                     callback
                 );
@@ -69,7 +71,10 @@
                 console.log(this.showLoading);
                 if (this.isShow === true) {
                     this.getVideos("video/?page_size=0", res => {
-                        this.videoObjects = res.ok ? res.data : this.$router.push("/error");
+                        console.log(res);
+                        this.videoObjects = res.ok
+                            ? res.data
+                            : this.$router.push({name: "Error", params: {res}});
                         this.isShow = false;
                         this.refresh_display = "hide";
                     });
@@ -107,17 +112,44 @@
         },
         mixins: [Helper],
         created() {
+            console.log(this);
             if (this.refreshing === true) {
                 this.refreshing = false;
             }
             this.getVideos("video/?page_size=0", res => {
-                this.videoObjects = res.ok ? res.data : this.$router.push("/error");
+                this.videoObjects = res.ok
+                    ? res.data
+                    : this.$router.push({name: "Error", params: {res}});
             });
         },
         mounted() {
             const result = dom.getComponentRect(this.$refs.scroller, option => {
                 console.log("getComponentRect:", option);
             });
+        },
+        updated() {
+            // var ref1 = this.$refs.list;
+            // animation.transition(
+            //   ref1,
+            //   {
+            //     styles: {
+            //       backgroundColor: "#FF0000",
+            //       //   transition: "opacity 0.3s",
+            //       transition: "opacity 0.3s, transform 0.2s",
+            //       transform: " translateX(0%)"
+
+            //       //   opacity: 0;
+            //       //   transform: "translate(250px, 100px)"
+            //     },
+            //     duration: 100, //ms
+            //     timingFunction: "linear",
+            //     needLayout: true,
+            //     delay: 0 //ms
+            //   },
+            //   function() {
+            //     modal.toast({ message: "animation finished." });
+            //   }
+            // );
         }
     };
 </script>

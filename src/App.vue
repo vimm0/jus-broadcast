@@ -1,6 +1,9 @@
 <template>
     <div @androidback="$router.push({name:'Home'})">
         <!--<text @click="back">back</text>-->
+        <!--<template v-if="checkUserLogin()">-->
+            <layout></layout>
+        <!--</template>-->
         <router-view></router-view>
     </div>
 </template>
@@ -48,3 +51,17 @@
         }
     };
 </script>
+<style>
+    /* .fade-enter-active {
+      transition: opacity 0.3s;
+    }
+    .fade-leave-active {
+      transition: opacity 0.3s;
+    } */
+    /* .fade-enter { */
+    /* opacity: 0; */
+    /* } */
+    /* .fade-leave-to {
+      opacity: 0;
+    } */
+</style>
