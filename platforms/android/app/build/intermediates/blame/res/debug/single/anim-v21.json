@@ -1,10 +1,18 @@
 [
     {
+        "merged": "/home/vimm0/test/jus-broadcast/platforms/android/app/build/intermediates/res/merged/debug/anim-v21/design_bottom_sheet_slide_in.xml",
+        "source": "/home/vimm0/test/jus-broadcast/platforms/android/app/build/intermediates/exploded-aar/com.android.support/design/26.1.0/res/anim-v21/design_bottom_sheet_slide_in.xml"
+    },
+    {
         "merged": "/home/awecode/test/jus-broadcast/platforms/android/app/build/intermediates/res/merged/debug/anim-v21/design_bottom_sheet_slide_in.xml",
         "source": "/home/awecode/test/jus-broadcast/platforms/android/app/build/intermediates/exploded-aar/com.android.support/design/26.1.0/res/anim-v21/design_bottom_sheet_slide_in.xml"
     },
     {
         "merged": "/home/awecode/test/jus-broadcast/platforms/android/app/build/intermediates/res/merged/debug/anim-v21/design_bottom_sheet_slide_out.xml",
         "source": "/home/awecode/test/jus-broadcast/platforms/android/app/build/intermediates/exploded-aar/com.android.support/design/26.1.0/res/anim-v21/design_bottom_sheet_slide_out.xml"
+    },
+    {
+        "merged": "/home/vimm0/test/jus-broadcast/platforms/android/app/build/intermediates/res/merged/debug/anim-v21/design_bottom_sheet_slide_out.xml",
+        "source": "/home/vimm0/test/jus-broadcast/platforms/android/app/build/intermediates/exploded-aar/com.android.support/design/26.1.0/res/anim-v21/design_bottom_sheet_slide_out.xml"
     }
 ]

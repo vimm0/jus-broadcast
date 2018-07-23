@@ -2,5 +2,9 @@
     {
         "merged": "/home/awecode/test/jus-broadcast/platforms/android/app/build/intermediates/res/merged/debug/drawable-v23/abc_control_background_material.xml",
         "source": "/home/awecode/test/jus-broadcast/platforms/android/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/26.1.0/res/drawable-v23/abc_control_background_material.xml"
+    },
+    {
+        "merged": "/home/vimm0/test/jus-broadcast/platforms/android/app/build/intermediates/res/merged/debug/drawable-v23/abc_control_background_material.xml",
+        "source": "/home/vimm0/test/jus-broadcast/platforms/android/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/26.1.0/res/drawable-v23/abc_control_background_material.xml"
     }
 ]

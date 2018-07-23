@@ -1,5 +1,13 @@
 [
     {
+        "merged": "/home/vimm0/test/jus-broadcast/platforms/android/app/build/intermediates/res/merged/debug/drawable-anydpi-v21/design_ic_visibility_off.xml",
+        "source": "/home/vimm0/test/jus-broadcast/platforms/android/app/build/intermediates/exploded-aar/com.android.support/design/26.1.0/res/drawable-anydpi-v21/design_ic_visibility_off.xml"
+    },
+    {
+        "merged": "/home/vimm0/test/jus-broadcast/platforms/android/app/build/intermediates/res/merged/debug/drawable-anydpi-v21/design_ic_visibility.xml",
+        "source": "/home/vimm0/test/jus-broadcast/platforms/android/app/build/intermediates/exploded-aar/com.android.support/design/26.1.0/res/drawable-anydpi-v21/design_ic_visibility.xml"
+    },
+    {
         "merged": "/home/awecode/test/jus-broadcast/platforms/android/app/build/intermediates/res/merged/debug/drawable-anydpi-v21/design_ic_visibility.xml",
         "source": "/home/awecode/test/jus-broadcast/platforms/android/app/build/intermediates/exploded-aar/com.android.support/design/26.1.0/res/drawable-anydpi-v21/design_ic_visibility.xml"
     },

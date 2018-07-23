@@ -598,7 +598,7 @@ __vue_options__ = __vue_exports__ = __vue_exports__.default
 if (typeof __vue_options__ === "function") {
   __vue_options__ = __vue_options__.options
 }
-__vue_options__.__file = "/home/awecode/test/jus-broadcast/src/components/app/user/SignIn.vue"
+__vue_options__.__file = "/home/vimm0/test/jus-broadcast/src/components/app/user/SignIn.vue"
 __vue_options__.render = __vue_template__.render
 __vue_options__.staticRenderFns = __vue_template__.staticRenderFns
 __vue_options__._scopeId = "data-v-8135d450"
@@ -1588,7 +1588,7 @@ __vue_options__ = __vue_exports__ = __vue_exports__.default
 if (typeof __vue_options__ === "function") {
   __vue_options__ = __vue_options__.options
 }
-__vue_options__.__file = "/home/awecode/test/jus-broadcast/src/components/app/Layout.vue"
+__vue_options__.__file = "/home/vimm0/test/jus-broadcast/src/components/app/Layout.vue"
 __vue_options__.render = __vue_template__.render
 __vue_options__.staticRenderFns = __vue_template__.staticRenderFns
 __vue_options__._scopeId = "data-v-1e24e908"
@@ -8422,7 +8422,7 @@ __vue_options__ = __vue_exports__ = __vue_exports__.default
 if (typeof __vue_options__ === "function") {
   __vue_options__ = __vue_options__.options
 }
-__vue_options__.__file = "/home/awecode/test/jus-broadcast/src/views/Home.vue"
+__vue_options__.__file = "/home/vimm0/test/jus-broadcast/src/views/Home.vue"
 __vue_options__.render = __vue_template__.render
 __vue_options__.staticRenderFns = __vue_template__.staticRenderFns
 __vue_options__._scopeId = "data-v-fae5bece"
@@ -8684,7 +8684,7 @@ __vue_options__ = __vue_exports__ = __vue_exports__.default
 if (typeof __vue_options__ === "function") {
   __vue_options__ = __vue_options__.options
 }
-__vue_options__.__file = "/home/awecode/test/jus-broadcast/node_modules/weex-ui/packages/wxc-cell/index.vue"
+__vue_options__.__file = "/home/vimm0/test/jus-broadcast/node_modules/weex-ui/packages/wxc-cell/index.vue"
 __vue_options__.render = __vue_template__.render
 __vue_options__.staticRenderFns = __vue_template__.staticRenderFns
 __vue_options__._scopeId = "data-v-eff0e228"
@@ -9580,7 +9580,7 @@ __vue_options__ = __vue_exports__ = __vue_exports__.default
 if (typeof __vue_options__ === "function") {
   __vue_options__ = __vue_options__.options
 }
-__vue_options__.__file = "/home/awecode/test/jus-broadcast/node_modules/weex-ui/packages/wxc-icon/index.vue"
+__vue_options__.__file = "/home/vimm0/test/jus-broadcast/node_modules/weex-ui/packages/wxc-icon/index.vue"
 __vue_options__.render = __vue_template__.render
 __vue_options__.staticRenderFns = __vue_template__.staticRenderFns
 __vue_options__._scopeId = "data-v-37129143"
@@ -9805,7 +9805,7 @@ __vue_options__ = __vue_exports__ = __vue_exports__.default
 if (typeof __vue_options__ === "function") {
   __vue_options__ = __vue_options__.options
 }
-__vue_options__.__file = "/home/awecode/test/jus-broadcast/node_modules/weex-ui/packages/wxc-popup/index.vue"
+__vue_options__.__file = "/home/vimm0/test/jus-broadcast/node_modules/weex-ui/packages/wxc-popup/index.vue"
 __vue_options__.render = __vue_template__.render
 __vue_options__.staticRenderFns = __vue_template__.staticRenderFns
 __vue_options__._scopeId = "data-v-28869db8"
@@ -10130,7 +10130,7 @@ __vue_options__ = __vue_exports__ = __vue_exports__.default
 if (typeof __vue_options__ === "function") {
   __vue_options__ = __vue_options__.options
 }
-__vue_options__.__file = "/home/awecode/test/jus-broadcast/node_modules/weex-ui/packages/wxc-overlay/index.vue"
+__vue_options__.__file = "/home/vimm0/test/jus-broadcast/node_modules/weex-ui/packages/wxc-overlay/index.vue"
 __vue_options__.render = __vue_template__.render
 __vue_options__.staticRenderFns = __vue_template__.staticRenderFns
 __vue_options__._scopeId = "data-v-389bbc1c"
@@ -10360,7 +10360,7 @@ __vue_options__ = __vue_exports__ = __vue_exports__.default
 if (typeof __vue_options__ === "function") {
   __vue_options__ = __vue_options__.options
 }
-__vue_options__.__file = "/home/awecode/test/jus-broadcast/node_modules/weex-ui/packages/wxc-button/index.vue"
+__vue_options__.__file = "/home/vimm0/test/jus-broadcast/node_modules/weex-ui/packages/wxc-button/index.vue"
 __vue_options__.render = __vue_template__.render
 __vue_options__.staticRenderFns = __vue_template__.staticRenderFns
 __vue_options__._scopeId = "data-v-6273a8fc"
@@ -10610,7 +10610,7 @@ __vue_options__ = __vue_exports__ = __vue_exports__.default
 if (typeof __vue_options__ === "function") {
   __vue_options__ = __vue_options__.options
 }
-__vue_options__.__file = "/home/awecode/test/jus-broadcast/src/components/UIComponent/MiniBar.vue"
+__vue_options__.__file = "/home/vimm0/test/jus-broadcast/src/components/UIComponent/MiniBar.vue"
 __vue_options__.render = __vue_template__.render
 __vue_options__.staticRenderFns = __vue_template__.staticRenderFns
 __vue_options__._scopeId = "data-v-16dbe3f6"
@@ -10952,7 +10952,7 @@ __vue_options__ = __vue_exports__ = __vue_exports__.default
 if (typeof __vue_options__ === "function") {
   __vue_options__ = __vue_options__.options
 }
-__vue_options__.__file = "/home/awecode/test/jus-broadcast/src/components/app/video/VideoList.vue"
+__vue_options__.__file = "/home/vimm0/test/jus-broadcast/src/components/app/video/VideoList.vue"
 __vue_options__.render = __vue_template__.render
 __vue_options__.staticRenderFns = __vue_template__.staticRenderFns
 __vue_options__._scopeId = "data-v-18804db7"
@@ -11049,8 +11049,6 @@ var dom = weex.requireModule("dom"); //
 
 var modal = weex.requireModule("modal");
 var stream = weex.requireModule("stream");
-var animation = weex.requireModule("animation");
-
 exports.default = {
     data: function data() {
         return {
@@ -11093,7 +11091,6 @@ exports.default = {
             console.log(this.showLoading);
             if (this.isShow === true) {
                 this.getVideos("video/?page_size=0", function (res) {
-                    console.log(res);
                     _this.videoObjects = res.ok ? res.data : _this.$router.push({ name: "Error", params: { res: res } });
                     _this.isShow = false;
                     _this.refresh_display = "hide";
@@ -11135,7 +11132,6 @@ exports.default = {
     created: function created() {
         var _this2 = this;
 
-        console.log(this);
         if (this.refreshing === true) {
             this.refreshing = false;
         }
@@ -11147,30 +11143,6 @@ exports.default = {
         var result = dom.getComponentRect(this.$refs.scroller, function (option) {
             console.log("getComponentRect:", option);
         });
-    },
-    updated: function updated() {
-        // var ref1 = this.$refs.list;
-        // animation.transition(
-        //   ref1,
-        //   {
-        //     styles: {
-        //       backgroundColor: "#FF0000",
-        //       //   transition: "opacity 0.3s",
-        //       transition: "opacity 0.3s, transform 0.2s",
-        //       transform: " translateX(0%)"
-
-        //       //   opacity: 0;
-        //       //   transform: "translate(250px, 100px)"
-        //     },
-        //     duration: 100, //ms
-        //     timingFunction: "linear",
-        //     needLayout: true,
-        //     delay: 0 //ms
-        //   },
-        //   function() {
-        //     modal.toast({ message: "animation finished." });
-        //   }
-        // );
     }
 };
 
@@ -11219,7 +11191,7 @@ __vue_options__ = __vue_exports__ = __vue_exports__.default
 if (typeof __vue_options__ === "function") {
   __vue_options__ = __vue_options__.options
 }
-__vue_options__.__file = "/home/awecode/test/jus-broadcast/node_modules/weex-ui/packages/wxc-part-loading/index.vue"
+__vue_options__.__file = "/home/vimm0/test/jus-broadcast/node_modules/weex-ui/packages/wxc-part-loading/index.vue"
 __vue_options__.render = __vue_template__.render
 __vue_options__.staticRenderFns = __vue_template__.staticRenderFns
 __vue_options__.style = __vue_options__.style || {}
@@ -11360,7 +11332,7 @@ __vue_options__ = __vue_exports__ = __vue_exports__.default
 if (typeof __vue_options__ === "function") {
   __vue_options__ = __vue_options__.options
 }
-__vue_options__.__file = "/home/awecode/test/jus-broadcast/node_modules/weex-ui/packages/wxc-loading/index.vue"
+__vue_options__.__file = "/home/vimm0/test/jus-broadcast/node_modules/weex-ui/packages/wxc-loading/index.vue"
 __vue_options__.render = __vue_template__.render
 __vue_options__.staticRenderFns = __vue_template__.staticRenderFns
 __vue_options__._scopeId = "data-v-7a7a2208"
@@ -11950,7 +11922,7 @@ __vue_options__ = __vue_exports__ = __vue_exports__.default
 if (typeof __vue_options__ === "function") {
   __vue_options__ = __vue_options__.options
 }
-__vue_options__.__file = "/home/awecode/test/jus-broadcast/src/components/Form/VueForm.vue"
+__vue_options__.__file = "/home/vimm0/test/jus-broadcast/src/components/Form/VueForm.vue"
 __vue_options__.render = __vue_template__.render
 __vue_options__.staticRenderFns = __vue_template__.staticRenderFns
 __vue_options__.style = __vue_options__.style || {}
@@ -12323,7 +12295,7 @@ module.exports.render._withStripped = true
 module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
   return _c('div', {
     staticClass: ["home"]
-  }, [_c('scroller', [_c('video-list')], 1)])
+  }, [_c('video-list')], 1)
 },staticRenderFns: []}
 module.exports.render._withStripped = true
 
@@ -12354,7 +12326,7 @@ __vue_options__ = __vue_exports__ = __vue_exports__.default
 if (typeof __vue_options__ === "function") {
   __vue_options__ = __vue_options__.options
 }
-__vue_options__.__file = "/home/awecode/test/jus-broadcast/src/components/app/video/detail/ExternalVideoDetail.vue"
+__vue_options__.__file = "/home/vimm0/test/jus-broadcast/src/components/app/video/detail/ExternalVideoDetail.vue"
 __vue_options__.render = __vue_template__.render
 __vue_options__.staticRenderFns = __vue_template__.staticRenderFns
 __vue_options__._scopeId = "data-v-2ac2dad5"
@@ -12588,7 +12560,7 @@ __vue_options__ = __vue_exports__ = __vue_exports__.default
 if (typeof __vue_options__ === "function") {
   __vue_options__ = __vue_options__.options
 }
-__vue_options__.__file = "/home/awecode/test/jus-broadcast/src/components/app/video/detail/LocalVideoDetail.vue"
+__vue_options__.__file = "/home/vimm0/test/jus-broadcast/src/components/app/video/detail/LocalVideoDetail.vue"
 __vue_options__.render = __vue_template__.render
 __vue_options__.staticRenderFns = __vue_template__.staticRenderFns
 __vue_options__._scopeId = "data-v-4eebe6fd"
@@ -12853,7 +12825,7 @@ __vue_options__ = __vue_exports__ = __vue_exports__.default
 if (typeof __vue_options__ === "function") {
   __vue_options__ = __vue_options__.options
 }
-__vue_options__.__file = "/home/awecode/test/jus-broadcast/src/components/app/video/feature/WatchList.vue"
+__vue_options__.__file = "/home/vimm0/test/jus-broadcast/src/components/app/video/feature/WatchList.vue"
 __vue_options__.render = __vue_template__.render
 __vue_options__.staticRenderFns = __vue_template__.staticRenderFns
 __vue_options__._scopeId = "data-v-afd9c69c"
@@ -12975,7 +12947,7 @@ __vue_options__ = __vue_exports__ = __vue_exports__.default
 if (typeof __vue_options__ === "function") {
   __vue_options__ = __vue_options__.options
 }
-__vue_options__.__file = "/home/awecode/test/jus-broadcast/src/components/app/user/Profile.vue"
+__vue_options__.__file = "/home/vimm0/test/jus-broadcast/src/components/app/user/Profile.vue"
 __vue_options__.render = __vue_template__.render
 __vue_options__.staticRenderFns = __vue_template__.staticRenderFns
 __vue_options__._scopeId = "data-v-0482a703"
@@ -13097,7 +13069,7 @@ __vue_options__ = __vue_exports__ = __vue_exports__.default
 if (typeof __vue_options__ === "function") {
   __vue_options__ = __vue_options__.options
 }
-__vue_options__.__file = "/home/awecode/test/jus-broadcast/src/components/UIComponent/Error.vue"
+__vue_options__.__file = "/home/vimm0/test/jus-broadcast/src/components/UIComponent/Error.vue"
 __vue_options__.render = __vue_template__.render
 __vue_options__.staticRenderFns = __vue_template__.staticRenderFns
 __vue_options__.style = __vue_options__.style || {}
@@ -13232,7 +13204,7 @@ __vue_options__ = __vue_exports__ = __vue_exports__.default
 if (typeof __vue_options__ === "function") {
   __vue_options__ = __vue_options__.options
 }
-__vue_options__.__file = "/home/awecode/test/jus-broadcast/node_modules/weex-ui/packages/wxc-result/index.vue"
+__vue_options__.__file = "/home/vimm0/test/jus-broadcast/node_modules/weex-ui/packages/wxc-result/index.vue"
 __vue_options__.render = __vue_template__.render
 __vue_options__.staticRenderFns = __vue_template__.staticRenderFns
 __vue_options__._scopeId = "data-v-50c76027"
@@ -13581,7 +13553,7 @@ __vue_options__ = __vue_exports__ = __vue_exports__.default
 if (typeof __vue_options__ === "function") {
   __vue_options__ = __vue_options__.options
 }
-__vue_options__.__file = "/home/awecode/test/jus-broadcast/src/App.vue"
+__vue_options__.__file = "/home/vimm0/test/jus-broadcast/src/App.vue"
 __vue_options__.render = __vue_template__.render
 __vue_options__.staticRenderFns = __vue_template__.staticRenderFns
 __vue_options__._scopeId = "data-v-7ba5bd90"
@@ -13646,12 +13618,15 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 
 var modal = weex.requireModule("modal");
 var globalEvent = weex.requireModule("globalEvent");
-
+var animation = weex.requireModule("animation");
+console.log(weex.config.bundleUrl);
+console.log(weex.config.bundleUrl.split('/').slice(0, -1).join('/') + '/' + 'path' + '.js');
 exports.default = {
     name: "App",
     data: function data() {
         return {
-            view: ""
+            view: "",
+            isActive: false
         };
     },
 
@@ -13677,6 +13652,39 @@ exports.default = {
             });
             // exit from app on double back press
         }
+    },
+    updated: function updated() {
+        var self = this;
+        var containerEl = this.$refs.router;
+
+        animation.transition(containerEl, {
+            styles: {
+                opacity: 1,
+                // transformOrigin: 'right',
+                // backgroundColor: '#FF0000',
+                transform: 'translateX(-100%);'
+            },
+            duration: 0, //ms
+            timingFunction: 'ease',
+            needLayout: false,
+            delay: 0 //ms
+        }, function () {
+            modal.toast({ message: 'animation finished.' });
+        });
+        animation.transition(containerEl, {
+            styles: {
+                opacity: 1,
+                // transformOrigin: 'right',
+                // backgroundColor: '#FF0000',
+                transform: 'translateX(0%);'
+            },
+            duration: 300, //ms
+            timingFunction: 'ease-in-out',
+            needLayout: false,
+            delay: 0 //ms
+        }, function () {
+            modal.toast({ message: 'last animation finished.' });
+        });
     }
 };
 
@@ -21733,7 +21741,9 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
         })
       }
     }
-  }, [_c('layout'), _c('router-view')], 1)
+  }, [_c('layout'), _c('router-view', {
+    ref: "router"
+  })], 1)
 },staticRenderFns: []}
 module.exports.render._withStripped = true
 

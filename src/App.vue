@@ -2,9 +2,9 @@
     <div @androidback="$router.push({name:'Home'})">
         <!--<text @click="back">back</text>-->
         <!--<template v-if="checkUserLogin()">-->
-            <layout></layout>
+        <layout></layout>
         <!--</template>-->
-        <router-view></router-view>
+        <router-view ref="router"></router-view>
     </div>
 </template>
 
@@ -16,13 +16,15 @@
 
     const modal = weex.requireModule("modal");
     const globalEvent = weex.requireModule("globalEvent");
-
-
+    const animation = weex.requireModule("animation");
+    console.log(weex.config.bundleUrl)
+    console.log(weex.config.bundleUrl.split('/').slice(0, -1).join('/') + '/' + 'path' + '.js')
     export default {
         name: "App",
         data() {
             return {
                 view: "",
+                isActive: false,
             };
         },
         components: {
@@ -48,20 +50,44 @@
                 })
                 // exit from app on double back press
             }
+        },
+        updated() {
+            var self = this
+            var containerEl = this.$refs.router
+
+            animation.transition(containerEl, {
+                    styles: {
+                        opacity: 1,
+                        // transformOrigin: 'right',
+                        // backgroundColor: '#FF0000',
+                        transform: 'translateX(-100%);',
+                    },
+                    duration: 0, //ms
+                    timingFunction: 'ease',
+                    needLayout: false,
+                    delay: 0 //ms
+                }, function () {
+                    modal.toast({message: 'animation finished.'})
+                }
+            )
+            animation.transition(containerEl, {
+                    styles: {
+                        opacity: 1,
+                        // transformOrigin: 'right',
+                        // backgroundColor: '#FF0000',
+                        transform: 'translateX(0%);',
+                    },
+                    duration: 300, //ms
+                    timingFunction: 'ease-in-out',
+                    needLayout: false,
+                    delay: 0 //ms
+                }, function () {
+                    modal.toast({message: 'last animation finished.'})
+                }
+            )
         }
     };
 </script>
 <style>
-    /* .fade-enter-active {
-      transition: opacity 0.3s;
-    }
-    .fade-leave-active {
-      transition: opacity 0.3s;
-    } */
-    /* .fade-enter { */
-    /* opacity: 0; */
-    /* } */
-    /* .fade-leave-to {
-      opacity: 0;
-    } */
+
 </style>

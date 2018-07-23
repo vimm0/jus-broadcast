@@ -1,7 +1,15 @@
 [
     {
+        "merged": "/home/vimm0/test/jus-broadcast/platforms/android/app/build/intermediates/res/merged/debug/drawable-xhdpi/ic_action_scan.png",
+        "source": "/home/vimm0/test/jus-broadcast/platforms/android/app/src/main/res/drawable-xhdpi/ic_action_scan.png"
+    },
+    {
         "merged": "/home/awecode/test/jus-broadcast/platforms/android/app/build/intermediates/res/merged/debug/drawable-xhdpi/ic_action_scan.png",
         "source": "/home/awecode/test/jus-broadcast/platforms/android/app/src/main/res/drawable-xhdpi/ic_action_scan.png"
+    },
+    {
+        "merged": "/home/vimm0/test/jus-broadcast/platforms/android/app/build/intermediates/res/merged/debug/drawable-xhdpi/ic_action_refresh.png",
+        "source": "/home/vimm0/test/jus-broadcast/platforms/android/app/src/main/res/drawable-xhdpi/ic_action_refresh.png"
     },
     {
         "merged": "/home/awecode/test/jus-broadcast/platforms/android/app/build/intermediates/res/merged/debug/drawable-xhdpi/ic_action_refresh.png",

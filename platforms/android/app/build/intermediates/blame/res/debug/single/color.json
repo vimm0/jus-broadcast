@@ -1,35 +1,15 @@
 [
     {
-        "merged": "/home/awecode/test/jus-broadcast/platforms/android/app/build/intermediates/res/merged/debug/color/abc_tint_default.xml",
-        "source": "/home/awecode/test/jus-broadcast/platforms/android/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/26.1.0/res/color/abc_tint_default.xml"
-    },
-    {
         "merged": "/home/awecode/test/jus-broadcast/platforms/android/app/build/intermediates/res/merged/debug/color/abc_hint_foreground_material_dark.xml",
         "source": "/home/awecode/test/jus-broadcast/platforms/android/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/26.1.0/res/color/abc_hint_foreground_material_dark.xml"
     },
     {
-        "merged": "/home/awecode/test/jus-broadcast/platforms/android/app/build/intermediates/res/merged/debug/color/design_tint_password_toggle.xml",
-        "source": "/home/awecode/test/jus-broadcast/platforms/android/app/build/intermediates/exploded-aar/com.android.support/design/26.1.0/res/color/design_tint_password_toggle.xml"
+        "merged": "/home/vimm0/test/jus-broadcast/platforms/android/app/build/intermediates/res/merged/debug/color/abc_primary_text_material_dark.xml",
+        "source": "/home/vimm0/test/jus-broadcast/platforms/android/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/26.1.0/res/color/abc_primary_text_material_dark.xml"
     },
     {
-        "merged": "/home/awecode/test/jus-broadcast/platforms/android/app/build/intermediates/res/merged/debug/color/abc_btn_colored_borderless_text_material.xml",
-        "source": "/home/awecode/test/jus-broadcast/platforms/android/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/26.1.0/res/color/abc_btn_colored_borderless_text_material.xml"
-    },
-    {
-        "merged": "/home/awecode/test/jus-broadcast/platforms/android/app/build/intermediates/res/merged/debug/color/abc_secondary_text_material_light.xml",
-        "source": "/home/awecode/test/jus-broadcast/platforms/android/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/26.1.0/res/color/abc_secondary_text_material_light.xml"
-    },
-    {
-        "merged": "/home/awecode/test/jus-broadcast/platforms/android/app/build/intermediates/res/merged/debug/color/abc_search_url_text.xml",
-        "source": "/home/awecode/test/jus-broadcast/platforms/android/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/26.1.0/res/color/abc_search_url_text.xml"
-    },
-    {
-        "merged": "/home/awecode/test/jus-broadcast/platforms/android/app/build/intermediates/res/merged/debug/color/abc_tint_seek_thumb.xml",
-        "source": "/home/awecode/test/jus-broadcast/platforms/android/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/26.1.0/res/color/abc_tint_seek_thumb.xml"
-    },
-    {
-        "merged": "/home/awecode/test/jus-broadcast/platforms/android/app/build/intermediates/res/merged/debug/color/switch_thumb_material_light.xml",
-        "source": "/home/awecode/test/jus-broadcast/platforms/android/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/26.1.0/res/color/switch_thumb_material_light.xml"
+        "merged": "/home/vimm0/test/jus-broadcast/platforms/android/app/build/intermediates/res/merged/debug/color/abc_secondary_text_material_light.xml",
+        "source": "/home/vimm0/test/jus-broadcast/platforms/android/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/26.1.0/res/color/abc_secondary_text_material_light.xml"
     },
     {
         "merged": "/home/awecode/test/jus-broadcast/platforms/android/app/build/intermediates/res/merged/debug/color/abc_hint_foreground_material_light.xml",
@@ -40,24 +20,12 @@
         "source": "/home/awecode/test/jus-broadcast/platforms/android/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/26.1.0/res/color/abc_primary_text_material_dark.xml"
     },
     {
-        "merged": "/home/awecode/test/jus-broadcast/platforms/android/app/build/intermediates/res/merged/debug/color/abc_secondary_text_material_dark.xml",
-        "source": "/home/awecode/test/jus-broadcast/platforms/android/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/26.1.0/res/color/abc_secondary_text_material_dark.xml"
+        "merged": "/home/vimm0/test/jus-broadcast/platforms/android/app/build/intermediates/res/merged/debug/color/abc_primary_text_material_light.xml",
+        "source": "/home/vimm0/test/jus-broadcast/platforms/android/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/26.1.0/res/color/abc_primary_text_material_light.xml"
     },
     {
-        "merged": "/home/awecode/test/jus-broadcast/platforms/android/app/build/intermediates/res/merged/debug/color/abc_btn_colored_text_material.xml",
-        "source": "/home/awecode/test/jus-broadcast/platforms/android/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/26.1.0/res/color/abc_btn_colored_text_material.xml"
-    },
-    {
-        "merged": "/home/awecode/test/jus-broadcast/platforms/android/app/build/intermediates/res/merged/debug/color/abc_primary_text_material_light.xml",
-        "source": "/home/awecode/test/jus-broadcast/platforms/android/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/26.1.0/res/color/abc_primary_text_material_light.xml"
-    },
-    {
-        "merged": "/home/awecode/test/jus-broadcast/platforms/android/app/build/intermediates/res/merged/debug/color/abc_tint_switch_track.xml",
-        "source": "/home/awecode/test/jus-broadcast/platforms/android/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/26.1.0/res/color/abc_tint_switch_track.xml"
-    },
-    {
-        "merged": "/home/awecode/test/jus-broadcast/platforms/android/app/build/intermediates/res/merged/debug/color/design_error.xml",
-        "source": "/home/awecode/test/jus-broadcast/platforms/android/app/build/intermediates/exploded-aar/com.android.support/design/26.1.0/res/color/design_error.xml"
+        "merged": "/home/vimm0/test/jus-broadcast/platforms/android/app/build/intermediates/res/merged/debug/color/abc_btn_colored_borderless_text_material.xml",
+        "source": "/home/vimm0/test/jus-broadcast/platforms/android/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/26.1.0/res/color/abc_btn_colored_borderless_text_material.xml"
     },
     {
         "merged": "/home/awecode/test/jus-broadcast/platforms/android/app/build/intermediates/res/merged/debug/color/abc_tint_edittext.xml",
@@ -76,11 +44,127 @@
         "source": "/home/awecode/test/jus-broadcast/platforms/android/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/26.1.0/res/color/abc_tint_btn_checkable.xml"
     },
     {
+        "merged": "/home/vimm0/test/jus-broadcast/platforms/android/app/build/intermediates/res/merged/debug/color/abc_tint_default.xml",
+        "source": "/home/vimm0/test/jus-broadcast/platforms/android/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/26.1.0/res/color/abc_tint_default.xml"
+    },
+    {
+        "merged": "/home/vimm0/test/jus-broadcast/platforms/android/app/build/intermediates/res/merged/debug/color/switch_thumb_material_dark.xml",
+        "source": "/home/vimm0/test/jus-broadcast/platforms/android/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/26.1.0/res/color/switch_thumb_material_dark.xml"
+    },
+    {
         "merged": "/home/awecode/test/jus-broadcast/platforms/android/app/build/intermediates/res/merged/debug/color/abc_tint_spinner.xml",
         "source": "/home/awecode/test/jus-broadcast/platforms/android/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/26.1.0/res/color/abc_tint_spinner.xml"
     },
     {
+        "merged": "/home/vimm0/test/jus-broadcast/platforms/android/app/build/intermediates/res/merged/debug/color/abc_primary_text_disable_only_material_dark.xml",
+        "source": "/home/vimm0/test/jus-broadcast/platforms/android/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/26.1.0/res/color/abc_primary_text_disable_only_material_dark.xml"
+    },
+    {
+        "merged": "/home/vimm0/test/jus-broadcast/platforms/android/app/build/intermediates/res/merged/debug/color/abc_tint_btn_checkable.xml",
+        "source": "/home/vimm0/test/jus-broadcast/platforms/android/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/26.1.0/res/color/abc_tint_btn_checkable.xml"
+    },
+    {
+        "merged": "/home/awecode/test/jus-broadcast/platforms/android/app/build/intermediates/res/merged/debug/color/abc_tint_default.xml",
+        "source": "/home/awecode/test/jus-broadcast/platforms/android/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/26.1.0/res/color/abc_tint_default.xml"
+    },
+    {
+        "merged": "/home/vimm0/test/jus-broadcast/platforms/android/app/build/intermediates/res/merged/debug/color/abc_tint_switch_track.xml",
+        "source": "/home/vimm0/test/jus-broadcast/platforms/android/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/26.1.0/res/color/abc_tint_switch_track.xml"
+    },
+    {
+        "merged": "/home/awecode/test/jus-broadcast/platforms/android/app/build/intermediates/res/merged/debug/color/design_tint_password_toggle.xml",
+        "source": "/home/awecode/test/jus-broadcast/platforms/android/app/build/intermediates/exploded-aar/com.android.support/design/26.1.0/res/color/design_tint_password_toggle.xml"
+    },
+    {
+        "merged": "/home/vimm0/test/jus-broadcast/platforms/android/app/build/intermediates/res/merged/debug/color/abc_tint_edittext.xml",
+        "source": "/home/vimm0/test/jus-broadcast/platforms/android/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/26.1.0/res/color/abc_tint_edittext.xml"
+    },
+    {
+        "merged": "/home/awecode/test/jus-broadcast/platforms/android/app/build/intermediates/res/merged/debug/color/abc_btn_colored_borderless_text_material.xml",
+        "source": "/home/awecode/test/jus-broadcast/platforms/android/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/26.1.0/res/color/abc_btn_colored_borderless_text_material.xml"
+    },
+    {
+        "merged": "/home/awecode/test/jus-broadcast/platforms/android/app/build/intermediates/res/merged/debug/color/abc_secondary_text_material_light.xml",
+        "source": "/home/awecode/test/jus-broadcast/platforms/android/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/26.1.0/res/color/abc_secondary_text_material_light.xml"
+    },
+    {
+        "merged": "/home/awecode/test/jus-broadcast/platforms/android/app/build/intermediates/res/merged/debug/color/abc_search_url_text.xml",
+        "source": "/home/awecode/test/jus-broadcast/platforms/android/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/26.1.0/res/color/abc_search_url_text.xml"
+    },
+    {
+        "merged": "/home/awecode/test/jus-broadcast/platforms/android/app/build/intermediates/res/merged/debug/color/abc_tint_seek_thumb.xml",
+        "source": "/home/awecode/test/jus-broadcast/platforms/android/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/26.1.0/res/color/abc_tint_seek_thumb.xml"
+    },
+    {
+        "merged": "/home/vimm0/test/jus-broadcast/platforms/android/app/build/intermediates/res/merged/debug/color/abc_hint_foreground_material_dark.xml",
+        "source": "/home/vimm0/test/jus-broadcast/platforms/android/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/26.1.0/res/color/abc_hint_foreground_material_dark.xml"
+    },
+    {
+        "merged": "/home/vimm0/test/jus-broadcast/platforms/android/app/build/intermediates/res/merged/debug/color/design_tint_password_toggle.xml",
+        "source": "/home/vimm0/test/jus-broadcast/platforms/android/app/build/intermediates/exploded-aar/com.android.support/design/26.1.0/res/color/design_tint_password_toggle.xml"
+    },
+    {
+        "merged": "/home/awecode/test/jus-broadcast/platforms/android/app/build/intermediates/res/merged/debug/color/switch_thumb_material_light.xml",
+        "source": "/home/awecode/test/jus-broadcast/platforms/android/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/26.1.0/res/color/switch_thumb_material_light.xml"
+    },
+    {
+        "merged": "/home/vimm0/test/jus-broadcast/platforms/android/app/build/intermediates/res/merged/debug/color/abc_search_url_text.xml",
+        "source": "/home/vimm0/test/jus-broadcast/platforms/android/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/26.1.0/res/color/abc_search_url_text.xml"
+    },
+    {
+        "merged": "/home/vimm0/test/jus-broadcast/platforms/android/app/build/intermediates/res/merged/debug/color/abc_primary_text_disable_only_material_light.xml",
+        "source": "/home/vimm0/test/jus-broadcast/platforms/android/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/26.1.0/res/color/abc_primary_text_disable_only_material_light.xml"
+    },
+    {
+        "merged": "/home/vimm0/test/jus-broadcast/platforms/android/app/build/intermediates/res/merged/debug/color/abc_tint_seek_thumb.xml",
+        "source": "/home/vimm0/test/jus-broadcast/platforms/android/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/26.1.0/res/color/abc_tint_seek_thumb.xml"
+    },
+    {
+        "merged": "/home/awecode/test/jus-broadcast/platforms/android/app/build/intermediates/res/merged/debug/color/abc_secondary_text_material_dark.xml",
+        "source": "/home/awecode/test/jus-broadcast/platforms/android/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/26.1.0/res/color/abc_secondary_text_material_dark.xml"
+    },
+    {
+        "merged": "/home/awecode/test/jus-broadcast/platforms/android/app/build/intermediates/res/merged/debug/color/abc_btn_colored_text_material.xml",
+        "source": "/home/awecode/test/jus-broadcast/platforms/android/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/26.1.0/res/color/abc_btn_colored_text_material.xml"
+    },
+    {
+        "merged": "/home/awecode/test/jus-broadcast/platforms/android/app/build/intermediates/res/merged/debug/color/abc_primary_text_material_light.xml",
+        "source": "/home/awecode/test/jus-broadcast/platforms/android/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/26.1.0/res/color/abc_primary_text_material_light.xml"
+    },
+    {
+        "merged": "/home/awecode/test/jus-broadcast/platforms/android/app/build/intermediates/res/merged/debug/color/abc_tint_switch_track.xml",
+        "source": "/home/awecode/test/jus-broadcast/platforms/android/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/26.1.0/res/color/abc_tint_switch_track.xml"
+    },
+    {
+        "merged": "/home/vimm0/test/jus-broadcast/platforms/android/app/build/intermediates/res/merged/debug/color/abc_hint_foreground_material_light.xml",
+        "source": "/home/vimm0/test/jus-broadcast/platforms/android/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/26.1.0/res/color/abc_hint_foreground_material_light.xml"
+    },
+    {
+        "merged": "/home/awecode/test/jus-broadcast/platforms/android/app/build/intermediates/res/merged/debug/color/design_error.xml",
+        "source": "/home/awecode/test/jus-broadcast/platforms/android/app/build/intermediates/exploded-aar/com.android.support/design/26.1.0/res/color/design_error.xml"
+    },
+    {
+        "merged": "/home/vimm0/test/jus-broadcast/platforms/android/app/build/intermediates/res/merged/debug/color/abc_tint_spinner.xml",
+        "source": "/home/vimm0/test/jus-broadcast/platforms/android/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/26.1.0/res/color/abc_tint_spinner.xml"
+    },
+    {
+        "merged": "/home/vimm0/test/jus-broadcast/platforms/android/app/build/intermediates/res/merged/debug/color/switch_thumb_material_light.xml",
+        "source": "/home/vimm0/test/jus-broadcast/platforms/android/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/26.1.0/res/color/switch_thumb_material_light.xml"
+    },
+    {
+        "merged": "/home/vimm0/test/jus-broadcast/platforms/android/app/build/intermediates/res/merged/debug/color/abc_btn_colored_text_material.xml",
+        "source": "/home/vimm0/test/jus-broadcast/platforms/android/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/26.1.0/res/color/abc_btn_colored_text_material.xml"
+    },
+    {
         "merged": "/home/awecode/test/jus-broadcast/platforms/android/app/build/intermediates/res/merged/debug/color/switch_thumb_material_dark.xml",
         "source": "/home/awecode/test/jus-broadcast/platforms/android/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/26.1.0/res/color/switch_thumb_material_dark.xml"
+    },
+    {
+        "merged": "/home/vimm0/test/jus-broadcast/platforms/android/app/build/intermediates/res/merged/debug/color/abc_secondary_text_material_dark.xml",
+        "source": "/home/vimm0/test/jus-broadcast/platforms/android/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/26.1.0/res/color/abc_secondary_text_material_dark.xml"
+    },
+    {
+        "merged": "/home/vimm0/test/jus-broadcast/platforms/android/app/build/intermediates/res/merged/debug/color/design_error.xml",
+        "source": "/home/vimm0/test/jus-broadcast/platforms/android/app/build/intermediates/exploded-aar/com.android.support/design/26.1.0/res/color/design_error.xml"
     }
 ]
