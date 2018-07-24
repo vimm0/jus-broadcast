@@ -1,8 +1,12 @@
-#android/
-#platforms
 node_modules/
 .idea/
 .temp/
 package-lock.json
-#dist
-/android/
+*.iml
+.gradle
+platforms/android/app/build
+platforms/android/local.properties
+platforms/android/build
+#platforms/android/.DS_Store
+#platforms/android/captures
+#platforms/android/.externalNativeBuild
