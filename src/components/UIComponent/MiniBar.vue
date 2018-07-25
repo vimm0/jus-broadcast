@@ -39,7 +39,7 @@
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
-  background-color: #009ff0;
+  /*background-color: #009ff0;*/
 }
 
 .left {
@@ -82,7 +82,7 @@ export default {
   props: {
     backgroundColor: {
       type: String,
-      default: "rgba(33, 136, 251, 0.76);"
+      default: "#FFFFFF"
     },
     leftButton: {
       type: String,
@@ -122,7 +122,7 @@ export default {
       if (this.$router.currentRoute.name === "Home") {
         console.log("Do nothing for now");
       } else {
-        this.$router.back();
+        this.$router.push('/');
       }
     },
     rightButtonClicked() {

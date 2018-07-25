@@ -1,7 +1,10 @@
 <template>
     <div class="user-profile">
         <!--em not supported use pixel instead-->
-        <image class="center" src="https://avatars3.githubusercontent.com/u/17888497?s=460&v=4" :resize=stretch></image>
+        <div style="flex-direction:row;justify-content: center;">
+            <image class="profile-image" src="https://avatars3.githubusercontent.com/u/17888497?s=460&v=4"
+                   style="height:400px;width:400px;border-radius:400;margin:200px;"></image>
+        </div>
         <wxc-cell label="Full Name" :title=user.full_name :has-top-border="false"></wxc-cell>
         <wxc-cell label="Name" title="Sandesh Rana" :has-top-border="false"></wxc-cell>
         <wxc-cell label="Email" :title=user.email :has-top-border="false"></wxc-cell>

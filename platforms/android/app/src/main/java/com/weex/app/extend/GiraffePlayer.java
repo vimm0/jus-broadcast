@@ -40,6 +40,7 @@ public class GiraffePlayer extends WXComponent<VideoView> {
 
     @WXComponentProp(name = "src")
     public void setSrc(String source) {
+        Log.v("source tag", source);
         getHostView().setVideoPath(source);
     }
 }

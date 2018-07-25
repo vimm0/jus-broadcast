@@ -4,18 +4,16 @@
             <mini-bar @rightButtonClicked="rightButtonClicked" :title="getRoute"></mini-bar>
         </div>
         <wxc-popup width="500"
-                   pos="left"
+                   pos="right"
                    :show="isShow"
                    @wxcPopupOverlayClicked="overlayClicked">
             <div class="container">
                 <div class="demo">
                     <wxc-cell title="PROFILE"
-                              :has-arrow="true"
                               @wxcCellClicked="profileCellClicked"
                               :has-top-border="false">
                     </wxc-cell>
                     <wxc-cell title="WATCHLIST"
-                              :has-arrow="true"
                               @wxcCellClicked="watchListCellClicked"
                               :has-top-border="false">
                     </wxc-cell>

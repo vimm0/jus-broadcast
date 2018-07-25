@@ -36,6 +36,13 @@ export default {
                 return false
             }
         },
+        uppercase (value) {
+            if (!value) {
+                return ''
+            }
+            value = value.toString()
+            return value.charAt(0).toUpperCase() + value.slice(1)
+        },
         signUpComplete: function (updatedTab) {
             // Usage: ModalAuthentication, Navbar
             // this.activeTab = 1 // reach conceptual $emit (child-parent) data passing but at last applied hardwired value for activeTab.
@@ -48,15 +55,17 @@ export default {
             // })
             // }
             this.activeTab = updatedTab
-        },
-        // openModal () {
-        //   // this.$route.router.push('/modal')
-        //   this.isComponentModalActive = !this.isComponentModalActive
-        // },
+        }
+        ,
+// openModal () {
+//   // this.$route.router.push('/modal')
+//   this.isComponentModalActive = !this.isComponentModalActive
+// },
         chunkedVideo(val) {
             let chunk = require("chunk")
             return chunk(val, 4)
-        },
+        }
+        ,
         chunkedHomeVideo(videos) {
             let counter = []
             let chunk = require("chunk")
@@ -70,7 +79,8 @@ export default {
                 this.addLoadMoreButtonForVideoList()
             }
             return chunk(videos, 4)
-        },
+        }
+        ,
         shuffleArray(array) {
             // Using Durstenfeld shuffle algorithm.
             for (let i = array.length - 1; i > 0; i--) {
@@ -80,17 +90,20 @@ export default {
                 array[j] = temp;
             }
             return array
-        },
+        }
+        ,
         sliderChunked(objs) {
             let filterSlugId = this.$route.params.slugId
             let filtered = objs.filter(function (el) {
                 return el.id !== Number(filterSlugId)
             })
             return this.shuffleArray(filtered.slice(0, 3))
-        },
+        }
+        ,
         addLoadMoreButtonForVideoList() {
             global.Vue.set(this.$data, 'hideButton', false)
-        },
+        }
+        ,
         getDescription(data) {
             if (this.showMore === false) {
                 data.length > 20 ? this.moreOrLess = "More" : this.showMore = false
@@ -99,11 +112,13 @@ export default {
                 this.moreOrLess = "Less"
                 return data
             }
-        },
+        }
+        ,
         tzDateToJsDate(date) {
             let ts = new Date(date)
             return ts.toLocaleDateString("en-US")
-        },
+        }
+        ,
         humanizeCount(count) {
             if (count > 1) {
                 return "s"

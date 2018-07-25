@@ -1,8 +1,7 @@
 <template>
-    <div class="vue-form non-printable"
-         :style="this.formStyle">
-        <div class="card" :style="this.cardStyle">
-            <form method="POST" enctype="multipart/form-data" @submit.prevent="save(action)"
+    <div class="vue-form non-printable">
+        <div class="card">
+            <form method="POST" enctype="multipart/form-data"
                   @focusin="errors.clear($event)">
                 <slot name="form-header">
                 </slot>
@@ -10,19 +9,19 @@
                     <div class="content">
                         <slot name="form-fields" :errors="errors">
                         </slot>
-                        <!--<slot name="submit" :remove="remove">-->
-                        <!--<button class="card-footer-item" @click="save(action)" v-if="fields.id" :disabled="errors.any()"-->
-                        <!--&gt;Update-->
-                        <!--</button>-->
-                        <!--<button class="card-footer-item" @click="save(action)" :disabled="errors.any()" v-else>-->
-                        <!--Create-->
-                        <!--</button>-->
-                        <!--<button class="card-footer-item" @click.prevent="remove(action)" v-if="fields.id">-->
-                        <!--Delete-->
-                        <!--</button>-->
-                        <!--<slot name="extra_actions">-->
-                        <!--</slot>-->
-                        <!--</slot>-->
+                        <slot name="submit" :remove="remove">
+                            <!--<button class="card-footer-item" @click="save(action)" v-if="fields.id" :disabled="errors.any()"-->
+                            <!--&gt;Update-->
+                            <!--</button>-->
+                            <!--<button class="card-footer-item" @click="save(action)" :disabled="errors.any()" v-else>-->
+                            <!--Create-->
+                            <!--</button>-->
+                            <!--<button class="card-footer-item" @click.prevent="remove(action)" v-if="fields.id">-->
+                            <!--Delete-->
+                            <!--</button>-->
+                            <slot name="extra_actions">
+                            </slot>
+                        </slot>
 
                         <!--<slot name="submit" :remove="remove">-->
                         <!--<v-btn color="primary" @click="save(action)" v-if="fields.id" :disabled="errors.any()">Update</v-btn>-->
@@ -34,13 +33,19 @@
                     </div>
                 </div>
 
-                            <text>{{fields}}</text>
+                <text>{{fields}}</text>
 
             </form>
         </div>
     </div>
 </template>
 <script>
+    const config = require("./config.js");
+    const stream = weex.requireModule("stream");
+    const modal = weex.requireModule("modal");
+
+    import Vue from 'vue'
+
     class Errors {
         constructor() {
             this.errors = {}
@@ -79,11 +84,11 @@
             if (event) {
                 const field = event.target.name
                 if (event.target.getAttribute('row') === 'true' && this.errors.hasOwnProperty('rows')) {
-                    global.Vue.delete(this.errors, 'rows')
+                    Vue.delete(this.errors, 'rows')
                     return
                 }
                 if (field) {
-                    global.Vue.delete(this.errors, field)
+                    Vue.delete(this.errors, field)
                     return
                 }
             }
@@ -93,13 +98,6 @@
 
     export default {
         props: ['fields', 'action', 'submitAsModal', 'defaultFieldsValues', 'successUrl', 'formStyle', 'cardStyle', 'enableResetFormOnSuccess'],
-//        props: {
-//            fields: {
-//                type: String,
-//                default: 'yellow'
-//            }
-//        },
-//        props: ['fields'],
         data() {
             let dct = {}
             dct.original_fields = Object.assign({}, this.fields)
@@ -113,6 +111,12 @@
         //    created(){
         //      debugger
         //    },
+    //        created() {
+    //            modal.toast({
+    //                message: 'created vueForm'
+    //            });
+    ////            this.bus.$on('clicked', this.save(this.action));
+    //        },
         methods: {
             reset() {
                 this.errors.clear()
@@ -127,15 +131,16 @@
             },
             save(url) {
                 let verb
+                console.log(this)
+                console.log(url)
                 if (this.fields.id || this.formInstanceId) {
                     verb = 'put'
                 } else {
                     verb = 'post'
                 }
-                this.submit(verb, url)
-                    .then(data => {
-                        console.log(data)
-                    })
+                this.submit(verb, url).then(data => {
+//                        console.log(data)
+                })
             },
             post(url) {
                 return this.submit('post', url)
@@ -153,31 +158,78 @@
                 Object.assign(this.fields, this.original_fields)
             },
             submit(requestType, url) {
+                let self = this;
+                console.log(requestType)
+                console.log(this)
+                console.log(this.getFieldsData())
+                modal.toast({
+                    message: 'submission'
+                });
+
                 return new Promise((resolve, reject) => {
-                    global.axios[requestType](url, this.getFieldsData())
-                        .then(({data}) => {
-                            this.onSuccess(data)
-                            // console.log(this.submitAsModal)
-                            if (this.submitAsModal) {
-                                this.$emit('saveAsModal', data) // catch by Modal.vue, to update selectize options
+                    stream.fetch(
+                        {
+                            method: "POST",
+                            url: "http://52.202.70.246/v1/jwt/create/",
+                            type: "json",
+                            body: config.toParams({
+                                email: this.getFieldsData().email,
+                                password: this.getFieldsData().password
+                            }),
+                            headers: {"Content-Type": "application/x-www-form-urlencoded"}
+                        },
+                        function (data) {
+                            if (!data.ok) {
+                                console.log("request failed");
+                                modal.toast({
+                                    message: data
+                                });
                             } else {
-                                if (this.successUrl) {
-                                    this.$emit('success', data, this.successUrl)
+                                modal.toast({
+                                    message: "username: " + data.data.user.full_name
+                                });
+//                                console.log(self)
+
+                                self.onSuccess(data)
+                                if (self.successUrl) {
+                                    self.$emit('success', data, self.successUrl)
+                                    console.log('true')
                                 } else {
-                                    this.$emit('success', data)
+                                    self.$emit('success', data)
+                                    console.log('false')
                                 }
+//
                             }
-                            if (this.enableResetFormOnSuccess) {
-                                this.resetForm()
-                            }
-                            resolve(data)
-                        })
-                        .catch(error => {
-                            // console.log(error.response.data)
-                            this.onFail(error.response.data)
-                            this.$parent.$emit('failure', error.response.data)
-                            reject(error.response.data)
-                        })
+                        },
+                        function (response) {
+                            console.log("response", response);
+                        }
+                    )
+
+                    //                    axios[requestType](url, this.getFieldsData())
+                    //                        .then(({data}) => {
+                    //                            this.onSuccess(data)
+                    //                            // console.log(this.submitAsModal)
+                    //                            if (this.submitAsModal) {
+                    //                                this.$emit('saveAsModal', data) // catch by Modal.vue, to update selectize options
+                    //                            } else {
+                    //                                if (this.successUrl) {
+                    //                                    this.$emit('success', data, this.successUrl)
+                    //                                } else {
+                    //                                    this.$emit('success', data)
+                    //                                }
+                    //                            }
+                    //                            if (this.enableResetFormOnSuccess) {
+                    //                                this.resetForm()
+                    //                            }
+                    //                            resolve(data)
+                    //                        })
+                    //                        .catch(error => {
+                    //                            // console.log(error.response.data)
+                    //                            this.onFail(error.response.data)
+                    //                            this.$parent.$emit('failure', error.response.data)
+                    //                            reject(error.response.data)
+                    //                        })
                 })
             },
             onSuccess(data) {
@@ -187,11 +239,14 @@
                 if (errors.hasOwnProperty('error')) {
                     this.$error(errors.error[0])
                     setTimeout(() => {
-                        global.Vue.delete(this.errors.errors, 'error')
+                        Vue.delete(this.errors.errors, 'error')
                     }, 1000)
                 }
                 this.errors.record(errors)
             }
-        }
+        },
+//        mounted() {
+//            this.bus.$on('clicked', this.save(this.action));
+//        },
     }
 </script>

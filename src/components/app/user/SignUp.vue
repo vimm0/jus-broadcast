@@ -1,5 +1,7 @@
 <template>
   <div class="signup">
+                <text style="">sign up</text>
+
     <vue-form :fields="fields" :action="endpoint()" @success="successCallback">
       <template slot="form-fields" slot-scope="form">
             <!-- <text :type="form.errors.get('full_name') ? 'is-danger': null"

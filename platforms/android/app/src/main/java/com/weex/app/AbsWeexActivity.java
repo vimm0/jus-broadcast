@@ -210,6 +210,7 @@ import android.content.IntentFilter;
 import android.content.pm.PackageManager;
 import android.net.Uri;
 import android.os.Bundle;
+import android.os.Handler;
 import android.support.annotation.Nullable;
 import android.support.v4.app.ActivityCompat;
 import android.support.v4.content.ContextCompat;
@@ -296,6 +297,8 @@ public abstract class AbsWeexActivity extends AppCompatActivity implements IWXRe
         return mPageName;
     }
 
+    boolean doubleBackToExitPressedOnce = false;
+
     @Override
     public void onBackPressed() {
         Log.v("TAG", "test back button clicked");
@@ -303,6 +306,21 @@ public abstract class AbsWeexActivity extends AppCompatActivity implements IWXRe
 //        params.put("name", "returnmsg");
 //        mInstance.fireGlobalEventCallback("androidback", params);
         WXSDKManager.getInstance().fireEvent(mInstance.getInstanceId(), "_root", "androidback");
+        if (doubleBackToExitPressedOnce) {
+            super.onBackPressed();
+            return;
+        }
+
+        this.doubleBackToExitPressedOnce = true;
+        Toast.makeText(this, "Please click BACK again to exit", Toast.LENGTH_SHORT).show();
+
+        new Handler().postDelayed(new Runnable() {
+
+            @Override
+            public void run() {
+                doubleBackToExitPressedOnce = false;
+            }
+        }, 2000);
 
     }
 
