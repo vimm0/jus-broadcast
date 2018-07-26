@@ -33,7 +33,7 @@
                     </div>
                 </div>
 
-                <text>{{fields}}</text>
+                <!--<text>{{fields}}</text>-->
 
             </form>
         </div>
@@ -111,12 +111,6 @@
         //    created(){
         //      debugger
         //    },
-    //        created() {
-    //            modal.toast({
-    //                message: 'created vueForm'
-    //            });
-    ////            this.bus.$on('clicked', this.save(this.action));
-    //        },
         methods: {
             reset() {
                 this.errors.clear()
@@ -131,8 +125,6 @@
             },
             save(url) {
                 let verb
-                console.log(this)
-                console.log(url)
                 if (this.fields.id || this.formInstanceId) {
                     verb = 'put'
                 } else {
@@ -158,79 +150,76 @@
                 Object.assign(this.fields, this.original_fields)
             },
             submit(requestType, url) {
-                let self = this;
-                console.log(requestType)
-                console.log(this)
-                console.log(this.getFieldsData())
-                modal.toast({
-                    message: 'submission'
-                });
-
+                console.log(url.split('/')[4] === 'jwt')
                 return new Promise((resolve, reject) => {
-                    stream.fetch(
-                        {
-                            method: "POST",
-                            url: "http://52.202.70.246/v1/jwt/create/",
-                            type: "json",
-                            body: config.toParams({
+                        var body = ''
+                        if (url.split('/')[4] === 'jwt') {
+                            body = config.toParams({
                                 email: this.getFieldsData().email,
                                 password: this.getFieldsData().password
-                            }),
-                            headers: {"Content-Type": "application/x-www-form-urlencoded"}
-                        },
-                        function (data) {
-                            if (!data.ok) {
-                                console.log("request failed");
-                                modal.toast({
-                                    message: data
-                                });
-                            } else {
-                                modal.toast({
-                                    message: "username: " + data.data.user.full_name
-                                });
-//                                console.log(self)
-
-                                self.onSuccess(data)
-                                if (self.successUrl) {
-                                    self.$emit('success', data, self.successUrl)
-                                    console.log('true')
-                                } else {
-                                    self.$emit('success', data)
-                                    console.log('false')
-                                }
-//
-                            }
-                        },
-                        function (response) {
-                            console.log("response", response);
+                            })
+                        } else {
+                            body = config.toParams({
+                                full_name: this.getFieldsData().full_name,
+                                email: this.getFieldsData().email,
+                                password: this.getFieldsData().password
+                            })
                         }
-                    )
+                        if (body) {
+                            stream.fetch(
+                                {
+                                    method: "POST",
+                                    url: url,
+                                    type: "json",
+                                    body: body,
+                                    headers: {"Content-Type": "application/x-www-form-urlencoded"}
+                                }, res => {
+                                    if (!res.ok) {
+                                        console.log("request failed");
+                                        modal.toast({
+                                            message: res
+                                        });
+                                    } else {
+                                        this.onSuccess(res.data)
+                                        if (this.successUrl) {
+                                            this.$emit('success', res.data)
+                                        } else {
+                                            this.$emit('success', res.data)
+                                        }
+                                    }
+                                },
+                                function (response) {
+                                    console.log("response", response);
+                                }
+                            )
+                        }
 
-                    //                    axios[requestType](url, this.getFieldsData())
-                    //                        .then(({data}) => {
-                    //                            this.onSuccess(data)
-                    //                            // console.log(this.submitAsModal)
-                    //                            if (this.submitAsModal) {
-                    //                                this.$emit('saveAsModal', data) // catch by Modal.vue, to update selectize options
-                    //                            } else {
-                    //                                if (this.successUrl) {
-                    //                                    this.$emit('success', data, this.successUrl)
-                    //                                } else {
-                    //                                    this.$emit('success', data)
-                    //                                }
-                    //                            }
-                    //                            if (this.enableResetFormOnSuccess) {
-                    //                                this.resetForm()
-                    //                            }
-                    //                            resolve(data)
-                    //                        })
-                    //                        .catch(error => {
-                    //                            // console.log(error.response.data)
-                    //                            this.onFail(error.response.data)
-                    //                            this.$parent.$emit('failure', error.response.data)
-                    //                            reject(error.response.data)
-                    //                        })
-                })
+//                    //                    axios[requestType](url, this.getFieldsData())
+//                    //                        .then(({data}) => {
+//                    //                            this.onSuccess(data)
+//                    //                            // console.log(this.submitAsModal)
+//                    //                            if (this.submitAsModal) {
+//                    //                                this.$emit('saveAsModal', data) // catch by Modal.vue, to update selectize options
+//                    //                            } else {
+//                    //                                if (this.successUrl) {
+//                    //                                    this.$emit('success', data, this.successUrl)
+//                    //                                } else {
+//                    //                                    this.$emit('success', data)
+//                    //                                }
+//                    //                            }
+//                    //                            if (this.enableResetFormOnSuccess) {
+//                    //                                this.resetForm()
+//                    //                            }
+//                    //                            resolve(data)
+//                    //                        })
+//                    //                        .catch(error => {
+//                    //                            // console.log(error.response.data)
+//                    //                            this.onFail(error.response.data)
+//                    //                            this.$parent.$emit('failure', error.response.data)
+//                    //                            reject(error.response.data)
+//                    //                        })
+                    }
+                )
             },
             onSuccess(data) {
                 this.reset()

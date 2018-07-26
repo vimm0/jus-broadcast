@@ -7,6 +7,7 @@ package-lock.json
 platforms/android/app/build
 platforms/android/local.properties
 platforms/android/build
+platforms/android/.gradle
 #platforms/android/.DS_Store
 #platforms/android/captures
 #platforms/android/.externalNativeBuild

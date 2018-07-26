@@ -42,7 +42,8 @@
     "weex-axios": "^0.16.4",
     "weex-bindingx": "0.0.38",
     "weex-ui": "^0.6.4",
-    "weex-vue-render": "^1.0.17"
+    "weex-vue-render": "^1.0.17",
+    "wxc-form": "0.0.6"
   },
   "devDependencies": {
     "autoprefixer": "^8.0.0",

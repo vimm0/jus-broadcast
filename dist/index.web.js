@@ -28122,7 +28122,7 @@ exports = module.exports = __webpack_require__(1)(false);
 
 
 // module
-exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", ""]);
+exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", ""]);
 
 // exports
 
@@ -28189,6 +28189,7 @@ var _Helper2 = _interopRequireDefault(_Helper);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
+//
 //
 //
 //
@@ -31868,34 +31869,6 @@ var modal = weex.requireModule("modal"); //
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
 
 var storage = weex.requireModule("storage");
 var stream = weex.requireModule("stream");
@@ -31904,7 +31877,7 @@ exports.default = {
     name: "Signin",
     data: function data() {
         return {
-            username: "", results: "", signup: 'SIGN UP', signin: 'SIGN IN', textStyle: '', bus: new _vue2.default()
+            username: "", results: "", signup: 'SIGN UP', signin: 'SIGN IN', textStyle: ''
         };
     },
 
@@ -31917,10 +31890,10 @@ exports.default = {
     mixins: [_Form2.default, _Helper2.default],
     methods: {
         signInClicked: function signInClicked() {
-            //                console.log('bus')
-            //                this.bus.$emit('clicked');
-            console.log(this);
-            this.$refs.form.submit();
+            var $form = this.$refs.form;
+            if ($form) {
+                $form.save("http://52.202.70.246/v1/jwt/create/");
+            }
         },
         signIn: function signIn(e) {
             console.log(e);
@@ -31936,50 +31909,12 @@ exports.default = {
                 });
             });
         },
-        axiosTest: function axiosTest() {
-            var self = this;
-            modal.toast({
-                message: "videos: comming"
-            });
-            stream.fetch({
-                method: "POST",
-                url: "http://52.202.70.246/v1/jwt/create/",
-                type: "json",
-                body: config.toParams({
-                    email: "admin@admin.com",
-                    password: "admin"
-                }),
-                headers: { "Content-Type": "application/x-www-form-urlencoded" }
-            }, function (ret) {
-                if (!ret.ok) {
-                    console.log("request failed");
-                    modal.toast({
-                        message: ret
-                    });
-                } else {
-                    self.results = ret.data;
-                    modal.toast({
-                        message: "username: " + ret.data.user.full_name
-                    });
-                    self.$store.dispatch("login", {
-                        userData: self.results
-                    });
-                }
-            }, function (response) {
-                console.log("response", response);
-            });
-        },
-        wxcButtonClicked: function wxcButtonClicked() {
+        signUpButtonClicked: function signUpButtonClicked() {
             this.$router.push({ name: "Sign Up" });
         },
         successCallback: function successCallback(data) {
-            console.log(data);
-            console.log('success callback');
-            modal.toast({
-                message: 'success callback'
-            });
             this.$store.dispatch("login", {
-                userData: data.data
+                userData: data
             });
         }
         //            onreturn() {
@@ -31998,7 +31933,7 @@ exports.default = {
         //            },
 
     },
-    endpoint: 'jwt/create/',
+    endpoint: "http://52.202.70.246/v1/jwt/create/",
     created: function created() {
         this.textStyle = {
             fontWeight: 800
@@ -32201,12 +32136,6 @@ exports.default = {
     //    created(){
     //      debugger
     //    },
-    //        created() {
-    //            modal.toast({
-    //                message: 'created vueForm'
-    //            });
-    ////            this.bus.$on('clicked', this.save(this.action));
-    //        },
     methods: {
         reset: function reset() {
             this.errors.clear();
@@ -32221,8 +32150,6 @@ exports.default = {
         },
         save: function save(url) {
             var verb = void 0;
-            console.log(this);
-            console.log(url);
             if (this.fields.id || this.formInstanceId) {
                 verb = 'put';
             } else {
@@ -32250,74 +32177,71 @@ exports.default = {
         submit: function submit(requestType, url) {
             var _this = this;
 
-            var self = this;
-            console.log(requestType);
-            console.log(this);
-            console.log(this.getFieldsData());
-            modal.toast({
-                message: 'submission'
-            });
-
+            console.log(url.split('/')[4] === 'jwt');
             return new Promise(function (resolve, reject) {
-                stream.fetch({
-                    method: "POST",
-                    url: "http://52.202.70.246/v1/jwt/create/",
-                    type: "json",
-                    body: config.toParams({
+                var body = '';
+                if (url.split('/')[4] === 'jwt') {
+                    body = config.toParams({
                         email: _this.getFieldsData().email,
                         password: _this.getFieldsData().password
-                    }),
-                    headers: { "Content-Type": "application/x-www-form-urlencoded" }
-                }, function (data) {
-                    if (!data.ok) {
-                        console.log("request failed");
-                        modal.toast({
-                            message: data
-                        });
-                    } else {
-                        modal.toast({
-                            message: "username: " + data.data.user.full_name
-                        });
-                        //                                console.log(self)
-
-                        self.onSuccess(data);
-                        if (self.successUrl) {
-                            self.$emit('success', data, self.successUrl);
-                            console.log('true');
+                    });
+                } else {
+                    body = config.toParams({
+                        full_name: _this.getFieldsData().full_name,
+                        email: _this.getFieldsData().email,
+                        password: _this.getFieldsData().password
+                    });
+                }
+                if (body) {
+                    stream.fetch({
+                        method: "POST",
+                        url: url,
+                        type: "json",
+                        body: body,
+                        headers: { "Content-Type": "application/x-www-form-urlencoded" }
+                    }, function (res) {
+                        if (!res.ok) {
+                            console.log("request failed");
+                            modal.toast({
+                                message: res
+                            });
                         } else {
-                            self.$emit('success', data);
-                            console.log('false');
+                            _this.onSuccess(res.data);
+                            if (_this.successUrl) {
+                                _this.$emit('success', res.data);
+                            } else {
+                                _this.$emit('success', res.data);
+                            }
                         }
-                        //
-                    }
-                }, function (response) {
-                    console.log("response", response);
-                });
+                    }, function (response) {
+                        console.log("response", response);
+                    });
+                }
 
-                //                    axios[requestType](url, this.getFieldsData())
-                //                        .then(({data}) => {
-                //                            this.onSuccess(data)
-                //                            // console.log(this.submitAsModal)
-                //                            if (this.submitAsModal) {
-                //                                this.$emit('saveAsModal', data) // catch by Modal.vue, to update selectize options
-                //                            } else {
-                //                                if (this.successUrl) {
-                //                                    this.$emit('success', data, this.successUrl)
-                //                                } else {
-                //                                    this.$emit('success', data)
-                //                                }
-                //                            }
-                //                            if (this.enableResetFormOnSuccess) {
-                //                                this.resetForm()
-                //                            }
-                //                            resolve(data)
-                //                        })
-                //                        .catch(error => {
-                //                            // console.log(error.response.data)
-                //                            this.onFail(error.response.data)
-                //                            this.$parent.$emit('failure', error.response.data)
-                //                            reject(error.response.data)
-                //                        })
+                //                    //                    axios[requestType](url, this.getFieldsData())
+                //                    //                        .then(({data}) => {
+                //                    //                            this.onSuccess(data)
+                //                    //                            // console.log(this.submitAsModal)
+                //                    //                            if (this.submitAsModal) {
+                //                    //                                this.$emit('saveAsModal', data) // catch by Modal.vue, to update selectize options
+                //                    //                            } else {
+                //                    //                                if (this.successUrl) {
+                //                    //                                    this.$emit('success', data, this.successUrl)
+                //                    //                                } else {
+                //                    //                                    this.$emit('success', data)
+                //                    //                                }
+                //                    //                            }
+                //                    //                            if (this.enableResetFormOnSuccess) {
+                //                    //                                this.resetForm()
+                //                    //                            }
+                //                    //                            resolve(data)
+                //                    //                        })
+                //                    //                        .catch(error => {
+                //                    //                            // console.log(error.response.data)
+                //                    //                            this.onFail(error.response.data)
+                //                    //                            this.$parent.$emit('failure', error.response.data)
+                //                    //                            reject(error.response.data)
+                //                    //                        })
             });
         },
         onSuccess: function onSuccess(data) {
@@ -32440,7 +32364,7 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
       "data-evt-wxcButtonClicked": ""
     },
     on: {
-      "wxcButtonClicked": _vm.wxcButtonClicked
+      "wxcButtonClicked": _vm.signUpButtonClicked
     }
   }), _vm._v(" "), _c('p', {
     staticClass: " weex-el weex-text",
@@ -32455,7 +32379,6 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
     ref: "form",
     attrs: {
       "fields": _vm.fields,
-      "bus": _vm.bus,
       "action": _vm.endpoint(),
       "data-evt-success": ""
     },
@@ -32465,7 +32388,14 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
     scopedSlots: _vm._u([{
       key: "form-fields",
       fn: function(form) {
-        return [_c('input', {
+        return [_c('p', {
+          staticClass: " weex-el weex-text",
+          attrs: {
+            "type": form.errors.get('email') ? 'is-danger' : null,
+            "message": form.errors.get('email'),
+            "weex-type": "text"
+          }
+        }), _vm._v(" "), _c('input', {
           directives: [{
             name: "model",
             rawName: "v-model",
@@ -32489,6 +32419,13 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
             }
           },
           slot: "fields"
+        }), _vm._v(" "), _c('p', {
+          staticClass: " weex-el weex-text",
+          attrs: {
+            "type": form.errors.get('password') ? 'is-danger' : null,
+            "message": form.errors.get('password'),
+            "weex-type": "text"
+          }
         }), _vm._v(" "), _c('input', {
           directives: [{
             name: "model",
@@ -32518,26 +32455,21 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
               return _vm.onreturn($event)
             }
           }
-        }), _vm._v(" "), _c('p', {
-          staticClass: "button weex-el weex-text",
+        }), _vm._v(" "), _c('wxc-button', {
           staticStyle: {
-            "margin-top": "0.26667rem",
-            "margin-left": "0.33333rem",
-            "font-weight": "600"
+            "margin-top": "0.13333rem",
+            "margin-left": "0.33333rem"
           },
           attrs: {
-            "weex-type": "text",
-            "data-evt-click": ""
+            "text": _vm.signin,
+            "textStyle": _vm.textStyle,
+            "type": "white",
+            "data-evt-wxcButtonClicked": ""
           },
           on: {
-            "click": _vm.$stopOuterA,
-            "weex$tap": function($event) {
-              $event.preventDefault();
-              $event.stopPropagation();
-              return _vm.signInClicked($event)
-            }
+            "wxcButtonClicked": _vm.signInClicked
           }
-        }, [_vm._v("sign in\n                ")])]
+        })]
       }
     }])
   })], 1)], 1)
@@ -32560,7 +32492,12 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
     attrs: {
       "weex-type": "div"
     }
-  }, [(_vm.checkUserLogin()) ? void 0 : [_c('sign-in')]], 2)
+  }, [(_vm.checkUserLogin()) ? [_c('p', {
+    staticClass: " weex-el weex-text",
+    attrs: {
+      "weex-type": "text"
+    }
+  }, [_vm._v("Namaste")])] : [_c('sign-in')]], 2)
 },staticRenderFns: []}
 module.exports.render._withStripped = true
 if (false) {
@@ -34137,7 +34074,7 @@ exports = module.exports = __webpack_require__(1)(false);
 
 
 // module
-exports.push([module.i, "\n.weex-input {\n  border: solid 1px black;\n  margin: 0.61rem;\n  height: 1rem;\n}\ninput::-webkit-input-placeholder {\n  padding-left: 0.5rem;\n}\ninput::-ms-input-placeholder {\n  padding-left: 0.5rem;\n}\ninput:-ms-input-placeholder {\n  padding-left: 0.5rem;\n}\ninput::placeholder {\n  padding-left: 0.5rem;\n}\np.button {\n  /* text-align:center; */\n  background-color: dimgrey;\n  margin: 0.61rem;\n  text-align: center;\n}\n.login-message {\n  text-align: center;\n}\n", ""]);
+exports.push([module.i, "\n.weex-input {\n    border: solid 1px black;\n    margin: 0.61rem;\n    height: 1rem;\n}\ninput::-webkit-input-placeholder {\n    padding-left: 0.5rem;\n}\ninput::-ms-input-placeholder {\n    padding-left: 0.5rem;\n}\ninput:-ms-input-placeholder {\n    padding-left: 0.5rem;\n}\ninput::placeholder {\n    padding-left: 0.5rem;\n}\np.button {\n    /* text-align:center; */\n    background-color: dimgrey;\n    margin: 0.61rem;\n    text-align: center;\n}\n.login-message {\n    text-align: center;\n}\n.input {\n    width: 8.66667rem;\n    margin-top: 0.26667rem;\n    margin-left: 0.66667rem;\n    font-size: 0.66667rem;\n    padding: 0.26667rem;\n    color: #414a4c;\n    border-width: 1px;\n    border-style: solid;\n    border-color: #4f5758db;\n    border-radius: 0.13333rem;\n}\n", ""]);
 
 // exports
 
@@ -34150,7 +34087,7 @@ exports.push([module.i, "\n.weex-input {\n  border: solid 1px black;\n  margin: 
 
 
 Object.defineProperty(exports, "__esModule", {
-  value: true
+    value: true
 });
 
 var _wxcButton = __webpack_require__(7);
@@ -34201,33 +34138,53 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 //
 //
 //
+//
+//
+
+var modal = weex.requireModule("modal");
 
 exports.default = {
-  name: "Signup",
-  data: function data() {
-    return {
-      currentActiveTab: 1
-    };
-  },
-
-  components: { WxcButton: _wxcButton2.default },
-  mixins: [_Form2.default, _Helper2.default],
-  endpoint: "users/create/",
-  methods: {
-    successCallback: function successCallback(data) {
-      // this.$emit('notify', 'Signed up successfully. Please sign in with  your credentials.')
-      this.$router.push({ name: 'Home' });
+    name: "Signup",
+    data: function data() {
+        return {
+            currentActiveTab: 1,
+            signup: 'SIGN UP', signin: 'SIGN IN'
+        };
     },
-    wxcButtonClicked: function wxcButtonClicked(e) {
-      console.log(e);
+
+    components: { WxcButton: _wxcButton2.default },
+    mixins: [_Form2.default, _Helper2.default],
+    endpoint: "http://52.202.70.246/v1/users/create/",
+    methods: {
+        signUpClicked: function signUpClicked() {
+            var $form = this.$refs.form;
+            if ($form) {
+                $form.save("http://52.202.70.246/v1/users/create/");
+            }
+        },
+        successCallback: function successCallback(data) {
+            console.log(data);
+            // this.$emit('notify', 'Signed up successfully. Please sign in with  your credentials.')
+            modal.toast({
+                message: 'Signed up successfully. Please sign in with  your credentials.'
+            });
+            this.$router.push({ name: 'Sign In' });
+        },
+        signInButtonClicked: function signInButtonClicked(e) {
+            this.$router.push({ name: "Sign In" });
+        }
+    },
+    created: function created() {
+        this.textStyle = {
+            fontWeight: 800
+        };
+    },
+    mounted: function mounted() {
+        this.$refs.full_name.focus();
+        if (this.$store.state.user) {
+            this.$router.push({ path: "/" });
+        }
     }
-  },
-  mounted: function mounted() {
-    // console.log(this.$refs.kl)
-    if (this.$store.state.user) {
-      this.$router.push({ path: "/" });
-    }
-  }
 };
 
 /***/ }),
@@ -34240,12 +34197,31 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
     attrs: {
       "weex-type": "div"
     }
-  }, [_c('p', {
+  }, [_c('wxc-button', {
+    staticStyle: {
+      "margin-top": "0.13333rem",
+      "margin-left": "0.33333rem"
+    },
+    attrs: {
+      "text": _vm.signin,
+      "textStyle": _vm.textStyle,
+      "type": "white",
+      "data-evt-wxcButtonClicked": ""
+    },
+    on: {
+      "wxcButtonClicked": _vm.signInButtonClicked
+    }
+  }), _vm._v(" "), _c('p', {
     staticClass: " weex-el weex-text",
+    staticStyle: {
+      "text-align": "center",
+      "color": "#a2a1a1"
+    },
     attrs: {
       "weex-type": "text"
     }
-  }, [_vm._v("sign up")]), _vm._v(" "), _c('vue-form', {
+  }, [_vm._v("OR")]), _vm._v(" "), _c('br'), _vm._v(" "), _c('vue-form', {
+    ref: "form",
     attrs: {
       "fields": _vm.fields,
       "action": _vm.endpoint(),
@@ -34257,14 +34233,29 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
     scopedSlots: _vm._u([{
       key: "form-fields",
       fn: function(form) {
-        return [_c('input', {
+        return [(form.errors.get('non_field_errors')) ? _c('p', {
+          staticClass: " weex-el weex-text",
+          class: form.errors.get('non_field_errors') ? 'is-danger' : null,
+          attrs: {
+            "type": "is-danger",
+            "value": form.errors.get('non_field_errors'),
+            "weex-type": "text"
+          }
+        }) : _vm._e(), _vm._v(" "), _c('p', {
+          staticClass: " weex-el weex-text",
+          attrs: {
+            "type": form.errors.get('full_name') ? 'is-danger' : null,
+            "message": form.errors.get('full_name'),
+            "weex-type": "text"
+          }
+        }), _vm._v(" "), _c('input', {
           directives: [{
             name: "model",
             rawName: "v-model",
             value: (_vm.fields.full_name),
             expression: "fields.full_name"
           }],
-          ref: "kl",
+          ref: "full_name",
           staticClass: "input",
           attrs: {
             "type": "text",
@@ -34279,6 +34270,13 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
               if ($event.target.composing) { return; }
               _vm.$set(_vm.fields, "full_name", $event.target.value)
             }
+          }
+        }), _vm._v(" "), _c('p', {
+          staticClass: " weex-el weex-text",
+          attrs: {
+            "type": form.errors.get('email') ? 'is-danger' : null,
+            "message": form.errors.get('email'),
+            "weex-type": "text"
           }
         }), _vm._v(" "), _c('input', {
           directives: [{
@@ -34301,6 +34299,13 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
               _vm.$set(_vm.fields, "email", $event.target.value)
             }
           }
+        }), _vm._v(" "), _c('p', {
+          staticClass: " weex-el weex-text",
+          attrs: {
+            "type": form.errors.get('password') ? 'is-danger' : null,
+            "message": form.errors.get('password'),
+            "weex-type": "text"
+          }
         }), _vm._v(" "), _c('input', {
           directives: [{
             name: "model",
@@ -34322,14 +34327,21 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
               _vm.$set(_vm.fields, "password", $event.target.value)
             }
           }
-        }), _vm._v(" "), _c('div', {
-          staticClass: "form-button has-text-centered weex-ct weex-div",
-          attrs: {
-            "slot": "submit control",
-            "weex-type": "div"
+        }), _vm._v(" "), _c('wxc-button', {
+          staticStyle: {
+            "margin-top": "0.13333rem",
+            "margin-left": "0.33333rem"
           },
-          slot: "submit control"
-        }, [_c('button', [_vm._v("Sign Up")])])]
+          attrs: {
+            "text": _vm.signup,
+            "textStyle": _vm.textStyle,
+            "type": "white",
+            "data-evt-wxcButtonClicked": ""
+          },
+          on: {
+            "wxcButtonClicked": _vm.signUpClicked
+          }
+        })]
       }
     }])
   })], 1)

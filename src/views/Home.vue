@@ -1,6 +1,7 @@
 <template>
     <div class="home">
         <template v-if="checkUserLogin()">
+            <text>Namaste</text>
             <!--<scroller>-->
             <!--<video-list ref="router"></video-list>-->
             <!--</scroller>-->

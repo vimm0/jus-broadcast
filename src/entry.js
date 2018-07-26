@@ -49,6 +49,9 @@ const store = new Vuex.Store({
             storage.removeItem('user', function (e) {
                 console.log(e)
             })
+            storage.removeItem('userInfo', function (e) {
+                console.log(e)
+            })
             commit('logout')
             router.push('/')
         }
