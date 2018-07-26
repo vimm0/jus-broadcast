@@ -81,8 +81,21 @@ dependencies {
     compile 'com.taobao.android:weexplugin-annotation:1.3'
     // PLUGIN GRADLE EXTENSIONS END
     compile 'com.github.tcking:giraffeplayer2:0.1.19-lazyLoad'
-//    compile 'com.alibaba.android:bindingx-core:1.0.1'
-//    compile 'com.alibaba.android:bindingx_weex_plugin:1.0.1'
-//    compile 'org.weex.plugin:plugin-loader:1.0.0'
+    //    compile 'com.alibaba.android:bindingx-core:1.0.1'
+    //    compile 'com.alibaba.android:bindingx_weex_plugin:1.0.1'
+    //    compile 'org.weex.plugin:plugin-loader:1.0.0'
     compile 'com.instapp.nat:weex-plugin-media-video:1.0.0-alpha'
+    //for common decoders
+//    compile 'com.github.tcking:ijkplayer-arm64:0.8.8' //support arm64
+//    compile 'com.github.tcking:ijkplayer-armv5:0.8.8' //support armv5
+//    compile 'com.github.tcking:ijkplayer-x86:0.8.8' //support x86
+//    compile 'com.github.tcking:ijkplayer-x86_64:0.8.8' //support x86_64
+
+//    //for all decoders
+//    compile 'com.github.tcking:ijkplayer-arm64:0.8.8-full' //support arm64
+//    compile 'com.github.tcking:ijkplayer-armv5:0.8.8-full' //support armv5
+//    compile 'com.github.tcking:ijkplayer-x86:0.8.8-full' //support x86
+//    compile 'com.github.tcking:ijkplayer-x86_64:0.8.8-full' //support x86_64}
+//    compile 'tv.danmaku.ijk.media:ijkplayer-java:0.7.5'
+//    compile 'tv.danmaku.ijk.media:ijkplayer-armv7a:0.7.5'
 }

@@ -10602,6 +10602,9 @@ var store = new _vuex2.default.Store({
             storage.removeItem('user', function (e) {
                 console.log(e);
             });
+            storage.removeItem('userInfo', function (e) {
+                console.log(e);
+            });
             commit('logout');
             router.push('/');
         }
@@ -28122,7 +28125,7 @@ exports = module.exports = __webpack_require__(1)(false);
 
 
 // module
-exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", ""]);
+exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", ""]);
 
 // exports
 
@@ -28202,7 +28205,6 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 //
 //
 //
-//
 
 var animation = weex.requireModule("animation");
 
@@ -28223,53 +28225,6 @@ exports.default = {
     mixins: [_Helper2.default],
     mounted: function mounted() {
         console.log(this.$route.name);
-    },
-    updated: function updated() {
-        //            var self = this
-        //            var containerEl = this.$refs.router
-        //Animation . transition ( containerEl , {
-        //        Styles : {
-        //            Color :  ' #000 ' ,
-        //            Transform :  ' Translate (100px, 100px) sacle (1.3) ' ,
-        //            backgroundColor :  ' #CCC '
-        //        },
-        //            DURATION :  800 , // MS
-        //            timingFunction :  ' EASE ' ,
-        //            needLayout : false ,
-        //            Delay :  0  // ms
-        //        }, function () {
-        //             // animation finished.
-        //        })
-        //            animation.transition(containerEl, {
-        //                    styles: {
-        //                        opacity: 1,
-        //                        // transformOrigin: 'right',
-        //                        // backgroundColor: '#FF0000',
-        //                        transform: 'translateX(-100%);',
-        //                    },
-        //                    duration: 0, //ms
-        //                    timingFunction: 'ease',
-        //                    needLayout: false,
-        //                    delay: 0 //ms
-        //                }, function () {
-        //                    modal.toast({message: 'animation finished.'})
-        //                }
-        //            )
-        //            animation.transition(containerEl, {
-        //                    styles: {
-        //                        opacity: 1,
-        //                        // transformOrigin: 'right',
-        //                        // backgroundColor: '#FF0000',
-        //                        transform: 'translateX(0%);',
-        //                    },
-        //                    duration: 300, //ms
-        //                    timingFunction: 'ease-in-out',
-        //                    needLayout: false,
-        //                    delay: 0 //ms
-        //                }, function () {
-        //                    modal.toast({message: 'last animation finished.'})
-        //                }
-        //            )
     }
 };
 
@@ -32327,12 +32282,7 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
     errors: _vm.errors
   }), _vm._v(" "), _vm._t("submit", [_vm._t("extra_actions", null, {})], {
     remove: _vm.remove
-  })], 2)]), _vm._v(" "), _c('p', {
-    staticClass: " weex-el weex-text",
-    attrs: {
-      "weex-type": "text"
-    }
-  }, [_vm._v(_vm._s(_vm.fields))])], 2)])])
+  })], 2)])], 2)])])
 },staticRenderFns: []}
 module.exports.render._withStripped = true
 if (false) {
@@ -32492,12 +32442,10 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
     attrs: {
       "weex-type": "div"
     }
-  }, [(_vm.checkUserLogin()) ? [_c('p', {
-    staticClass: " weex-el weex-text",
-    attrs: {
-      "weex-type": "text"
-    }
-  }, [_vm._v("Namaste")])] : [_c('sign-in')]], 2)
+  }, [(_vm.checkUserLogin()) ? [_c('video-list', {
+    ref: "router",
+    attrs: {}
+  })] : [_c('sign-in')]], 2)
 },staticRenderFns: []}
 module.exports.render._withStripped = true
 if (false) {
@@ -32629,23 +32577,6 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
 
 
 var webview = weex.requireModule('webview');
@@ -32660,7 +32591,7 @@ exports.default = {
             obj: '',
             showMore: false,
             moreOrLess: '',
-            videoId: ''
+            src: ''
         };
     },
 
@@ -32673,20 +32604,14 @@ exports.default = {
             this.getVideo('external/video/' + this.$route.params.slugId, function (res) {
                 console.log(res.data);
                 _this.obj = res.ok ? res.data : _this.$router.push('/error');
-                _this.videoId = res.ok ? 'http://www.youtube.com/embed/' + res.data.video_id + '?autoplay=1&controls=1&fs=1&loop=1&rel=0&showinfo=0&disablekb=1' : _this.$router.push({ name: "/error", params: { res: res } });
+                // + '?autoplay=1&controls=0&fs=0&loop=1&rel=0&showinfo=0&disablekb=1'
+                _this.src = res.ok ? 'https://www.youtube.com/embed/' + res.data.video_id : _this.$router.push({ name: "/error", params: { res: res } });
                 console.log(_this.videoId);
+                modal.toast({
+                    message: _this.videoId
+                });
             });
         }
-    },
-    mounted: function mounted() {
-        //            var webview = this.$refs['webview'].$el
-        //            var screen = dom.onwebkitfullscreenchange = true
-        //            console.log(screen)
-        //            console.log(this.$refs['webview'])
-        //            webview.allowFullscreen = true
-        //            console.log(this.$store)
-        //            this.$refs[webview][0].$el.allowFullscreen = true
-        //            this.$refs.webview.$el.fullscreenEnabled = true
     },
 
     methods: {
@@ -32700,10 +32625,6 @@ exports.default = {
                 //                        'Authorization': `JWT ${self.$store.getters.token}`
                 //                    }
             }, callback);
-        },
-        fullScreen: function fullScreen(argument) {
-            console.log(this);
-            //                this.$el.requestFullscreen()
         },
 
         pause: function pause() {
@@ -32749,13 +32670,13 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
   }, [_c('scroller', {
     staticClass: "scroller",
     attrs: {}
-  }, [_c('giraffeplayer', {
+  }, [_c('youtubeplayer', {
     staticStyle: {
       "height": "555",
       "width": "555"
     },
     attrs: {
-      "src": "http://flv2.bn.netease.com/videolib3/1611/01/XGqSL5981/SD/XGqSL5981-mobile.mp4"
+      "src": _vm.src
     }
   }, [_vm._v("Player")]), _vm._v(" "), _c('p', {
     staticClass: " weex-el weex-text",
@@ -32879,7 +32800,7 @@ exports = module.exports = __webpack_require__(1)(false);
 
 
 // module
-exports.push([module.i, "\n.wrapper {\n    width: auto;\n    height: auto;\n    color: #4d4d4d;\n    background: #EBEBEB;\n    /*transform: rotate(90deg);*/\n}\n.wrapper-webview {\n    /*width: 1500vw;*/\n    height: auto;\n    /*transform-origin: 0 0;*/\n    /*transform: scale(1);*/\n    /*-ms-transform: rotate(90deg); !* IE 9 *!*/\n    /*-ms-transform-origin: 50% 50%; !* IE 9 *!*/\n    /*-webkit-transform: rotate(90deg); !* Safari 3-8 *!*/\n    /*-webkit-transform-origin: 0% 0%; !* Safari 3-8 *!*/\n    /*transform: rotate(90deg);*/\n    /*transform-origin: 50% 50%*/\n}\n/*.video-meta {*/\n/*padding-left: 10px;*/\n/*}*/\n/*.text-title {*/\n/*font-size: 23px;*/\n/*padding: 5px 0 5px 0;*/\n/*}*/\n/*.text-view {*/\n/*font-size: 15px;*/\n/*padding: 5px 0 5px 0;*/\n/*color: #848484;*/\n/*}*/\n/*.text-published-on {*/\n/*font-size: 15px;*/\n/*padding: 2px 2px 2px 2px;*/\n/*color: #848484;*/\n/*}*/\n/*.text-description {*/\n/*font-size: 15px;*/\n/*color: #848484;*/\n/*}*/\nVideo ::-webkit-media-controls-start-playback-button {\n    display: none;\n}\n\n", ""]);
+exports.push([module.i, "\n.wrapper {\n    width: auto;\n    height: auto;\n    color: #4d4d4d;\n    background: #EBEBEB;\n}\n.wrapper-webview {\n    height: auto;\n}\n/*.video-meta {*/\n/*padding-left: 10px;*/\n/*}*/\n/*.text-title {*/\n/*font-size: 23px;*/\n/*padding: 5px 0 5px 0;*/\n/*}*/\n/*.text-view {*/\n/*font-size: 15px;*/\n/*padding: 5px 0 5px 0;*/\n/*color: #848484;*/\n/*}*/\n/*.text-published-on {*/\n/*font-size: 15px;*/\n/*padding: 2px 2px 2px 2px;*/\n/*color: #848484;*/\n/*}*/\n/*.text-description {*/\n/*font-size: 15px;*/\n/*color: #848484;*/\n/*}*/\n\n", ""]);
 
 // exports
 
@@ -32918,16 +32839,6 @@ var stream = weex.requireModule('stream'); //
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
 
 var web = weex.requireModule('webview');
 exports.default = {
@@ -32948,19 +32859,9 @@ exports.default = {
     },
 
     mixins: [_Helper2.default],
-    components: {
-        //            'd-player': VueDPlayer,
-    },
-
-    computed: {
-        player: function player() {
-            //                return this.$refs.player.dp
-        }
-    },
     created: function created() {
         var _this = this;
 
-        // this.variable = weex
         if (this.$route.params.slugId) {
             this.getVideo('local/video/' + this.$route.params.slugId, function (res) {
                 console.log(res.data);
@@ -32971,17 +32872,6 @@ exports.default = {
     },
 
     methods: {
-        callJava: function callJava() {
-            var event = weex.requireModule('event');
-            console.log(event);
-            event.openURL("http://www.github.com", function (resp) {
-                console.log(resp.result);
-            });
-        },
-
-        click: function click() {
-            weex.requireModule('MyModule').printLog("I am a weex Module!");
-        },
         getVideo: function getVideo(url, callback) {
             return stream.fetch({
                 method: 'GET',
@@ -32991,88 +32881,6 @@ exports.default = {
                 //     'Authorization': `JWT ${self.$store.getters.token}`
                 // }
             }, callback);
-        },
-        requestFullscreen: function requestFullscreen() {
-            console.log(this);
-            // var element = this.$el[0];
-            // var method = this.requestFullscreen;
-
-            // if (this.requestFullscreen) {
-            //     this.requestFullscreen();
-            // } else if (this.mozRequestFullScreen) {
-            //     this.mozRequestFullScreen();
-            // } else if (this.webkitRequestFullscreen) {
-            //     this.webkitRequestFullscreen();
-            // } else if (this.msRequestFullscreen) {
-            //     this.msRequestFullscreen();
-            // }
-
-            // if (method) {
-            //     element[method]();
-            // }
-            if (this.webkitEnterFullscreen) {
-                this.webkitEnterFullscreen && this.webkitEnterFullscreen();
-                // element.enterFullScreen && element.enterFullScreen();
-            }
-            // else {
-            //     // Simulate full screen  enterFullWindow();     } }
-            //
-
-            // // Simulate full-screen js core code
-            // _mockFullscreen()
-            // {
-            //     if (curEl.hasClass('normal')) {
-            //         this.fullscreen = false;
-            //
-            //
-            //         playerEl.css({
-            //             width: this.originWidth,
-            //             height: this.originHeight,
-            //             left: 0
-            //         }).removeClass('fullscreen');
-            //
-            //         wrapperEl.css({
-            //             width: this.wrapperOriginWidth,
-            //             height: this.wrapperOriginHeight
-            //         });
-            //
-            //         videoEl.css('height', '100%');
-            //
-            //         curEl.removeClass('normal');
-            //         contentEl.removeClass('fullscreen');
-            //     } else {
-            //         this.fullscreen = true;
-            //
-            //
-            //         This.originWidth = playerEl.width();
-            //         this.originHeight = playerEl.height();
-            //
-            //
-            //         This.wrapperOriginWidth = wrapperEl.width();
-            //         this.wrapperOriginHeight = wrapperEl.height();
-            //
-            //
-            //         playerEl.css({
-            //             width: $(window).height(),
-            //             height: $(window).width(),
-            //             left: $(window).width()
-            //         }).addClass('fullscreen');
-            //
-            //         wrapperEl.css({
-            //             width: $(window).height(),
-            //             height: $(window).width()
-            //         });
-            //
-            //         videoEl.css('height', videoEl.height() - controlsHeight);
-            //
-            //         curEl.addClass('normal');
-            //         contentEl.addClass('fullscreen');
-            //     }
-            // }
-            // pagestart() {
-            //     console.log(this)
-            // }
-            // }
         }
     }
 };
@@ -33082,15 +32890,40 @@ exports.default = {
 /***/ (function(module, exports, __webpack_require__) {
 
 module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
-  return _c('giraffeplayer', {
+  return _c('div', {
+    staticClass: "local-video-detail wrapper weex-ct weex-div",
+    attrs: {
+      "weex-type": "div"
+    }
+  }, [_c('giraffeplayer', {
     staticStyle: {
       "height": "555",
       "width": "555"
     },
     attrs: {
-      "src": "http://flv2.bn.netease.com/videolib3/1611/01/XGqSL5981/SD/XGqSL5981-mobile.mp4"
+      "src": _vm.src
     }
-  }, [_vm._v("Player\n")])
+  }, [_vm._v("Player not supported")]), _vm._v(" "), _c('div', {
+    staticClass: "content video-meta weex-ct weex-div",
+    attrs: {
+      "weex-type": "div"
+    }
+  }, [_c('p', {
+    staticClass: "text-title weex-el weex-text",
+    attrs: {
+      "weex-type": "text"
+    }
+  }, [_vm._v(_vm._s(_vm.obj.name))]), _vm._v(" "), _c('p', {
+    staticClass: "text-view weex-el weex-text",
+    attrs: {
+      "weex-type": "text"
+    }
+  }, [_vm._v("9,000,000 views")]), _vm._v(" "), _c('p', {
+    staticClass: "text-published-on weex-el weex-text",
+    attrs: {
+      "weex-type": "text"
+    }
+  }, [_vm._v("Published On: " + _vm._s(_vm.obj.release_date))])])], 1)
 },staticRenderFns: []}
 module.exports.render._withStripped = true
 if (false) {
@@ -34148,7 +33981,8 @@ exports.default = {
     data: function data() {
         return {
             currentActiveTab: 1,
-            signup: 'SIGN UP', signin: 'SIGN IN'
+            signup: 'SIGN UP',
+            signin: 'SIGN IN'
         };
     },
 

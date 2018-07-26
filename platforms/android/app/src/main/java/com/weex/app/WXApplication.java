@@ -7,6 +7,7 @@ import com.weex.app.extend.ImageAdapter;
 import com.weex.app.extend.WXEventModule;
 import com.weex.app.extend.RichText;
 import com.alibaba.weex.plugin.loader.WeexPluginContainer;
+import com.weex.app.extend.YoutubePlayer;
 import com.weex.app.util.AppConfig;
 import com.taobao.weex.InitConfig;
 import com.taobao.weex.WXSDKEngine;
@@ -26,6 +27,7 @@ public class WXApplication extends Application {
       WXSDKEngine.registerModule("event", WXEventModule.class);
       WXSDKEngine.registerComponent("ijk", RichText.class);
       WXSDKEngine.registerComponent("giraffeplayer", GiraffePlayer.class);
+      WXSDKEngine.registerComponent("youtubeplayer", YoutubePlayer.class);
     } catch (WXException e) {
       e.printStackTrace();
     }

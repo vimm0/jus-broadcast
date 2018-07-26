@@ -95,7 +95,9 @@
       <excludeFolder url="file://$MODULE_DIR$/build/intermediates/exploded-aar/com.android.support/support-vector-drawable/26.1.0/jars" />
       <excludeFolder url="file://$MODULE_DIR$/build/intermediates/exploded-aar/com.android.support/transition/26.1.0/jars" />
       <excludeFolder url="file://$MODULE_DIR$/build/intermediates/exploded-aar/com.github.tcking/giraffeplayer2/0.1.19-lazyLoad/jars" />
+      <excludeFolder url="file://$MODULE_DIR$/build/intermediates/exploded-aar/com.github.tcking/ijkplayer-armv5/0.8.8/jars" />
       <excludeFolder url="file://$MODULE_DIR$/build/intermediates/exploded-aar/com.github.tcking/ijkplayer-java/0.8.8/jars" />
+      <excludeFolder url="file://$MODULE_DIR$/build/intermediates/exploded-aar/com.github.tcking/ijkplayer-x86/0.8.8/jars" />
       <excludeFolder url="file://$MODULE_DIR$/build/intermediates/exploded-aar/com.github.tcking/viewquery/1.6/jars" />
       <excludeFolder url="file://$MODULE_DIR$/build/intermediates/exploded-aar/com.instapp.nat/media-video/2.0.0/jars" />
       <excludeFolder url="file://$MODULE_DIR$/build/intermediates/exploded-aar/com.instapp.nat/weex-plugin-media-video/1.0.0-alpha/jars" />
@@ -127,6 +129,7 @@
     <orderEntry type="library" exported="" name="Gradle: com.android.support:support-fragment-26.1.0" level="project" />
     <orderEntry type="library" exported="" name="Gradle: android.arch.core:common:1.0.0@jar" level="project" />
     <orderEntry type="library" exported="" name="Gradle: com.squareup.okhttp:okhttp:2.3.0@jar" level="project" />
+    <orderEntry type="library" exported="" name="Gradle: com.github.tcking:ijkplayer-armv5-0.8.8" level="project" />
     <orderEntry type="library" exported="" name="Gradle: com.squareup.okhttp:okhttp-ws:2.3.0@jar" level="project" />
     <orderEntry type="library" exported="" name="Gradle: com.android.support:support-media-compat-26.1.0" level="project" />
     <orderEntry type="library" exported="" name="Gradle: com.android.support:support-annotations:26.1.0@jar" level="project" />
@@ -152,6 +155,7 @@
     <orderEntry type="library" exported="" name="Gradle: com.github.tcking:viewquery-1.6" level="project" />
     <orderEntry type="library" exported="" name="Gradle: com.taobao.android:weexplugin-loader-1.3" level="project" />
     <orderEntry type="library" exported="" name="Gradle: com.android.support:design-26.1.0" level="project" />
+    <orderEntry type="library" exported="" name="Gradle: com.github.tcking:ijkplayer-x86-0.8.8" level="project" />
     <orderEntry type="library" exported="" name="Gradle: android.arch.lifecycle:runtime-1.0.0" level="project" />
   </component>
 </module>
