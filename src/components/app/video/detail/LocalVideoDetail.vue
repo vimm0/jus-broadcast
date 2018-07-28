@@ -1,18 +1,27 @@
 <template>
-    <div class="local-video-detail wrapper">
-        <giraffeplayer style="height:555;width:555;" :src="src">Player not supported</giraffeplayer>
-        <div class="content video-meta">
-            <text class="text-title">{{ obj.name }}</text>
-            <text class="text-view">9,000,000 views</text>
-            <text class="text-published-on">Published On: {{ obj.release_date }}</text>
-            <!--<text class="text-description" v-if="obj.description" style="white-space: pre-line;">-->
-            <!--{{obj.description}}-->
-            <!--<a class=""-->
-            <!--v-if="obj.description.length > 20"-->
-            <!--@click="showMore = !showMore">Show {{ moreOrLess }}-->
-            <!--</a>-->
-        </div>
-    </div>
+    <list class="local-video-detail wrapper">
+        <!--<list>-->
+        <!--<giraffeplayer style="height:555;width:555;" >Player not supported</giraffeplayer>-->
+        <cell class="banner">
+            <giraffeplayer style="height:555;width:auto;" :src="src">Player not supported</giraffeplayer>
+
+        </cell>
+        <cell>
+            <div class="content video-meta">
+                <text class="text-title">{{ obj.name }}</text>
+                <text class="text-view">9,000,000 views</text>
+                <text class="text-published-on">Published On: {{ obj.release_date }}</text>
+                <!--<text class="text-description" v-if="obj.description" style="white-space: pre-line;">-->
+                <!--{{obj.description}}-->
+                <!--<a class=""-->
+                <!--v-if="obj.description.length > 20"-->
+                <!--@click="showMore = !showMore">Show {{ moreOrLess }}-->
+                <!--</a>-->
+            </div>
+            <!--</list>-->
+        </cell>
+
+    </list>
 </template>
 
 <script>
@@ -72,6 +81,12 @@
 
     .wrapper-webview {
         height: auto;
+    }
+
+    .banner {
+        /*height: 350px;*/
+        box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+        margin-bottom: 10px;
     }
 
     /*.video-meta {*/

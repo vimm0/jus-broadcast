@@ -2,7 +2,7 @@ package com.weex.app;
 
 import android.app.Application;
 
-import com.weex.app.extend.GiraffePlayer;
+import com.weex.app.extend.AndroPlayer;
 import com.weex.app.extend.ImageAdapter;
 import com.weex.app.extend.WXEventModule;
 import com.weex.app.extend.RichText;
@@ -26,7 +26,7 @@ public class WXApplication extends Application {
     try {
       WXSDKEngine.registerModule("event", WXEventModule.class);
       WXSDKEngine.registerComponent("ijk", RichText.class);
-      WXSDKEngine.registerComponent("giraffeplayer", GiraffePlayer.class);
+      WXSDKEngine.registerComponent("giraffeplayer", AndroPlayer.class);
       WXSDKEngine.registerComponent("youtubeplayer", YoutubePlayer.class);
     } catch (WXException e) {
       e.printStackTrace();

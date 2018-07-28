@@ -35,7 +35,7 @@
 <style scoped>
 .wxc-minibar {
   width: 750px;
-  height: 90px;
+  height: 120px;
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
@@ -82,7 +82,7 @@ export default {
   props: {
     backgroundColor: {
       type: String,
-      default: "#FFFFFF"
+      default: "#414a4c"
     },
     leftButton: {
       type: String,

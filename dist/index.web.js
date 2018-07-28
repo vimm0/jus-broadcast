@@ -9336,7 +9336,7 @@ var Component = __webpack_require__(0)(
   /* moduleIdentifier (server only) */
   null
 )
-Component.options.__file = "/home/awecode/test/jus-broadcast/src/components/app/user/SignIn.vue"
+Component.options.__file = "/home/vimm0/test/jus-broadcast/src/components/app/user/SignIn.vue"
 if (Component.esModule && Object.keys(Component.esModule).some(function (key) {return key !== "default" && key.substr(0, 2) !== "__"})) {console.error("named exports are not supported in *.vue files.")}
 if (Component.options.functional) {console.error("[vue-loader] SignIn.vue: functional components are not supported with templates, they should use render functions.")}
 
@@ -10327,7 +10327,7 @@ var Component = __webpack_require__(0)(
   /* moduleIdentifier (server only) */
   null
 )
-Component.options.__file = "/home/awecode/test/jus-broadcast/src/components/app/Layout.vue"
+Component.options.__file = "/home/vimm0/test/jus-broadcast/src/components/app/Layout.vue"
 if (Component.esModule && Object.keys(Component.esModule).some(function (key) {return key !== "default" && key.substr(0, 2) !== "__"})) {console.error("named exports are not supported in *.vue files.")}
 if (Component.options.functional) {console.error("[vue-loader] Layout.vue: functional components are not supported with templates, they should use render functions.")}
 
@@ -28067,7 +28067,7 @@ var Component = __webpack_require__(0)(
   /* moduleIdentifier (server only) */
   null
 )
-Component.options.__file = "/home/awecode/test/jus-broadcast/src/views/Home.vue"
+Component.options.__file = "/home/vimm0/test/jus-broadcast/src/views/Home.vue"
 if (Component.esModule && Object.keys(Component.esModule).some(function (key) {return key !== "default" && key.substr(0, 2) !== "__"})) {console.error("named exports are not supported in *.vue files.")}
 if (Component.options.functional) {console.error("[vue-loader] Home.vue: functional components are not supported with templates, they should use render functions.")}
 
@@ -28414,7 +28414,7 @@ var Component = __webpack_require__(0)(
   /* moduleIdentifier (server only) */
   null
 )
-Component.options.__file = "/home/awecode/test/jus-broadcast/node_modules/weex-ui/packages/wxc-cell/index.vue"
+Component.options.__file = "/home/vimm0/test/jus-broadcast/node_modules/weex-ui/packages/wxc-cell/index.vue"
 if (Component.esModule && Object.keys(Component.esModule).some(function (key) {return key !== "default" && key.substr(0, 2) !== "__"})) {console.error("named exports are not supported in *.vue files.")}
 if (Component.options.functional) {console.error("[vue-loader] index.vue: functional components are not supported with templates, they should use render functions.")}
 
@@ -29323,7 +29323,7 @@ var Component = __webpack_require__(0)(
   /* moduleIdentifier (server only) */
   null
 )
-Component.options.__file = "/home/awecode/test/jus-broadcast/node_modules/weex-ui/packages/wxc-icon/index.vue"
+Component.options.__file = "/home/vimm0/test/jus-broadcast/node_modules/weex-ui/packages/wxc-icon/index.vue"
 if (Component.esModule && Object.keys(Component.esModule).some(function (key) {return key !== "default" && key.substr(0, 2) !== "__"})) {console.error("named exports are not supported in *.vue files.")}
 if (Component.options.functional) {console.error("[vue-loader] index.vue: functional components are not supported with templates, they should use render functions.")}
 
@@ -29590,7 +29590,7 @@ var Component = __webpack_require__(0)(
   /* moduleIdentifier (server only) */
   null
 )
-Component.options.__file = "/home/awecode/test/jus-broadcast/node_modules/weex-ui/packages/wxc-popup/index.vue"
+Component.options.__file = "/home/vimm0/test/jus-broadcast/node_modules/weex-ui/packages/wxc-popup/index.vue"
 if (Component.esModule && Object.keys(Component.esModule).some(function (key) {return key !== "default" && key.substr(0, 2) !== "__"})) {console.error("named exports are not supported in *.vue files.")}
 if (Component.options.functional) {console.error("[vue-loader] index.vue: functional components are not supported with templates, they should use render functions.")}
 
@@ -29928,7 +29928,7 @@ var Component = __webpack_require__(0)(
   /* moduleIdentifier (server only) */
   null
 )
-Component.options.__file = "/home/awecode/test/jus-broadcast/node_modules/weex-ui/packages/wxc-overlay/index.vue"
+Component.options.__file = "/home/vimm0/test/jus-broadcast/node_modules/weex-ui/packages/wxc-overlay/index.vue"
 if (Component.esModule && Object.keys(Component.esModule).some(function (key) {return key !== "default" && key.substr(0, 2) !== "__"})) {console.error("named exports are not supported in *.vue files.")}
 if (Component.options.functional) {console.error("[vue-loader] index.vue: functional components are not supported with templates, they should use render functions.")}
 
@@ -30227,7 +30227,7 @@ var Component = __webpack_require__(0)(
   /* moduleIdentifier (server only) */
   null
 )
-Component.options.__file = "/home/awecode/test/jus-broadcast/node_modules/weex-ui/packages/wxc-button/index.vue"
+Component.options.__file = "/home/vimm0/test/jus-broadcast/node_modules/weex-ui/packages/wxc-button/index.vue"
 if (Component.esModule && Object.keys(Component.esModule).some(function (key) {return key !== "default" && key.substr(0, 2) !== "__"})) {console.error("named exports are not supported in *.vue files.")}
 if (Component.options.functional) {console.error("[vue-loader] index.vue: functional components are not supported with templates, they should use render functions.")}
 
@@ -30511,7 +30511,7 @@ var Component = __webpack_require__(0)(
   /* moduleIdentifier (server only) */
   null
 )
-Component.options.__file = "/home/awecode/test/jus-broadcast/src/components/UIComponent/MiniBar.vue"
+Component.options.__file = "/home/vimm0/test/jus-broadcast/src/components/UIComponent/MiniBar.vue"
 if (Component.esModule && Object.keys(Component.esModule).some(function (key) {return key !== "default" && key.substr(0, 2) !== "__"})) {console.error("named exports are not supported in *.vue files.")}
 if (Component.options.functional) {console.error("[vue-loader] MiniBar.vue: functional components are not supported with templates, they should use render functions.")}
 
@@ -30569,7 +30569,7 @@ exports = module.exports = __webpack_require__(1)(false);
 
 
 // module
-exports.push([module.i, "\n.wxc-minibar[data-v-7108e929] {\n  width: 10rem;\n  height: 1.2rem;\n  flex-direction: row;\n  justify-content: space-between;\n  align-items: center;\n  /*background-color: #009ff0;*/\n}\n.left[data-v-7108e929] {\n  width: 2.4rem;\n  padding-left: 0.42667rem;\n}\n.middle-title[data-v-7108e929] {\n  font-size: 0.4rem;\n  color: #ffffff;\n  height: 0.48rem;\n  line-height: 0.45333rem;\n}\n.right[data-v-7108e929] {\n  width: 2.4rem;\n  padding-right: 0.42667rem;\n  align-items: flex-end;\n}\n.left-button[data-v-7108e929] {\n  width: 0.28rem;\n  height: 0.48rem;\n}\n.right-button[data-v-7108e929] {\n  width: 0.42667rem;\n  height: 0.42667rem;\n}\n.icon-text[data-v-7108e929] {\n  font-size: 0.37333rem;\n  color: #ffffff;\n}\n", ""]);
+exports.push([module.i, "\n.wxc-minibar[data-v-7108e929] {\n  width: 10rem;\n  height: 1.6rem;\n  flex-direction: row;\n  justify-content: space-between;\n  align-items: center;\n  /*background-color: #009ff0;*/\n}\n.left[data-v-7108e929] {\n  width: 2.4rem;\n  padding-left: 0.42667rem;\n}\n.middle-title[data-v-7108e929] {\n  font-size: 0.4rem;\n  color: #ffffff;\n  height: 0.48rem;\n  line-height: 0.45333rem;\n}\n.right[data-v-7108e929] {\n  width: 2.4rem;\n  padding-right: 0.42667rem;\n  align-items: flex-end;\n}\n.left-button[data-v-7108e929] {\n  width: 0.28rem;\n  height: 0.48rem;\n}\n.right-button[data-v-7108e929] {\n  width: 0.42667rem;\n  height: 0.42667rem;\n}\n.icon-text[data-v-7108e929] {\n  font-size: 0.37333rem;\n  color: #ffffff;\n}\n", ""]);
 
 // exports
 
@@ -30668,7 +30668,7 @@ exports.default = {
   props: {
     backgroundColor: {
       type: String,
-      default: "#FFFFFF"
+      default: "#414a4c"
     },
     leftButton: {
       type: String,
@@ -30910,7 +30910,7 @@ var Component = __webpack_require__(0)(
   /* moduleIdentifier (server only) */
   null
 )
-Component.options.__file = "/home/awecode/test/jus-broadcast/src/components/app/video/VideoList.vue"
+Component.options.__file = "/home/vimm0/test/jus-broadcast/src/components/app/video/VideoList.vue"
 if (Component.esModule && Object.keys(Component.esModule).some(function (key) {return key !== "default" && key.substr(0, 2) !== "__"})) {console.error("named exports are not supported in *.vue files.")}
 if (Component.options.functional) {console.error("[vue-loader] VideoList.vue: functional components are not supported with templates, they should use render functions.")}
 
@@ -31159,7 +31159,7 @@ var Component = __webpack_require__(0)(
   /* moduleIdentifier (server only) */
   null
 )
-Component.options.__file = "/home/awecode/test/jus-broadcast/node_modules/weex-ui/packages/wxc-part-loading/index.vue"
+Component.options.__file = "/home/vimm0/test/jus-broadcast/node_modules/weex-ui/packages/wxc-part-loading/index.vue"
 if (Component.esModule && Object.keys(Component.esModule).some(function (key) {return key !== "default" && key.substr(0, 2) !== "__"})) {console.error("named exports are not supported in *.vue files.")}
 if (Component.options.functional) {console.error("[vue-loader] index.vue: functional components are not supported with templates, they should use render functions.")}
 
@@ -31321,7 +31321,7 @@ var Component = __webpack_require__(0)(
   /* moduleIdentifier (server only) */
   null
 )
-Component.options.__file = "/home/awecode/test/jus-broadcast/node_modules/weex-ui/packages/wxc-loading/index.vue"
+Component.options.__file = "/home/vimm0/test/jus-broadcast/node_modules/weex-ui/packages/wxc-loading/index.vue"
 if (Component.esModule && Object.keys(Component.esModule).some(function (key) {return key !== "default" && key.substr(0, 2) !== "__"})) {console.error("named exports are not supported in *.vue files.")}
 if (Component.options.functional) {console.error("[vue-loader] index.vue: functional components are not supported with templates, they should use render functions.")}
 
@@ -31916,7 +31916,7 @@ var Component = __webpack_require__(0)(
   /* moduleIdentifier (server only) */
   null
 )
-Component.options.__file = "/home/awecode/test/jus-broadcast/src/components/Form/VueForm.vue"
+Component.options.__file = "/home/vimm0/test/jus-broadcast/src/components/Form/VueForm.vue"
 if (Component.esModule && Object.keys(Component.esModule).some(function (key) {return key !== "default" && key.substr(0, 2) !== "__"})) {console.error("named exports are not supported in *.vue files.")}
 if (Component.options.functional) {console.error("[vue-loader] VueForm.vue: functional components are not supported with templates, they should use render functions.")}
 
@@ -32476,7 +32476,7 @@ var Component = __webpack_require__(0)(
   /* moduleIdentifier (server only) */
   null
 )
-Component.options.__file = "/home/awecode/test/jus-broadcast/src/components/app/video/detail/ExternalVideoDetail.vue"
+Component.options.__file = "/home/vimm0/test/jus-broadcast/src/components/app/video/detail/ExternalVideoDetail.vue"
 if (Component.esModule && Object.keys(Component.esModule).some(function (key) {return key !== "default" && key.substr(0, 2) !== "__"})) {console.error("named exports are not supported in *.vue files.")}
 if (Component.options.functional) {console.error("[vue-loader] ExternalVideoDetail.vue: functional components are not supported with templates, they should use render functions.")}
 
@@ -32742,7 +32742,7 @@ var Component = __webpack_require__(0)(
   /* moduleIdentifier (server only) */
   null
 )
-Component.options.__file = "/home/awecode/test/jus-broadcast/src/components/app/video/detail/LocalVideoDetail.vue"
+Component.options.__file = "/home/vimm0/test/jus-broadcast/src/components/app/video/detail/LocalVideoDetail.vue"
 if (Component.esModule && Object.keys(Component.esModule).some(function (key) {return key !== "default" && key.substr(0, 2) !== "__"})) {console.error("named exports are not supported in *.vue files.")}
 if (Component.options.functional) {console.error("[vue-loader] LocalVideoDetail.vue: functional components are not supported with templates, they should use render functions.")}
 
@@ -32800,7 +32800,7 @@ exports = module.exports = __webpack_require__(1)(false);
 
 
 // module
-exports.push([module.i, "\n.wrapper {\n    width: auto;\n    height: auto;\n    color: #4d4d4d;\n    background: #EBEBEB;\n}\n.wrapper-webview {\n    height: auto;\n}\n/*.video-meta {*/\n/*padding-left: 10px;*/\n/*}*/\n/*.text-title {*/\n/*font-size: 23px;*/\n/*padding: 5px 0 5px 0;*/\n/*}*/\n/*.text-view {*/\n/*font-size: 15px;*/\n/*padding: 5px 0 5px 0;*/\n/*color: #848484;*/\n/*}*/\n/*.text-published-on {*/\n/*font-size: 15px;*/\n/*padding: 2px 2px 2px 2px;*/\n/*color: #848484;*/\n/*}*/\n/*.text-description {*/\n/*font-size: 15px;*/\n/*color: #848484;*/\n/*}*/\n\n", ""]);
+exports.push([module.i, "\n.wrapper {\n    width: auto;\n    height: auto;\n    color: #4d4d4d;\n    background: #EBEBEB;\n}\n.wrapper-webview {\n    height: auto;\n}\n.banner {\n    /*height: 350px;*/\n    box-shadow: 0 0.06667rem 0.13333rem rgba(0, 0, 0, 0.2);\n    margin-bottom: 0.13333rem;\n}\n/*.video-meta {*/\n/*padding-left: 10px;*/\n/*}*/\n/*.text-title {*/\n/*font-size: 23px;*/\n/*padding: 5px 0 5px 0;*/\n/*}*/\n/*.text-view {*/\n/*font-size: 15px;*/\n/*padding: 5px 0 5px 0;*/\n/*color: #848484;*/\n/*}*/\n/*.text-published-on {*/\n/*font-size: 15px;*/\n/*padding: 2px 2px 2px 2px;*/\n/*color: #848484;*/\n/*}*/\n/*.text-description {*/\n/*font-size: 15px;*/\n/*color: #848484;*/\n/*}*/\n\n", ""]);
 
 // exports
 
@@ -32823,6 +32823,15 @@ var _Helper2 = _interopRequireDefault(_Helper);
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 var stream = weex.requireModule('stream'); //
+//
+//
+//
+//
+//
+//
+//
+//
+//
 //
 //
 //
@@ -32890,20 +32899,28 @@ exports.default = {
 /***/ (function(module, exports, __webpack_require__) {
 
 module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
-  return _c('div', {
-    staticClass: "local-video-detail wrapper weex-ct weex-div",
+  return _c('list', {
+    staticClass: "local-video-detail wrapper",
+    attrs: {}
+  }, [_c('section', {
+    staticClass: "banner weex-ct weex-cell",
     attrs: {
-      "weex-type": "div"
+      "weex-type": "cell"
     }
   }, [_c('giraffeplayer', {
     staticStyle: {
       "height": "555",
-      "width": "555"
+      "width": "auto"
     },
     attrs: {
       "src": _vm.src
     }
-  }, [_vm._v("Player not supported")]), _vm._v(" "), _c('div', {
+  }, [_vm._v("Player not supported")])], 1), _vm._v(" "), _c('section', {
+    staticClass: " weex-ct weex-cell",
+    attrs: {
+      "weex-type": "cell"
+    }
+  }, [_c('div', {
     staticClass: "content video-meta weex-ct weex-div",
     attrs: {
       "weex-type": "div"
@@ -32923,7 +32940,7 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
     attrs: {
       "weex-type": "text"
     }
-  }, [_vm._v("Published On: " + _vm._s(_vm.obj.release_date))])])], 1)
+  }, [_vm._v("Published On: " + _vm._s(_vm.obj.release_date))])])])])
 },staticRenderFns: []}
 module.exports.render._withStripped = true
 if (false) {
@@ -32954,7 +32971,7 @@ var Component = __webpack_require__(0)(
   /* moduleIdentifier (server only) */
   null
 )
-Component.options.__file = "/home/awecode/test/jus-broadcast/src/components/app/video/feature/WatchList.vue"
+Component.options.__file = "/home/vimm0/test/jus-broadcast/src/components/app/video/feature/WatchList.vue"
 if (Component.esModule && Object.keys(Component.esModule).some(function (key) {return key !== "default" && key.substr(0, 2) !== "__"})) {console.error("named exports are not supported in *.vue files.")}
 if (Component.options.functional) {console.error("[vue-loader] WatchList.vue: functional components are not supported with templates, they should use render functions.")}
 
@@ -33128,7 +33145,7 @@ var Component = __webpack_require__(0)(
   /* moduleIdentifier (server only) */
   null
 )
-Component.options.__file = "/home/awecode/test/jus-broadcast/src/components/app/user/Profile.vue"
+Component.options.__file = "/home/vimm0/test/jus-broadcast/src/components/app/user/Profile.vue"
 if (Component.esModule && Object.keys(Component.esModule).some(function (key) {return key !== "default" && key.substr(0, 2) !== "__"})) {console.error("named exports are not supported in *.vue files.")}
 if (Component.options.functional) {console.error("[vue-loader] Profile.vue: functional components are not supported with templates, they should use render functions.")}
 
@@ -33317,7 +33334,7 @@ var Component = __webpack_require__(0)(
   /* moduleIdentifier (server only) */
   null
 )
-Component.options.__file = "/home/awecode/test/jus-broadcast/src/components/UIComponent/Error.vue"
+Component.options.__file = "/home/vimm0/test/jus-broadcast/src/components/UIComponent/Error.vue"
 if (Component.esModule && Object.keys(Component.esModule).some(function (key) {return key !== "default" && key.substr(0, 2) !== "__"})) {console.error("named exports are not supported in *.vue files.")}
 if (Component.options.functional) {console.error("[vue-loader] Error.vue: functional components are not supported with templates, they should use render functions.")}
 
@@ -33453,7 +33470,7 @@ var Component = __webpack_require__(0)(
   /* moduleIdentifier (server only) */
   null
 )
-Component.options.__file = "/home/awecode/test/jus-broadcast/node_modules/weex-ui/packages/wxc-result/index.vue"
+Component.options.__file = "/home/vimm0/test/jus-broadcast/node_modules/weex-ui/packages/wxc-result/index.vue"
 if (Component.esModule && Object.keys(Component.esModule).some(function (key) {return key !== "default" && key.substr(0, 2) !== "__"})) {console.error("named exports are not supported in *.vue files.")}
 if (Component.options.functional) {console.error("[vue-loader] index.vue: functional components are not supported with templates, they should use render functions.")}
 
@@ -33849,7 +33866,7 @@ var Component = __webpack_require__(0)(
   /* moduleIdentifier (server only) */
   null
 )
-Component.options.__file = "/home/awecode/test/jus-broadcast/src/components/app/user/SignUp.vue"
+Component.options.__file = "/home/vimm0/test/jus-broadcast/src/components/app/user/SignUp.vue"
 if (Component.esModule && Object.keys(Component.esModule).some(function (key) {return key !== "default" && key.substr(0, 2) !== "__"})) {console.error("named exports are not supported in *.vue files.")}
 if (Component.options.functional) {console.error("[vue-loader] SignUp.vue: functional components are not supported with templates, they should use render functions.")}
 
@@ -34209,7 +34226,7 @@ var Component = __webpack_require__(0)(
   /* moduleIdentifier (server only) */
   null
 )
-Component.options.__file = "/home/awecode/test/jus-broadcast/src/App.vue"
+Component.options.__file = "/home/vimm0/test/jus-broadcast/src/App.vue"
 if (Component.esModule && Object.keys(Component.esModule).some(function (key) {return key !== "default" && key.substr(0, 2) !== "__"})) {console.error("named exports are not supported in *.vue files.")}
 if (Component.options.functional) {console.error("[vue-loader] App.vue: functional components are not supported with templates, they should use render functions.")}
 

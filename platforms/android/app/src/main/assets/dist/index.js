@@ -606,7 +606,7 @@ __vue_options__ = __vue_exports__ = __vue_exports__.default
 if (typeof __vue_options__ === "function") {
   __vue_options__ = __vue_options__.options
 }
-__vue_options__.__file = "/home/awecode/test/jus-broadcast/src/components/app/user/SignIn.vue"
+__vue_options__.__file = "/home/vimm0/test/jus-broadcast/src/components/app/user/SignIn.vue"
 __vue_options__.render = __vue_template__.render
 __vue_options__.staticRenderFns = __vue_template__.staticRenderFns
 __vue_options__._scopeId = "data-v-8135d450"
@@ -9636,7 +9636,7 @@ __vue_options__ = __vue_exports__ = __vue_exports__.default
 if (typeof __vue_options__ === "function") {
   __vue_options__ = __vue_options__.options
 }
-__vue_options__.__file = "/home/awecode/test/jus-broadcast/src/components/app/Layout.vue"
+__vue_options__.__file = "/home/vimm0/test/jus-broadcast/src/components/app/Layout.vue"
 __vue_options__.render = __vue_template__.render
 __vue_options__.staticRenderFns = __vue_template__.staticRenderFns
 __vue_options__._scopeId = "data-v-1e24e908"
@@ -16559,7 +16559,7 @@ __vue_options__ = __vue_exports__ = __vue_exports__.default
 if (typeof __vue_options__ === "function") {
   __vue_options__ = __vue_options__.options
 }
-__vue_options__.__file = "/home/awecode/test/jus-broadcast/src/views/Home.vue"
+__vue_options__.__file = "/home/vimm0/test/jus-broadcast/src/views/Home.vue"
 __vue_options__.render = __vue_template__.render
 __vue_options__.staticRenderFns = __vue_template__.staticRenderFns
 __vue_options__._scopeId = "data-v-fae5bece"
@@ -16820,7 +16820,7 @@ __vue_options__ = __vue_exports__ = __vue_exports__.default
 if (typeof __vue_options__ === "function") {
   __vue_options__ = __vue_options__.options
 }
-__vue_options__.__file = "/home/awecode/test/jus-broadcast/node_modules/weex-ui/packages/wxc-cell/index.vue"
+__vue_options__.__file = "/home/vimm0/test/jus-broadcast/node_modules/weex-ui/packages/wxc-cell/index.vue"
 __vue_options__.render = __vue_template__.render
 __vue_options__.staticRenderFns = __vue_template__.staticRenderFns
 __vue_options__._scopeId = "data-v-eff0e228"
@@ -17716,7 +17716,7 @@ __vue_options__ = __vue_exports__ = __vue_exports__.default
 if (typeof __vue_options__ === "function") {
   __vue_options__ = __vue_options__.options
 }
-__vue_options__.__file = "/home/awecode/test/jus-broadcast/node_modules/weex-ui/packages/wxc-icon/index.vue"
+__vue_options__.__file = "/home/vimm0/test/jus-broadcast/node_modules/weex-ui/packages/wxc-icon/index.vue"
 __vue_options__.render = __vue_template__.render
 __vue_options__.staticRenderFns = __vue_template__.staticRenderFns
 __vue_options__._scopeId = "data-v-37129143"
@@ -17941,7 +17941,7 @@ __vue_options__ = __vue_exports__ = __vue_exports__.default
 if (typeof __vue_options__ === "function") {
   __vue_options__ = __vue_options__.options
 }
-__vue_options__.__file = "/home/awecode/test/jus-broadcast/node_modules/weex-ui/packages/wxc-popup/index.vue"
+__vue_options__.__file = "/home/vimm0/test/jus-broadcast/node_modules/weex-ui/packages/wxc-popup/index.vue"
 __vue_options__.render = __vue_template__.render
 __vue_options__.staticRenderFns = __vue_template__.staticRenderFns
 __vue_options__._scopeId = "data-v-28869db8"
@@ -18266,7 +18266,7 @@ __vue_options__ = __vue_exports__ = __vue_exports__.default
 if (typeof __vue_options__ === "function") {
   __vue_options__ = __vue_options__.options
 }
-__vue_options__.__file = "/home/awecode/test/jus-broadcast/node_modules/weex-ui/packages/wxc-overlay/index.vue"
+__vue_options__.__file = "/home/vimm0/test/jus-broadcast/node_modules/weex-ui/packages/wxc-overlay/index.vue"
 __vue_options__.render = __vue_template__.render
 __vue_options__.staticRenderFns = __vue_template__.staticRenderFns
 __vue_options__._scopeId = "data-v-389bbc1c"
@@ -18496,7 +18496,7 @@ __vue_options__ = __vue_exports__ = __vue_exports__.default
 if (typeof __vue_options__ === "function") {
   __vue_options__ = __vue_options__.options
 }
-__vue_options__.__file = "/home/awecode/test/jus-broadcast/node_modules/weex-ui/packages/wxc-button/index.vue"
+__vue_options__.__file = "/home/vimm0/test/jus-broadcast/node_modules/weex-ui/packages/wxc-button/index.vue"
 __vue_options__.render = __vue_template__.render
 __vue_options__.staticRenderFns = __vue_template__.staticRenderFns
 __vue_options__._scopeId = "data-v-6273a8fc"
@@ -18746,7 +18746,7 @@ __vue_options__ = __vue_exports__ = __vue_exports__.default
 if (typeof __vue_options__ === "function") {
   __vue_options__ = __vue_options__.options
 }
-__vue_options__.__file = "/home/awecode/test/jus-broadcast/src/components/UIComponent/MiniBar.vue"
+__vue_options__.__file = "/home/vimm0/test/jus-broadcast/src/components/UIComponent/MiniBar.vue"
 __vue_options__.render = __vue_template__.render
 __vue_options__.staticRenderFns = __vue_template__.staticRenderFns
 __vue_options__._scopeId = "data-v-16dbe3f6"
@@ -18770,7 +18770,7 @@ module.exports = __vue_exports__
 module.exports = {
   "wxc-minibar": {
     "width": "750",
-    "height": "90",
+    "height": "120",
     "flexDirection": "row",
     "justifyContent": "space-between",
     "alignItems": "center"
@@ -18898,7 +18898,7 @@ exports.default = {
   props: {
     backgroundColor: {
       type: String,
-      default: "#FFFFFF"
+      default: "#414a4c"
     },
     leftButton: {
       type: String,
@@ -19085,7 +19085,7 @@ __vue_options__ = __vue_exports__ = __vue_exports__.default
 if (typeof __vue_options__ === "function") {
   __vue_options__ = __vue_options__.options
 }
-__vue_options__.__file = "/home/awecode/test/jus-broadcast/src/components/app/video/VideoList.vue"
+__vue_options__.__file = "/home/vimm0/test/jus-broadcast/src/components/app/video/VideoList.vue"
 __vue_options__.render = __vue_template__.render
 __vue_options__.staticRenderFns = __vue_template__.staticRenderFns
 __vue_options__._scopeId = "data-v-18804db7"
@@ -19324,7 +19324,7 @@ __vue_options__ = __vue_exports__ = __vue_exports__.default
 if (typeof __vue_options__ === "function") {
   __vue_options__ = __vue_options__.options
 }
-__vue_options__.__file = "/home/awecode/test/jus-broadcast/node_modules/weex-ui/packages/wxc-part-loading/index.vue"
+__vue_options__.__file = "/home/vimm0/test/jus-broadcast/node_modules/weex-ui/packages/wxc-part-loading/index.vue"
 __vue_options__.render = __vue_template__.render
 __vue_options__.staticRenderFns = __vue_template__.staticRenderFns
 __vue_options__.style = __vue_options__.style || {}
@@ -19465,7 +19465,7 @@ __vue_options__ = __vue_exports__ = __vue_exports__.default
 if (typeof __vue_options__ === "function") {
   __vue_options__ = __vue_options__.options
 }
-__vue_options__.__file = "/home/awecode/test/jus-broadcast/node_modules/weex-ui/packages/wxc-loading/index.vue"
+__vue_options__.__file = "/home/vimm0/test/jus-broadcast/node_modules/weex-ui/packages/wxc-loading/index.vue"
 __vue_options__.render = __vue_template__.render
 __vue_options__.staticRenderFns = __vue_template__.staticRenderFns
 __vue_options__._scopeId = "data-v-7a7a2208"
@@ -19994,7 +19994,7 @@ __vue_options__ = __vue_exports__ = __vue_exports__.default
 if (typeof __vue_options__ === "function") {
   __vue_options__ = __vue_options__.options
 }
-__vue_options__.__file = "/home/awecode/test/jus-broadcast/src/components/Form/VueForm.vue"
+__vue_options__.__file = "/home/vimm0/test/jus-broadcast/src/components/Form/VueForm.vue"
 __vue_options__.render = __vue_template__.render
 __vue_options__.staticRenderFns = __vue_template__.staticRenderFns
 __vue_options__.style = __vue_options__.style || {}
@@ -20480,7 +20480,7 @@ __vue_options__ = __vue_exports__ = __vue_exports__.default
 if (typeof __vue_options__ === "function") {
   __vue_options__ = __vue_options__.options
 }
-__vue_options__.__file = "/home/awecode/test/jus-broadcast/src/components/app/video/detail/ExternalVideoDetail.vue"
+__vue_options__.__file = "/home/vimm0/test/jus-broadcast/src/components/app/video/detail/ExternalVideoDetail.vue"
 __vue_options__.render = __vue_template__.render
 __vue_options__.staticRenderFns = __vue_template__.staticRenderFns
 __vue_options__._scopeId = "data-v-2ac2dad5"
@@ -20687,7 +20687,7 @@ __vue_options__ = __vue_exports__ = __vue_exports__.default
 if (typeof __vue_options__ === "function") {
   __vue_options__ = __vue_options__.options
 }
-__vue_options__.__file = "/home/awecode/test/jus-broadcast/src/components/app/video/detail/LocalVideoDetail.vue"
+__vue_options__.__file = "/home/vimm0/test/jus-broadcast/src/components/app/video/detail/LocalVideoDetail.vue"
 __vue_options__.render = __vue_template__.render
 __vue_options__.staticRenderFns = __vue_template__.staticRenderFns
 __vue_options__._scopeId = "data-v-4eebe6fd"
@@ -20712,6 +20712,10 @@ module.exports = {
   "wrapper": {
     "color": "#4d4d4d",
     "background": "#EBEBEB"
+  },
+  "banner": {
+    "boxShadow": "0 5px 10px rgba(0, 0, 0, 0.2)",
+    "marginBottom": "10"
   }
 }
 
@@ -20733,6 +20737,15 @@ var _Helper2 = _interopRequireDefault(_Helper);
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 var stream = weex.requireModule('stream'); //
+//
+//
+//
+//
+//
+//
+//
+//
+//
 //
 //
 //
@@ -20800,17 +20813,28 @@ exports.default = {
 /***/ (function(module, exports) {
 
 module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
-  return _c('div', {
+  return _c('list', {
     staticClass: ["local-video-detail", "wrapper"]
+  }, [_c('cell', {
+    staticClass: ["banner"],
+    appendAsTree: true,
+    attrs: {
+      "append": "tree"
+    }
   }, [_c('giraffeplayer', {
     staticStyle: {
       height: "555",
-      width: "555"
+      width: "auto"
     },
     attrs: {
       "src": _vm.src
     }
-  }, [_vm._v("Player not supported")]), _c('div', {
+  }, [_vm._v("Player not supported")])], 1), _c('cell', {
+    appendAsTree: true,
+    attrs: {
+      "append": "tree"
+    }
+  }, [_c('div', {
     staticClass: ["content", "video-meta"]
   }, [_c('text', {
     staticClass: ["text-title"]
@@ -20818,7 +20842,7 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
     staticClass: ["text-view"]
   }, [_vm._v("9,000,000 views")]), _c('text', {
     staticClass: ["text-published-on"]
-  }, [_vm._v("Published On: " + _vm._s(_vm.obj.release_date))])])], 1)
+  }, [_vm._v("Published On: " + _vm._s(_vm.obj.release_date))])])])])
 },staticRenderFns: []}
 module.exports.render._withStripped = true
 
@@ -20849,7 +20873,7 @@ __vue_options__ = __vue_exports__ = __vue_exports__.default
 if (typeof __vue_options__ === "function") {
   __vue_options__ = __vue_options__.options
 }
-__vue_options__.__file = "/home/awecode/test/jus-broadcast/src/components/app/video/feature/WatchList.vue"
+__vue_options__.__file = "/home/vimm0/test/jus-broadcast/src/components/app/video/feature/WatchList.vue"
 __vue_options__.render = __vue_template__.render
 __vue_options__.staticRenderFns = __vue_template__.staticRenderFns
 __vue_options__._scopeId = "data-v-afd9c69c"
@@ -20971,7 +20995,7 @@ __vue_options__ = __vue_exports__ = __vue_exports__.default
 if (typeof __vue_options__ === "function") {
   __vue_options__ = __vue_options__.options
 }
-__vue_options__.__file = "/home/awecode/test/jus-broadcast/src/components/app/user/Profile.vue"
+__vue_options__.__file = "/home/vimm0/test/jus-broadcast/src/components/app/user/Profile.vue"
 __vue_options__.render = __vue_template__.render
 __vue_options__.staticRenderFns = __vue_template__.staticRenderFns
 __vue_options__._scopeId = "data-v-0482a703"
@@ -21108,7 +21132,7 @@ __vue_options__ = __vue_exports__ = __vue_exports__.default
 if (typeof __vue_options__ === "function") {
   __vue_options__ = __vue_options__.options
 }
-__vue_options__.__file = "/home/awecode/test/jus-broadcast/src/components/UIComponent/Error.vue"
+__vue_options__.__file = "/home/vimm0/test/jus-broadcast/src/components/UIComponent/Error.vue"
 __vue_options__.render = __vue_template__.render
 __vue_options__.staticRenderFns = __vue_template__.staticRenderFns
 __vue_options__.style = __vue_options__.style || {}
@@ -21243,7 +21267,7 @@ __vue_options__ = __vue_exports__ = __vue_exports__.default
 if (typeof __vue_options__ === "function") {
   __vue_options__ = __vue_options__.options
 }
-__vue_options__.__file = "/home/awecode/test/jus-broadcast/node_modules/weex-ui/packages/wxc-result/index.vue"
+__vue_options__.__file = "/home/vimm0/test/jus-broadcast/node_modules/weex-ui/packages/wxc-result/index.vue"
 __vue_options__.render = __vue_template__.render
 __vue_options__.staticRenderFns = __vue_template__.staticRenderFns
 __vue_options__._scopeId = "data-v-50c76027"
@@ -21592,7 +21616,7 @@ __vue_options__ = __vue_exports__ = __vue_exports__.default
 if (typeof __vue_options__ === "function") {
   __vue_options__ = __vue_options__.options
 }
-__vue_options__.__file = "/home/awecode/test/jus-broadcast/src/components/app/user/SignUp.vue"
+__vue_options__.__file = "/home/vimm0/test/jus-broadcast/src/components/app/user/SignUp.vue"
 __vue_options__.render = __vue_template__.render
 __vue_options__.staticRenderFns = __vue_template__.staticRenderFns
 __vue_options__._scopeId = "data-v-58092764"
@@ -21893,7 +21917,7 @@ __vue_options__ = __vue_exports__ = __vue_exports__.default
 if (typeof __vue_options__ === "function") {
   __vue_options__ = __vue_options__.options
 }
-__vue_options__.__file = "/home/awecode/test/jus-broadcast/src/App.vue"
+__vue_options__.__file = "/home/vimm0/test/jus-broadcast/src/App.vue"
 __vue_options__.render = __vue_template__.render
 __vue_options__.staticRenderFns = __vue_template__.staticRenderFns
 __vue_options__._scopeId = "data-v-7ba5bd90"
