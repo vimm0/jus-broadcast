@@ -26,6 +26,7 @@ public class WXApplication extends Application {
     try {
       WXSDKEngine.registerModule("event", WXEventModule.class);
       WXSDKEngine.registerComponent("ijk", RichText.class);
+//      WXSDKEngine.registerComponent("giraffeplayer", AndroPlayer.class);
       WXSDKEngine.registerComponent("giraffeplayer", AndroPlayer.class);
       WXSDKEngine.registerComponent("youtubeplayer", YoutubePlayer.class);
     } catch (WXException e) {

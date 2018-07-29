@@ -4,7 +4,7 @@
             <!--<web ref="webview" :src="videoId" class="wrapper-webview"></web>-->
             <!--<giraffeplayer style="height:555;width:555;" :src="videoId">Player</giraffeplayer>-->
             <!--<giraffeplayer style="height:555;width:555;" src="https://www.youtube.com/embed/YqeW9_5kURI?autoplay=1&controls=0&fs=0&loop=1&rel=0&showinfo=0&disablekb=1">Player</giraffeplayer>-->
-            <youtubeplayer style="height:555;width:555;" :src="src">Player</youtubeplayer>
+            <youtubeplayer style="height:555;width:auto;" :src="src">Player</youtubeplayer>
             <!--<giraffeplayer style="height:555;width:555;" src="https://www.youtube.com/embed/YqeW9_5kURI?autoplay=1&controls=0&disablekb=1&fs=0&playsinline=1&rel=0&showinfo=0">Player</giraffeplayer>-->
             <text @click="fullScreen">Fullscreen</text>
             <div class="content video-meta">
@@ -44,7 +44,8 @@
                     console.log(res.data)
                     this.obj = res.ok ? res.data : this.$router.push('/error')
                     // + '?autoplay=1&controls=0&fs=0&loop=1&rel=0&showinfo=0&disablekb=1'
-                    this.src = res.ok ? 'https://www.youtube.com/embed/' + res.data.video_id  : this.$router.push({name: "/error", params: {res}});
+//                    this.src = res.ok ? 'https://www.youtube.com/embed/' + res.data.video_id  : this.$router.push({name: "/error", params: {res}});
+                    this.src = res.ok ? res.data.video_id  : this.$router.push({name: "/error", params: {res}});
                     console.log(this.videoId)
                      modal.toast({
                         message: this.videoId

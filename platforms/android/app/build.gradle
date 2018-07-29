@@ -11,6 +11,8 @@ android {
         targetSdkVersion project.targetSdkVersion
         versionCode 1
         versionName "1.0.0"
+        multiDexEnabled true
+
         ndk {
             abiFilters "x86"
             abiFilters "armeabi"
@@ -86,6 +88,7 @@ dependencies {
     //    compile 'org.weex.plugin:plugin-loader:1.0.0'
     compile 'com.instapp.nat:weex-plugin-media-video:1.0.0-alpha'
     compile 'cn.jzvd:jiaozivideoplayer:6.2.12'
+    compile 'com.pierfrancescosoffritti.androidyoutubeplayer:core:8.0.1'
 
     //for common decoders
 //    compile 'com.github.tcking:ijkplayer-arm64:0.8.8' //support arm64
