@@ -32577,6 +32577,8 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 //
 //
 //
+//
+//
 
 
 var webview = weex.requireModule('webview');
@@ -32584,6 +32586,7 @@ var stream = weex.requireModule('stream');
 var modal = weex.requireModule('modal');
 var dom = weex.requireModule('dom');
 
+console.log(weex);
 exports.default = {
     name: 'ExternalVideoDetail',
     data: function data() {
@@ -32616,6 +32619,9 @@ exports.default = {
     },
 
     methods: {
+        clicked: function clicked() {
+            modal.toast({ 'message': 'click component' });
+        },
         getVideo: function getVideo(url, callback) {
             var self = this;
             return stream.fetch({
@@ -32660,17 +32666,17 @@ exports.default = {
 /***/ (function(module, exports, __webpack_require__) {
 
 module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
-  return _c('div', {
-    staticClass: "wrapper weex-ct weex-div",
+  return _c('list', {
+    staticClass: "wrapper",
     staticStyle: {
       "overflow": "visible"
     },
-    attrs: {
-      "weex-type": "div"
-    }
-  }, [_c('scroller', {
-    staticClass: "scroller",
     attrs: {}
+  }, [_c('section', {
+    staticClass: " weex-ct weex-cell",
+    attrs: {
+      "weex-type": "cell"
+    }
   }, [_c('youtubeplayer', {
     staticStyle: {
       "height": "555",
@@ -32679,7 +32685,12 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
     attrs: {
       "src": _vm.src
     }
-  }, [_vm._v("Player")]), _vm._v(" "), _c('p', {
+  }, [_vm._v("Player")])], 1), _vm._v(" "), _c('section', {
+    staticClass: " weex-ct weex-cell",
+    attrs: {
+      "weex-type": "cell"
+    }
+  }, [_c('p', {
     staticClass: " weex-el weex-text",
     attrs: {
       "weex-type": "text",
@@ -32712,7 +32723,7 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
     attrs: {
       "weex-type": "text"
     }
-  }, [_vm._v("Published On: " + _vm._s(_vm.obj.release_date))])])], 1)], 1)
+  }, [_vm._v("Published On: " + _vm._s(_vm.obj.release_date))])])])])
 },staticRenderFns: []}
 module.exports.render._withStripped = true
 if (false) {

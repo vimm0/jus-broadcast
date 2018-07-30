@@ -20547,6 +20547,8 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 //
 //
 //
+//
+//
 
 
 var webview = weex.requireModule('webview');
@@ -20554,6 +20556,7 @@ var stream = weex.requireModule('stream');
 var modal = weex.requireModule('modal');
 var dom = weex.requireModule('dom');
 
+console.log(weex);
 exports.default = {
     name: 'ExternalVideoDetail',
     data: function data() {
@@ -20586,6 +20589,9 @@ exports.default = {
     },
 
     methods: {
+        clicked: function clicked() {
+            modal.toast({ 'message': 'click component' });
+        },
         getVideo: function getVideo(url, callback) {
             var self = this;
             return stream.fetch({
@@ -20630,13 +20636,16 @@ exports.default = {
 /***/ (function(module, exports) {
 
 module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
-  return _c('div', {
+  return _c('list', {
     staticClass: ["wrapper"],
     staticStyle: {
       overflow: "visible"
     }
-  }, [_c('scroller', {
-    staticClass: ["scroller"]
+  }, [_c('cell', {
+    appendAsTree: true,
+    attrs: {
+      "append": "tree"
+    }
   }, [_c('youtubeplayer', {
     staticStyle: {
       height: "555",
@@ -20645,7 +20654,12 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
     attrs: {
       "src": _vm.src
     }
-  }, [_vm._v("Player")]), _c('text', {
+  }, [_vm._v("Player")])], 1), _c('cell', {
+    appendAsTree: true,
+    attrs: {
+      "append": "tree"
+    }
+  }, [_c('text', {
     on: {
       "click": _vm.fullScreen
     }
@@ -20657,7 +20671,7 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
     staticClass: ["text-view"]
   }, [_vm._v("9,000,000 views")]), _c('text', {
     staticClass: ["text-published-on"]
-  }, [_vm._v("Published On: " + _vm._s(_vm.obj.release_date))])])], 1)])
+  }, [_vm._v("Published On: " + _vm._s(_vm.obj.release_date))])])])])
 },staticRenderFns: []}
 module.exports.render._withStripped = true
 

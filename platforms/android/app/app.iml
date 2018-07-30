@@ -102,6 +102,7 @@
       <excludeFolder url="file://$MODULE_DIR$/build/intermediates/exploded-aar/com.github.tcking/viewquery/1.6/jars" />
       <excludeFolder url="file://$MODULE_DIR$/build/intermediates/exploded-aar/com.instapp.nat/media-video/2.0.0/jars" />
       <excludeFolder url="file://$MODULE_DIR$/build/intermediates/exploded-aar/com.instapp.nat/weex-plugin-media-video/1.0.0-alpha/jars" />
+      <excludeFolder url="file://$MODULE_DIR$/build/intermediates/exploded-aar/com.jaedongchicken/ytplayer/1.4.4/jars" />
       <excludeFolder url="file://$MODULE_DIR$/build/intermediates/exploded-aar/com.journeyapps/zxing-android-embedded/3.4.0/jars" />
       <excludeFolder url="file://$MODULE_DIR$/build/intermediates/exploded-aar/com.pierfrancescosoffritti.androidyoutubeplayer/core/8.0.1/jars" />
       <excludeFolder url="file://$MODULE_DIR$/build/intermediates/exploded-aar/com.taobao.android/weex_inspector/0.10.0.5/jars" />
@@ -159,6 +160,7 @@
     <orderEntry type="library" exported="" name="Gradle: com.taobao.android:weexplugin-annotation:1.3@jar" level="project" />
     <orderEntry type="library" exported="" name="Gradle: com.squareup.picasso:picasso:2.5.2@jar" level="project" />
     <orderEntry type="library" exported="" name="Gradle: com.github.tcking:viewquery-1.6" level="project" />
+    <orderEntry type="library" exported="" name="Gradle: com.jaedongchicken:ytplayer-1.4.4" level="project" />
     <orderEntry type="library" exported="" name="Gradle: com.taobao.android:weexplugin-loader-1.3" level="project" />
     <orderEntry type="library" exported="" name="Gradle: com.android.support:design-26.1.0" level="project" />
     <orderEntry type="library" exported="" name="Gradle: android.arch.lifecycle:runtime-1.0.0" level="project" />

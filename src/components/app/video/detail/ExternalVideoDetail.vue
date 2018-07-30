@@ -1,19 +1,21 @@
 <template>
-    <div class="wrapper" style="overflow: visible;">
-        <scroller class="scroller">
+    <list class="wrapper" style="overflow: visible;">
+        <cell>
             <!--<web ref="webview" :src="videoId" class="wrapper-webview"></web>-->
             <!--<giraffeplayer style="height:555;width:555;" :src="videoId">Player</giraffeplayer>-->
             <!--<giraffeplayer style="height:555;width:555;" src="https://www.youtube.com/embed/YqeW9_5kURI?autoplay=1&controls=0&fs=0&loop=1&rel=0&showinfo=0&disablekb=1">Player</giraffeplayer>-->
-            <youtubeplayer style="height:555;width:auto;" :src="src">Player</youtubeplayer>
-            <!--<giraffeplayer style="height:555;width:555;" src="https://www.youtube.com/embed/YqeW9_5kURI?autoplay=1&controls=0&disablekb=1&fs=0&playsinline=1&rel=0&showinfo=0">Player</giraffeplayer>-->
+            <youtubeplayer style=" height:555; width:auto;" :src="src">Player</youtubeplayer>
+            <!--<giraffeplayer style="height:555;width:auto;" src="http://flv2.bn.netease.com/videolib3/1611/01/XGqSL5981/SD/XGqSL5981-mobile.mp4">Player</giraffeplayer>-->
+        </cell>
+        <cell>
             <text @click="fullScreen">Fullscreen</text>
             <div class="content video-meta">
                 <text class="text-title">{{ obj.name }}</text>
                 <text class="text-view">9,000,000 views</text>
                 <text class="text-published-on">Published On: {{ obj.release_date }}</text>
             </div>
-        </scroller>
-    </div>
+        </cell>
+    </list>
 </template>
 <script>
 
@@ -25,7 +27,7 @@
     const modal = weex.requireModule('modal')
     const dom = weex.requireModule('dom')
 
-
+    console.log(weex)
     export default {
         name: 'ExternalVideoDetail',
         data() {
@@ -45,15 +47,18 @@
                     this.obj = res.ok ? res.data : this.$router.push('/error')
                     // + '?autoplay=1&controls=0&fs=0&loop=1&rel=0&showinfo=0&disablekb=1'
 //                    this.src = res.ok ? 'https://www.youtube.com/embed/' + res.data.video_id  : this.$router.push({name: "/error", params: {res}});
-                    this.src = res.ok ? res.data.video_id  : this.$router.push({name: "/error", params: {res}});
+                    this.src = res.ok ? res.data.video_id : this.$router.push({name: "/error", params: {res}});
                     console.log(this.videoId)
-                     modal.toast({
+                    modal.toast({
                         message: this.videoId
                     })
                 })
             }
         },
         methods: {
+            clicked() {
+                modal.toast({'message': 'click component'})
+            },
             getVideo(url, callback) {
                 let self = this;
                 return stream.fetch({
