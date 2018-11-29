@@ -1,3 +1,5 @@
+# IMPORTANT -- This project is no longer maintained.
+
 # Introduction
 
 This boilerplate is targeted towards large, serious projects and assumes you are somewhat familiar with Webpack and `weex-loader`. 
